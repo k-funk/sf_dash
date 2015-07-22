@@ -89,3 +89,26 @@ body {
     border-bottom: 0;
   }
 }
+
+.prediction .route-tag {
+  display:block;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #DDD;
+  font-size: 26px;
+  text-align: center;
+  margin-right:15px;
+}
+
+.prediction .route-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.prediction .prediction-time {
+  font-size: 24px;
+  font-weight: 200;
+}
