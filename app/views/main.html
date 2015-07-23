@@ -1,22 +1,53 @@
-<section>
-  <div ng-repeat="prediction in predictions || []" class="panel panel-default prediction">
+<section class="prediction col-xs-5">
+  <div ng-repeat="prediction in predictions || []" class="panel panel-default">
     <!-- <div class="panel-heading"></div> -->
     <div class="panel-body">
       <div class="row">
 
-        <div class="col-xs-8">
-          <span class="route-tag pull-left">{{prediction._routeTag}}</span>
-          <div class="route-title">{{prediction.direction._title}}</div>
-          <div>@{{prediction._stopTitle}}</div>
+        <div class="col-xs-4">
+          <span class="route-tag">{{prediction._routeTag}}</span>
         </div>
 
-        <div class="col-xs-4 text-right">
-          <span ng-repeat="time in prediction.direction.prediction" class="prediction-time">
+        <div class="col-xs-8 text-right">
+          <div>
+            <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
             {{time._minutes}}{{$last ? '' : ', '}}
           </span>
+          </div>
+          <div class="route-title">{{prediction.direction._title}}</div>
+          <div class="stop-title">@{{prediction._stopTitle}}</div>
+        </div>
+
+        <div class="col-xs-12">
         </div>
 
       </div>
     </div>
+  </div>
+</section>
+
+<section class="weather col-xs-7">
+  <div class="panel panel-primary">
+
+    <div class="panel-heading text-center">Location 1: {{loc1}}</div>
+
+    <table class="table">
+      <tr>
+        <th>Time:</th>
+        <th>Condition:</th>
+        <th>Temp/Feels:</th>
+        <th>UVI:</th>
+        <th>POP:</th>
+        <th>Humidity:</th>
+      </tr>
+      <tr ng-repeat="hForecast in hForecasts || [] | limitTo:10">
+        <td>{{hForecast.FCTTIME.hour | time24to12 }}{{hForecast.FCTTIME.ampm}}</td>
+        <td><img width="15px" ng-src="{{hForecast.icon_url}}">{{hForecast.condition}}</td>
+        <td>{{hForecast.temp.english}}&deg;/{{hForecast.feelslike.english}}&deg;</td>
+        <td>{{hForecast.uvi}}</td>
+        <td>{{hForecast.pop}}&#37;</td>
+        <td>{{hForecast.humidity}}&#37;</td>
+      </tr>
+    </table> 
   </div>
 </section>

@@ -32,4 +32,13 @@ angular
   })
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
+  })
+  .filter('time24to12', function () {
+    return function (input) {
+      // TODO: Can't remember if this is safe. FU js casting.
+      input = Number(input);
+      if (input === 0) {return 12;}
+      else if (input >= 1 && input <= 12) {return input;}
+      else {return input - 12;}
+    };
   });

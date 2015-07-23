@@ -18,8 +18,10 @@ angular.module('sfDashApp')
           command: 'predictionsForMultiStops',
           a: 'sf-muni',
           stops: stopCodeList
+          // useShortTitles: true /* seems to not do anything */
         }})
         .then(function(data){
+          // TODO: need some error handling
           return data.data.body.predictions;
         });
       }
