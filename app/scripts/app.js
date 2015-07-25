@@ -33,6 +33,9 @@ angular
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
   })
+  .config(function (weatherProvider) {
+    weatherProvider.setKey('YOUR_API_KEY');
+  })
   .filter('time24to12', function () {
     return function (input) {
       // TODO: Can't remember if this is safe. FU js casting.
