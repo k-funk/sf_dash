@@ -10,6 +10,7 @@
 
         <div class="col-xs-8 text-right">
           <div>
+            <span ng-hide="prediction.direction.prediction.length" class="prediction-time">None</span>
             <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
             {{time._minutes}}{{$last ? '' : ', '}}
           </span>

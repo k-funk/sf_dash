@@ -26,7 +26,7 @@ angular.module('sfDashApp')
       return {
         getHourlyForecast: function (location) {
           return $http.get(self.getUrl('hourly', location))
-          .then(function(data){
+          .then(function(data) {
             // TODO: need some error handling
             return data.data.hourly_forecast;
           });
