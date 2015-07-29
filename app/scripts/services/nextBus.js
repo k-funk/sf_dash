@@ -36,6 +36,7 @@ angular.module('sfDashApp')
               value.direction.prediction = [prediction];
             }
           });
+          predictions._lastUpdated = moment();
           return predictions;
         });
       }
