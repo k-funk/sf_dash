@@ -17,7 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'xml'
+    'xml',
+    'ngStorage'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -26,15 +27,17 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
-  })
-  .config(function (weatherProvider) {
-    weatherProvider.setKey('YOUR_API_KEY');
   })
   .filter('time24to12', function () {
     return function (input) {

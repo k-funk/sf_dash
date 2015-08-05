@@ -8,31 +8,28 @@
  * Factory in the sfDashApp.
  */
 angular.module('sfDashApp')
-  .provider('weather', function () {
+  .factory('weather', function ($http, $localStorage) {
 
-    this.key = 'PROVIDE_KEY';
-
-    this.setKey = function (key) {
-      if (key) {this.key = key;}
-    };
-
-    this.getUrl = function (type, query) {
-      return 'http://api.wunderground.com/api/' + this.key + '/' +
+    var getUrl = function (type, query, testKey) {
+      return 'http://api.wunderground.com/api/' +
+      ($localStorage.weatherKey || testKey) + '/' +
       type + '/q/' + query + '.json';
     };
 
-    this.$get = function ($http) {
-      var self = this;
-      return {
-        getHourlyForecast: function (location) {
-          return $http.get(self.getUrl('hourly', location))
+    return {
+      getHourlyForecast: function (location) {
+        return $http.get(getUrl('hourly', location))
           .then(function(data) {
             // TODO: need some error handling
             var hourly_forecast = data.data.hourly_forecast;
-            hourly_forecast._lastUpdated = moment();
             return hourly_forecast;
           });
-        }
-      };
+      },
+      validateKey: function (key) {
+        return $http.get(getUrl('forecast', 'san_francisco,ca', key));
+      },
+      storeKey: function (key) {
+        $localStorage.weatherKey = key;
+      }
     };
   });

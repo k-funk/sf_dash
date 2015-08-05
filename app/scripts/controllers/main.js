@@ -21,9 +21,11 @@ angular.module('sfDashApp')
     var updatePredictions = function () {
       nextBus.getPredictions(stopIds)
         .then(function (predictions) {
-          $scope.predictions = predictions;
+          $scope.nextBus.predictions = predictions;
+          $scope.nextBus._lastUpdated = moment();
         });
     };
+    $scope.nextBus = {};
     updatePredictions();
     intervals.push(
       $interval(updatePredictions, 15 * 1000)
@@ -32,9 +34,17 @@ angular.module('sfDashApp')
     var updateWeather = function () {
       weather.getHourlyForecast($scope.loc1)
         .then(function (hForecasts) {
-          $scope.hForecasts = hForecasts;
+          $scope.weather.hForecasts = hForecasts;
+          $scope.weather._lastUpdated = moment();
+        }, function () {
+          // Can't explicitly know why it failed.
+          if (!angular.isDefined($scope.hForecasts)) {
+            // Assume that this failure is due to no API Key
+            $scope.weather._firstCallFailed = true;
+          }
         });
     };
+    $scope.weather = {};
     updateWeather();
     intervals.push(
       $interval(updateWeather, 15 * 60 * 1000)

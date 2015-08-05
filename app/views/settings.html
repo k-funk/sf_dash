@@ -1,0 +1,13 @@
+<div class="col-xs-6">
+    <form ng-submit="validateKey(weatherKey)">
+      <div class="form-group has-feedback" ng-class="{'has-success': validKey, 'has-error': validKey === false}">
+        <label for="weather-key" class="control-label">Weather Underground API Key:</label>
+        <input type="text" class="form-control" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
+        <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': validKey, 'glyphicon-remove': validKey === false}"></span>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Validate &amp; Store Key">
+        <span ng-click="dumpLocalStorage()" class="btn btn-default">Dump Local Storage</span>
+      </div>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 <section class="prediction col-xs-5">
-  <div ng-repeat="prediction in predictions || []" class="panel panel-default">
+  <div ng-repeat="prediction in nextBus.predictions || []" class="panel panel-default">
     <!-- <div class="panel-heading"></div> -->
     <div class="panel-body">
       <div class="row">
@@ -25,11 +25,14 @@
       </div>
     </div>
   </div>
-  <div class="text-right"><small time-from-now moment-obj="predictions._lastUpdated"></small></div>
+  <div class="text-right"><small time-from-now moment-obj="nextBus._lastUpdated"></small></div>
 </section>
 
 <section class="weather col-xs-7">
-  <div class="panel panel-primary">
+  <div ng-show="weather._firstCallFailed" class="error-msg">
+    <span class="glyphicon glyphicon-exclamation-sign"></span> First weather request failed. Make sure you've supplied an API Key in the <a href="#/settings">settings</a>.
+  </div>
+  <div ng-show="weather.hForecasts" class="panel panel-primary">
 
     <div class="panel-heading text-center">Location 1: {{loc1}}</div>
 
@@ -42,7 +45,7 @@
         <th>POP:</th>
         <th>Humidity:</th>
       </tr>
-      <tr ng-repeat="hForecast in hForecasts || [] | limitTo:10">
+      <tr ng-repeat="hForecast in weather.hForecasts || [] | limitTo:10">
         <td>{{hForecast.FCTTIME.hour | time24to12 }}{{hForecast.FCTTIME.ampm}}</td>
         <td><img width="15px" ng-src="{{hForecast.icon_url}}">{{hForecast.condition}}</td>
         <td>{{hForecast.temp.english}}&deg;/{{hForecast.feelslike.english}}&deg;</td>
@@ -52,5 +55,5 @@
       </tr>
     </table> 
   </div>
-  <div class="text-right"><small time-from-now moment-obj="hForecasts._lastUpdated"></small></div>
+  <div class="text-right"><small time-from-now moment-obj="weather._lastUpdated"></small></div>
 </section>
