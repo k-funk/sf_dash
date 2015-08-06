@@ -39,6 +39,13 @@ angular
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
   })
+  .config(function (x2jsProvider) {
+    x2jsProvider.config = {
+      arrayAccessFormPaths: [
+        'body.predictions.direction.prediction'
+      ]
+    };
+  })
   .filter('time24to12', function () {
     return function (input) {
       // TODO: Can't remember if this is safe. FU js casting.
