@@ -23,20 +23,8 @@ angular.module('sfDashApp')
         .then(function(data){
           // TODO: need some error handling
 
-          // Modify the data to better fit a json schema
-          var predictions = data.data.body.predictions;
-          angular.forEach(predictions, function (value) {
-            // Case: no predictions.
-            if (!value.direction) {
-              value.direction = {prediction: []};
-            }
-            // Case: only 1 prediction. Put the object in a new array.
-            var prediction = value.direction.prediction;
-            if (!angular.isArray(prediction)) {
-              value.direction.prediction = [prediction];
-            }
-          });
-          return predictions;
+          // See config for xml->json arrays
+          return data.data.body.predictions;
         });
       }
     };
