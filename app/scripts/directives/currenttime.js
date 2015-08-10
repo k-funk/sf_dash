@@ -15,10 +15,6 @@ angular.module('sfDashApp')
                 '</div>',
       restrict: 'EA',
       replace: true,
-      scope: {
-        dateFormat: '=',
-        timeFormat: '='
-      },
       link: function postLink(scope) {
         var displayTime = function () {
           var now = moment();
