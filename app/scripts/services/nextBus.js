@@ -14,7 +14,6 @@ angular.module('sfDashApp')
     var sortPredictions = function (stopRouteTags, predictions) {
       var sortedList = [];
       angular.forEach(predictions, function (prediction) {
-          console.log();
           var stopRouteTag = prediction._routeTag + '|' + prediction._stopTag;
           sortedList[stopRouteTags.indexOf(stopRouteTag)] = prediction;
       });

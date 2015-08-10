@@ -35,6 +35,7 @@ angular.module('sfDashApp')
       weather.getHourlyForecast($scope.loc1)
         .then(function (hForecasts) {
           $scope.weather.hForecasts = hForecasts;
+          $scope.weather.rainTime = getRainTime(hForecasts);
           $scope.weather._lastUpdated = moment();
         }, function () {
           // Can't explicitly know why it failed.
@@ -50,8 +51,18 @@ angular.module('sfDashApp')
       $interval(updateWeather, 15 * 60 * 1000)
     );
 
+    var getRainTime = function (hForecasts) {
+      var minChance = 40;
+      for (var i = 0; i < hForecasts.length; i++) {
+        var pop = Number(hForecasts[i].pop);
+        if (pop >= minChance) {
+          return hForecasts[i];
+        }
+      }
+    };
+
     $scope.$on('$destroy', function() {
-      angular.forEach(function (interval) {
+      angular.forEach(intervals, function (interval) {
         $interval.cancel(interval);
       });
     });

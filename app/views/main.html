@@ -38,7 +38,15 @@
   </div>
   <div ng-show="weather.hForecasts" class="panel panel-primary">
 
-    <div class="panel-heading text-center">Location 1: {{loc1}}</div>
+    <div class="panel-heading">
+      <span>{{loc1}}</span>
+      <span class="pull-right">
+        <span ng-show="weather.rainTime">{{weather.rainTime.pop}}&#37; <img width="15px" src="http://icons.wxug.com/i/c/k/chancerain.gif"> {{weather.rainTime.FCTTIME.hour | time24to12 }}{{weather.rainTime.FCTTIME.ampm}}</span>
+        <span ng-show="!weather.rainTime">
+          No <img width="15px" src="http://icons.wxug.com/i/c/k/chancerain.gif"> in 24hr.
+        </span>
+      </span>
+    </div>
 
     <table class="table">
       <tr>
