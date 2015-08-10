@@ -14,7 +14,7 @@ angular.module('sfDashApp')
       scope: {
         momentObj: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
 
         var interval , timeText;
 
