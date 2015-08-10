@@ -9,7 +9,7 @@
  */
 angular.module('sfDashApp')
   .controller('MainCtrl', function ($scope, $interval, nextBus, weather) {
-    var stopIds = [
+    var stopRouteTags = [
       '67|6208',
       '27|3930',
       '12|7552'
@@ -19,7 +19,7 @@ angular.module('sfDashApp')
     // soma: 94103, north soma: 94105
 
     var updatePredictions = function () {
-      nextBus.getPredictions(stopIds)
+      nextBus.getPredictions(stopRouteTags)
         .then(function (predictions) {
           $scope.nextBus.predictions = predictions;
           $scope.nextBus._lastUpdated = moment();

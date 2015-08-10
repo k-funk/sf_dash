@@ -11,20 +11,30 @@ angular.module('sfDashApp')
   .factory('nextBus', function ($http) {
 
     var url = 'http://webservices.nextbus.com/service/publicXMLFeed';
+    var sortPredictions = function (stopRouteTags, predictions) {
+      var sortedList = [];
+      angular.forEach(predictions, function (prediction) {
+          console.log();
+          var stopRouteTag = prediction._routeTag + '|' + prediction._stopTag;
+          sortedList[stopRouteTags.indexOf(stopRouteTag)] = prediction;
+      });
+      return sortedList;
+    };
 
     return {
-      getPredictions: function (stopCodeList) {
+      getPredictions: function (stopRouteTags) {
         return $http.get(url, {params: {
           command: 'predictionsForMultiStops',
           a: 'sf-muni',
-          stops: stopCodeList
+          stops: stopRouteTags
           // useShortTitles: true /* seems to not do anything */
         }})
         .then(function(data){
           // TODO: need some error handling
 
           // See config for xml->json arrays
-          return data.data.body.predictions;
+          var predictions = data.data.body.predictions;
+          return sortPredictions(stopRouteTags, predictions);
         });
       }
     };
