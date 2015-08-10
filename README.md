@@ -1,12 +1,9 @@
 # sf-dash
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+This project is for use in my home, on a wall-mounted iPad that's always on. It gives me essential information that I need to know before leaving each morning, and saves the time of pulling out my phone and checking multiple apps.
+
+Planned features are in [TODO.md](TODO.md)
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Run `grunt build` for building and `grunt serve` for preview.
