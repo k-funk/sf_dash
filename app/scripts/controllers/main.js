@@ -17,6 +17,7 @@ angular.module('sfDashApp')
     // TODO: Allow multiple locations
     $scope.loc1 = '94110';
     // soma: 94103, north soma: 94105
+    $scope.minChanceOfRain = 40;
 
     var updatePredictions = function () {
       nextBus.getPredictions(stopRouteTags)
@@ -52,10 +53,9 @@ angular.module('sfDashApp')
     );
 
     var getRainTime = function (hForecasts) {
-      var minChance = 40;
       for (var i = 0; i < hForecasts.length; i++) {
         var pop = Number(hForecasts[i].pop);
-        if (pop >= minChance) {
+        if (pop >= $scope.minChanceOfRain) {
           return hForecasts[i];
         }
       }

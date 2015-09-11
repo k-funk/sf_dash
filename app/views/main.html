@@ -40,7 +40,7 @@
 
     <div class="panel-heading">
       <span>{{loc1}}</span>
-      <span class="pull-right">
+      <span class="pull-right" data-toggle="tooltip" title="Based on a {{minChanceOfRain}}% chance threshold.">
         <span ng-show="weather.rainTime">{{weather.rainTime.pop}}&#37; <img width="15px" src="http://icons.wxug.com/i/c/k/chancerain.gif"> {{weather.rainTime.FCTTIME.hour | time24to12 }}{{weather.rainTime.FCTTIME.ampm}}</span>
         <span ng-show="!weather.rainTime">
           No <img width="15px" src="http://icons.wxug.com/i/c/k/chancerain.gif"> in 24hr.
