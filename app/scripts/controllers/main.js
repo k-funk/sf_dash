@@ -26,7 +26,28 @@ angular.module('sfDashApp')
           $scope.nextBus._lastUpdated = moment();
         });
     };
-    $scope.nextBus = {};
+    $scope.nextBus = {
+      addForm : {
+        toggleBusAddForm: function () {
+          this.showBusAddForm = !this.showBusAddForm;
+        },
+        validate: function () {
+          var routeStopPair = this.routeTag + '|' + this.stopTag;
+          var that = this;
+          nextBus.getPredictions([routeStopPair])
+            .then(function () {
+              stopRouteTags.push(routeStopPair);
+              updatePredictions();
+              that.resetForm();
+            }, function () {
+              that.validStop = false;
+            });
+        },
+        resetForm: function () {
+          this.routeTag = this.stopTag = this.validStop = undefined;
+        }
+      }
+    };
     updatePredictions();
     intervals.push(
       $interval(updatePredictions, 15 * 1000)

@@ -23,13 +23,33 @@
           <div class="stop-title">@{{prediction._stopTitle}}</div>
         </div>
 
-        <div class="col-xs-12">
-        </div>
-
       </div>
     </div>
   </div>
-  <div class="text-right"><small time-from-now moment-obj="nextBus._lastUpdated"></small></div>
+
+  <div ng-show="nextBus.addForm.showBusAddForm" class="panel panel-default">
+    <div class="panel-body">
+      <form ng-submit="nextBus.addForm.validate()">
+        <div class="form-group col-xs-6">
+          <label>Route Tag:</label>
+          <input type="text" class="form-control" ng-model="nextBus.addForm.routeTag">
+        </div>
+        <div class="form-group col-xs-6">
+          <label>Stop Tag:</label>
+          <input type="text" class="form-control" ng-model="nextBus.addForm.stopTag">
+        </div>
+        <div class="pull-right">
+          <input class="btn btn-primary" type="submit" value="Validate &amp; Add Stop">
+          <div class="btn btn-default" ng-click="nextBus.addForm.toggleBusAddForm()">Done</div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <span ng-show="!nextBus.addForm.showBusAddForm" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+    <small class="pull-right" time-from-now moment-obj="nextBus._lastUpdated"></small>
+  </div>
 </section>
 
 <section class="weather col-xs-7">

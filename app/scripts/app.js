@@ -42,6 +42,7 @@ angular
   .config(function (x2jsProvider) {
     x2jsProvider.config = {
       arrayAccessFormPaths: [
+        'body.predictions',
         'body.predictions.direction.prediction'
       ]
     };
