@@ -8,25 +8,26 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('MainCtrl', function ($scope, $interval, nextBus, weather) {
-    var stopRouteTags = [
-      '67|6208',
-      '27|3930',
-      '12|7552'
-    ], intervals = [];
-    // TODO: Allow multiple locations
+  .controller('MainCtrl',
+    function ($scope, $interval, nextBus, weather, $localStorage) {
+
+    $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
+    var intervals = [];
+    $scope.minChanceOfRain = 40;
     $scope.loc1 = '94110';
     // soma: 94103, north soma: 94105
-    $scope.minChanceOfRain = 40;
 
     var updatePredictions = function () {
-      nextBus.getPredictions(stopRouteTags)
+      if (!$localStorage.stopRouteTags.length) {return;}
+
+      nextBus.getPredictions($localStorage.stopRouteTags)
         .then(function (predictions) {
           $scope.nextBus.predictions = predictions;
           $scope.nextBus._lastUpdated = moment();
         });
     };
     $scope.nextBus = {
+      predictions: [],
       addForm : {
         toggleBusAddForm: function () {
           this.showBusAddForm = !this.showBusAddForm;
@@ -36,7 +37,7 @@ angular.module('sfDashApp')
           var that = this;
           nextBus.getPredictions([routeStopPair])
             .then(function () {
-              stopRouteTags.push(routeStopPair);
+              $localStorage.stopRouteTags.push(routeStopPair);
               updatePredictions();
               that.resetForm();
             }, function () {

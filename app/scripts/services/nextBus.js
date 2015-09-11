@@ -29,8 +29,6 @@ angular.module('sfDashApp')
           // useShortTitles: true /* seems to not do anything */
         }})
         .then(function(data){
-          // TODO: need some error handling
-
           // See config for xml->json arrays
           var predictions = data.data.body.predictions;
           return sortPredictions(stopRouteTags, predictions);

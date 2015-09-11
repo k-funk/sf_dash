@@ -3,8 +3,12 @@
 </section>
 
 <section class="prediction col-xs-5">
-  <div ng-repeat="prediction in nextBus.predictions || []" class="panel panel-default">
-    <!-- <div class="panel-heading"></div> -->
+  <div ng-show="!nextBus.predictions.length" class="panel panel-default">
+    <div class="panel-body">
+      No bus stops added.
+    </div>
+  </div>
+  <div ng-repeat="prediction in nextBus.predictions" class="panel panel-default">
     <div class="panel-body">
       <div class="row">
 
