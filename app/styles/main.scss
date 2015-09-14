@@ -2,6 +2,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "bootstrap-slate.min.scss";
 
 [ng-click],
 [data-ng-click],
@@ -131,11 +132,16 @@ $date-time-gutter: 5px;
   font-size: 14px;
 
   .btn.close-form {
-    position:absolute;
-    top:0;
-    right:0
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
   }
   .table {
     font-size: 10px;
   }
+}
+
+.nav-tabs > li.active > a {
+  background-color: #2e3338;
 }

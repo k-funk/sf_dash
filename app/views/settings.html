@@ -7,8 +7,12 @@
         <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': validKey, 'glyphicon-remove': validKey === false}"></span>
       </div>
       <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Validate &amp; Store Key">
-        <span ng-click="dumpLocalStorage()" class="btn btn-default">Dump Local Storage</span>
+        <input class="btn btn-info" type="submit" value="Validate &amp; Store Key">
+      </div>
+      <hr>
+      <div>
+        <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
+        <p><small>This will remove stored bus stops and your wunderground key.</small></p>
       </div>
     </form>
 </div>
