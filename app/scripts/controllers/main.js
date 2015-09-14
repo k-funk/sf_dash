@@ -42,6 +42,12 @@ angular.module('sfDashApp')
           nextBus.getStopsWithin(this.distance)
             .then(function (stops) {
               that.nearbyStops = stops;
+              that.errMsg = undefined;
+            }, function (err) {
+              if (typeof err !== 'string'){
+                err = JSON.stringify(err);
+              }
+              that.errMsg = err;
             }).finally(function () {
               that.loading = false;
           });
