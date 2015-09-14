@@ -3,6 +3,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -79,6 +85,9 @@ body {
   .route-title {
     font-weight: bold;
   }
+  .nav-tabs {
+    border-bottom: none;
+  }
 }
 
 .weather {
@@ -114,5 +123,19 @@ $date-time-gutter: 5px;
     text-align: left;
     padding-left: $date-time-gutter;
     vertical-align: bottom;
+  }
+}
+
+.add-form {
+  position: relative;
+  font-size: 14px;
+
+  .btn.close-form {
+    position:absolute;
+    top:0;
+    right:0
+  }
+  .table {
+    font-size: 10px;
   }
 }

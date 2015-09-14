@@ -18,7 +18,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'xml',
-    'ngStorage'
+    'ngStorage',
+    'geolocation',
+    'mgcrea.ngStrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -43,7 +45,8 @@ angular
     x2jsProvider.config = {
       arrayAccessFormPaths: [
         'body.predictions',
-        'body.predictions.direction.prediction'
+        'body.predictions.direction.prediction',
+        'body.route.direction'
       ]
     };
   })

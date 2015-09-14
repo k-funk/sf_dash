@@ -31,23 +31,10 @@
     </div>
   </div>
 
-  <div ng-show="nextBus.addForm.showBusAddForm" class="panel panel-default">
-    <div class="panel-body">
-      <form ng-submit="nextBus.addForm.validate()">
-        <div class="form-group col-xs-6">
-          <label>Route Tag:</label>
-          <input type="text" class="form-control" ng-model="nextBus.addForm.routeTag">
-        </div>
-        <div class="form-group col-xs-6">
-          <label>Stop Tag:</label>
-          <input type="text" class="form-control" ng-model="nextBus.addForm.stopTag">
-        </div>
-        <div class="pull-right">
-          <input class="btn btn-primary" type="submit" value="Validate &amp; Add Stop">
-          <div class="btn btn-default" ng-click="nextBus.addForm.toggleBusAddForm()">Done</div>
-        </div>
-      </form>
-    </div>
+  <div bs-tabs class="add-form" ng-show="nextBus.addForm.showBusAddForm">
+    <div title="Geolocation" ng-include="'views/add-stop-geolocate.html'" bs-pane></div>
+    <div title="Manual Input" ng-include="'views/add-stop-manual.html'" bs-pane></div>
+    <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
   </div>
 
   <div>

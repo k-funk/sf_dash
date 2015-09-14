@@ -9,7 +9,7 @@
  */
 angular.module('sfDashApp')
   .controller('MainCtrl',
-    function ($scope, $interval, nextBus, weather, $localStorage) {
+    function ($scope, $interval, nextBus, weather, $localStorage, $q) {
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
     var intervals = [];
@@ -18,6 +18,7 @@ angular.module('sfDashApp')
     // soma: 94103, north soma: 94105
 
     var updatePredictions = function () {
+      // Don't send an empty request
       if (!$localStorage.stopRouteTags.length) {return;}
 
       nextBus.getPredictions($localStorage.stopRouteTags)
@@ -30,22 +31,39 @@ angular.module('sfDashApp')
       predictions: [],
       addForm : {
         toggleBusAddForm: function () {
+          if (this.showBusAddForm === true) {
+            this.resetForm();
+          }
           this.showBusAddForm = !this.showBusAddForm;
+        },
+        getNearbyStops: function () {
+          var that = this;
+          this.loading = true;
+          nextBus.getStopsWithin(this.distance)
+            .then(function (stops) {
+              that.nearbyStops = stops;
+            }).finally(function () {
+              that.loading = false;
+          });
         },
         validate: function () {
           var routeStopPair = this.routeTag + '|' + this.stopTag;
           var that = this;
           nextBus.getPredictions([routeStopPair])
             .then(function () {
-              $localStorage.stopRouteTags.push(routeStopPair);
-              updatePredictions();
-              that.resetForm();
+              this.addStop(routeStopPair);
             }, function () {
               that.validStop = false;
             });
         },
+        addStop: function (routeStopPair) {
+          $localStorage.stopRouteTags.push(routeStopPair);
+          updatePredictions();
+          this.resetForm();
+        },
         resetForm: function () {
-          this.routeTag = this.stopTag = this.validStop = undefined;
+          this.distance = this.routeTag = this.stopTag = this.validStop =
+            this.nearbyStops = this.loading = undefined;
         }
       }
     };

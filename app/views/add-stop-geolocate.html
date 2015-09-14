@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <form class="form-inline">
+      Find stops within
+      <select class="form-control" ng-change="nextBus.addForm.getNearbyStops()" ng-model="nextBus.addForm.distance">
+        <option value="">--Choose One--</option>
+        <option value="322">1/5 mile</option>
+        <option value="402">1/4 mile</option>
+        <option value="804">1/2 mile</option>
+        <!-- values are in meters -->
+      </select>
+      <div class="spinner-loader" ng-show="nextBus.addForm.loading"></div>
+    </form>
+
+    <table class="table table-striped table-hover" ng-show="nextBus.addForm.nearbyStops">
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>Direction</th>
+          <th>Stop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="stop in nextBus.addForm.nearbyStops" ng-click="nextBus.addForm.addStop(stop.tag + '|' + stop.stopTag)">
+          <td>{{stop.title}}</td>
+          <td>{{stop.directionTitle}}</td>
+          <td>{{stop.stopTitle}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
