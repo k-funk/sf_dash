@@ -29,6 +29,15 @@ angular.module('sfDashApp')
     };
     $scope.nextBus = {
       predictions: [],
+      toggleBusRemove: function () {
+        this.showBusRemoval = !this.showBusRemoval;
+      },
+      removeStopRoute: function (prediction) {
+        var routeStopPair = prediction._routeTag + '|' + prediction._stopTag;
+        var idx = $localStorage.stopRouteTags.indexOf(routeStopPair);
+        $localStorage.stopRouteTags.splice(idx, 1);
+        updatePredictions();
+      },
       addForm : {
         toggleBusAddForm: function () {
           if (this.showBusAddForm === true) {

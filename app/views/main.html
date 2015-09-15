@@ -17,12 +17,16 @@
         </div>
 
         <div class="col-xs-8 text-right">
-          <div>
+          <!-- Minute Predictions -->
+          <div ng-hide="nextBus.showBusRemoval">
             <span ng-hide="prediction.direction.prediction.length" class="prediction-time">None</span>
             <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
             {{time._minutes}}{{$last ? '' : ', '}}
-          </span>
+            </span>
           </div>
+          <!-- Removal Button -->
+          <div ng-show="nextBus.showBusRemoval" class="btn btn-danger remove-stop" ng-click="nextBus.removeStopRoute(prediction)">Remove Stop</div>
+          <!-- Additional Stop Info -->
           <div class="route-title">{{prediction.direction._title}}</div>
           <div class="stop-title">@{{prediction._stopTitle}}</div>
         </div>
@@ -37,8 +41,9 @@
     <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
   </div>
 
-  <div>
-    <span ng-show="!nextBus.addForm.showBusAddForm" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+  <div ng-hide="nextBus.addForm.showBusAddForm">
+    <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+    <span class="btn btn-xs btn-default glyphicon glyphicon-pencil" ng-click="nextBus.toggleBusRemove()"></span>
     <small class="pull-right" time-from-now moment-obj="nextBus._lastUpdated"></small>
   </div>
 </section>

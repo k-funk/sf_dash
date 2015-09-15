@@ -1,6 +1,5 @@
 ## Feature Todo List
 
-- [ ] Delete bus routes via UI.
 - [ ] Add/Remove weather panels via UI.
 - [ ] Day/Night autoswitch css theme based on sunrise/sunset. +make this optional.
 - [ ] Pull from other APIs (news? traffic?)
