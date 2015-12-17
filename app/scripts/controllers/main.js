@@ -13,7 +13,7 @@ angular.module('sfDashApp')
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
     var intervals = [];
-    $scope.minChanceOfRain = 40;
+    $scope.minChanceOfRain = 30;
     $scope.loc1 = '94110';
     // soma: 94103, north soma: 94105
 
