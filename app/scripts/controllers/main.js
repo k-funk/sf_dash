@@ -9,7 +9,7 @@
  */
 angular.module('sfDashApp')
   .controller('MainCtrl',
-    function ($scope, $interval, nextBus, weather, $localStorage, $q) {
+    function ($scope, $interval, nextBus, weather, $localStorage) {
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
     var intervals = [];

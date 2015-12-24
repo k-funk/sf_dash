@@ -84,6 +84,7 @@
             <span class="time"> <sup class="at">@</sup> {{weather.rainTime.FCTTIME.hour | time24to12 }}{{weather.rainTime.FCTTIME.ampm}}</span>
           </div>
           <div ng-show="!weather.rainTime">
+            <img class="img-responsive center-block" src="/images/no-rain-white.svg">
             <span class="pop">No rain</span>
             <span class="time">in 24hr.</span>
           </div>
