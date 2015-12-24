@@ -20,8 +20,8 @@
           <!-- Minute Predictions -->
           <div ng-hide="nextBus.showBusRemoval">
             <span ng-hide="prediction.direction.prediction.length" class="prediction-time">None</span>
-            <span ng-repeat="time in prediction.direction.prediction | limitTo:4" ng-class="{'text-muted': time._affectedByLayover}" class="prediction-time">
-              {{time._minutes}}{{$last ? '' : ', '}}
+            <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
+              {{time._minutes}}<sup class="affected-by-layover" ng-show="time._affectedByLayover">*</sup>{{$last ? '' : ', '}}
             </span>
           </div>
           <!-- Removal Button -->
