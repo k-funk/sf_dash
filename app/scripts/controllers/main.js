@@ -14,6 +14,7 @@ angular.module('sfDashApp')
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
     var intervals = [];
     $scope.minChanceOfRain = 30;
+    $scope.forecastHourLimit = 23;
     $scope.loc1 = '94110';
     // soma: 94103, north soma: 94105
 
@@ -90,6 +91,7 @@ angular.module('sfDashApp')
     var updateWeather = function () {
       weather.getHourlyForecast($scope.loc1)
         .then(function (hForecasts) {
+          hForecasts = hForecasts.slice(0, $scope.forecastHourLimit);
           $scope.weather.hForecasts = hForecasts;
           $scope.weather.rainTime = getRainTime(hForecasts);
           $scope.weather._lastUpdated = moment();
