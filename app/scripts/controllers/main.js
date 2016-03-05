@@ -95,11 +95,13 @@ angular.module('sfDashApp')
           $scope.weather.hForecasts = hForecasts;
           $scope.weather.rainTime = getRainTime(hForecasts);
           $scope.weather._lastUpdated = moment();
-        }, function () {
-          // Can't explicitly know why it failed.
-          if (!angular.isDefined($scope.hForecasts)) {
+        }, function (response) {
+          if (response.status === -1) {
+            $scope.weather._callFailedReason = 'The request appears to have timed out. The server may be down.';
+          } else {
             // Assume that this failure is due to no API Key
-            $scope.weather._firstCallFailed = true;
+            $scope.weather._callFailedReason = 'First weather request failed. Make sure you\'ve supplied an API Key' +
+                                               ' in the <a href="#/settings">settings</a>.';
           }
         });
     };

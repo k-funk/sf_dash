@@ -49,8 +49,8 @@
 </section>
 
 <section class="weather col-xs-7">
-  <div ng-show="weather._firstCallFailed" class="error-msg">
-    <span class="glyphicon glyphicon-exclamation-sign"></span> First weather request failed. Make sure you've supplied an API Key in the <a href="#/settings">settings</a>.
+  <div ng-show="weather._callFailedReason" class="error-msg">
+    <span class="glyphicon glyphicon-exclamation-sign"></span> <span ng-bind-html="weather._callFailedReason"></span>
   </div>
   <div ng-show="weather.hForecasts" class="panel panel-primary">
 
