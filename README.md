@@ -4,6 +4,22 @@ This project is for use in my home, on a wall-mounted iPad that's always on. It 
 
 Planned features are in [TODO.md](TODO.md)
 
-## Build & development
+## Development
 
-Run `grunt build` for building and `grunt serve` for preview.
+#### Requirements
+
+    # This may be different for you. I was installing on a fresh OS X
+    brew install ruby
+    sudo gem install compass (thought there was a node-version of this)
+    npm install -g grunt-cli
+    npm install -g bower
+
+#### Install
+    npm install
+    bower install
+
+#### Local Development Server
+    npm serve
+
+#### Build
+    npm build
