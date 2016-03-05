@@ -10,7 +10,7 @@
 angular.module('sfDashApp')
   .factory('weather', function ($http, $localStorage) {
 
-    var timeoutMilSec = 10000,
+    var timeoutMilSec = 7000,
         getUrl = function (type, query, testKey) {
       return 'http://api.wunderground.com/api/' +
       ($localStorage.weatherKey || testKey) + '/' +
