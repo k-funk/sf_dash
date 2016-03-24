@@ -1,0 +1,43 @@
+<div ng-show="!nextBus.predictions.length" class="panel panel-default">
+  <div class="panel-body">
+    No bus stops added.
+  </div>
+</div>
+<div ng-repeat="prediction in nextBus.predictions" class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+
+      <div class="col-xs-4">
+        <span class="route-tag">{{prediction._routeTag}}</span>
+      </div>
+
+      <div class="col-xs-8 text-right">
+        <!-- Minute Predictions -->
+        <div ng-hide="nextBus.showBusRemoval">
+          <span ng-hide="prediction.direction.prediction.length" class="prediction-time">None</span>
+            <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
+              {{time._minutes}}<sup class="affected-by-layover" ng-show="time._affectedByLayover">*</sup>{{$last ? '' : ', '}}
+            </span>
+        </div>
+        <!-- Removal Button -->
+        <div ng-show="nextBus.showBusRemoval" class="btn btn-danger remove-stop" ng-click="nextBus.removeStopRoute(prediction)">Remove Stop</div>
+        <!-- Additional Stop Info -->
+        <div class="route-title">{{prediction.direction._title}}</div>
+        <div class="stop-title">@{{prediction._stopTitle}}</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div bs-tabs class="add-form" ng-show="nextBus.addForm.showBusAddForm">
+  <div data-title="Geolocation" ng-include="'views/add-stop-geolocate.html'" bs-pane></div>
+  <div data-title="Manual Input" ng-include="'views/add-stop-manual.html'" bs-pane></div>
+  <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
+</div>
+
+<div ng-hide="nextBus.addForm.showBusAddForm">
+  <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+  <span class="btn btn-xs btn-default glyphicon glyphicon-pencil" ng-click="nextBus.toggleBusRemove()"></span>
+  <small class="pull-right" time-from-now moment-obj="nextBus._lastUpdated"></small>
+</div>
