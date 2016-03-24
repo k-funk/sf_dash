@@ -9,121 +9,14 @@
  */
 angular.module('sfDashApp')
   .controller('MainCtrl',
-    function ($scope, $interval, nextBus, weather, $localStorage) {
+    function ($scope, $interval) {
 
-    $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
-    var intervals = [];
-    $scope.minChanceOfRain = 30;
-    $scope.forecastHourLimit = 23;
-    $scope.loc1 = '94110';
-    // soma: 94103, north soma: 94105
-
-    var updatePredictions = function () {
-      // Don't send an empty request
-      if (!$localStorage.stopRouteTags.length) {return;}
-
-      nextBus.getPredictions($localStorage.stopRouteTags)
-        .then(function (predictions) {
-          $scope.nextBus.predictions = predictions;
-          $scope.nextBus._lastUpdated = moment();
-        });
-    };
-    $scope.nextBus = {
-      predictions: [],
-      toggleBusRemove: function () {
-        this.showBusRemoval = !this.showBusRemoval;
-      },
-      removeStopRoute: function (prediction) {
-        var routeStopPair = prediction._routeTag + '|' + prediction._stopTag;
-        var idx = $localStorage.stopRouteTags.indexOf(routeStopPair);
-        $localStorage.stopRouteTags.splice(idx, 1);
-        updatePredictions();
-      },
-      addForm : {
-        toggleBusAddForm: function () {
-          if (this.showBusAddForm === true) {
-            this.resetForm();
-          }
-          this.showBusAddForm = !this.showBusAddForm;
-        },
-        getNearbyStops: function () {
-          var that = this;
-          this.loading = true;
-          nextBus.getStopsWithin(this.distance)
-            .then(function (stops) {
-              that.nearbyStops = stops;
-              that.errMsg = undefined;
-            }, function (err) {
-              if (typeof err !== 'string'){
-                err = JSON.stringify(err);
-              }
-              that.errMsg = err;
-            }).finally(function () {
-              that.loading = false;
-          });
-        },
-        validate: function () {
-          var routeStopPair = this.routeTag + '|' + this.stopTag;
-          var that = this;
-          nextBus.getPredictions([routeStopPair])
-            .then(function () {
-              this.addStop(routeStopPair);
-            }, function () {
-              that.validStop = false;
-            });
-        },
-        addStop: function (routeStopPair) {
-          $localStorage.stopRouteTags.push(routeStopPair);
-          updatePredictions();
-          this.resetForm();
-        },
-        resetForm: function () {
-          this.distance = this.routeTag = this.stopTag = this.validStop =
-            this.nearbyStops = this.loading = undefined;
-        }
-      }
-    };
-    updatePredictions();
-    intervals.push(
-      $interval(updatePredictions, 15 * 1000)
-    );
-
-    var updateWeather = function () {
-      weather.getHourlyForecast($scope.loc1)
-        .then(function (hForecasts) {
-          hForecasts = hForecasts.slice(0, $scope.forecastHourLimit);
-          $scope.weather.hForecasts = hForecasts;
-          $scope.weather.rainTime = getRainTime(hForecasts);
-          $scope.weather._lastUpdated = moment();
-        }, function (response) {
-          if (response.status === -1) {
-            $scope.weather._callFailedReason = 'The request appears to have timed out. The server may be down.';
-          } else {
-            // Assume that this failure is due to no API Key
-            $scope.weather._callFailedReason = 'First weather request failed. Make sure you\'ve supplied an API Key' +
-                                               ' in the <a href="#/settings">settings</a>.';
-          }
-        });
-    };
-    $scope.weather = {};
-    updateWeather();
-    intervals.push(
-      $interval(updateWeather, 15 * 60 * 1000)
-    );
-
-    var getRainTime = function (hForecasts) {
-      for (var i = 0; i < hForecasts.length; i++) {
-        var pop = Number(hForecasts[i].pop);
-        if (pop >= $scope.minChanceOfRain) {
-          return hForecasts[i];
-        }
-      }
-    };
-
+    $scope.intervals = [];
     $scope.$on('$destroy', function() {
-      angular.forEach(intervals, function (interval) {
+      angular.forEach($scope.intervals, function (interval) {
         $interval.cancel(interval);
       });
     });
+
   });
 

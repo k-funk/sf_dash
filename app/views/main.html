@@ -2,7 +2,7 @@
   <current-time></current-time>
 </section>
 
-<section class="prediction col-xs-5">
+<section ng-controller="NextbusCtrl" class="prediction col-xs-5">
   <div ng-show="!nextBus.predictions.length" class="panel panel-default">
     <div class="panel-body">
       No bus stops added.
@@ -48,7 +48,7 @@
   </div>
 </section>
 
-<section class="weather col-xs-7">
+<section ng-controller="WeatherCtrl" class="weather col-xs-7">
   <div ng-show="weather._callFailedReason" class="error-msg">
     <span class="glyphicon glyphicon-exclamation-sign"></span> <span ng-bind-html="weather._callFailedReason"></span>
   </div>
