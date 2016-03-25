@@ -211,6 +211,9 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
+        /* importing vars doesn't work properly if each file is imported independently.
+           main.scss will handle all scss */
+        specify: '<%= yeoman.app %>/styles/main.scss',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',

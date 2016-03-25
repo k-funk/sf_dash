@@ -3,6 +3,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import "bootstrap-slate.min.scss";
+@import "spinner.scss";
+@import "weather.scss";
+@import "nextbus.scss";
+
 
 [ng-click],
 [data-ng-click],
@@ -50,92 +54,6 @@ body {
 
 .panel {
   margin-bottom: 10px;
-}
-
-.prediction{
-  font-size: 10px;
-
-  .panel-body {
-    padding: 10px;
-  }
-
-  .panel-body .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  .prediction-time {
-    font-size: 24px;
-    font-weight: 200;
-    .affected-by-layover {
-      font-size: $font-size-base;
-      color: $text-muted;
-    }
-  }
-  .route-tag {
-    display:block;
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-color: #EEE;
-    font-size: 24px;
-    color: #555;
-    text-align: center;
-  }
-  .route-title,
-  .stop-title {
-    font-size: 9px;
-  }
-  .route-title {
-    font-weight: bold;
-  }
-  .nav-tabs {
-    border-bottom: none;
-  }
-  .btn.remove-stop {
-    margin-bottom: 4px;
-  }
-}
-
-.weather {
-  font-size: 10px;
-
-  .table {
-    margin-bottom: 0;
-    &> tbody > tr {
-      th {
-        border-top: 0;
-        text-transform: uppercase;
-      }
-      td, th {
-        padding: 4px;
-      }
-    }
-  }
-  .right-side {
-    @include make-xs-column(4, 10px);
-    text-align: center;
-    .zip {
-      margin: 0 0 20px;
-      font-weight: 100;
-    }
-    img {
-      height: 120px;
-      margin-bottom: 25px;
-    }
-    .chance {
-      font-size: 26px;
-      .pop {
-      }
-      .time {
-        font-weight: 100;
-        .at {
-          font-size: 12px;
-        }
-      }
-    }
-  }
 }
 
 $date-time-gutter: 5px;

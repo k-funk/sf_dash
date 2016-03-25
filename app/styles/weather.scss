@@ -1,0 +1,39 @@
+.weather {
+  font-size: 10px;
+
+  .table {
+    margin-bottom: 0;
+    &> tbody > tr {
+      th {
+        border-top: 0;
+        text-transform: uppercase;
+      }
+      td, th {
+        padding: 4px;
+      }
+    }
+  }
+  .right-side {
+    @include make-xs-column(4, 10px);
+    text-align: center;
+    .zip {
+      margin: 0 0 20px;
+      font-weight: 100;
+    }
+    img {
+      height: 120px;
+      margin-bottom: 25px;
+    }
+    .chance {
+      font-size: 26px;
+      .pop {
+      }
+      .time {
+        font-weight: 100;
+        .at {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

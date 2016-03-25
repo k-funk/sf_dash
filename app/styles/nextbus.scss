@@ -1,0 +1,45 @@
+.nextbus{
+  font-size: 10px;
+
+  .panel-body {
+    padding: 10px;
+  }
+
+  .panel-body .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .prediction-time {
+    font-size: 24px;
+    font-weight: 200;
+    .affected-by-layover {
+      font-size: $font-size-base;
+      color: $text-muted;
+    }
+  }
+  .route-tag {
+    display:block;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #EEE;
+    font-size: 24px;
+    color: #555;
+    text-align: center;
+  }
+  .route-title,
+  .stop-title {
+    font-size: 9px;
+  }
+  .route-title {
+    font-weight: bold;
+  }
+  .nav-tabs {
+    border-bottom: none;
+  }
+  .btn.remove-stop {
+    margin-bottom: 4px;
+  }
+}
