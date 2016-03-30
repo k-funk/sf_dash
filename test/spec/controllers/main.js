@@ -6,7 +6,7 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('sfDashApp'));
 
   var MainCtrl,
-    scope;
+      scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
@@ -16,8 +16,4 @@ describe('Controller: MainCtrl', function () {
       // place here mocked dependencies
     });
   }));
-
-  // it('should attach a list of awesomeThings to the scope', function () {
-  //   expect(MainCtrl.awesomeThings.length).toBe(3);
-  // });
 });

@@ -10,9 +10,4 @@ describe('Service: nextBus', function () {
   beforeEach(inject(function (_nextBus_) {
     nextBus = _nextBus_;
   }));
-
-  it('should do something', function () {
-    expect(!!nextBus).toBe(true);
-  });
-
 });

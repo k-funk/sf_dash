@@ -10,9 +10,4 @@ describe('Service: weather', function () {
   beforeEach(inject(function (_weather_) {
     weather = _weather_;
   }));
-
-  it('should do something', function () {
-    expect(!!weather).toBe(true);
-  });
-
 });
