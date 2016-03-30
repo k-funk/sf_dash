@@ -8,31 +8,43 @@
         border-top: 0;
         text-transform: uppercase;
       }
-      td, th {
+      th {
         padding: 4px;
+      }
+      td {
+        padding: 3px;
       }
       td img {
         width: 15px;
+        margin-right: 4px;
+        margin-left: 2px;
+      }
+      th, td {
+        &:first-child {
+          text-align: right;
+          width: 1px;
+        }
       }
     }
   }
-  .right-side {
+  .side-panel {
     @include make-xs-column(4, 10px);
-    padding-right: 15px;
+    padding-left: 15px;
     .todays-forecast {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       .high-low {
         font-size: 24px;
+        line-height: 1.1;
       }
     }
     .rain-chance {
       text-align: center;
       img {
         height: 120px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
       }
       .pop, .time {
-        font-size: 26px;
+        font-size: 22px;
       }
       .time {
         font-weight: 100;
