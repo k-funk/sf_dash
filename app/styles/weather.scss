@@ -11,28 +11,37 @@
       td, th {
         padding: 4px;
       }
+      td img {
+        width: 15px;
+      }
     }
   }
   .right-side {
     @include make-xs-column(4, 10px);
-    text-align: center;
-    .zip {
-      margin: 0 0 20px;
-      font-weight: 100;
+    padding-right: 15px;
+    .todays-forecast {
+      margin-bottom: 10px;
+      .high-low {
+        font-size: 24px;
+      }
     }
-    img {
-      height: 120px;
-      margin-bottom: 25px;
-    }
-    .chance {
-      font-size: 26px;
-      .pop {
+    .rain-chance {
+      text-align: center;
+      img {
+        height: 120px;
+        margin-bottom: 25px;
+      }
+      .pop, .time {
+        font-size: 26px;
       }
       .time {
         font-weight: 100;
         .at {
           font-size: 12px;
         }
+      }
+      small {
+        font-size: 10px;
       }
     }
   }

@@ -15,21 +15,24 @@ angular.module('sfDashApp')
     // soma: 94103, north soma: 94105
     $scope.weather = {};
 
-    var getRainTime = function (hForecasts) {
-      for (var i = 0; i < hForecasts.length; i++) {
-        var pop = Number(hForecasts[i].pop);
+    var getRainTime = function (hourlyForecasts) {
+      for (var i = 0; i < hourlyForecasts.length; i++) {
+        var pop = Number(hourlyForecasts[i].pop);
         if (pop >= $scope.minChanceOfRain) {
-          return hForecasts[i];
+          return hourlyForecasts[i];
         }
       }
     };
 
     var updateWeather = function () {
-      weather.getHourlyForecast($scope.loc1)
-        .then(function (hForecasts) {
-          hForecasts = hForecasts.slice(0, $scope.forecastHourLimit);
-          $scope.weather.hForecasts = hForecasts;
-          $scope.weather.rainTime = getRainTime(hForecasts);
+      weather.getHourlyAndForecast($scope.loc1)
+        .then(function (data) {
+          var todaysForecast = data.forecast.simpleforecast.forecastday[0],
+              hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit);
+
+          $scope.weather.todaysForecast = todaysForecast;
+          $scope.weather.hourlyForecasts = hourlyForecasts;
+          $scope.weather.rainTime = getRainTime(hourlyForecasts);
           $scope.weather._lastUpdated = moment();
         }, function (response) {
           if (response.status === -1) {

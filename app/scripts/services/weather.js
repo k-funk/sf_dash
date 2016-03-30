@@ -8,6 +8,7 @@
  * Factory in the sfDashApp.
  */
 angular.module('sfDashApp')
+  .constant('WEATHER_ICON_PATH', 'http://icons.wxug.com/i/c/v4/')
   .factory('weather', function ($http, $localStorage) {
 
     var timeoutMilSec = 7000,
@@ -17,12 +18,11 @@ angular.module('sfDashApp')
       type + '/q/' + query + '.json';
     };
 
-
     return {
-      getHourlyForecast: function (location) {
-        return $http.get(getUrl('hourly', location), {timeout: timeoutMilSec})
+      getHourlyAndForecast: function (location) {
+        return $http.get(getUrl('hourly/forecast', location), {timeout: timeoutMilSec})
           .then(function(data) {
-            return data.data.hourly_forecast;
+            return data.data;
           });
       },
       validateKey: function (key) {
