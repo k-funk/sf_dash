@@ -7,9 +7,7 @@
       th {
         border-top: 0;
         text-transform: uppercase;
-      }
-      th {
-        padding: 4px;
+        padding: 0 4px 4px;
       }
       td {
         padding: 3px;
@@ -32,15 +30,28 @@
     padding-left: 15px;
     .todays-forecast {
       margin-bottom: 15px;
+      text-align: center;
+      img {
+        display: inline-block;
+        vertical-align: top;
+        width: 45px;
+        margin-right: 15px;
+      }
+      .conditions, .high-low {
+        text-align: left;
+      }
+      .conditions {
+        font-size: 11px
+      }
       .high-low {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 1.1;
       }
     }
     .rain-chance {
       text-align: center;
       img {
-        height: 120px;
+        height: 110px;
         margin-bottom: 20px;
       }
       .pop, .time {
@@ -56,5 +67,8 @@
         font-size: 10px;
       }
     }
+  }
+  .location {
+    margin-left: 5px;
   }
 }

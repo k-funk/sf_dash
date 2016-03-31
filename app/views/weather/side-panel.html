@@ -1,9 +1,7 @@
-<div class="todays-forecast row">
-  <div class="col-xs-4 col-xs-offset-1">
-    <img class="img-responsive img-center" ng-src="{{weather.todaysForecast.icon | weatherIconUrl}}">
-  </div>
-  <div class="col-xs-7">
-    <div>{{weather.todaysForecast.conditions}}</div>
+<div class="todays-forecast">
+  <img ng-src="{{weather.todaysForecast.icon | weatherIconUrl}}">
+  <div class="inline-block">
+    <div class="conditions">{{weather.todaysForecast.conditions}}</div>
     <div class="high-low">{{weather.todaysForecast.high.fahrenheit}}<span class="text-muted">/</span>{{weather.todaysForecast.low.fahrenheit}}</div>
   </div>
 </div>
@@ -20,5 +18,4 @@
     <span class="time">in 24hr.</span>
   </div>
   <div><small class="text-muted">Based on a {{minChanceOfRain}}% chance threshold.</small></div>
-  <div><small class="text-muted">{{loc1}}</small></div>
 </div>
