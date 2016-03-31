@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th>Time</th>
+    <th>Condition</th>
+    <th data-toggle="tooltip" title="Temp/Feels Like">Temp</th>
+    <th>UVI</th>
+    <th>POP</th>
+    <th>Humid</th>
+  </tr>
+  <tr ng-repeat="hForecast in weather.hourlyForecasts || [] | limitTo:10">
+    <td>{{hForecast.FCTTIME.hour | time24to12 }}{{hForecast.FCTTIME.ampm}}</td>
+    <td><img ng-src="{{hForecast.icon | weatherIconUrl}}"> {{hForecast.condition}}</td>
+    <td>{{hForecast.temp.english}}&deg;/{{hForecast.feelslike.english}}&deg;</td>
+    <td>{{hForecast.uvi}}</td>
+    <td>{{hForecast.pop}}&#37;</td>
+    <td>{{hForecast.humidity}}&#37;</td>
+  </tr>
+</table>
