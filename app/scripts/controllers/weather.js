@@ -25,14 +25,16 @@ angular.module('sfDashApp')
     };
 
     var updateWeather = function () {
-      weather.getHourlyAndForecast($scope.loc1)
+      weather.getWeatherData($scope.loc1)
         .then(function (data) {
           var todaysForecast = data.forecast.simpleforecast.forecastday[0],
-              hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit);
+              hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit),
+              alerts = data.alerts;
 
           $scope.weather.todaysForecast = todaysForecast;
           $scope.weather.hourlyForecasts = hourlyForecasts;
           $scope.weather.rainTime = getRainTime(hourlyForecasts);
+          $scope.weather.alerts = alerts;
           $scope.weather._lastUpdated = moment();
         }, function (response) {
           if (response.status === -1) {

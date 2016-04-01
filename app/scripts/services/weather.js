@@ -19,8 +19,8 @@ angular.module('sfDashApp')
     };
 
     return {
-      getHourlyAndForecast: function (location) {
-        return $http.get(getUrl('hourly/forecast', location), {timeout: timeoutMilSec})
+      getWeatherData: function (location) {
+        return $http.get(getUrl('hourly/forecast/alerts', location), {timeout: timeoutMilSec})
           .then(function(data) {
             return data.data;
           });
