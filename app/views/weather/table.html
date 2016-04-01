@@ -12,7 +12,7 @@
     <td><img ng-src="{{hForecast.icon | weatherIconUrl}}"> {{hForecast.condition}}</td>
     <td>{{hForecast.temp.english}}&deg;/{{hForecast.feelslike.english}}&deg;</td>
     <td>{{hForecast.uvi}}</td>
-    <td>{{hForecast.pop}}&#37;</td>
+    <td ng-class="{'text-info': hForecast.pop >= minChanceOfRain}">{{hForecast.pop}}&#37;</td>
     <td>{{hForecast.humidity}}&#37;</td>
   </tr>
 </table>
