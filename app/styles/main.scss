@@ -104,3 +104,9 @@ $date-time-gutter: 5px;
 .nav-tabs > li.active > a {
   background-color: #2e3338;
 }
+
+.time-since-last-updated {
+  &.overdue {
+    color: red;
+  }
+}

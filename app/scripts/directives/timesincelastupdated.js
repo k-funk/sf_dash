@@ -12,19 +12,26 @@ angular.module('sfDashApp')
       replace: true,
       restrict: 'EA',
       scope: {
-        momentObj: '='
+        lastUpdated: '=',
+        msUntilWarning: '='
       },
       link: function postLink(scope, element) {
+        element.addClass('time-since-last-updated');
 
-        var interval , timeText;
+        var interval, timeText;
 
         interval = $interval(function() {
-          if (!scope.momentObj) {return;}
+          if (!scope.lastUpdated) {return;}
 
-          timeText = scope.momentObj.preciseDiff(moment());
+          timeText = scope.lastUpdated.preciseDiff(moment());
           if (!timeText) { // timeText is empty if diff is 0
             element.text('Just now.');
-          } else{
+          } else {
+            if (moment().diff(scope.lastUpdated) > scope.msUntilWarning) {
+              element.addClass('overdue');
+            } else {
+              element.removeClass('overdue');
+            }
             element.text(timeText + ' ago.');
           }
         }, 1000);

@@ -8,11 +8,15 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('WeatherCtrl', function ($scope, $interval, weather) {
+  .controller('WeatherCtrl', function ($scope, $interval, weather, WARNING_AFTER_N_MISSED_CALLS) {
+    $scope.callInterval = 15 * 60 * 1000;
+    $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
+
     $scope.minChanceOfRain = 30;
     $scope.forecastHourLimit = 23;
     $scope.loc1 = '94110';
     // soma: 94103, north soma: 94105
+
     $scope.weather = {};
 
     var getRainTime = function (hourlyForecasts) {
@@ -48,6 +52,6 @@ angular.module('sfDashApp')
     };
     updateWeather();
     $scope.intervals.push(
-      $interval(updateWeather, 15 * 60 * 1000)
+      $interval(updateWeather, $scope.callInterval)
     );
   });

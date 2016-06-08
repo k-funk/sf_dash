@@ -8,9 +8,12 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('NextbusCtrl', function ($scope, $interval, $localStorage, nextBus) {
+  .controller('NextbusCtrl', function ($scope, $interval, $localStorage, nextBus, WARNING_AFTER_N_MISSED_CALLS) {
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
+
+    $scope.callInterval = 15 * 1000;
+    $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
 
     $scope.nextBus = {
       predictions: [],
@@ -80,7 +83,7 @@ angular.module('sfDashApp')
     };
     updatePredictions();
     $scope.intervals.push(
-      $interval(updatePredictions, 15 * 1000)
+      $interval(updatePredictions, $scope.callInterval)
     );
 
   });
