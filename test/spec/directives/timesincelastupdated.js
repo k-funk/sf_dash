@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: timeFromNow', function () {
+describe('Directive: timeSinceLastUpdated', function () {
 
   // load the directive's module
   beforeEach(module('sfDashApp'));

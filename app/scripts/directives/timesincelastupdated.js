@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc directive
- * @name sfDashApp.directive:timeFromNow
+ * @name sfDashApp.directive:timeSinceLastUpdated
  * @description
- * # timeFromNow
+ * # timeSinceLastUpdated
  */
 angular.module('sfDashApp')
-  .directive('timeFromNow', function ($interval) {
+  .directive('timeSinceLastUpdated', function ($interval) {
     return {
       replace: true,
       restrict: 'EA',
