@@ -3,10 +3,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import "bootstrap-slate.min.scss";
+@import "variables.scss";
 @import "spinner.scss";
 @import "weather.scss";
 @import "nextbus.scss";
-
 
 [ng-click],
 [data-ng-click],

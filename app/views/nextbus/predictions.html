@@ -8,16 +8,16 @@
 
       <div class="col-xs-8 text-right">
         <!-- Minute Predictions -->
-        <div ng-hide="nextBus.showBusRemoval">
-          <span ng-hide="prediction.direction.prediction.length" class="prediction-time">None</span>
-                <span ng-repeat="time in prediction.direction.prediction | limitTo:4" class="prediction-time">
-                  {{time._minutes}}<sup class="affected-by-layover" ng-show="time._affectedByLayover">*</sup>{{$last ? '' : ', '}}
-                </span>
+        <div ng-hide="nextBus.showBusRemoval" class="prediction-times">
+          <span ng-if="!prediction.direction.prediction.length" class="no-prediction-time">None</span>
+          <span ng-repeat="time in prediction.direction.prediction | limitTo:4">
+            <span class="prediction-time" ng-class="{'incoming': !time._affectedByLayover, 'next-time': $first}">{{time._minutes}}</span>{{$last ? '' : ', '}}
+          </span>
         </div>
         <!-- Removal Button -->
         <div ng-show="nextBus.showBusRemoval" class="btn btn-danger remove-stop" ng-click="nextBus.removeStopRoute(prediction)">Remove Stop</div>
         <!-- Additional Stop Info -->
-        <div class="route-title">{{prediction.direction._title}}</div>
+        <div class="route-title">{{prediction.direction._title || prediction._dirTitleBecauseNoPredictions}}</div>
         <div class="stop-title">@{{prediction._stopTitle}}</div>
       </div>
 

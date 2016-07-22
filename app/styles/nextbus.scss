@@ -1,5 +1,6 @@
 .nextbus{
-  font-size: 10px;
+  font-size: 12px;
+  $route-tag-size: 80px;
 
   .panel-body {
     padding: 10px;
@@ -9,29 +10,33 @@
     margin-left: -10px;
     margin-right: -10px;
   }
-  .prediction-time {
-    font-size: 24px;
+  .prediction-times {
+    font-size: 30px;
     font-weight: 200;
-    .affected-by-layover {
-      font-size: $font-size-base;
-      color: $text-muted;
+    color: $gray-lightish;
+    .incoming {
+      font-weight: 600;
+      color: #FFF;
+    }
+    .next-time {
+      font-size: $route-tag-size / 2;
     }
   }
   .route-tag {
     display:block;
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
+    height: $route-tag-size;
+    width: $route-tag-size;
+    line-height: $route-tag-size;
+    font-size: 32px;
     -moz-border-radius: 50%;
     border-radius: 50%;
     background-color: #EEE;
-    font-size: 24px;
     color: #555;
     text-align: center;
   }
   .route-title,
   .stop-title {
-    font-size: 9px;
+    font-size: 11px;
   }
   .route-title {
     font-weight: bold;
