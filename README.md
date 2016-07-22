@@ -19,7 +19,10 @@ Planned features are in [TODO.md](TODO.md)
     bower install
 
 #### Local Development Server
-    npm serve
+    grunt serve
 
 #### Build
-    npm build
+    grunt build
+
+#### Deploy
+    rsync -vrz --delete ./dist/ <username>@<hostname>:~/<remote_dir>/
