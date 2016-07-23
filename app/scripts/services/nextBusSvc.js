@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc service
- * @name sfDashApp.nextBus
+ * @name sfDashApp.nextBusSvc
  * @description
  * # nextBus
  * Factory in the sfDashApp.
  */
 angular.module('sfDashApp')
-  .factory('nextBus', function ($http, $q, geolocation) {
+  .factory('nextBusSvc', function ($http, $q, geolocation) {
 
     var url = 'http://webservices.nextbus.com/service/publicXMLFeed';
     var sortPredictions = function (stopRouteTags, predictions) {

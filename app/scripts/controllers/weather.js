@@ -8,7 +8,7 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('WeatherCtrl', function ($scope, $interval, weather, WARNING_AFTER_N_MISSED_CALLS) {
+  .controller('WeatherCtrl', function ($scope, $interval, weatherSvc, WARNING_AFTER_N_MISSED_CALLS) {
     $scope.callInterval = 15 * 60 * 1000;
     $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
 
@@ -29,7 +29,7 @@ angular.module('sfDashApp')
     };
 
     var updateWeather = function () {
-      weather.getWeatherData($scope.loc1)
+      weatherSvc.getWeatherData($scope.loc1)
         .then(function (data) {
           var todaysForecast = data.forecast.simpleforecast.forecastday[0],
               hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit),

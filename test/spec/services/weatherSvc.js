@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Service: weather', function () {
+describe('Service: weatherSvc', function () {
 
   // load the service's module
   beforeEach(module('sfDashApp'));
 
   // instantiate service
-  var weather;
+  var weatherSvc;
   beforeEach(inject(function (_weather_) {
-    weather = _weather_;
+    weatherSvc = _weather_;
   }));
 });

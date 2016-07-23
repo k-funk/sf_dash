@@ -8,7 +8,7 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('NextbusCtrl', function ($scope, $interval, $localStorage, nextBus, WARNING_AFTER_N_MISSED_CALLS) {
+  .controller('NextbusCtrl', function ($scope, $interval, $localStorage, nextBusSvc, WARNING_AFTER_N_MISSED_CALLS) {
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
 
@@ -36,7 +36,7 @@ angular.module('sfDashApp')
         getNearbyStops: function () {
           var that = this;
           this.loading = true;
-          nextBus.getStopsWithin(this.distance)
+          nextBusSvc.getStopsWithin(this.distance)
             .then(function (stops) {
               that.nearbyStops = stops;
               that.errMsg = undefined;
@@ -52,7 +52,7 @@ angular.module('sfDashApp')
         validate: function () {
           var routeStopPair = this.routeTag + '|' + this.stopTag;
           var that = this;
-          nextBus.getPredictions([routeStopPair])
+          nextBusSvc.getPredictions([routeStopPair])
             .then(function () {
               this.addStop(routeStopPair);
             }, function () {
@@ -75,7 +75,7 @@ angular.module('sfDashApp')
       // Don't send an empty request
       if (!$localStorage.stopRouteTags.length) {return;}
 
-      nextBus.getPredictions($localStorage.stopRouteTags)
+      nextBusSvc.getPredictions($localStorage.stopRouteTags)
         .then(function (predictions) {
           $scope.nextBus.predictions = predictions;
           $scope.nextBus._lastUpdated = moment();
