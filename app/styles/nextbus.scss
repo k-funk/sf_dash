@@ -3,25 +3,22 @@
   $route-tag-size: 80px;
 
   .panel-body {
-    padding: 10px;
+    padding: 10px 15px;
   }
 
-  .panel-body .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
   .prediction-times {
-    .no-prediction-time{
-      font-weight: 200;
-    }
-    font-size: 30px;
-    font-weight: 600;
     color: $gray-lightish;
-    .incoming {
-      color: #FFF;
-    }
+    font-size: 30px;
+    font-weight: 200;
     .next-time {
-      font-size: $route-tag-size / 2;
+      font-size: 40px;
+    }
+    .next-time,
+    .other-time {
+      font-weight: 600;
+    }
+    .not-affected-by-layover {
+      color: #FFF;
     }
   }
   .route-tag {
