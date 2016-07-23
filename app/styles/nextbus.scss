@@ -11,11 +11,13 @@
     margin-right: -10px;
   }
   .prediction-times {
+    .no-prediction-time{
+      font-weight: 200;
+    }
     font-size: 30px;
-    font-weight: 200;
+    font-weight: 600;
     color: $gray-lightish;
     .incoming {
-      font-weight: 600;
       color: #FFF;
     }
     .next-time {
