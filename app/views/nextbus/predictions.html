@@ -12,7 +12,7 @@
       <div ng-hide="nextBus.showBusRemoval" class="prediction-times">
         <span ng-if="!prediction.direction.prediction.length" class="no-prediction-time">None</span>
         <span ng-repeat="time in prediction.direction.prediction | limitTo:4">
-          <span class="prediction-time" ng-class="{'not-affected-by-layover': !time._affectedByLayover, 'next-time': $first, 'other-time': !$first}">{{time._minutes}}</span>{{$last ? '' : ', '}}
+          <span class="prediction-time" ng-class="{'not-affected-by-layover': !time._affectedByLayover, 'next-time': $first, 'other-time': !$first}">{{time._minutes == 0 ? 'Now' : time._minutes}}</span>{{$last ? '' : ', '}}
         </span>
       </div>
 
