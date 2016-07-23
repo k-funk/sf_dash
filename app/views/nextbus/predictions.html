@@ -1,26 +1,26 @@
 <div ng-repeat="prediction in nextBus.predictions" class="panel panel-default">
   <div class="panel-body">
-    <div class="row">
 
-      <div class="col-xs-4">
-        <span class="route-tag">{{prediction._routeTag}}</span>
+    <div class="route-tag">{{prediction._routeTag}}</div>
+
+    <div class="right-container">
+
+      <!-- Removal Button -->
+      <div ng-show="nextBus.showBusRemoval" class="btn btn-danger remove-stop" ng-click="nextBus.removeStopRoute(prediction)">Remove Stop</div>
+
+      <!-- Minute Predictions -->
+      <div ng-hide="nextBus.showBusRemoval" class="prediction-times">
+        <span ng-if="!prediction.direction.prediction.length" class="no-prediction-time">None</span>
+        <span ng-repeat="time in prediction.direction.prediction | limitTo:4">
+          <span class="prediction-time" ng-class="{'not-affected-by-layover': !time._affectedByLayover, 'next-time': $first, 'other-time': !$first}">{{time._minutes}}</span>{{$last ? '' : ', '}}
+        </span>
       </div>
 
-      <div class="col-xs-8 text-right">
-        <!-- Minute Predictions -->
-        <div ng-hide="nextBus.showBusRemoval" class="prediction-times">
-          <span ng-if="!prediction.direction.prediction.length" class="no-prediction-time">None</span>
-          <span ng-repeat="time in prediction.direction.prediction | limitTo:4">
-            <span class="prediction-time" ng-class="{'not-affected-by-layover': !time._affectedByLayover, 'next-time': $first, 'other-time': !$first}">{{time._minutes}}</span>{{$last ? '' : ', '}}
-          </span>
-        </div>
-        <!-- Removal Button -->
-        <div ng-show="nextBus.showBusRemoval" class="btn btn-danger remove-stop" ng-click="nextBus.removeStopRoute(prediction)">Remove Stop</div>
-        <!-- Additional Stop Info -->
-        <div class="route-title">{{prediction.direction._title || prediction._dirTitleBecauseNoPredictions}}</div>
-        <div class="stop-title">@{{prediction._stopTitle}}</div>
-      </div>
+      <!-- Additional Stop Info -->
+      <div class="route-title">{{prediction.direction._title || prediction._dirTitleBecauseNoPredictions}}</div>
+      <div class="stop-title">@{{prediction._stopTitle}}</div>
 
     </div>
+
   </div>
 </div>

@@ -5,24 +5,8 @@
   .panel-body {
     padding: 10px 15px;
   }
-
-  .prediction-times {
-    color: $gray-lightish;
-    font-size: 30px;
-    font-weight: 200;
-    .next-time {
-      font-size: 40px;
-    }
-    .next-time,
-    .other-time {
-      font-weight: 600;
-    }
-    .not-affected-by-layover {
-      color: #FFF;
-    }
-  }
   .route-tag {
-    display:block;
+    float: left;
     height: $route-tag-size;
     width: $route-tag-size;
     line-height: $route-tag-size;
@@ -33,17 +17,35 @@
     color: #555;
     text-align: center;
   }
-  .route-title,
-  .stop-title {
-    font-size: 11px;
-  }
-  .route-title {
-    font-weight: bold;
+  .right-container {
+    text-align: right;
+    .prediction-times {
+      color: $gray-lightish;
+      font-size: 30px;
+      font-weight: 200;
+      .next-time {
+        font-size: 40px;
+      }
+      .next-time,
+      .other-time {
+        font-weight: 600;
+      }
+      .not-affected-by-layover {
+        color: #FFF;
+      }
+    }
+    .route-title,
+    .stop-title {
+      font-size: 11px;
+    }
+    .route-title {
+      font-weight: bold;
+    }
+    .btn.remove-stop {
+      margin-bottom: 4px;
+    }
   }
   .nav-tabs {
     border-bottom: none;
-  }
-  .btn.remove-stop {
-    margin-bottom: 4px;
   }
 }
