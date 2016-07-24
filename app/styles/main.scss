@@ -58,11 +58,14 @@ body {
 
 .panel {
   margin-bottom: 10px;
+  .panel-body {
+    padding: 10px 15px;
+  }
 }
 
 $date-time-gutter: 5px;
 .current-time {
-  margin: 6px 0 14px;
+  margin: 6px 0;
   font-weight: 100;
 
   .time, .date {
@@ -70,7 +73,7 @@ $date-time-gutter: 5px;
     float: none;
   }
   .time {
-    font-size: 80px;
+    font-size: 60px;
     line-height: 100%;
     text-align: right;
     padding-right: $date-time-gutter;
