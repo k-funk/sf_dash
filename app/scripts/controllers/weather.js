@@ -14,10 +14,11 @@ angular.module('sfDashApp')
 
     $scope.minChanceOfRain = 30;
     $scope.forecastHourLimit = 23;
-    $scope.loc1 = '94110';
-    // soma: 94103, north soma: 94105
+    $scope.locations = ['94110', '94104'];
 
-    $scope.weather = {};
+    $scope.weather = {
+      locations: []
+    };
 
     var getRainTime = function (hourlyForecasts) {
       for (var i = 0; i < hourlyForecasts.length; i++) {
@@ -29,16 +30,23 @@ angular.module('sfDashApp')
     };
 
     var updateWeather = function () {
-      weatherSvc.getWeatherData($scope.loc1)
-        .then(function (data) {
-          var todaysForecast = data.forecast.simpleforecast.forecastday[0],
-              hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit),
-              alerts = data.alerts;
+      weatherSvc.getWeatherData($scope.locations)
+        .then(function (locationsData) {
+          angular.forEach(locationsData, function(data, idx) {
+            var weatherData = {};
 
-          $scope.weather.todaysForecast = todaysForecast;
-          $scope.weather.hourlyForecasts = hourlyForecasts;
-          $scope.weather.rainTime = getRainTime(hourlyForecasts);
-          $scope.weather.alerts = alerts;
+            var todaysForecast = data.forecast.simpleforecast.forecastday[0],
+                hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit),
+                alerts = data.alerts;
+
+            weatherData.todaysForecast = todaysForecast;
+            weatherData.hourlyForecasts = hourlyForecasts;
+            weatherData.rainTime = getRainTime(hourlyForecasts);
+            weatherData.alerts = alerts;
+            weatherData.zip = $scope.locations[idx];
+
+            $scope.weather.locations[idx] = weatherData;
+          });
           $scope.weather._lastUpdated = moment();
         }, function (response) {
           if (response.status === -1) {

@@ -1,18 +1,18 @@
 <div class="todays-forecast">
-  <img ng-src="{{weather.todaysForecast.icon | weatherIconUrl}}">
+  <img ng-src="{{location.todaysForecast.icon | weatherIconUrl}}">
   <div class="inline-block">
-    <div class="conditions">{{weather.todaysForecast.conditions}}</div>
-    <div class="high-low">{{weather.todaysForecast.high.fahrenheit}}<span class="text-muted">/</span>{{weather.todaysForecast.low.fahrenheit}}</div>
+    <div class="conditions">{{location.todaysForecast.conditions}}</div>
+    <div class="high-low">{{location.todaysForecast.high.fahrenheit}}<span class="text-muted">/</span>{{location.todaysForecast.low.fahrenheit}}</div>
   </div>
 </div>
 
 <div class="rain-chance">
-  <div ng-show="weather.rainTime">
+  <div ng-show="location.rainTime">
     <img class="img-responsive center-block" src="/images/rain-white.svg">
-    <span class="pop">{{weather.rainTime.pop}}&#37;</span>
-    <span class="time"> <sup class="at">@</sup> {{weather.rainTime.FCTTIME.hour | time24to12 }}{{weather.rainTime.FCTTIME.ampm}}</span>
+    <span class="pop">{{location.rainTime.pop}}&#37;</span>
+    <span class="time"> <sup class="at">@</sup> {{location.rainTime.FCTTIME.hour | time24to12 }}{{location.rainTime.FCTTIME.ampm}}</span>
   </div>
-  <div ng-show="!weather.rainTime">
+  <div ng-show="!location.rainTime">
     <img class="img-responsive center-block" src="/images/no-rain-white.svg">
     <span class="pop">No rain</span>
     <span class="time">in 24hr.</span>
@@ -20,4 +20,4 @@
   <div><small class="text-muted">Based on a {{minChanceOfRain}}% chance threshold.</small></div>
 </div>
 
-<div class="col-xs-12 alerts" ng-include="'views/weather/alerts.html'" ng-if="weather.alerts"></div>
+<div class="col-xs-12 alerts" ng-include="'views/weather/alerts.html'" ng-if="location.alerts"></div>

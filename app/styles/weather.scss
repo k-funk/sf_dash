@@ -1,6 +1,11 @@
 .weather {
   font-size: 10px;
 
+  .zip {
+    padding-top: 5px;
+    text-align: center;
+  }
+
   .table {
     margin-bottom: 0;
     &> tbody > tr {
@@ -79,8 +84,5 @@
         }
       }
     }
-  }
-  .location {
-    margin-left: 5px;
   }
 }

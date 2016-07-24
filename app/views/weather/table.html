@@ -7,7 +7,7 @@
     <th>POP</th>
     <th>Humid</th>
   </tr>
-  <tr ng-repeat="hForecast in weather.hourlyForecasts || [] | limitTo:10">
+  <tr ng-repeat="hForecast in location.hourlyForecasts || [] | limitTo:10">
     <td>{{hForecast.FCTTIME.hour | time24to12 }}{{hForecast.FCTTIME.ampm}}</td>
     <td><img ng-src="{{hForecast.icon | weatherIconUrl}}"> {{hForecast.condition}}</td>
     <td>{{hForecast.temp.english}}&deg;/{{hForecast.feelslike.english}}&deg;</td>
