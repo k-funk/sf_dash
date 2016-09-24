@@ -14,7 +14,7 @@ angular.module('sfDashApp')
 
     $scope.minChanceOfRain = 30;
     $scope.forecastHourLimit = 23;
-    $scope.locations = ['94110', '94104'];
+    $scope.locations = ['94110'];
 
     $scope.weather = {
       locations: []
