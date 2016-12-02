@@ -12,7 +12,7 @@ angular.module('sfDashApp')
 
     $localStorage.stopRouteTags = $localStorage.stopRouteTags  || [];
 
-    $scope.callInterval = 15 * 1000;
+    $scope.callInterval = 10 * 1000;
     $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
 
     $scope.nextBus = {
