@@ -10,7 +10,8 @@
   <div ng-show="location.rainTime">
     <img class="img-responsive center-block" src="/images/rain-white.svg">
     <span class="pop">{{location.rainTime.pop}}&#37;</span>
-    <span class="time"> <sup class="at">@</sup> {{location.rainTime.FCTTIME.hour | time24to12 }}{{location.rainTime.FCTTIME.ampm}}</span>
+    <sup class="at">@</sup>
+    <span class="time"> {{location.rainTime.FCTTIME.hour | time24to12 }}{{location.rainTime.FCTTIME.ampm}}</span>
   </div>
   <div ng-show="!location.rainTime">
     <img class="img-responsive center-block" src="/images/no-rain-white.svg">
