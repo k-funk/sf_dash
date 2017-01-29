@@ -35,10 +35,12 @@ angular.module('sfDashApp')
           angular.forEach(locationsData, function(data, idx) {
             var weatherData = {};
 
-            var todaysForecast = data.forecast.simpleforecast.forecastday[0],
+            var forecasts = data.forecast.simpleforecast.forecastday,
+                todaysForecast = forecasts[0],
                 hourlyForecasts = data.hourly_forecast.slice(0, $scope.forecastHourLimit),
                 alerts = data.alerts;
 
+            weatherData.forecasts = forecasts;
             weatherData.todaysForecast = todaysForecast;
             weatherData.hourlyForecasts = hourlyForecasts;
             weatherData.rainTime = getRainTime(hourlyForecasts);

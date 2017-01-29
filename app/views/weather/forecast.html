@@ -1,0 +1,10 @@
+<div class="row forecasts">
+  <div class="col-sm-4 forecast" ng-repeat="forecast in location.forecasts | limitTo: 4" ng-if="!$first">
+    <img ng-src="{{forecast.icon | weatherIconUrl}}">
+    <div class="inline-block">
+      <div class="conditions">{{forecast.conditions}}</div>
+      <div class="high-low">{{forecast.high.fahrenheit}}<span class="text-muted">/</span>{{forecast.low.fahrenheit}}</div>
+      <div class="date">{{forecast.date.weekday}}, {{forecast.date.monthname_short}} {{forecast.date.day}}</div>
+    </div>
+  </div>
+</div>
