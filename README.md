@@ -22,7 +22,7 @@ Planned features are in [TODO.md](TODO.md)
     grunt serve
 
 #### Build
-    grunt build
+    npm run build
 
 #### Deploy
-    rsync -vrz --delete ./dist/ <username>@<hostname>:~/<remote_dir>/
+    npm run deploy

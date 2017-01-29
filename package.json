@@ -38,6 +38,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "build": "grunt build",
+    "deploy": "npm run build && source ./deploy.sh",
+    "dev": "grunt serve",
     "test": "grunt test"
   }
 }
