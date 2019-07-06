@@ -1,7 +1,12 @@
+# node
 /node_modules
-/dist
-/.tmp
+package-lock.json
 /.sass-cache
-/bower_components
+
+
+# editors
 /.idea
+
+
+/dist
 deploy.sh

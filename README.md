@@ -33,3 +33,6 @@ Planned features are in [TODO.md](TODO.md)
 Current as of https://github.com/k-funk/sf_dash/commit/84324f2c04ed0f294772c21e96e01ee6e17ee8c4
 
 ![iPad Screenshot](/screenshot.jpg)
+
+
+#### Scaffolded from https://github.com/wbkd/webpack-starter
