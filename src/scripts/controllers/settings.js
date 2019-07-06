@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 /**
  * @ngdoc function
  * @name sfDashApp.controller:SettingsCtrl
@@ -6,22 +8,22 @@
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('SettingsCtrl', function ($scope, $localStorage, weatherSvc) {
+  .controller('SettingsCtrl', ($scope, $localStorage, weatherSvc) => {
     $scope.$storage = $localStorage;
 
-    $scope.storeKey = function (key) {
+    $scope.storeKey = key => {
       $scope.$storage.weather = key;
     };
-    $scope.validateKey = function (key) {
+    $scope.validateKey = key => {
       weatherSvc.validateKey(key)
-        .then(function () {
+        .then(() => {
           $scope.validKey = true;
           weatherSvc.storeKey(key);
-        }, function () {
+        }, () => {
           $scope.validKey = false;
         });
     };
-    $scope.dumpLocalStorage = function () {
+    $scope.dumpLocalStorage = () => {
       $scope.$storage.$reset();
       $scope.weatherKey = '';
       $scope.validKey = undefined;

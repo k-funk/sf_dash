@@ -1,3 +1,4 @@
+import angular from 'angular';
 import moment from 'moment';
 import 'moment-precise-range';
 
@@ -9,40 +10,38 @@ import 'moment-precise-range';
  * # timeSinceLastUpdated
  */
 angular.module('sfDashApp')
-  .directive('timeSinceLastUpdated', function ($interval) {
-    return {
-      replace: true,
-      restrict: 'EA',
-      scope: {
-        lastUpdated: '=',
-        msUntilWarning: '='
-      },
-      link: function postLink(scope, element) {
-        element.addClass('time-since-last-updated');
+  .directive('timeSinceLastUpdated', $interval => ({
+    replace: true,
+    restrict: 'EA',
+    scope: {
+      lastUpdated: '=',
+      msUntilWarning: '=',
+    },
+    link: function postLink(scope, element) {
+      element.addClass('time-since-last-updated');
 
-        var interval, timeText;
+      let timeText;
 
-        interval = $interval(function() {
-          if (!scope.lastUpdated) {return;}
+      const interval = $interval(() => {
+        if (!scope.lastUpdated) { return; }
 
-          timeText = scope.lastUpdated.preciseDiff(moment());
-          if (!timeText) { // timeText is empty if diff is 0
-            element.text('Just now.');
+        timeText = scope.lastUpdated.preciseDiff(moment());
+        if (!timeText) { // timeText is empty if diff is 0
+          element.text('Just now.');
+        } else {
+          if (moment().diff(scope.lastUpdated) > scope.msUntilWarning) {
+            element.addClass('overdue');
           } else {
-            if (moment().diff(scope.lastUpdated) > scope.msUntilWarning) {
-              element.addClass('overdue');
-            } else {
-              element.removeClass('overdue');
-            }
-            element.text(timeText + ' ago.');
+            element.removeClass('overdue');
           }
-        }, 1000);
+          element.text(`${timeText} ago.`);
+        }
+      }, 1000);
 
-        scope.$on('$destroy', function() {
-          if (interval) {
-            $interval.cancel(interval);
-          }
-        });
-      }
-    };
-  });
+      scope.$on('$destroy', () => {
+        if (interval) {
+          $interval.cancel(interval);
+        }
+      });
+    },
+  }));

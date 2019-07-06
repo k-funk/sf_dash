@@ -1,3 +1,6 @@
+import angular from 'angular';
+
+
 const TIMEOUT_MIL_SEC = 7000;
 
 /**
@@ -10,14 +13,12 @@ const TIMEOUT_MIL_SEC = 7000;
 angular.module('sfDashApp')
   .constant('WEATHER_ICON_PATH', 'http://icons.wxug.com/i/c/v4/')
   .factory('weatherSvc', ($http, $q, $localStorage) => {
-    const getUrl = (type, query, testKey) => {
-      return 'http://api.wunderground.com/api/' +
-        ($localStorage.weatherKey || testKey) + '/' +
-        type + '/q/' + query + '.json';
-    };
+    const getUrl = (type, query, testKey) => `http://api.wunderground.com/api/${
+      $localStorage.weatherKey || testKey}/${
+      type}/q/${query}.json`;
 
     const makeCallForLocation = location => (
-      $http.get(getUrl('hourly/forecast/alerts', location), {timeout: TIMEOUT_MIL_SEC})
+      $http.get(getUrl('hourly/forecast/alerts', location), { timeout: TIMEOUT_MIL_SEC })
         .then(data => data.data)
     );
 
@@ -27,12 +28,11 @@ angular.module('sfDashApp')
         angular.forEach(locations, location => {
           promises.push(makeCallForLocation(location));
         });
-        return $q.all(promises)
-          .then(promises => promises);
+        return $q.all(promises).then(p => p);
       },
       validateKey: key => $http.get(getUrl('forecast', 'san_francisco,ca', key)),
       storeKey: key => {
         $localStorage.weatherKey = key;
-      }
+      },
     };
   });

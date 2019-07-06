@@ -28,7 +28,7 @@ import './controllers/settings';
 import './controllers/nextbus';
 import './controllers/weather';
 
-//services
+// services
 import './services/nextBusSvc';
 import './services/weatherSvc';
 
@@ -36,7 +36,7 @@ import './services/weatherSvc';
 import './directives/timesincelastupdated';
 import './directives/currenttime';
 
-//filters
+// filters
 import './filters/weathericonurl';
 
 

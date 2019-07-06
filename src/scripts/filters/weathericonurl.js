@@ -1,3 +1,6 @@
+import angular from 'angular';
+
+
 /**
  * @ngdoc filter
  * @name sfDashApp.filter:weatherIconUrl
@@ -7,9 +10,7 @@
  * Filter in the sfDashApp.
  */
 angular.module('sfDashApp')
-  .filter('weatherIconUrl', function (WEATHER_ICON_PATH) {
-    return function (input) {
-      if (!input) {return '';}
-      return WEATHER_ICON_PATH + input + '.svg';
-    };
+  .filter('weatherIconUrl', WEATHER_ICON_PATH => input => {
+    if (!input) { return ''; }
+    return `${WEATHER_ICON_PATH + input}.svg`;
   });

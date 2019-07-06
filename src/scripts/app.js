@@ -4,6 +4,7 @@ import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
 const TEMPLATE_PATH = 'views';
+/* eslint import/no-dynamic-require: 0, global-require: 0 */
 const TEMPLATE_CACHE = [
   `${TEMPLATE_PATH}/header.html`,
 
@@ -21,7 +22,6 @@ const TEMPLATE_CACHE = [
   url: filename,
   template: require(`../${filename}`),
 }));
-// import headerTempl from '../views/header.html';
 
 
 /**
@@ -44,46 +44,44 @@ angular
     'xml',
     'ngStorage',
     'geolocation',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(($routeProvider, $locationProvider) => {
     $locationProvider.hashPrefix('');
     $routeProvider
       .when('/', {
         template: mainTempl,
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
       })
       .when('/settings', {
         template: settingsTempl,
         controller: 'SettingsCtrl',
-        controllerAs: 'settings'
+        controllerAs: 'settings',
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
       });
   })
-  .config(function ($httpProvider) {
+  .config($httpProvider => {
     $httpProvider.interceptors.push('xmlHttpInterceptor');
   })
-  .config(function (x2jsProvider) {
+  .config(x2jsProvider => {
     x2jsProvider.config = {
       arrayAccessFormPaths: [
         'body.predictions',
         'body.predictions.direction.prediction',
-        'body.route.direction'
-      ]
+        'body.route.direction',
+      ],
     };
   })
-  .filter('time24to12', function () {
-    return function (input) {
-      // TODO: Can't remember if this is safe. FU js casting.
-      input = Number(input);
-      if (input === 0) {return 12;}
-      else if (input >= 1 && input <= 12) {return input;}
-      else {return input - 12;}
-    };
+  .filter('time24to12', () => input => {
+    // TODO: Can't remember if this is safe. FU js casting.
+    input = Number(input);
+    if (input === 0) { return 12; }
+    if (input >= 1 && input <= 12) { return input; }
+    return input - 12;
   })
-  .run(['$templateCache', function($templateCache) {
+  .run(['$templateCache', $templateCache => {
     TEMPLATE_CACHE.forEach(t => $templateCache.put(t.url, t.template));
   }]);
