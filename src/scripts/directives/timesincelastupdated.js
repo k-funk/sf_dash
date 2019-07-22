@@ -3,12 +3,6 @@ import moment from 'moment';
 import 'moment-precise-range-plugin';
 
 
-/**
- * @ngdoc directive
- * @name sfDashApp.directive:timeSinceLastUpdated
- * @description
- * # timeSinceLastUpdated
- */
 angular.module('sfDashApp')
   .directive('timeSinceLastUpdated', $interval => ({
     replace: true,

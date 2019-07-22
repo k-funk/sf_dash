@@ -76,13 +76,6 @@ const getUrl = ({
   lang = 'en',
 }) => `${base}/${key}/${lat},${long}?exclude=${exclude}&lang=${lang}`;
 
-/**
- * @ngdoc service
- * @name sfDashApp.weatherSvc
- * @description
- * # weatherSvc
- * Factory in the sfDashApp.
- */
 angular.module('sfDashApp')
   .factory('weatherSvc', ($http, $q, $localStorage, $sce) => {
     // $http.jsonp and $sce is needed to get around CORS

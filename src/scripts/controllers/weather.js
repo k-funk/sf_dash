@@ -8,13 +8,6 @@ import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 const CALL_INTERVAL = 15 * 60 * 1000;
 const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
 
-/**
- * @ngdoc function
- * @name sfDashApp.controller:WeatherCtrl
- * @description
- * # WeatherCtrl
- * Controller of the sfDashApp
- */
 angular.module('sfDashApp')
   .controller('WeatherCtrl', ($scope, $interval, weatherSvc) => {
     $scope.msUntilWarning = MS_UNTIL_WARNING;

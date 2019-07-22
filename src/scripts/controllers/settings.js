@@ -1,12 +1,6 @@
 import angular from 'angular';
 
-/**
- * @ngdoc function
- * @name sfDashApp.controller:SettingsCtrl
- * @description
- * # SettingsCtrl
- * Controller of the sfDashApp
- */
+
 angular.module('sfDashApp')
   .controller('SettingsCtrl', ($scope, $localStorage, weatherSvc) => {
     $scope.$storage = $localStorage;

@@ -3,12 +3,6 @@ import moment from 'moment';
 import 'moment-precise-range-plugin';
 
 
-/**
- * @ngdoc directive
- * @name sfDashApp.directive:currentTime
- * @description
- * # currentTime
- */
 angular.module('sfDashApp')
   .directive('currentTime', (dateFilter, $interval) => ({
     template: '<div class="current-time row">'

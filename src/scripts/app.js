@@ -23,15 +23,6 @@ const TEMPLATE_CACHE = [
   template: require(`../${filename}`),
 }));
 
-
-/**
- * @ngdoc overview
- * @name sfDashApp
- * @description
- * # sfDashApp
- *
- * Main module of the application.
- */
 angular
   .module('sfDashApp', [
     'ngAnimate',

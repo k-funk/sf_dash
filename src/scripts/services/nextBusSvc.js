@@ -32,13 +32,6 @@ const mergeRouteData = routeData => {
   return routeData;
 };
 
-/**
- * @ngdoc service
- * @name sfDashApp.nextBusSvc
- * @description
- * # nextBus
- * Factory in the sfDashApp.
- */
 angular.module('sfDashApp')
   .factory('nextBusSvc', ($http, $q, geolocation) => ({
     getPredictions(stopRouteTags) {

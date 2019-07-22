@@ -17,14 +17,6 @@ const DARK_SKY_ICON_MAP = {
   wind: 'wind',
 };
 
-/**
- * @ngdoc filter
- * @name sfDashApp.filter:weatherIconUrl
- * @function
- * @description
- * # weatherIconUrl
- * Filter in the sfDashApp.
- */
 angular.module('sfDashApp')
   .filter('weatherIconUrl', () => input => {
     if (!input) { return ''; }

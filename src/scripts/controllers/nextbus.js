@@ -8,13 +8,6 @@ import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 const CALL_INTERVAL = 10 * 1000;
 const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
 
-/**
- * @ngdoc function
- * @name sfDashApp.controller:NextbusCtrl
- * @description
- * # NextbusCtrl
- * Controller of the sfDashApp
- */
 angular.module('sfDashApp')
   .controller('NextbusCtrl', ($scope, $interval, $localStorage, nextBusSvc) => {
     $scope.msUntilWarning = MS_UNTIL_WARNING;
