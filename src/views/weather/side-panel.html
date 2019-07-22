@@ -1,23 +1,29 @@
 <div class="forecast">
-  <img ng-src="{{location.todaysForecast.icon | weatherIconUrl}}">
+  <img ng-src="{{location.todaysForecast.icon | weatherIconUrl}}" alt="">
   <div class="inline-block">
-    <div class="conditions">{{location.todaysForecast.conditions}}</div>
-    <div class="high-low">{{location.todaysForecast.high.fahrenheit}}<span class="text-muted">/</span>{{location.todaysForecast.low.fahrenheit}}</div>
+    <div class="conditions">
+      {{location.todaysForecast.summary | limitTo:22}}{{location.todaysForecast.summary.length > 22 ? '...' : ''}}
+    </div>
+    <div class="high-low">
+      {{location.todaysForecast.temperatureMin | number:0}}<span class="text-muted">/</span>{{location.todaysForecast.temperatureMax | number:0}}
+    </div>
   </div>
 </div>
 
 <div class="rain-chance">
-  <div ng-show="location.rainTime">
-    <img class="img-responsive center-block" src="/images/rain-white.svg">
-    <span class="pop">{{location.rainTime.pop}}&#37;</span>
+  <div ng-show="location.rainForecast">
+    <img class="img-responsive center-block" src="/src/images/umbrella-white.svg" alt="Bring Umbrella">
+    <span class="pop">
+      {{location.rainForecast.precipProbability * 100}}&#37;
+    </span>
     <sup class="at">@</sup>
-    <span class="time"> {{location.rainTime.FCTTIME.hour | time24to12 }}{{location.rainTime.FCTTIME.ampm}}</span>
+    <span class="time"> {{location.rainForecast.time * 1000 | date:'ha' }}</span>
   </div>
-  <div ng-show="!location.rainTime">
-    <img class="img-responsive center-block" src="/images/no-rain-white.svg">
+  <div ng-show="!location.rainForecast">
+    <img class="img-responsive center-block" src="/src/images/no-umbrella-white.svg" alt="No Umbrella">
     <span class="no-rain">No rain in 24hr.</span>
   </div>
-  <div><small class="text-muted">Based on a {{minChanceOfRain}}% chance threshold.</small></div>
+  <div><small class="text-muted">Based on a {{minChanceOfRain * 100}}% chance threshold.</small></div>
 </div>
 
 <div class="col-xs-12 alerts" ng-include="'views/weather/alerts.html'" ng-if="location.alerts"></div>

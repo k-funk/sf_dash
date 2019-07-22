@@ -1,10 +1,16 @@
 <div class="row forecasts">
-  <div class="col-sm-4 forecast" ng-repeat="forecast in location.forecasts | limitTo: 4" ng-if="!$first">
-    <img ng-src="{{forecast.icon | weatherIconUrl}}">
+  <div class="col-sm-4 forecast" ng-repeat="dForecast in location.dailyForecasts | limitTo: 4" ng-if="!$first">
+    <img ng-src="{{dForecast.icon | weatherIconUrl}}" alt="">
     <div class="inline-block">
-      <div class="conditions">{{forecast.conditions}}</div>
-      <div class="high-low">{{forecast.high.fahrenheit}}<span class="text-muted">/</span>{{forecast.low.fahrenheit}}</div>
-      <div class="date">{{forecast.date.weekday}}, {{forecast.date.monthname_short}} {{forecast.date.day}}</div>
+      <div class="conditions">
+        {{dForecast.summary | limitTo:20}}{{dForecast.summary.length > 20 ? '...' : ''}}
+      </div>
+      <div class="high-low">
+        {{dForecast.temperatureMin | number:0}}<span class="text-muted">/</span>{{dForecast.temperatureMax | number:0}}
+      </div>
+      <div class="date">
+        {{dForecast.time * 1000 | date:'EEEE, MMM d'}}
+      </div>
     </div>
   </div>
 </div>

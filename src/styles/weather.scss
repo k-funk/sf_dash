@@ -7,11 +7,14 @@
 .weather {
   font-size: 10px;
 
-  .zip {
-    padding-top: 5px;
+  .location-readable {
+    padding-top: 8px;
     text-align: center;
   }
 
+  .table-wrapper {
+    @include make-xs-column(7, 10px);
+  }
   .table {
     margin-bottom: 0;
     &> tbody > tr {
@@ -22,9 +25,10 @@
       }
       td {
         padding: 3px;
+        vertical-align: middle;
       }
       td img {
-        width: 15px;
+        width: 16px;
         margin-right: 4px;
         margin-left: 2px;
       }
@@ -38,7 +42,6 @@
   }
   .side-panel {
     @include make-xs-column(5, 10px);
-    padding-left: 15px;
     text-align: center;
     .forecast {
       img {
