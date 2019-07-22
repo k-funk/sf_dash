@@ -66,9 +66,13 @@ angular.module('sfDashApp')
           const routeStopPair = `${this.routeTag}|${this.stopTag}`;
           const that = this;
           nextBusSvc.getPredictions([routeStopPair])
-            .then(() => {
+            .then(x => {
+              console.log('success');
+              console.log(x);
               this.addStop(routeStopPair);
-            }, () => {
+            }, x => {
+              console.log('error');
+              console.log(x);
               that.validStop = false;
             });
         },

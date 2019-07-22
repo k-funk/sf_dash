@@ -10,7 +10,6 @@ import 'angular-route';
 import 'angular-sanitize';
 import 'angular-strap';
 import 'angular-touch';
-import 'angular-xml';
 import 'angularjs-geolocation';
 import 'ngstorage';
 

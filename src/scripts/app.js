@@ -63,18 +63,6 @@ angular
         redirectTo: '/',
       });
   })
-  .config($httpProvider => {
-    $httpProvider.interceptors.push('xmlHttpInterceptor');
-  })
-  .config(x2jsProvider => {
-    x2jsProvider.config = {
-      arrayAccessFormPaths: [
-        'body.predictions',
-        'body.predictions.direction.prediction',
-        'body.route.direction',
-      ],
-    };
-  })
   .filter('time24to12', () => input => {
     // TODO: Can't remember if this is safe. FU js casting.
     input = Number(input);

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import X2JS from 'x2js';
 
 /**
  * @ngdoc service
@@ -47,9 +48,8 @@ angular.module('sfDashApp')
           },
         })
           .then(data => {
-          // See config for xml->json arrays
-            const { predictions } = data.data.body;
-            return sortPredictions(stopRouteTags, predictions);
+            const jsonObj = new X2JS().xml2js(data.data);
+            return sortPredictions(stopRouteTags, jsonObj.body.predictions);
           });
       },
       getRouteConfig() {

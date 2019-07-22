@@ -33,7 +33,6 @@ module.exports = {
       jquery: 'jquery',
       'window.jQuery': 'jquery',
       jQuery: 'jquery',
-      X2JS: 'x2js', // required for angular-xml
     }),
   ],
   resolve: {
