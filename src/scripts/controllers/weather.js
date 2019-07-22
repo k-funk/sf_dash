@@ -34,13 +34,13 @@ angular.module('sfDashApp')
         .then(
           locationsData => {
             locationsData.forEach((data, idx) => {
-              const { hourly, daily } = data;
+              const { hourly, daily, alerts = [] } = data;
               $scope.weather.locations[idx] = {
                 todaysForecast: daily.data[0],
                 dailyForecasts: daily.data,
                 hourlyForecasts: hourly.data,
                 rainForecast: getRainForecast(hourly.data),
-                alerts: undefined, // FIXME
+                alerts,
                 location: $scope.locations[idx],
               };
             });

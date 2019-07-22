@@ -82,6 +82,9 @@
           color: red;
           text-transform: uppercase;
           font-weight: bold;
+          &:not(:first-child) {
+            margin-top: 3px;
+          }
         }
       }
     }
