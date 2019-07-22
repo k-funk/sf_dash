@@ -1,6 +1,6 @@
 import angular from 'angular';
 import moment from 'moment';
-import 'moment-precise-range';
+import 'moment-precise-range-plugin';
 
 
 /**

@@ -1,6 +1,6 @@
 import angular from 'angular';
 import moment from 'moment';
-import 'moment-precise-range';
+import 'moment-precise-range-plugin';
 
 
 /**
@@ -66,13 +66,9 @@ angular.module('sfDashApp')
           const routeStopPair = `${this.routeTag}|${this.stopTag}`;
           const that = this;
           nextBusSvc.getPredictions([routeStopPair])
-            .then(x => {
-              console.log('success');
-              console.log(x);
+            .then(() => {
               this.addStop(routeStopPair);
-            }, x => {
-              console.log('error');
-              console.log(x);
+            }, () => {
               that.validStop = false;
             });
         },

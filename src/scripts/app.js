@@ -41,7 +41,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'xml',
     'ngStorage',
     'geolocation',
     'mgcrea.ngStrap',
