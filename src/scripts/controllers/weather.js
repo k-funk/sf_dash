@@ -5,6 +5,9 @@ import 'moment-precise-range-plugin';
 import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 
 
+const CALL_INTERVAL = 15 * 60 * 1000;
+const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
+
 /**
  * @ngdoc function
  * @name sfDashApp.controller:WeatherCtrl
@@ -14,9 +17,7 @@ import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
  */
 angular.module('sfDashApp')
   .controller('WeatherCtrl', ($scope, $interval, weatherSvc) => {
-    $scope.callInterval = 15 * 60 * 1000;
-    $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
-
+    $scope.msUntilWarning = MS_UNTIL_WARNING;
     $scope.minChanceOfRain = 0.3;
     $scope.precipHourLimit = 23;
     $scope.locations = [
@@ -67,6 +68,6 @@ angular.module('sfDashApp')
 
     updateWeather();
     $scope.intervals.push(
-      $interval(updateWeather, $scope.callInterval),
+      $interval(updateWeather, CALL_INTERVAL),
     );
   });

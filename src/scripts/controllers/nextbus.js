@@ -5,6 +5,9 @@ import 'moment-precise-range-plugin';
 import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 
 
+const CALL_INTERVAL = 10 * 1000;
+const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
+
 /**
  * @ngdoc function
  * @name sfDashApp.controller:NextbusCtrl
@@ -14,6 +17,9 @@ import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
  */
 angular.module('sfDashApp')
   .controller('NextbusCtrl', ($scope, $interval, $localStorage, nextBusSvc) => {
+    $scope.msUntilWarning = MS_UNTIL_WARNING;
+    $localStorage.stopRouteTags = $localStorage.stopRouteTags || [];
+
     const updatePredictions = () => {
       // Don't send an empty request
       if (!$localStorage.stopRouteTags.length) { return; }
@@ -24,11 +30,6 @@ angular.module('sfDashApp')
           $scope.nextBus._lastUpdated = moment();
         });
     };
-
-    $localStorage.stopRouteTags = $localStorage.stopRouteTags || [];
-
-    $scope.callInterval = 10 * 1000;
-    $scope.msUntilWarning = $scope.callInterval * WARNING_AFTER_N_MISSED_CALLS;
 
     $scope.nextBus = {
       predictions: [],
@@ -92,6 +93,6 @@ angular.module('sfDashApp')
 
     updatePredictions();
     $scope.intervals.push(
-      $interval(updatePredictions, $scope.callInterval),
+      $interval(updatePredictions, CALL_INTERVAL),
     );
   });
