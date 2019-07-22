@@ -7,12 +7,20 @@ import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 
 const CALL_INTERVAL = 15 * 60 * 1000;
 const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
+const MIN_CHANGE_OF_RAIN = 0.3;
+const PRECIP_HOUR_LIMIT = 23;
+const getRainForecast = hForecasts => (
+  hForecasts
+    .slice(0, PRECIP_HOUR_LIMIT)
+    .find(hForecast => (
+      hForecast.precipProbability >= MIN_CHANGE_OF_RAIN
+    ))
+);
 
 angular.module('sfDashApp')
   .controller('WeatherCtrl', ($scope, $interval, weatherSvc) => {
     $scope.msUntilWarning = MS_UNTIL_WARNING;
-    $scope.minChanceOfRain = 0.3;
-    $scope.precipHourLimit = 23;
+    $scope.minChanceOfRain = MIN_CHANGE_OF_RAIN;
     $scope.locations = [
       { readable: 'Bernal Heights', lat: 37.7448205, long: -122.4100494 },
     ];
@@ -20,14 +28,6 @@ angular.module('sfDashApp')
     $scope.weather = {
       locations: [],
     };
-
-    const getRainForecast = hForecasts => (
-      hForecasts
-        .slice(0, $scope.precipHourLimit)
-        .find(hForecast => (
-          hForecast.precipProbability >= $scope.minChanceOfRain
-        ))
-    );
 
     const updateWeather = () => {
       weatherSvc.getWeatherData($scope.locations)
