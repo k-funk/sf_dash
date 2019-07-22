@@ -2,6 +2,8 @@ import angular from 'angular';
 import moment from 'moment';
 import 'moment-precise-range-plugin';
 
+import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
+
 
 /**
  * @ngdoc function
@@ -11,7 +13,7 @@ import 'moment-precise-range-plugin';
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .controller('NextbusCtrl', ($scope, $interval, $localStorage, nextBusSvc, WARNING_AFTER_N_MISSED_CALLS) => {
+  .controller('NextbusCtrl', ($scope, $interval, $localStorage, nextBusSvc) => {
     const updatePredictions = () => {
       // Don't send an empty request
       if (!$localStorage.stopRouteTags.length) { return; }

@@ -9,7 +9,6 @@ import angular from 'angular';
  * Controller of the sfDashApp
  */
 angular.module('sfDashApp')
-  .constant('WARNING_AFTER_N_MISSED_CALLS', 2)
   .controller('MainCtrl',
     ($scope, $interval) => {
       $scope.intervals = []; // Child scopes inherit this
