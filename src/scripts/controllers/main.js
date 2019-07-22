@@ -14,7 +14,7 @@ angular.module('sfDashApp')
     ($scope, $interval) => {
       $scope.intervals = []; // Child scopes inherit this
       $scope.$on('$destroy', () => {
-        angular.forEach($scope.intervals, interval => {
+        $scope.intervals.forEach(interval => {
           $interval.cancel(interval);
         });
       });

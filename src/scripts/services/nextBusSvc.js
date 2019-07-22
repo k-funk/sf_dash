@@ -1,6 +1,18 @@
 import angular from 'angular';
 import X2JS from 'x2js';
 
+
+const ensureArray = o => (Array.isArray(o) ? o : [o]);
+
+const sortPredictions = (stopRouteTags, predictions) => {
+  const sortedList = [];
+  predictions.forEach(prediction => {
+    const stopRouteTag = `${prediction._routeTag}|${prediction._stopTag}`;
+    sortedList[stopRouteTags.indexOf(stopRouteTag)] = prediction;
+  });
+  return sortedList;
+};
+
 /**
  * @ngdoc service
  * @name sfDashApp.nextBusSvc
@@ -11,23 +23,15 @@ import X2JS from 'x2js';
 angular.module('sfDashApp')
   .factory('nextBusSvc', ($http, $q, geolocation) => {
     const url = 'http://webservices.nextbus.com/service/publicXMLFeed';
-    const sortPredictions = (stopRouteTags, predictions) => {
-      const sortedList = [];
-      angular.forEach(predictions, prediction => {
-        const stopRouteTag = `${prediction._routeTag}|${prediction._stopTag}`;
-        sortedList[stopRouteTags.indexOf(stopRouteTag)] = prediction;
-      });
-      return sortedList;
-    };
     const mergeRouteData = routeData => {
-      angular.forEach(routeData, route => {
+      routeData.forEach(route => {
         // map the stop tags
         const stopTags = {};
-        angular.forEach(route.stop, stop => {
+        route.stop.forEach(stop => {
           stopTags[stop._tag] = stop;
         });
 
-        angular.forEach(route.direction, direction => {
+        route.direction.forEach(direction => {
           for (let i = 0; i < direction.stop.length; i++) {
             const tag = direction.stop[i]._tag;
             direction.stop[i] = stopTags[tag];
@@ -49,7 +53,8 @@ angular.module('sfDashApp')
         })
           .then(data => {
             const jsonObj = new X2JS().xml2js(data.data);
-            return sortPredictions(stopRouteTags, jsonObj.body.predictions);
+            const predictions = ensureArray(jsonObj.body.predictions);
+            return sortPredictions(stopRouteTags, predictions);
           });
       },
       getRouteConfig() {
@@ -76,9 +81,9 @@ angular.module('sfDashApp')
           );
           const routeConfig = promises[1];
 
-          angular.forEach(routeConfig, route => {
-            angular.forEach(route.direction, direction => {
-              angular.forEach(direction.stop, stop => {
+          routeConfig.forEach(route => {
+            route.direction.forEach(direction => {
+              direction.stop.forEach(stop => {
                 /** Find stops that are within [meters] of the users position */
                 const stopLatLng = new google.maps.LatLng(stop._lat, stop._lon);
                 const distance = google.maps.geometry.spherical
