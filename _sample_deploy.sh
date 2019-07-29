@@ -1,6 +1,6 @@
 set -e
 
-grunt build
+npm run build
 
 rsync -vrz --delete ./build/ <username>@<host>:<dir>
 

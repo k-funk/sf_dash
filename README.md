@@ -4,28 +4,18 @@ This project is for use in my home, on a wall-mounted iPad that's always on. It 
 
 Planned features are in [TODO.md](TODO.md)
 
-## Development
-
-#### Requirements
-
-    # This may be different for you. I was installing on a fresh OS X
-    brew install ruby
-    sudo gem install compass (thought there was a node-version of this)
-    npm install -g grunt-cli
-    npm install -g bower
-
 #### Install
     npm install
-    bower install
 
-#### Local Development Server
-    grunt serve
+#### Dev Server
+    npm run start
 
 #### Build
     npm run build
 
 #### Deploy
-    npm run deploy
+    cp _sample_deploy.sh deploy.sh  # fill in missing hostnames/directories/urls
+    bash deploy.sh
 
 
 ## Screenshot from iPad
