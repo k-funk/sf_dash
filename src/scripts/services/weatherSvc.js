@@ -86,7 +86,7 @@ const getUrl = ({
   units = 'auto',
 }) => `${base}/${key}/${lat},${long}?exclude=${exclude}&lang=${lang}&units=${units}`;
 
-const convertUnitsForDarkSky = units => {
+const convertUnitsForDarkSky = (units = 'auto') => {
   switch (units) {
     case ('f'):
       return 'us';
