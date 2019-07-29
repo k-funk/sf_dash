@@ -83,13 +83,27 @@ const getUrl = ({
   long,
   exclude = 'minutely,flags,currently',
   lang = 'en',
-}) => `${base}/${key}/${lat},${long}?exclude=${exclude}&lang=${lang}`;
+  units = 'auto',
+}) => `${base}/${key}/${lat},${long}?exclude=${exclude}&lang=${lang}&units=${units}`;
+
+const convertUnitsForDarkSky = units => {
+  switch (units) {
+    case ('f'):
+      return 'us';
+    case ('c'):
+      return 'si';
+    case ('auto'):
+      return 'auto';
+    default:
+      throw new Error(`Invalid Unit type: ${units}`);
+  }
+};
 
 angular.module('sfDashApp')
   .factory('weatherSvc', ($http, $q, $localStorage, $sce) => {
     // $http.jsonp and $sce is needed to get around CORS
-    const fetchWeatherData = ({ lat, long, key }) => $http.jsonp(
-      $sce.trustAsResourceUrl(getUrl({ lat, long, key })),
+    const fetchWeatherData = ({ lat, long, key, units }) => $http.jsonp(
+      $sce.trustAsResourceUrl(getUrl({ lat, long, key, units })),
     ).then(results => {
       if (Number(results.status) === 200) { return results.data; }
       return $q.reject(results);
@@ -98,10 +112,20 @@ angular.module('sfDashApp')
     return {
       getWeatherData: locations => $q.all(
         locations.map(({ lat, long }) => (
-          fetchWeatherData({ lat, long, key: $localStorage.weatherKey })
+          fetchWeatherData({
+            lat,
+            long,
+            key: $localStorage.weatherKey,
+            units: convertUnitsForDarkSky($localStorage.weatherUnits),
+          })
         )),
       ),
       validateKey: key => fetchWeatherData({ lat: 38, long: -122, key }),
-      storeKey: key => { $localStorage.weatherKey = key; },
+      storeKey: key => {
+        $localStorage.weatherKey = key;
+      },
+      storeUnits: units => {
+        $localStorage.weatherUnits = units;
+      },
     };
   });

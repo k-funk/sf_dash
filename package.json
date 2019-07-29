@@ -2,7 +2,7 @@
   "name": "sf2dash",
   "version": "2.0.0",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.prod.js  --colors",
+    "build": "webpack --config webpack/webpack.config.prod.js --colors",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
     "lint": "eslint src --ext .js --max-warnings 0",
     "lint:fix": "npm run lint -- --fix"

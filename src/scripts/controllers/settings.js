@@ -17,6 +17,9 @@ angular.module('sfDashApp')
           $scope.validKey = false;
         });
     };
+    $scope.setWeatherUnits = key => {
+      weatherSvc.storeUnits(key);
+    };
     $scope.dumpLocalStorage = () => {
       $scope.$storage.$reset();
       $scope.weatherKey = '';

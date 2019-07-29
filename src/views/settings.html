@@ -6,13 +6,26 @@
         <input type="text" class="form-control" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
         <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': validKey, 'glyphicon-remove': validKey === false}"></span>
       </div>
-      <div class="form-group">
-        <input class="btn btn-info" type="submit" value="Validate &amp; Store Key">
-      </div>
-      <hr>
-      <div>
-        <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
-        <p><small>This will remove stored bus stops and your DarkSky key.</small></p>
-      </div>
+      <input class="btn btn-info" type="submit" value="Validate &amp; Store Key">
     </form>
+
+    <hr>
+
+    <div class="form-group">
+      <label>Weather Units:</label>
+      <div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('auto')">Auto</button>
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('f')">F</button>
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('c')">C</button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div>
+      <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
+      <p><small>This will remove stored bus stops and your DarkSky key.</small></p>
+    </div>
 </div>
