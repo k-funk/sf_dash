@@ -99,8 +99,9 @@ const convertUnitsForDarkSky = units => {
   }
 };
 
-angular.module('sfDashApp')
-  .factory('weatherSvc', ($http, $q, $localStorage, $sce) => {
+angular.module('sfDashApp').factory(
+  'weatherSvc',
+  ['$http', '$q', '$localStorage', '$sce', ($http, $q, $localStorage, $sce) => {
     // $http.jsonp and $sce is needed to get around CORS
     const fetchWeatherData = ({ lat, long, key, units }) => $http.jsonp(
       $sce.trustAsResourceUrl(getUrl({ lat, long, key, units })),
@@ -128,4 +129,5 @@ angular.module('sfDashApp')
         $localStorage.weatherUnits = units;
       },
     };
-  });
+  }],
+);

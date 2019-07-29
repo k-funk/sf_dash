@@ -32,8 +32,9 @@ const mergeRouteData = routeData => {
   return routeData;
 };
 
-angular.module('sfDashApp')
-  .factory('nextBusSvc', ($http, $q, geolocation) => ({
+angular.module('sfDashApp').factory(
+  'nextBusSvc',
+  ['$http', '$q', 'geolocation', ($http, $q, geolocation) => ({
     getPredictions(stopRouteTags) {
       return $http.get(URL, {
         params: {
@@ -99,4 +100,5 @@ angular.module('sfDashApp')
         return stopResults;
       });
     },
-  }));
+  })],
+);

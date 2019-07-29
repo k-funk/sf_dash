@@ -3,8 +3,9 @@ import moment from 'moment';
 import 'moment-precise-range-plugin';
 
 
-angular.module('sfDashApp')
-  .directive('currentTime', (dateFilter, $interval) => ({
+angular.module('sfDashApp').directive(
+  'currentTime',
+  ['dateFilter', '$interval', (dateFilter, $interval) => ({
     template: '<div class="current-time row">'
                 + '<div class="time col-xs-6">{{time}}</div>'
                 + '<div class="date col-xs-6">{{date}}</div>'
@@ -25,4 +26,5 @@ angular.module('sfDashApp')
         $interval.cancel(interval);
       });
     },
-  }));
+  })],
+);

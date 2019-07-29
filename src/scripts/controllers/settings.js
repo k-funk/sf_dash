@@ -1,8 +1,9 @@
 import angular from 'angular';
 
 
-angular.module('sfDashApp')
-  .controller('SettingsCtrl', ($scope, $localStorage, weatherSvc) => {
+angular.module('sfDashApp').controller(
+  'SettingsCtrl',
+  ['$scope', '$localStorage', 'weatherSvc', ($scope, $localStorage, weatherSvc) => {
     $scope.$storage = $localStorage;
 
     $scope.storeKey = key => {
@@ -25,4 +26,5 @@ angular.module('sfDashApp')
       $scope.weatherKey = '';
       $scope.validKey = undefined;
     };
-  });
+  }]
+);

@@ -3,8 +3,9 @@ import moment from 'moment';
 import 'moment-precise-range-plugin';
 
 
-angular.module('sfDashApp')
-  .directive('timeSinceLastUpdated', $interval => ({
+angular.module('sfDashApp').directive(
+  'timeSinceLastUpdated',
+  ['$interval', $interval => ({
     replace: true,
     restrict: 'EA',
     scope: {
@@ -38,4 +39,5 @@ angular.module('sfDashApp')
         }
       });
     },
-  }));
+  })],
+);

@@ -23,8 +23,9 @@ const TEMPLATE_CACHE = [
   template: require(`../${filename}`),
 }));
 
-angular
-  .module('sfDashApp', [
+angular.module(
+  'sfDashApp',
+  [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -35,24 +36,27 @@ angular
     'ngStorage',
     'geolocation',
     'mgcrea.ngStrap',
-  ])
-  .config(($routeProvider, $locationProvider) => {
-    $locationProvider.hashPrefix('');
-    $routeProvider
-      .when('/', {
-        template: mainTempl,
-        controller: 'MainCtrl',
-        controllerAs: 'main',
-      })
-      .when('/settings', {
-        template: settingsTempl,
-        controller: 'SettingsCtrl',
-        controllerAs: 'settings',
-      })
-      .otherwise({
-        redirectTo: '/',
-      });
-  })
+  ],
+)
+  .config(
+    ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
+      $locationProvider.hashPrefix('');
+      $routeProvider
+        .when('/', {
+          template: mainTempl,
+          controller: 'MainCtrl',
+          controllerAs: 'main',
+        })
+        .when('/settings', {
+          template: settingsTempl,
+          controller: 'SettingsCtrl',
+          controllerAs: 'settings',
+        })
+        .otherwise({
+          redirectTo: '/',
+        });
+    }],
+  )
   .filter('time24to12', () => input => {
     // TODO: Can't remember if this is safe. FU js casting.
     input = Number(input);

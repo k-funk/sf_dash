@@ -1,17 +1,19 @@
 const Path = require('path');
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const OUTPUT_PATH = 'public';
+
+const OUTPUT_PATH = Path.resolve(__dirname, '../', 'build');
+const CONTEXT = Path.resolve(__dirname, '../', 'src');
 
 module.exports = {
+  context: CONTEXT,
   entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js'),
+    app: './scripts/index.js',
   },
   output: {
-    path: Path.join(__dirname, '../build'),
+    path: OUTPUT_PATH,
     filename: 'js/[name].js',
   },
   optimization: {
@@ -22,11 +24,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([
-      { from: Path.resolve(__dirname, '../public'), to: OUTPUT_PATH },
-    ]),
     new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../src/index.html'),
+      template: './index.html',
     }),
     new Webpack.ProvidePlugin({
       $: 'jquery', // required for angular
@@ -35,11 +34,6 @@ module.exports = {
       jQuery: 'jquery',
     }),
   ],
-  resolve: {
-    alias: {
-      '~': Path.resolve(__dirname, '../src'),
-    },
-  },
   module: {
     rules: [
       {

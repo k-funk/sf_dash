@@ -8,5 +8,5 @@ package-lock.json
 /.idea
 
 
-/dist
+/build
 deploy.sh

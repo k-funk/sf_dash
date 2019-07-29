@@ -17,8 +17,9 @@ const getRainForecast = hForecasts => (
     ))
 );
 
-angular.module('sfDashApp')
-  .controller('WeatherCtrl', ($scope, $interval, weatherSvc) => {
+angular.module('sfDashApp').controller(
+  'WeatherCtrl',
+  ['$scope', '$interval', 'weatherSvc', ($scope, $interval, weatherSvc) => {
     $scope.msUntilWarning = MS_UNTIL_WARNING;
     $scope.minChanceOfRain = MIN_CHANGE_OF_RAIN;
     $scope.locations = [
@@ -63,4 +64,5 @@ angular.module('sfDashApp')
     $scope.intervals.push(
       $interval(updateWeather, CALL_INTERVAL),
     );
-  });
+  }],
+);

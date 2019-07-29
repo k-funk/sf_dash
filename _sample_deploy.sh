@@ -2,6 +2,6 @@ set -e
 
 grunt build
 
-rsync -vrz --delete ./dist/ <username>@<host>:<dir>
+rsync -vrz --delete ./build/ <username>@<host>:<dir>
 
 open <live_url>
