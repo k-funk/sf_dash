@@ -4,8 +4,18 @@
     <div class="conditions">
       {{location.todaysForecast.summary | limitTo:22}}{{location.todaysForecast.summary.length > 22 ? '...' : ''}}
     </div>
+
     <div class="high-low">
-      {{location.todaysForecast.temperatureMin | number:0}}<span class="text-muted">/</span>{{location.todaysForecast.temperatureMax | number:0}}
+      {{location.todaysForecast.temperatureMin | number:0}}<span class="text-muted">/</span>{{location.todaysForecast.temperatureMax | number:0}}&deg;
+    </div>
+
+    <div class="high-low-alt text-muted" ng-show="$storage.weatherUnits">
+      <span ng-if="$storage.weatherUnits === 'c'">
+        {{location.todaysForecast.temperatureMin | cToF | number:0 }}/{{location.todaysForecast.temperatureMax | cToF | number:0 }}&deg;F
+      </span>
+      <span ng-if="$storage.weatherUnits === 'f'">
+        {{location.todaysForecast.temperatureMin | fToC | number:0 }}/{{location.todaysForecast.temperatureMax | fToC | number:0 }}&deg;C
+      </span>
     </div>
   </div>
 </div>

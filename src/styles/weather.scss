@@ -53,6 +53,9 @@
       .high-low {
         font-size: 32px;
       }
+      .high-low-alt {
+        font-size: 14px;
+      }
     }
     .rain-chance {
       line-height: 1.1;
@@ -103,7 +106,7 @@
       width: 45px;
       margin-right: 10px;
     }
-    .conditions, .high-low, .date {
+    .conditions, .high-low, .high-low-alt, .date {
       text-align: left;
     }
     .conditions {
@@ -112,8 +115,6 @@
     .high-low {
       font-size: 18px;
       line-height: 1.1;
-    }
-    .date {
     }
   }
 }
