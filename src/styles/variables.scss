@@ -1,4 +1,10 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
-$gray-lightish: #ccc;
-$gray-dark: #222;
+$gray-lightish:             #ccc;
+$gray-dark:                 #222;
+
+$grid-gutter-width:         30px;
+$grid-gutter-width-slim:    20px;
+
+$container-desktop:         (1000px + $grid-gutter-width);
+$container-md:              $container-desktop;
