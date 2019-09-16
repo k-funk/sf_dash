@@ -20,5 +20,5 @@ const DARK_SKY_ICON_MAP = {
 angular.module('sfDashApp')
   .filter('weatherIconUrl', () => input => {
     if (!input) { return ''; }
-    return `/src/images/weather-icons/${DARK_SKY_ICON_MAP[input] || 'unknown'}.svg`;
+    return `/images/weather-icons/${DARK_SKY_ICON_MAP[input] || 'unknown'}.svg`;
   });
