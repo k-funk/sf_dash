@@ -12,14 +12,10 @@ import 'angular-strap';
 import 'angular-touch';
 import 'angularjs-geolocation';
 import 'ngstorage';
+import 'ngreact';
 
 // App
 import './app';
-
-// templates
-// import '../views/main.html';
-// import '../views/header.html';
-// import '../views/settings.html';
 
 // controllers
 import './controllers/main';

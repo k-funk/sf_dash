@@ -3,6 +3,9 @@ import angular from 'angular';
 import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
+import WeatherAlerts from '../components/weather/alerts';
+
+
 const TEMPLATE_PATH = 'views';
 /* eslint import/no-dynamic-require: 0, global-require: 0 */
 const TEMPLATE_CACHE = [
@@ -23,6 +26,10 @@ const TEMPLATE_CACHE = [
   template: require(`../${filename}`),
 }));
 
+const REACT_COMPONENTS = [
+  WeatherAlerts,
+];
+
 angular.module(
   'sfDashApp',
   [
@@ -36,6 +43,7 @@ angular.module(
     'ngStorage',
     'geolocation',
     'mgcrea.ngStrap',
+    'react',
   ],
 )
   .config(
@@ -67,3 +75,9 @@ angular.module(
   .run(['$templateCache', $templateCache => {
     TEMPLATE_CACHE.forEach(t => $templateCache.put(t.url, t.template));
   }]);
+
+REACT_COMPONENTS.forEach(component => {
+  angular.module(
+    'sfDashApp',
+  ).value(component.name, component);
+});

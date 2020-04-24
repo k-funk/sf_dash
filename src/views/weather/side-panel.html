@@ -36,4 +36,4 @@
   <div><small class="text-muted">Based on a {{minChanceOfRain * 100 | number:0}}% chance threshold.</small></div>
 </div>
 
-<div class="col-xs-12 alerts" ng-include="'views/weather/alerts.html'" ng-if="location.alerts"></div>
+<react-component name="WeatherAlerts" props="location"></react-component>

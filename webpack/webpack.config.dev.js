@@ -17,6 +17,9 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       // {
@@ -29,7 +32,7 @@ module.exports = merge(common, {
       //   },
       // },
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx)$/,
         include: Path.resolve(__dirname, '../src'),
         loader: 'babel-loader',
       },
