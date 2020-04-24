@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `""`;
+
+exports[`outputs the expected tree when there are alerts 1`] = `
+<div
+  className="col-xs-12 alerts"
+>
+  <ul>
+    <li
+      key="Flood Watch for Mason, WA"
+    >
+      Flood Watch for Mason, WA
+    </li>
+  </ul>
+</div>
+`;

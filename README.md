@@ -10,6 +10,9 @@ Planned features are in [TODO.md](TODO.md)
 #### Dev Server
     npm run start
 
+#### Tests
+    npm run test
+
 #### Build
     npm run build
 

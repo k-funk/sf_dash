@@ -3,9 +3,14 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
   ],
+
+  "env": {
+    "jest": true
+  },
 
   "settings": {
     "import/resolver": {
@@ -16,6 +21,10 @@
     "import/extensions": ["", ".js", ".ejs", ".json", ".yml", ".jsx"],
     "import/ignore": [".ejs$", ".yml$", ".jsx"]
   },
+
+  "plugins": [
+    "jest",
+  ],
 
   "rules": {
     "import/extensions": ["error", "always", {
@@ -61,6 +70,10 @@
       "always",
       { "exceptAfterSingleLine": true }
     ],
+
+    "jest/consistent-test-it": ["error", {"fn": "test"}],
+    "jest/expect-expect": 0, // incompatible with doing an expect in afterEach
+    "jest/no-standalone-expect": 0, // incompatible with doing an expect in afterEach
   },
 
   "globals": {
