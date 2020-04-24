@@ -1,13 +1,21 @@
+// Global Vars
+@import 'bootstrap_variables.scss';
 @import 'variables.scss';
 
-@import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
-@import 'bootstrap-slate.min.scss'; // a theme
 
+// Third-party
+@import 'bootstrap/scss/bootstrap';
+
+
+// Components
+@import 'current_time.scss';
+@import 'time_since_last_updated.scss';
 @import 'spinner.scss';
 @import 'weather.scss';
 @import 'nextbus.scss';
 
 
+// AngularJS
 [ng-click],
 [data-ng-click],
 [x-ng-click] {
@@ -21,18 +29,17 @@
   padding: 0.2em 0;
 }
 
+// FIXME
 .block {display: block;}
 .inline-block {display: inline-block;}
 .inline {display: inline;}
 
-body {
-  padding: 0;
-}
-
+// FIXME: can this be removed?
 .container {
   position:relative;
 }
 
+// FIXME: can this be removed?
 .header {
   position: absolute;
   z-index: 99;
@@ -45,51 +52,9 @@ body {
   }
 }
 
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
 .error-msg {
   color: red;
   font-size: 12px;
-}
-
-.panel {
-  margin-bottom: 10px;
-  .panel-body {
-    padding: 10px;
-  }
-  .panel-footer {
-    background-color: transparent;
-  }
-}
-
-$date-time-gutter: 5px;
-.current-time {
-  margin: 6px 0;
-  font-weight: 100;
-
-  .time, .date {
-    display: inline-block;
-    float: none;
-  }
-  .time {
-    font-size: 60px;
-    line-height: 100%;
-    text-align: right;
-    padding-right: $date-time-gutter;
-    vertical-align: middle;
-  }
-  .date {
-    line-height: 150%;
-    font-weight: 200;
-    font-size: 30px;
-    text-align: left;
-    padding-left: $date-time-gutter;
-    vertical-align: bottom;
-  }
 }
 
 .add-form {
@@ -107,15 +72,9 @@ $date-time-gutter: 5px;
   }
 }
 
+// I think that the html for this comes from angularstrap
 .nav-tabs > li.active > a {
   background-color: #2e3338;
-}
-
-.time-since-last-updated {
-  font-size: 10px;
-  &.overdue {
-    color: red;
-  }
 }
 
 .nextbus,

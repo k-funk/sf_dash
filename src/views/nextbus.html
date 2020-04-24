@@ -1,19 +1,21 @@
-<div ng-show="!nextBus.predictions.length" class="panel panel-default">
-  <div class="panel-body">
-    No bus stops added.
+<div class="nextbus">
+  <div ng-show="!nextBus.predictions.length" class="card mb-2">
+    <div class="card-body">
+      No bus stops added.
+    </div>
   </div>
-</div>
 
-<div class="predictions" ng-include="'views/nextbus/predictions.html'"></div>
+  <div class="predictions" ng-include="'views/nextbus/predictions.html'"></div>
 
-<div bs-tabs class="add-form" ng-show="nextBus.addForm.showBusAddForm">
-  <div data-title="Geolocation" ng-include="'views/nextbus/add-stop-geolocate.html'" bs-pane></div>
-  <div data-title="Manual Input" ng-include="'views/nextbus/add-stop-manual.html'" bs-pane></div>
-  <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
-</div>
+  <div bs-tabs class="add-form" ng-show="nextBus.addForm.showBusAddForm">
+    <div data-title="Geolocation" ng-include="'views/nextbus/add-stop-geolocate.html'" bs-pane></div>
+    <div data-title="Manual Input" ng-include="'views/nextbus/add-stop-manual.html'" bs-pane></div>
+    <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
+  </div>
 
-<div ng-hide="nextBus.addForm.showBusAddForm">
-  <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
-  <span class="btn btn-xs btn-default glyphicon glyphicon-pencil" ng-hide="!nextBus.predictions.length" ng-click="nextBus.toggleBusRemove()"></span>
-  <span class="pull-right" time-since-last-updated last-updated="nextBus._lastUpdated" ms-until-warning="msUntilWarning"></span>
+  <div ng-hide="nextBus.addForm.showBusAddForm">
+    <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+    <span class="btn btn-xs btn-default glyphicon glyphicon-pencil" ng-hide="!nextBus.predictions.length" ng-click="nextBus.toggleBusRemove()"></span>
+    <span class="text-right" time-since-last-updated last-updated="nextBus._lastUpdated" ms-until-warning="msUntilWarning"></span>
+  </div>
 </div>

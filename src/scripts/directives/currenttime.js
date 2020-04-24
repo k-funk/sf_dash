@@ -7,8 +7,8 @@ angular.module('sfDashApp').directive(
   'currentTime',
   ['dateFilter', '$interval', (dateFilter, $interval) => ({
     template: '<div class="current-time row">'
-                + '<div class="time col-xs-6">{{time}}</div>'
-                + '<div class="date col-xs-6">{{date}}</div>'
+                + '<div class="time col-6">{{time}}</div>'
+                + '<div class="date col-6">{{date}}</div>'
                 + '</div>',
     restrict: 'EA',
     replace: true,

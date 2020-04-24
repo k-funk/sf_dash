@@ -1,0 +1,26 @@
+$date-time-gutter: 5px;
+
+.current-time {
+  margin: 6px 0;
+  font-weight: 100;
+
+  .time, .date {
+    display: inline-block;
+    float: none;
+  }
+  .time {
+    font-size: 60px;
+    line-height: 100%;
+    text-align: right;
+    padding-right: $date-time-gutter;
+    vertical-align: middle;
+  }
+  .date {
+    line-height: 150%;
+    font-weight: 200;
+    font-size: 30px;
+    text-align: left;
+    padding-left: $date-time-gutter;
+    vertical-align: bottom;
+  }
+}

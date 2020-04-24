@@ -1,0 +1,6 @@
+.time-since-last-updated {
+  font-size: 10px;
+  &.overdue {
+    color: red;
+  }
+}

@@ -1,7 +1,10 @@
+// FIXME
 // i don't know why these need to be imported. the main .scss file imports
 //  bootstrap already, which has the mixins
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
+//@import 'bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+//@import 'bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
+
+@import 'variables.scss';
 
 
 .weather {
@@ -13,7 +16,8 @@
   }
 
   .table-wrapper {
-    @include make-xs-column(7, 10px);
+    // FIXME
+    //@include make-xs-column(7, 10px);
   }
   .table {
     margin-bottom: 0;
@@ -41,7 +45,8 @@
     }
   }
   .side-panel {
-    @include make-xs-column(5, 14px);
+    // FIXME
+    //@include make-xs-column(5, 14px);
     text-align: center;
     .forecast {
       margin-top: 0;

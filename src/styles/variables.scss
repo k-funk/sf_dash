@@ -1,10 +1,15 @@
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import 'bootstrap_variables.scss';
 
+
+// FIXME: get icons working again. boostrap4 doesn't hook up glyphicons like 3 did
+$icon-font-path:            "~bootstrap-sass/assets/fonts/bootstrap/";
+
+// TODO: delete these and make the grays in bootstrap_variables.scss work
 $gray-lightish:             #ccc;
 $gray-dark:                 #222;
 
-$grid-gutter-width:         30px;
 $grid-gutter-width-slim:    20px;
 
+// FIXME: not being used since bootstrap 3->4 upgrade
 $container-desktop:         (1000px + $grid-gutter-width);
 $container-md:              $container-desktop;
