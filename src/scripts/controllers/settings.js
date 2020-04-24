@@ -26,5 +26,5 @@ angular.module('sfDashApp').controller(
       $scope.weatherKey = '';
       $scope.validKey = undefined;
     };
-  }]
+  }],
 );

@@ -17,7 +17,6 @@ const TEMPLATE_CACHE = [
   `${TEMPLATE_PATH}/nextbus/predictions.html`,
 
   `${TEMPLATE_PATH}/weather.html`,
-  `${TEMPLATE_PATH}/weather/alerts.html`,
   `${TEMPLATE_PATH}/weather/forecast.html`,
   `${TEMPLATE_PATH}/weather/side-panel.html`,
   `${TEMPLATE_PATH}/weather/table.html`,

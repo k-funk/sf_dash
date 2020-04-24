@@ -13,10 +13,15 @@ export default class WeatherAlerts extends PureComponent {
     ),
   };
 
+  static defaultProps = {
+    className: '',
+    alerts: [],
+  }
+
   render() {
     const { className, alerts } = this.props;
 
-    if (!alerts) { return null; }
+    if (!alerts.length) { return null; }
 
     return (
       <div className={classNames(className, 'col-xs-12 alerts')}>

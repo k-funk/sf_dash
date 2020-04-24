@@ -4,7 +4,7 @@
   "parser": "babel-eslint",
   "extends": [
     "plugin:react/recommended",
-    "airbnb-base"
+    "airbnb"
   ],
 
   "settings": {
@@ -23,13 +23,11 @@
       "ejs": "never",
       "jsx": "never",
     }],
-
     "import/no-extraneous-dependencies": [
       "error", {
         "devDependencies": ["**/*.test.js", "**/*.test.jsx"]
       }
     ],
-
     "import/order": ["error",  {
       "newlines-between": "ignore",
       "groups":  [
@@ -39,6 +37,9 @@
         "index"
       ]
     }],
+    "import/newline-after-import": ["error", { "count": 2 }],
+
+    "react/static-property-placement": ["error", "static public field"],
 
     "new-cap": ["error", {
       "capIsNewExceptions": ["Event"],

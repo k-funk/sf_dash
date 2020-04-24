@@ -23,7 +23,7 @@ const mergeRouteData = routeData => {
     });
 
     route.direction.forEach(direction => {
-      for (let i = 0; i < direction.stop.length; i++) {
+      for (let i = 0; i < direction.stop.length; i++) { // eslint-disable-line no-plusplus
         const tag = direction.stop[i]._tag;
         direction.stop[i] = stopTags[tag];
       }
