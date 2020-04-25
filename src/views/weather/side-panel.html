@@ -1,6 +1,6 @@
-<div class="forecast">
+<div class="forecast d-flex align-items-center justify-content-center">
   <img ng-src="{{location.todaysForecast.icon | weatherIconUrl}}" alt="">
-  <div class="inline-block">
+  <div>
     <div class="conditions">
       {{location.todaysForecast.summary | limitTo:22}}{{location.todaysForecast.summary.length > 22 ? '...' : ''}}
     </div>

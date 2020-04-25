@@ -6,7 +6,7 @@ import 'moment-precise-range-plugin';
 angular.module('sfDashApp').directive(
   'currentTime',
   ['dateFilter', '$interval', (dateFilter, $interval) => ({
-    template: '<div class="current-time row">'
+    template: '<div class="current-time row py-1 align-items-baseline">'
                 + '<div class="time col-6">{{time}}</div>'
                 + '<div class="date col-6">{{date}}</div>'
                 + '</div>',

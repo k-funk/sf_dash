@@ -8,14 +8,16 @@
   <div class="predictions" ng-include="'views/nextbus/predictions.html'"></div>
 
   <div bs-tabs class="add-form" ng-show="nextBus.addForm.showBusAddForm">
+    <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="fas fa-times"></span></div>
     <div data-title="Geolocation" ng-include="'views/nextbus/add-stop-geolocate.html'" bs-pane></div>
     <div data-title="Manual Input" ng-include="'views/nextbus/add-stop-manual.html'" bs-pane></div>
-    <div class="btn close-form" ng-click="nextBus.addForm.toggleBusAddForm()"><span class="glyphicon glyphicon-remove"></span></div>
   </div>
 
-  <div ng-hide="nextBus.addForm.showBusAddForm">
-    <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-default glyphicon glyphicon-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
-    <span class="btn btn-xs btn-default glyphicon glyphicon-pencil" ng-hide="!nextBus.predictions.length" ng-click="nextBus.toggleBusRemove()"></span>
+  <div ng-hide="nextBus.addForm.showBusAddForm" class="d-flex align-items-start justify-content-between">
+    <div>
+      <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-outline-secondary fas fa-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
+      <span class="btn btn-xs btn-outline-secondary fas fa-pen" ng-hide="!nextBus.predictions.length" ng-click="nextBus.toggleBusRemove()"></span>
+    </div>
     <span class="text-right" time-since-last-updated last-updated="nextBus._lastUpdated" ms-until-warning="msUntilWarning"></span>
   </div>
 </div>

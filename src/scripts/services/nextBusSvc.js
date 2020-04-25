@@ -2,6 +2,8 @@ import angular from 'angular';
 import X2JS from 'x2js';
 
 
+// Example Stop: '14|5565' (14 at 24th and Mission)
+
 const URL = 'http://webservices.nextbus.com/service/publicXMLFeed';
 const ensureArray = o => (Array.isArray(o) ? o : [o]);
 

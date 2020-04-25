@@ -2,7 +2,7 @@
 
 This project is for use in my home, on a wall-mounted iPad that's always on. It gives me essential information that I need to know before leaving each morning, and saves the time of pulling out my phone and checking multiple apps.
 
-Planned features are in [TODO.md](TODO.md)
+Planned features and maintenance are in [TODO.md](TODO.md)
 
 #### Install
     npm install

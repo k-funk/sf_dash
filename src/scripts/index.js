@@ -1,6 +1,3 @@
-// FIXME: I removed bootstrap's js from being imported. not sure if i was using it. if anything
-//  broke, start using reactstrap
-
 // Angular
 import 'angular';
 import 'angular-animate';

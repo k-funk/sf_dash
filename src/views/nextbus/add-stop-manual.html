@@ -1,16 +1,18 @@
 <div class="card">
     <div class="card-body">
       <form ng-submit="nextBus.addForm.validate()">
-        <div class="form-group col-6">
-          <label>Route Tag:</label>
-          <input type="text" class="form-control" ng-model="nextBus.addForm.routeTag">
+        <div class="row">
+          <div class="form-group col-6">
+            <label>Route Tag:</label>
+            <input type="text" class="form-control" ng-model="nextBus.addForm.routeTag">
+          </div>
+          <div class="form-group col-6">
+            <label>Stop Tag:</label>
+            <input type="text" class="form-control" ng-model="nextBus.addForm.stopTag">
+          </div>
         </div>
-        <div class="form-group col-6">
-          <label>Stop Tag:</label>
-          <input type="text" class="form-control" ng-model="nextBus.addForm.stopTag">
-        </div>
-        <div class="text-right">
-          <input class="btn btn-info" type="submit" value="Validate &amp; Add Stop">
+        <div>
+          <input class="btn btn-primary" type="submit" value="Validate &amp; Add Stop">
         </div>
       </form>
     </div>

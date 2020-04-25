@@ -1,12 +1,11 @@
 <div class="col-6">
     <h1>Settings:</h1>
     <form ng-submit="validateKey(weatherKey)">
-      <div class="form-group has-feedback" ng-class="{'has-success': validKey, 'has-error': validKey === false}">
+      <div class="form-group">
         <label for="weather-key" class="control-label">DarkSky API Key:</label>
-        <input type="text" class="form-control" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
-        <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': validKey, 'glyphicon-remove': validKey === false}"></span>
+        <input type="text" class="form-control" ng-class="{'is-valid': validKey, 'is-invalid': validKey === false}" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
       </div>
-      <input class="btn btn-info" type="submit" value="Validate &amp; Store Key">
+      <input class="btn btn-primary" type="submit" value="Validate &amp; Store Key">
     </form>
 
     <hr>
@@ -15,9 +14,9 @@
       <label>Weather Units:</label>
       <div>
         <div class="btn-group" role="group">
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('auto')">Auto</button>
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('f')">F</button>
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-default' : 'btn-info'" ng-click="setWeatherUnits('c')">C</button>
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('auto')">Auto</button>
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('f')">F</button>
+          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('c')">C</button>
         </div>
       </div>
     </div>

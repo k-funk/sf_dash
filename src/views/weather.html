@@ -1,6 +1,6 @@
 <div class="weather">
   <div ng-show="weather._callFailedReason" class="error-msg">
-    <span class="glyphicon glyphicon-exclamation-sign"></span> <span ng-bind-html="weather._callFailedReason"></span>
+    <span class="fas fa-exclamation-circle"></span> <span ng-bind-html="weather._callFailedReason"></span>
   </div>
 
   <div ng-show="weather.locations">
@@ -11,10 +11,10 @@
         <div class="card-body">
           <div class="row slim-gutters">
             <div class="side-panel col-5" ng-include="'views/weather/side-panel.html'"></div>
-            <div class="table-wrapper col-7" ng-include="'views/weather/table.html'"></div>
+            <div class="col-7" ng-include="'views/weather/table.html'"></div>
           </div>
         </div>
-        <div class="card-footer bg-transparent">
+        <div class="card-footer bg-transparent py-0">
           <div ng-include="'views/weather/forecast.html'"></div>
         </div>
       </div>

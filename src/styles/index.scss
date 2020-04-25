@@ -5,6 +5,8 @@
 
 // Third-party
 @import 'bootstrap/scss/bootstrap';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
 
 
 // Components
@@ -22,33 +24,19 @@
   cursor: pointer;
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-// FIXME
-.block {display: block;}
-.inline-block {display: inline-block;}
-.inline {display: inline;}
-
-// FIXME: can this be removed?
 .container {
   position:relative;
-}
+  .header {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    margin-top: 6px;
+    margin-right: $grid-gutter-width / 2;
 
-// FIXME: can this be removed?
-.header {
-  position: absolute;
-  z-index: 99;
-  right: 0;
-  margin-top: 6px;
-  margin-right: 15px;
-
-  a {
-    margin: 0 3px;
+    a {
+      color: $body-color;
+      margin: 0 3px;
+    }
   }
 }
 
@@ -72,9 +60,27 @@
   }
 }
 
-// I think that the html for this comes from angularstrap
-.nav-tabs > li.active > a {
-  background-color: #2e3338;
+// TODO: delete after migrating from angularstrap (bootstrap3) to reactstrap (bootstrap4)
+.nav-tabs > li {
+  border: $nav-tabs-border-width solid transparent;
+  padding: .5rem .75rem;
+  margin-bottom: -$nav-tabs-border-width;
+  z-index: 99;
+  @include border-top-radius($nav-tabs-border-radius);
+  @include hover-focus() {
+    border-color: $nav-tabs-link-hover-border-color;
+  }
+
+  a {
+    color: $nav-tabs-link-active-color;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.active {
+    background-color: $nav-tabs-link-active-bg;
+    border-color: $nav-tabs-link-active-border-color;
+  }
 }
 
 .nextbus,
@@ -88,7 +94,7 @@
 
   > .col,
   > [class*="col-"] {
-    padding-right: ($grid-gutter-width-slim / 2);
-    padding-left: ($grid-gutter-width-slim / 2);
+    padding-right: $grid-gutter-width-slim / 2;
+    padding-left: $grid-gutter-width-slim / 2;
   }
 }
