@@ -17,9 +17,6 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
   module: {
     rules: [
       // {

@@ -34,6 +34,9 @@ module.exports = {
       jQuery: 'jquery',
     }),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
