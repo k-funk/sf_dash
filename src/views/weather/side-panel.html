@@ -22,7 +22,7 @@
 
 <div class="rain-chance">
   <div ng-show="location.rainForecast">
-    <img class="img-fluid mx-auto" src="/images/umbrella-black.svg" alt="Bring Umbrella">
+    <img class="img-fluid mx-auto" src="/images/umbrella-white.svg" alt="Bring Umbrella">
     <div class="pop">
       {{location.rainForecast.precipProbability * 100 | number:0}}&#37;
     </div>
@@ -30,7 +30,7 @@
     <span class="time"> {{location.rainForecast.time * 1000 | date:'ha' }}</span>
   </div>
   <div ng-show="!location.rainForecast">
-    <img class="img-fluid mx-auto" src="/images/no-umbrella-black.svg" alt="No Umbrella">
+    <img class="img-fluid mx-auto" src="/images/no-umbrella-white.svg" alt="No Umbrella">
     <div class="no-rain">No rain in 24hr.</div>
   </div>
   <div><small class="text-muted">Based on a {{minChanceOfRain * 100 | number:0}}% chance threshold.</small></div>

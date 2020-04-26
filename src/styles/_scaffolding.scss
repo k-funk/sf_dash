@@ -1,0 +1,81 @@
+// AngularJS
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer;
+}
+
+.container {
+  position:relative;
+  .header {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    margin-top: 6px;
+    margin-right: $grid-gutter-width / 2;
+
+    a {
+      color: $body-color;
+      margin: 0 3px;
+    }
+  }
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+}
+
+.add-form {
+  position: relative;
+  font-size: 14px;
+
+  .btn.close-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+  }
+  .table {
+    font-size: 10px;
+  }
+}
+
+// TODO: delete after migrating from angularstrap (bootstrap3) to reactstrap (bootstrap4)
+.nav-tabs > li {
+  border: $nav-tabs-border-width solid transparent;
+  padding: .5rem .75rem;
+  margin-bottom: -$nav-tabs-border-width;
+  z-index: 99;
+  @include border-top-radius($nav-tabs-border-radius);
+  @include hover-focus() {
+    border-color: $nav-tabs-link-hover-border-color;
+  }
+
+  a {
+    color: $nav-tabs-link-active-color;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.active {
+    background-color: $nav-tabs-link-active-bg;
+    border-color: $nav-tabs-link-active-border-color;
+  }
+}
+
+.nextbus,
+.weather {
+  margin-bottom: 20px;
+}
+
+.slim-gutters {
+  margin-right: -($grid-gutter-width-slim / 2);
+  margin-left: -($grid-gutter-width-slim / 2);
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: $grid-gutter-width-slim / 2;
+    padding-left: $grid-gutter-width-slim / 2;
+  }
+}

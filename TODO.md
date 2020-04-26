@@ -9,6 +9,7 @@
 - [ ] Pull from other APIs (news? traffic?)
 - [ ] Better layout on mobile
 - [ ] Make nav bar hideable for smaller devices
+- [ ] Add "load sample data" to settings to make dev and demos easier
 
 
 ## Maintenance
