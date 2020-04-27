@@ -7,8 +7,7 @@
 - [ ] Add/remove weather cards via UI.
 - [ ] Day/Night autoswitch css theme based on sunrise/sunset. +make this optional.
 - [ ] Pull from other APIs (news? traffic?)
-- [ ] Better layout on mobile
-- [ ] Make nav bar hideable for smaller devices
+- [ ] Better layout+nav on mobile
 - [ ] Add "load sample data" to settings to make dev and demos easier
 
 

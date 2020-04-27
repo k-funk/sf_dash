@@ -1,30 +1,54 @@
-<div class="col-6">
-    <h1>Settings:</h1>
-    <form ng-submit="validateKey(weatherKey)">
-      <div class="form-group">
-        <label for="weather-key" class="control-label">DarkSky API Key:</label>
-        <input type="text" class="form-control" ng-class="{'is-valid': validKey, 'is-invalid': validKey === false}" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
+<h1>Settings</h1>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2>Global</h2>
+        <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
+        <p><small>This will remove stored bus stops, your DarkSky key, and the weather units.</small></p>
       </div>
-      <input class="btn btn-primary" type="submit" value="Validate &amp; Store Key">
-    </form>
+    </div>
+  </div>
+</div>
 
-    <hr>
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2>Bus</h2>
 
-    <div class="form-group">
-      <label>Weather Units:</label>
-      <div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('auto')">Auto</button>
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('f')">F</button>
-          <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('c')">C</button>
+        <p class="text-muted">No settings currently available.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2>Weather</h2>
+
+        <form ng-submit="validateKey(weatherKey)">
+          <div class="form-group">
+            <label for="weather-key" class="control-label">DarkSky API Key:</label>
+            <input type="text" class="form-control" ng-class="{'is-valid': validKey, 'is-invalid': validKey === false}" id="weather-key" ng-model="weatherKey" ng-init="weatherKey = $storage.weatherKey">
+          </div>
+          <input class="btn btn-primary" type="submit" value="Validate &amp; Store Key">
+        </form>
+
+        <hr>
+
+        <div class="form-group">
+          <label>Weather Units:</label>
+          <div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('auto')">Auto</button>
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('f')">F</button>
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('c')">C</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <hr>
-
-    <div>
-      <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
-      <p><small>This will remove stored bus stops and your DarkSky key.</small></p>
-    </div>
+  </div>
 </div>
