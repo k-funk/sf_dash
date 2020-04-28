@@ -2,10 +2,12 @@ const Path = require('path');
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 
 const OUTPUT_PATH = Path.resolve(__dirname, '../', 'build');
 const CONTEXT = Path.resolve(__dirname, '../', 'src');
+const IMAGES_PATH = Path.resolve(CONTEXT, 'images/**/*');
 
 module.exports = {
   context: CONTEXT,
@@ -33,6 +35,9 @@ module.exports = {
       'window.jQuery': 'jquery',
       jQuery: 'jquery',
     }),
+    new CopyPlugin([
+      { from: IMAGES_PATH },
+    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
