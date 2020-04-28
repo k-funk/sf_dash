@@ -4,6 +4,7 @@ import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
 import WeatherAlerts from '../components/weather/alerts';
+import DarkLightModeSelector from '../components/dark_light_mode_selector';
 
 import headerTemplate from '../views/header.html';
 
@@ -85,6 +86,7 @@ const TEMPLATE_CACHE = [
 ];
 
 const REACT_COMPONENTS = [
+  DarkLightModeSelector,
   WeatherAlerts,
 ];
 

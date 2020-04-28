@@ -1,20 +1,16 @@
-@import 'light_mode/variables';
-@import 'bootstrap/scss/bootstrap';
-
-@import 'scaffolding';
-@import 'current_time';
-@import 'time_since_last_updated';
-@import 'spinner';
-@import 'weather';
-@import 'nextbus';
-
-
-// Third-party
-@import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/solid';
-
 // 1. Would prefer the class to not be on the html element, but without it, bootstrap's `body` imports don't work
-// 2. This is terribly inefficient, but is much easier to maintain
+// 2. This doubles the size of the css, but is much easier to maintain. worth the compromise for now
+@import 'light_mode/variables';
+html.light-mode {
+  @import 'bootstrap/scss/bootstrap';
+
+  @import 'scaffolding';
+  @import 'current_time';
+  @import 'time_since_last_updated';
+  @import 'spinner';
+  @import 'weather';
+  @import 'nextbus';
+}
 html.dark-mode {
   @import 'dark_mode/variables';
   @import 'bootstrap/scss/bootstrap';
@@ -26,3 +22,7 @@ html.dark-mode {
   @import 'weather';
   @import 'nextbus';
 }
+
+// Third-party
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';

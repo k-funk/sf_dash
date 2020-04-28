@@ -4,7 +4,12 @@
   <div class="col-6">
     <div class="card mb-4">
       <div class="card-body">
-        <h2>Global</h2>
+        <h3>Global</h3>
+
+        <react-component name="DarkLightModeSelector"></react-component>
+
+        <hr />
+
         <span ng-click="dumpLocalStorage()" class="btn btn-danger">Dump All Local Storage</span>
         <p><small>This will remove stored bus stops, your DarkSky key, and the weather units.</small></p>
       </div>
@@ -16,7 +21,7 @@
   <div class="col-6">
     <div class="card mb-4">
       <div class="card-body">
-        <h2>Bus</h2>
+        <h3>Bus</h3>
 
         <p class="text-muted">No settings currently available.</p>
       </div>
@@ -26,7 +31,7 @@
   <div class="col-6">
     <div class="card mb-4">
       <div class="card-body">
-        <h2>Weather</h2>
+        <h3>Weather</h3>
 
         <form ng-submit="validateKey(weatherKey)">
           <div class="form-group">
@@ -42,9 +47,9 @@
           <label>Weather Units:</label>
           <div>
             <div class="btn-group" role="group">
-              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('auto')">Auto</button>
-              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('f')">F</button>
-              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-outline-secondary' : 'btn-primary'" ng-click="setWeatherUnits('c')">C</button>
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'auto' ? 'btn-secondary' : 'btn-primary'" ng-click="setWeatherUnits('auto')">Auto</button>
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'f' ? 'btn-secondary' : 'btn-primary'" ng-click="setWeatherUnits('f')">F</button>
+              <button type="button" class="btn" ng-class="$storage.weatherUnits !== 'c' ? 'btn-secondary' : 'btn-primary'" ng-click="setWeatherUnits('c')">C</button>
             </div>
           </div>
         </div>
