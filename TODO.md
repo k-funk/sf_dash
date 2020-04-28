@@ -4,8 +4,9 @@
 - [x] Display date + time
 - [x] Weather: Calculate if there will be rain at any point today (boolean).
 - [x] Add/remove bus routes cars via UI.
+- [x] Dark/Light mode.
 - [ ] Add/remove weather cards via UI.
-- [ ] Day/Night autoswitch css theme based on sunrise/sunset. +make this optional.
+- [ ] Auto-switch dark/light mode based on sunrise/sunset. +make this optional.
 - [ ] Pull from other APIs (news? traffic?)
 - [ ] Better layout+nav on mobile
 - [ ] Add "load sample data" to settings to make dev and demos easier
