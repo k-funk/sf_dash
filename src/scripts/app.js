@@ -3,7 +3,14 @@ import angular from 'angular';
 import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
+import CurrentDateTimeHeader from '../components/current_datetime_header';
+
+// Weather
 import WeatherAlerts from '../components/weather/alerts';
+
+// Bus
+
+// Settings
 import DarkLightModeSelector from '../components/dark_light_mode_selector';
 
 import headerTemplate from '../views/header.html';
@@ -86,6 +93,7 @@ const TEMPLATE_CACHE = [
 ];
 
 const REACT_COMPONENTS = [
+  CurrentDateTimeHeader,
   DarkLightModeSelector,
   WeatherAlerts,
 ];

@@ -1,5 +1,6 @@
 module.exports = {
   setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFiles: ['./jest.test-env.js'],
   moduleFileExtensions: [
     'js',
     'jsx',

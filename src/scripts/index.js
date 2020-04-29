@@ -26,7 +26,6 @@ import './services/nextBusSvc';
 import './services/weatherSvc';
 
 // directives
-import './directives/currenttime';
 import './directives/timesincelastupdated';
 
 // filters
