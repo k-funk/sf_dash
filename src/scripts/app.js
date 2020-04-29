@@ -125,13 +125,6 @@ angular.module(
         });
     }],
   )
-  .filter('time24to12', () => input => {
-    // TODO: Can't remember if this is safe. FU js casting.
-    input = Number(input);
-    if (input === 0) { return 12; }
-    if (input >= 1 && input <= 12) { return input; }
-    return input - 12;
-  })
   .run(['$templateCache', $templateCache => {
     TEMPLATE_CACHE.forEach(t => $templateCache.put(t.url, t.template));
   }]);
