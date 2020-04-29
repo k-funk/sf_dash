@@ -25,9 +25,9 @@ export default class DarkLightModeSelector extends PureComponent {
     this.forceUpdate();
   }
 
-  isDarkModeSelected = () => {
-    return document.documentElement.className === MODES.DARK;
-  }
+  isDarkModeSelected = () => (
+    document.documentElement.className === MODES.DARK
+  )
 
   render() {
     const { className } = this.props;

@@ -5,7 +5,7 @@ import moment from 'moment';
 import classNames from 'classnames';
 
 import WeatherIcon from '../icon';
-import { MIN_CHANGE_OF_RAIN } from '../../../scripts/constants';
+import { MIN_CHANCE_OF_RAIN } from '../../../scripts/constants';
 
 
 export default class HourlyForecast extends PureComponent {
@@ -64,29 +64,23 @@ export default class HourlyForecast extends PureComponent {
                   {moment(time * 1000).format('hA')}
                 </td>
                 <td>
-                  <WeatherIcon icon={icon} />
-                  {summary}
+                  <WeatherIcon icon={icon} /> {summary}
                 </td>
                 <td>
-                  {temperature.toFixed(0)}
-                  /
-                  {apparentTemperature.toFixed(0)}
-                  &deg;
+                  {temperature.toFixed(0)}/{apparentTemperature.toFixed(0)}&deg;
                 </td>
                 <td>
                   {uvIndex}
                 </td>
                 <td
                   className={classNames(
-                    className, { 'text-info': precipProbability >= MIN_CHANGE_OF_RAIN },
+                    className, { 'text-info': precipProbability >= MIN_CHANCE_OF_RAIN },
                   )}
                 >
-                  {(precipProbability * 100).toFixed(0)}
-                  %
+                  {(precipProbability * 100).toFixed(0)}%
                 </td>
                 <td>
-                  {(humidity * 100).toFixed(0)}
-                  %
+                  {(humidity * 100).toFixed(0)}%
                 </td>
               </tr>
             );

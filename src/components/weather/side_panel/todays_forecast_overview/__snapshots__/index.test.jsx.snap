@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<div
+  className="forecast mb-3 d-flex align-items-center justify-content-center"
+>
+  <WeatherIcon
+    className=""
+    icon="partly-cloudy-day"
+  />
+  <div
+    className="text-truncate"
+  >
+    <div
+      className="conditions text-truncate"
+    >
+      Partly cloudy throughout the day.
+    </div>
+    <div
+      className="high-low"
+    >
+      56
+      <span
+        className="text-muted px-1"
+      >
+        /
+      </span>
+      66
+      °
+    </div>
+  </div>
+</div>
+`;

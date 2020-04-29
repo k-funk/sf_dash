@@ -11,7 +11,7 @@
         <div class="card-body">
           <div class="row slim-gutters">
             <div class="col-5">
-              <div class="side-panel" ng-include="'views/weather/side-panel.html'"></div>
+              <react-component name="WeatherSidePanel" props="location" />
             </div>
             <div class="col-7">
               <react-component name="HourlyForecast" props="location" />

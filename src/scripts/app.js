@@ -7,9 +7,9 @@ import CurrentDateTimeHeader from '../components/current_datetime_header';
 import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
 // Weather
-import WeatherAlerts from '../components/weather/alerts';
 import WeatherIcon from '../components/weather/icon';
 import HourlyForecast from '../components/weather/hourly_forecast';
+import WeatherSidePanel from '../components/weather/side_panel';
 import ThreeDayForecast from '../components/weather/three_day_forecast';
 
 // Bus
@@ -25,7 +25,6 @@ import nextbusAddStopManualTemplate from '../views/nextbus/add-stop-manual.html'
 import nextbusPredictionsTemplate from '../views/nextbus/predictions.html';
 
 import weatherTemplate from '../views/weather.html';
-import weatherSidePanelTemplate from '../views/weather/side-panel.html';
 
 
 const TEMPLATE_PATH = 'views';
@@ -45,7 +44,6 @@ const TEMPLATE_PATH = 'views';
 //   `${TEMPLATE_PATH}/nextbus/predictions.html`,
 //
 //   `${TEMPLATE_PATH}/weather.html`,
-//   `${TEMPLATE_PATH}/weather/side-panel.html`,
 // ].map(filename => ({
 //   url: filename,
 //   template: require(`../${filename}`),
@@ -78,10 +76,6 @@ const TEMPLATE_CACHE = [
     url: `${TEMPLATE_PATH}/weather.html`,
     template: weatherTemplate,
   },
-  {
-    url: `${TEMPLATE_PATH}/weather/side-panel.html`,
-    template: weatherSidePanelTemplate,
-  },
 ];
 
 const REACT_COMPONENTS = [
@@ -90,8 +84,8 @@ const REACT_COMPONENTS = [
   HourlyForecast,
   TimeSinceLastUpdated,
   ThreeDayForecast,
-  WeatherAlerts,
   WeatherIcon,
+  WeatherSidePanel,
 ];
 
 angular.module(

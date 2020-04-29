@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<div
+  className="rain-chance"
+>
+  <div
+    className="umbrella bring-umbrella"
+  />
+  <span
+    className="pop text-info"
+  >
+    40
+    %
+  </span>
+  <sup
+    className="at mx-1"
+  >
+    @
+  </sup>
+  <span
+    className="time"
+  >
+    6PM
+  </span>
+  <div
+    className="text-muted"
+  >
+    Based on a 
+    30
+    % chance threshold.
+  </div>
+</div>
+`;
+
+exports[`outputs the expected tree when it will not rain 1`] = `
+<div
+  className="rain-chance"
+>
+  <div
+    className="umbrella no-umbrella"
+  />
+  <div
+    className="no-rain"
+  >
+    No rain in 24hr.
+  </div>
+  <div
+    className="text-muted"
+  >
+    Based on a 
+    30
+    % chance threshold.
+  </div>
+</div>
+`;

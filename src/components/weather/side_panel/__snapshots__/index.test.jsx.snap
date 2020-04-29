@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<div
+  className="side-panel px-3"
+>
+  <TodaysForecastOverview
+    className=""
+    todaysForecast={Object {}}
+  />
+  <TodaysRainForecast
+    className=""
+    hourlyForecasts={Array []}
+  />
+  <WeatherAlerts
+    alerts={Array []}
+    className=""
+  />
+</div>
+`;

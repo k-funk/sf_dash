@@ -49,7 +49,10 @@
     }],
     "import/newline-after-import": ["error", { "count": 2 }],
 
+    "react/jsx-one-expression-per-line": 0, // https://github.com/yannickcr/eslint-plugin-react/issues/1848
     "react/static-property-placement": ["error", "static public field"],
+    "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
+    "react/require-default-props": 0,
 
     "new-cap": ["error", {
       "capIsNewExceptions": ["Event"],
