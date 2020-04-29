@@ -9,7 +9,7 @@
   </tr>
   <tr ng-repeat="hForecast in location.hourlyForecasts || [] | limitTo:12">
     <td>{{hForecast.time * 1000 | date:'ha' }}</td>
-    <td><img ng-src="{{hForecast.icon | weatherIconUrl}}" alt=""> {{hForecast.summary}}</td>
+    <td><react-component name="WeatherIcon" props="hForecast" /> {{hForecast.summary}}</td>
     <td>{{hForecast.temperature | number:0}}/{{hForecast.apparentTemperature | number:0}}&deg;</td>
     <td>{{hForecast.uvIndex}}</td>
     <td ng-class="{'text-info': hForecast.pop >= minChanceOfRain}">{{hForecast.precipProbability * 100 | number:0}}&#37;</td>

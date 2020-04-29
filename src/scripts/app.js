@@ -8,6 +8,7 @@ import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
 // Weather
 import WeatherAlerts from '../components/weather/alerts';
+import WeatherIcon from '../components/weather/icon';
 
 // Bus
 
@@ -98,6 +99,7 @@ const REACT_COMPONENTS = [
   DarkLightModeSelector,
   TimeSinceLastUpdated,
   WeatherAlerts,
+  WeatherIcon,
 ];
 
 angular.module(

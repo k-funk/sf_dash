@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when there is a valid icon 1`] = `
+<img
+  alt=""
+  className=""
+  src="/images/weather-icons/cloudy.svg"
+/>
+`;
+
+exports[`outputs the expected tree when there is an invalid icon 1`] = `
+<img
+  alt=""
+  className=""
+  src="/images/weather-icons/unknown.svg"
+/>
+`;
+
+exports[`outputs the expected tree when there is no icon 1`] = `""`;

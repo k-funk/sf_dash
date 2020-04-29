@@ -1,6 +1,6 @@
 <div class="row slim-gutters forecasts">
   <div class="col-sm-4 forecast d-flex align-items-center justify-content-center" ng-repeat="dForecast in location.dailyForecasts | limitTo: 4" ng-if="!$first">
-    <img ng-src="{{dForecast.icon | weatherIconUrl}}" alt="">
+    <react-component name="WeatherIcon" props="dForecast" />
     <div>
       <div class="conditions">
         {{dForecast.summary | limitTo:15}}{{dForecast.summary.length > 15 ? '...' : ''}}
