@@ -3,6 +3,7 @@ import angular from 'angular';
 import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
+import MainNav from '../components/main_nav';
 import CurrentDateTimeHeader from '../components/current_datetime_header';
 import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
@@ -82,6 +83,7 @@ const REACT_COMPONENTS = [
   CurrentDateTimeHeader,
   DarkLightModeSelector,
   HourlyForecast,
+  MainNav,
   TimeSinceLastUpdated,
   ThreeDayForecast,
   WeatherIcon,
