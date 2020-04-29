@@ -16,7 +16,7 @@ exports[`outputs the expected tree when (default) 1`] = `
 />
 `;
 
-exports[`outputs the expected tree when no forecasts 1`] = `
+exports[`outputs the expected tree when no dailyForecasts 1`] = `
 <Row
   className="slim-gutters forecasts"
   tag="div"

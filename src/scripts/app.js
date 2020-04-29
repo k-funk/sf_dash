@@ -9,6 +9,7 @@ import TimeSinceLastUpdated from '../components/time_since_last_updated';
 // Weather
 import WeatherAlerts from '../components/weather/alerts';
 import WeatherIcon from '../components/weather/icon';
+import HourlyForecast from '../components/weather/hourly_forecast';
 import ThreeDayForecast from '../components/weather/three_day_forecast';
 
 // Bus
@@ -25,7 +26,6 @@ import nextbusPredictionsTemplate from '../views/nextbus/predictions.html';
 
 import weatherTemplate from '../views/weather.html';
 import weatherSidePanelTemplate from '../views/weather/side-panel.html';
-import weatherTableTemplate from '../views/weather/table.html';
 
 
 const TEMPLATE_PATH = 'views';
@@ -46,7 +46,6 @@ const TEMPLATE_PATH = 'views';
 //
 //   `${TEMPLATE_PATH}/weather.html`,
 //   `${TEMPLATE_PATH}/weather/side-panel.html`,
-//   `${TEMPLATE_PATH}/weather/table.html`,
 // ].map(filename => ({
 //   url: filename,
 //   template: require(`../${filename}`),
@@ -83,15 +82,12 @@ const TEMPLATE_CACHE = [
     url: `${TEMPLATE_PATH}/weather/side-panel.html`,
     template: weatherSidePanelTemplate,
   },
-  {
-    url: `${TEMPLATE_PATH}/weather/table.html`,
-    template: weatherTableTemplate,
-  },
 ];
 
 const REACT_COMPONENTS = [
   CurrentDateTimeHeader,
   DarkLightModeSelector,
+  HourlyForecast,
   TimeSinceLastUpdated,
   ThreeDayForecast,
   WeatherAlerts,

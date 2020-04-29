@@ -34,6 +34,7 @@ export default class ThreeDayForecast extends PureComponent {
         {/* gets indexes 1, 2, 3 of the array */}
         {dailyForecasts.slice(1, 4).map(dailyForecast => {
           const { summary, temperatureMin, temperatureMax, time, icon } = dailyForecast;
+
           return (
             <Col sm="4" key={`daily-forecast-${time}`}>
               <div className="p-3 forecast d-flex align-items-center justify-content-center">

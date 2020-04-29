@@ -64,7 +64,7 @@ describe('outputs the expected tree when', () => {
     ));
   });
 
-  test('no forecasts', () => {
+  test('no dailyForecasts', () => {
     wrapper = shallow((
       <ThreeDayForecast dailyForecasts={dailyForecasts} />
     ));

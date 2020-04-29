@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<Table
+  className="mb-0"
+  responsiveTag="div"
+  tag="table"
+>
+  <thead>
+    <tr>
+      <th>
+        Time
+      </th>
+      <th>
+        Condition
+      </th>
+      <th
+        data-toggle="tooltip"
+        title="Temp/Feels Like"
+      >
+        Temp/FL
+      </th>
+      <th>
+        UVI
+      </th>
+      <th>
+        POP
+      </th>
+      <th>
+        Humid
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</Table>
+`;
+
+exports[`outputs the expected tree when no hourlyForecasts 1`] = `
+<Table
+  className="mb-0"
+  responsiveTag="div"
+  tag="table"
+>
+  <thead>
+    <tr>
+      <th>
+        Time
+      </th>
+      <th>
+        Condition
+      </th>
+      <th
+        data-toggle="tooltip"
+        title="Temp/Feels Like"
+      >
+        Temp/FL
+      </th>
+      <th>
+        UVI
+      </th>
+      <th>
+        POP
+      </th>
+      <th>
+        Humid
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      key="hourly-forecast-1563930000"
+    >
+      <td>
+        6PM
+      </td>
+      <td>
+        <WeatherIcon
+          className=""
+          icon="partly-cloudy-day"
+        />
+        Partly Cloudy
+      </td>
+      <td>
+        62
+        /
+        62
+        °
+      </td>
+      <td>
+        2
+      </td>
+      <td
+        className=""
+      >
+        0
+        %
+      </td>
+      <td>
+        79
+        %
+      </td>
+    </tr>
+    <tr
+      key="hourly-forecast-1563930000"
+    >
+      <td>
+        6PM
+      </td>
+      <td>
+        <WeatherIcon
+          className=""
+          icon="partly-cloudy-day"
+        />
+        Partly Cloudy
+      </td>
+      <td>
+        62
+        /
+        62
+        °
+      </td>
+      <td>
+        2
+      </td>
+      <td
+        className=""
+      >
+        0
+        %
+      </td>
+      <td>
+        79
+        %
+      </td>
+    </tr>
+    <tr
+      key="hourly-forecast-1563930000"
+    >
+      <td>
+        6PM
+      </td>
+      <td>
+        <WeatherIcon
+          className=""
+          icon="partly-cloudy-day"
+        />
+        Partly Cloudy
+      </td>
+      <td>
+        62
+        /
+        62
+        °
+      </td>
+      <td>
+        2
+      </td>
+      <td
+        className=""
+      >
+        0
+        %
+      </td>
+      <td>
+        79
+        %
+      </td>
+    </tr>
+  </tbody>
+</Table>
+`;

@@ -10,8 +10,12 @@
 
         <div class="card-body">
           <div class="row slim-gutters">
-            <div class="side-panel col-5" ng-include="'views/weather/side-panel.html'"></div>
-            <div class="col-7" ng-include="'views/weather/table.html'"></div>
+            <div class="col-5">
+              <div class="side-panel" ng-include="'views/weather/side-panel.html'"></div>
+            </div>
+            <div class="col-7">
+              <react-component name="HourlyForecast" props="location" />
+            </div>
           </div>
         </div>
         <div class="card-footer bg-transparent py-0">
