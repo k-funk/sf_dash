@@ -11,7 +11,6 @@ const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
 angular.module('sfDashApp').controller(
   'NextbusCtrl',
   ['$scope', '$interval', '$localStorage', 'nextBusSvc', ($scope, $interval, $localStorage, nextBusSvc) => {
-    $scope.msUntilWarning = MS_UNTIL_WARNING;
     $localStorage.stopRouteTags = $localStorage.stopRouteTags || [];
 
     const updatePredictions = () => {
@@ -21,11 +20,12 @@ angular.module('sfDashApp').controller(
       nextBusSvc.getPredictions($localStorage.stopRouteTags)
         .then(predictions => {
           $scope.nextBus.predictions = predictions;
-          $scope.nextBus._lastUpdated = moment();
+          $scope.nextBus.lastUpdated = moment();
         });
     };
 
     $scope.nextBus = {
+      msUntilWarning: MS_UNTIL_WARNING,
       predictions: [],
       toggleBusRemove() {
         this.showBusRemoval = !this.showBusRemoval;

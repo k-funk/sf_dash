@@ -4,6 +4,7 @@ import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
 import CurrentDateTimeHeader from '../components/current_datetime_header';
+import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
 // Weather
 import WeatherAlerts from '../components/weather/alerts';
@@ -95,6 +96,7 @@ const TEMPLATE_CACHE = [
 const REACT_COMPONENTS = [
   CurrentDateTimeHeader,
   DarkLightModeSelector,
+  TimeSinceLastUpdated,
   WeatherAlerts,
 ];
 

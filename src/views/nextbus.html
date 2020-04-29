@@ -18,6 +18,7 @@
       <span ng-hide="nextBus.showBusRemoval" class="btn btn-xs btn-outline-secondary fas fa-plus" ng-click="nextBus.addForm.toggleBusAddForm()"></span>
       <span class="btn btn-xs btn-outline-secondary fas fa-pen" ng-hide="!nextBus.predictions.length" ng-click="nextBus.toggleBusRemove()"></span>
     </div>
-    <span class="text-right" time-since-last-updated last-updated="nextBus._lastUpdated" ms-until-warning="msUntilWarning"></span>
+
+    <react-component name="TimeSinceLastUpdated" props="nextBus" />
   </div>
 </div>

@@ -25,9 +25,6 @@ import './controllers/weather';
 import './services/nextBusSvc';
 import './services/weatherSvc';
 
-// directives
-import './directives/timesincelastupdated';
-
 // filters
 import './filters/temperature';
 import './filters/weathericonurl';

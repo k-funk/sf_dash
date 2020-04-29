@@ -21,13 +21,13 @@ angular.module('sfDashApp').controller(
   'WeatherCtrl',
   ['$scope', '$interval', '$localStorage', 'weatherSvc', ($scope, $interval, $localStorage, weatherSvc) => {
     $scope.$storage = $localStorage;
-    $scope.msUntilWarning = MS_UNTIL_WARNING;
     $scope.minChanceOfRain = MIN_CHANGE_OF_RAIN;
     $scope.locations = [
       { readable: 'Bernal Heights', lat: 37.7448205, long: -122.4100494 },
     ];
 
     $scope.weather = {
+      msUntilWarning: MS_UNTIL_WARNING,
       locations: [],
     };
 
@@ -46,7 +46,7 @@ angular.module('sfDashApp').controller(
                 location: $scope.locations[idx],
               };
             });
-            $scope.weather._lastUpdated = moment();
+            $scope.weather.lastUpdated = moment();
           },
           response => {
             if (response.status === -1) {
