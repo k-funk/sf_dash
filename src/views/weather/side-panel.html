@@ -1,4 +1,4 @@
-<div class="forecast d-flex align-items-center justify-content-center">
+<div class="forecast mb-3 d-flex align-items-center justify-content-center">
   <react-component name="WeatherIcon" props="location.todaysForecast" />
   <div>
     <div class="conditions">
@@ -6,7 +6,7 @@
     </div>
 
     <div class="high-low">
-      {{location.todaysForecast.temperatureMin | number:0}}<span class="text-muted">/</span>{{location.todaysForecast.temperatureMax | number:0}}&deg;
+      {{location.todaysForecast.temperatureMin | number:0}}<span class="text-muted px-1">/</span>{{location.todaysForecast.temperatureMax | number:0}}&deg;
     </div>
 
     <div class="high-low-alt text-muted" ng-show="$storage.weatherUnits">

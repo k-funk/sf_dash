@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<Row
+  className="slim-gutters forecasts"
+  tag="div"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
+/>
+`;
+
+exports[`outputs the expected tree when no forecasts 1`] = `
+<Row
+  className="slim-gutters forecasts"
+  tag="div"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
+>
+  <Col
+    key="daily-forecast-1563692400"
+    sm="4"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <div
+      className="p-3 forecast d-flex align-items-center justify-content-center"
+    >
+      <WeatherIcon
+        className=""
+        icon="partly-cloudy-day"
+      />
+      <div
+        className="text-truncate"
+      >
+        <div
+          className="conditions text-truncate"
+        >
+          Partly cloudy throughout the day.
+        </div>
+        <div
+          className="high-low"
+        >
+          56
+          <span
+            className="text-muted px-1"
+          >
+            /
+          </span>
+          66
+        </div>
+        <div
+          className="date"
+        >
+          Sunday, Jul 21
+        </div>
+      </div>
+    </div>
+  </Col>
+</Row>
+`;
