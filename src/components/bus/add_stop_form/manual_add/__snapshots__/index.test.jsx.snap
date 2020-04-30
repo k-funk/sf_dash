@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<Form
+  className=""
+  onSubmit={[Function]}
+  tag="form"
+>
+  <Row
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-tag"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Route Tag:
+        </Label>
+        <Input
+          id="manual-add-route-tag"
+          onChange={[Function]}
+          type="text"
+        />
+      </FormGroup>
+    </Col>
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-stop"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Stop Tag:
+        </Label>
+        <Input
+          id="manual-add-route-stop"
+          onChange={[Function]}
+          type="text"
+        />
+      </FormGroup>
+    </Col>
+  </Row>
+  <div>
+    <Button
+      color="primary"
+      tag="button"
+      type="submit"
+    >
+      Validate & Add Stop
+    </Button>
+  </div>
+</Form>
+`;

@@ -21,48 +21,38 @@
   }
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .error-msg {
   color: red;
   font-size: 12px;
 }
 
-.add-form {
-  position: relative;
-  font-size: 14px;
-
-  .btn.close-form {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-  }
-  .table {
-    font-size: 10px;
-  }
-}
-
-// TODO: delete after migrating from angularstrap (bootstrap3) to reactstrap (bootstrap4)
-.nav-tabs > li {
-  border: $nav-tabs-border-width solid transparent;
-  padding: .5rem .75rem;
-  margin-bottom: -$nav-tabs-border-width;
-  z-index: 99;
-  @include border-top-radius($nav-tabs-border-radius);
-  @include hover-focus() {
-    border-color: $nav-tabs-link-hover-border-color;
-  }
-
-  a {
-    color: $nav-tabs-link-active-color;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  &.active {
-    background-color: $nav-tabs-link-active-bg;
-    border-color: $nav-tabs-link-active-border-color;
-  }
-}
+// FIXME: remove now?
+//// TODO: delete after migrating from angularstrap (bootstrap3) to reactstrap (bootstrap4)
+//.nav-tabs > li {
+//  border: $nav-tabs-border-width solid transparent;
+//  padding: .5rem .75rem;
+//  margin-bottom: -$nav-tabs-border-width;
+//  z-index: 99;
+//  @include border-top-radius($nav-tabs-border-radius);
+//  @include hover-focus() {
+//    border-color: $nav-tabs-link-hover-border-color;
+//  }
+//
+//  a {
+//    color: $nav-tabs-link-active-color;
+//    &:hover {
+//      text-decoration: none;
+//    }
+//  }
+//  &.active {
+//    background-color: $nav-tabs-link-active-bg;
+//    border-color: $nav-tabs-link-active-border-color;
+//  }
+//}
 
 .nextbus,
 .weather {

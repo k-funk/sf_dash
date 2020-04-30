@@ -53,6 +53,7 @@
     "react/static-property-placement": ["error", "static public field"],
     "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
     "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0,
 
     "new-cap": ["error", {
       "capIsNewExceptions": ["Event"],

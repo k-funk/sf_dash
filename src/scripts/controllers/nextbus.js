@@ -27,23 +27,25 @@ angular.module('sfDashApp').controller(
     $scope.nextBus = {
       msUntilWarning: MS_UNTIL_WARNING,
       predictions: [],
-      toggleBusRemove() {
+      showBusRemoval: false,
+      showBusAddStopForm: false,
+      toggleBusRemove: () => {
         this.showBusRemoval = !this.showBusRemoval;
       },
-      removeStopRoute(prediction) {
+      removeStopRoute: prediction => {
         const routeStopPair = `${prediction._routeTag}|${prediction._stopTag}`;
         const idx = $localStorage.stopRouteTags.indexOf(routeStopPair);
         $localStorage.stopRouteTags.splice(idx, 1);
         updatePredictions();
       },
       addForm: {
-        toggleBusAddForm() {
-          if (this.showBusAddForm === true) {
+        toggleBusAddStopForm: () => {
+          if (this.showBusAddStopForm === true) {
             this.resetForm();
           }
-          this.showBusAddForm = !this.showBusAddForm;
+          this.showBusAddStopForm = !this.showBusAddStopForm;
         },
-        getNearbyStops() {
+        getNearbyStops: () => {
           const that = this;
           this.loading = true;
           nextBusSvc.getStopsWithin(this.distance)
@@ -59,7 +61,7 @@ angular.module('sfDashApp').controller(
               that.loading = false;
             });
         },
-        validate() {
+        validate: () => {
           const routeStopPair = `${this.routeTag}|${this.stopTag}`;
           const that = this;
           nextBusSvc.getPredictions([routeStopPair])
@@ -69,12 +71,12 @@ angular.module('sfDashApp').controller(
               that.validStop = false;
             });
         },
-        addStop(routeStopPair) {
+        addStop: routeStopPair => {
           $localStorage.stopRouteTags.push(routeStopPair);
           updatePredictions();
           this.resetForm();
         },
-        resetForm() {
+        resetForm: () => {
           this.distance = undefined;
           this.routeTag = undefined;
           this.stopTag = undefined;

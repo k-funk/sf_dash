@@ -10,8 +10,7 @@ export const INTERVAL_MS = 1000;
 export default class TimeSinceLastUpdated extends PureComponent {
   static propTypes = {
     className: T.string,
-    // a moment object
-    lastUpdated: T.object, // eslint-disable-line react/forbid-prop-types
+    lastUpdated: T.object, // a moment object
     msUntilWarning: T.number,
   };
 

@@ -6,3 +6,13 @@ $table-color:                    $body-color;
 $table-border-color:             $border-color;
 $card-border-color:              $gray-900;
 $card-bg:                        $gray-800;
+
+$input-border-color:             $gray-900;
+
+$nav-tabs-border-color:             transparent;
+$nav-tabs-border-width:             $card-border-width;
+$nav-tabs-border-radius:            $card-border-radius;
+$nav-tabs-link-hover-border-color:  transparent;
+$nav-tabs-link-active-color:        $body-color;
+$nav-tabs-link-active-bg:           $card-bg;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;

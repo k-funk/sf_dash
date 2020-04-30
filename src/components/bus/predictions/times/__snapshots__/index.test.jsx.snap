@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when a prediction is passed 1`] = `
+<div
+  className="prediction-times"
+>
+  <span
+    key="9359239"
+  >
+    <span
+      className="prediction-time not-affected-by-layover next-time"
+    >
+      4
+    </span>
+    , 
+  </span>
+  <span
+    key="9359240"
+  >
+    <span
+      className="prediction-time not-affected-by-layover other-time"
+    >
+      12
+    </span>
+    , 
+  </span>
+  <span
+    key="9359237"
+  >
+    <span
+      className="prediction-time not-affected-by-layover other-time"
+    >
+      24
+    </span>
+    , 
+  </span>
+  <span
+    key="9359243"
+  >
+    <span
+      className="prediction-time not-affected-by-layover other-time"
+    >
+      24
+    </span>
+  </span>
+</div>
+`;

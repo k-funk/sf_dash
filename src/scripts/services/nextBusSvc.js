@@ -4,10 +4,15 @@ import X2JS from 'x2js';
 
 // Example Stop: '14|5565' (14 at 24th and Mission)
 
+const XML2JS_CONFIG = {
+  arrayAccessFormPaths: [
+    'body.predictions',
+    'body.predictions.direction.prediction',
+  ],
+};
 const URL = 'http://webservices.nextbus.com/service/publicXMLFeed';
-const ensureArray = o => (Array.isArray(o) ? o : [o]);
 
-const sortPredictions = (stopRouteTags, predictions) => {
+const sortPredictions = (stopRouteTags, predictions = []) => {
   const sortedList = [];
   predictions.forEach(prediction => {
     const stopRouteTag = `${prediction._routeTag}|${prediction._stopTag}`;
@@ -47,9 +52,8 @@ angular.module('sfDashApp').factory(
         },
       })
         .then(data => {
-          const jsonObj = new X2JS().xml2js(data.data);
-          const predictions = ensureArray(jsonObj.body.predictions);
-          return sortPredictions(stopRouteTags, predictions);
+          const jsonObj = new X2JS(XML2JS_CONFIG).xml2js(data.data);
+          return sortPredictions(stopRouteTags, jsonObj.body.predictions);
         });
     },
     getRouteConfig() {

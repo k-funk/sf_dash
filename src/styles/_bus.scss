@@ -1,4 +1,4 @@
-.nextbus{
+.bus {
   font-size: 12px;
   $route-tag-size: 80px;
 
@@ -45,7 +45,29 @@
       margin-bottom: 4px;
     }
   }
-  .nav-tabs {
-    border-bottom: none;
+}
+
+.add-form {
+  position: relative;
+  font-size: 14px;
+
+  .tab-pane {
+    background-color: $card-bg;
+    border: $card-border-width solid $card-border-color;
+    border-radius: $card-border-radius;
+    margin-top: -$nav-tabs-border-width;
+    padding: $card-spacer-y $card-spacer-x;
+    &.active:first-child {
+      border-radius: 0 $card-border-radius $card-border-radius;
+    }
+  }
+  .btn.close-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+  }
+  .table {
+    font-size: 10px;
   }
 }

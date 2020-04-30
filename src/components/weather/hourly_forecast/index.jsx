@@ -87,7 +87,6 @@ export default class HourlyForecast extends PureComponent {
           })}
         </tbody>
       </Table>
-
     );
   }
 }

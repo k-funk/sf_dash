@@ -14,16 +14,17 @@ import WeatherSidePanel from '../components/weather/side_panel';
 import ThreeDayForecast from '../components/weather/three_day_forecast';
 
 // Bus
+import Bus from '../components/bus';
+import AddStopForm from '../components/bus/add_stop_form';
+import Predictions from '../components/bus/predictions';
+import EditTogglers from '../components/bus/edit_togglers';
 
 // Settings
 import DarkLightModeSelector from '../components/dark_light_mode_selector';
 
 import headerTemplate from '../views/header.html';
 
-import nextbusTemplate from '../views/nextbus.html';
-import nextbusAddStopGeolocateTemplate from '../views/nextbus/add-stop-geolocate.html';
-import nextbusAddStopManualTemplate from '../views/nextbus/add-stop-manual.html';
-import nextbusPredictionsTemplate from '../views/nextbus/predictions.html';
+import nextbusTemplate from '../views/bus.html';
 
 import weatherTemplate from '../views/weather.html';
 
@@ -39,10 +40,7 @@ const TEMPLATE_PATH = 'views';
 // const TEMPLATE_CACHE = [
 //   `${TEMPLATE_PATH}/header.html`,
 //
-//   `${TEMPLATE_PATH}/nextbus.html`,
-//   `${TEMPLATE_PATH}/nextbus/add-stop-geolocate.html`,
-//   `${TEMPLATE_PATH}/nextbus/add-stop-manual.html`,
-//   `${TEMPLATE_PATH}/nextbus/predictions.html`,
+//   `${TEMPLATE_PATH}/bus.html`,
 //
 //   `${TEMPLATE_PATH}/weather.html`,
 // ].map(filename => ({
@@ -57,20 +55,8 @@ const TEMPLATE_CACHE = [
   },
 
   {
-    url: `${TEMPLATE_PATH}/nextbus.html`,
+    url: `${TEMPLATE_PATH}/bus.html`,
     template: nextbusTemplate,
-  },
-  {
-    url: `${TEMPLATE_PATH}/nextbus/add-stop-geolocate.html`,
-    template: nextbusAddStopGeolocateTemplate,
-  },
-  {
-    url: `${TEMPLATE_PATH}/nextbus/add-stop-manual.html`,
-    template: nextbusAddStopManualTemplate,
-  },
-  {
-    url: `${TEMPLATE_PATH}/nextbus/predictions.html`,
-    template: nextbusPredictionsTemplate,
   },
 
   {
@@ -80,10 +66,14 @@ const TEMPLATE_CACHE = [
 ];
 
 const REACT_COMPONENTS = [
+  AddStopForm,
+  Bus,
   CurrentDateTimeHeader,
   DarkLightModeSelector,
+  EditTogglers,
   HourlyForecast,
   MainNav,
+  Predictions,
   TimeSinceLastUpdated,
   ThreeDayForecast,
   WeatherIcon,

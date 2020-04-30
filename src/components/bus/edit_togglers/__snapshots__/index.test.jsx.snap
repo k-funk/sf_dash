@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when both buttons are shown 1`] = `
+<div
+  className=""
+>
+  <Button
+    className="mr-1"
+    color="secondary"
+    onClick={[Function]}
+    outline={true}
+    size="xs"
+    tag="button"
+  >
+    <span
+      className="fas fa-plus"
+    />
+  </Button>
+  <Button
+    className="mr-1"
+    color="secondary"
+    onClick={[Function]}
+    outline={true}
+    size="xs"
+    tag="button"
+  >
+    <span
+      className="fas fa-pen"
+    />
+  </Button>
+</div>
+`;
+
+exports[`outputs the expected tree when only the add button is shown 1`] = `
+<div
+  className=""
+>
+  <Button
+    className="mr-1"
+    color="secondary"
+    onClick={[Function]}
+    outline={true}
+    size="xs"
+    tag="button"
+  >
+    <span
+      className="fas fa-plus"
+    />
+  </Button>
+  0
+</div>
+`;
+
+exports[`outputs the expected tree when only the edit button is shown 1`] = `
+<div
+  className=""
+>
+  <Button
+    className="mr-1"
+    color="secondary"
+    onClick={[Function]}
+    outline={true}
+    size="xs"
+    tag="button"
+  >
+    <span
+      className="fas fa-pen"
+    />
+  </Button>
+</div>
+`;
