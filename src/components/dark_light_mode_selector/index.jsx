@@ -3,6 +3,8 @@ import { PropTypes as T } from 'prop-types';
 import { Button, ButtonGroup } from 'reactstrap';
 import classNames from 'classnames';
 
+import { HTML_CLASS_KEY } from '../settings';
+
 
 export const MODES = {
   DARK: 'dark-mode',
@@ -20,7 +22,7 @@ export default class DarkLightModeSelector extends PureComponent {
 
   setMode = mode => {
     document.documentElement.className = mode;
-    window.localStorage.setItem('htmlClass', mode);
+    window.localStorage.setItem(HTML_CLASS_KEY, JSON.stringify(mode));
     // this is because we aren't using state to determine if we are in dark mode
     this.forceUpdate();
   }

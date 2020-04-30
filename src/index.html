@@ -3,7 +3,7 @@
   <head>
     <script>
       // localStorage set by <DarkLightModeSelector />
-      document.documentElement.className = window.localStorage.getItem('htmlClass') || 'dark-mode';
+      document.documentElement.className = JSON.parse(window.localStorage.getItem('htmlClass')) || 'dark-mode';
     </script>
 
     <meta charset="utf-8">

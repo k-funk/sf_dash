@@ -75,6 +75,7 @@
       "always",
       { "exceptAfterSingleLine": true }
     ],
+    "operator-linebreak": ["error", "after"],
 
     "jest/consistent-test-it": ["error", {"fn": "test"}],
     "jest/expect-expect": 0, // incompatible with doing an expect in afterEach

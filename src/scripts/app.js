@@ -5,21 +5,13 @@ import settingsTempl from '../views/settings.html';
 
 import MainNav from '../components/main_nav';
 import CurrentDateTimeHeader from '../components/current_datetime_header';
-import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
-// Weather
 import Weather from '../components/weather';
-
-// Bus
 import Bus from '../components/bus';
-
-// Settings
-import DarkLightModeSelector from '../components/dark_light_mode_selector';
+import Settings from '../components/settings';
 
 import headerTemplate from '../views/header.html';
-
 import nextbusTemplate from '../views/bus.html';
-
 import weatherTemplate from '../views/weather.html';
 
 
@@ -62,9 +54,8 @@ const TEMPLATE_CACHE = [
 const REACT_COMPONENTS = [
   Bus,
   CurrentDateTimeHeader,
-  DarkLightModeSelector,
   MainNav,
-  TimeSinceLastUpdated,
+  Settings,
   Weather,
 ];
 
@@ -95,8 +86,6 @@ angular.module(
         })
         .when('/settings', {
           template: settingsTempl,
-          controller: 'SettingsCtrl',
-          controllerAs: 'settings',
         })
         .otherwise({
           redirectTo: '/',
