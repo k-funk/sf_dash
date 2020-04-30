@@ -22,8 +22,6 @@ export default class Times extends PureComponent {
 
   render() {
     const { className, predictionTimes } = this.props;
-    console.log(predictionTimes);
-    console.log(JSON.stringify(predictionTimes));
 
     return (
       <div className={classNames(className, 'prediction-times')}>

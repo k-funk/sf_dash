@@ -32,7 +32,7 @@ angular.module('sfDashApp').controller(
                 dailyForecasts: daily.data,
                 hourlyForecasts: hourly.data,
                 alerts,
-                location: $scope.locations[idx],
+                ...$scope.locations[idx],
               };
             });
             $scope.weather.lastUpdated = moment();

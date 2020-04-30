@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
+import moment from 'moment';
 
 import { SAMPLE_PREDICTION } from '../../sample_data/nextbus';
 import Bus from './index';
@@ -13,13 +14,13 @@ describe('outputs the expected tree when', () => {
   beforeEach(() => {
     defaultProps = {
       showBusRemoval: false,
-      lastUpdated: {},
+      showBusAddStopForm: false,
+      lastUpdated: moment(),
       msUntilWarning: 10000,
       removeStopRoute: () => {},
       toggleBusRemove: () => {},
       addForm: {
         toggleBusAddStopForm: () => {},
-        showBusAddStopForm: false,
         loading: false,
         errMsg: '',
         validate: () => {},

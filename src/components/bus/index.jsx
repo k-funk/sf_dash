@@ -28,12 +28,12 @@ export default class Bus extends PureComponent {
     ),
     removeStopRoute: T.func.isRequired,
     showBusRemoval: T.bool,
+    showBusAddStopForm: T.bool.isRequired,
     addForm: T.shape({
       toggleBusAddStopForm: T.func.isRequired,
       validate: T.func.isRequired,
       getNearbyStops: T.func.isRequired,
       addStop: T.func.isRequired,
-      showBusAddStopForm: T.bool.isRequired,
     }),
     lastUpdated: T.object, // a moment object
     msUntilWarning: T.number,
@@ -49,6 +49,7 @@ export default class Bus extends PureComponent {
       className,
       predictions,
       showBusRemoval,
+      showBusAddStopForm,
       removeStopRoute,
       addForm,
       lastUpdated,
@@ -68,11 +69,11 @@ export default class Bus extends PureComponent {
 
         <Predictions predictions={predictions} removeStopRoute={removeStopRoute} />
 
-        {addForm.showBusAddStopForm && (
+        {showBusAddStopForm && (
           <AddStopForm addForm={addForm} />
         )}
 
-        {!addForm.showBusAddStopForm && (
+        {!showBusAddStopForm && (
           <div className="d-flex align-items-start justify-content-between">
             <EditTogglers
               predictions={predictions}

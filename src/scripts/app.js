@@ -8,16 +8,10 @@ import CurrentDateTimeHeader from '../components/current_datetime_header';
 import TimeSinceLastUpdated from '../components/time_since_last_updated';
 
 // Weather
-import WeatherIcon from '../components/weather/icon';
-import HourlyForecast from '../components/weather/hourly_forecast';
-import WeatherSidePanel from '../components/weather/side_panel';
-import ThreeDayForecast from '../components/weather/three_day_forecast';
+import Weather from '../components/weather';
 
 // Bus
 import Bus from '../components/bus';
-import AddStopForm from '../components/bus/add_stop_form';
-import Predictions from '../components/bus/predictions';
-import EditTogglers from '../components/bus/edit_togglers';
 
 // Settings
 import DarkLightModeSelector from '../components/dark_light_mode_selector';
@@ -66,18 +60,12 @@ const TEMPLATE_CACHE = [
 ];
 
 const REACT_COMPONENTS = [
-  AddStopForm,
   Bus,
   CurrentDateTimeHeader,
   DarkLightModeSelector,
-  EditTogglers,
-  HourlyForecast,
   MainNav,
-  Predictions,
   TimeSinceLastUpdated,
-  ThreeDayForecast,
-  WeatherIcon,
-  WeatherSidePanel,
+  Weather,
 ];
 
 angular.module(

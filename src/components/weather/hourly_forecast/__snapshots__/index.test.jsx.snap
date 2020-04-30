@@ -68,10 +68,10 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
   </thead>
   <tbody>
     <tr
-      key="hourly-forecast-1563930000"
+      key="hourly-forecast-1588276800"
     >
       <td>
-        6PM
+        1PM
       </td>
       <td>
         <WeatherIcon
@@ -82,13 +82,13 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         Partly Cloudy
       </td>
       <td>
-        62
+        15
         /
-        62
+        15
         °
       </td>
       <td>
-        2
+        7
       </td>
       <td
         className="text-info"
@@ -97,15 +97,15 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         %
       </td>
       <td>
-        79
+        74
         %
       </td>
     </tr>
     <tr
-      key="hourly-forecast-1563930000"
+      key="hourly-forecast-1588276800"
     >
       <td>
-        6PM
+        1PM
       </td>
       <td>
         <WeatherIcon
@@ -116,13 +116,13 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         Partly Cloudy
       </td>
       <td>
-        62
+        15
         /
-        62
+        15
         °
       </td>
       <td>
-        2
+        7
       </td>
       <td
         className="text-info"
@@ -131,15 +131,15 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         %
       </td>
       <td>
-        79
+        74
         %
       </td>
     </tr>
     <tr
-      key="hourly-forecast-1563930000"
+      key="hourly-forecast-1588276800"
     >
       <td>
-        6PM
+        1PM
       </td>
       <td>
         <WeatherIcon
@@ -150,13 +150,13 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         Partly Cloudy
       </td>
       <td>
-        62
+        15
         /
-        62
+        15
         °
       </td>
       <td>
-        2
+        7
       </td>
       <td
         className="text-info"
@@ -165,7 +165,7 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
         %
       </td>
       <td>
-        79
+        74
         %
       </td>
     </tr>

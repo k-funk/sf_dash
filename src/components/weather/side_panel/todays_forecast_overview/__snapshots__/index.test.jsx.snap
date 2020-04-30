@@ -19,13 +19,13 @@ exports[`outputs the expected tree when (default) 1`] = `
     <div
       className="high-low"
     >
-      56
+      11
       <span
         className="text-muted px-1"
       >
         /
       </span>
-      66
+      16
       °
     </div>
   </div>

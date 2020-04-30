@@ -7,7 +7,7 @@ import TodaysForecastOverview from './todays_forecast_overview';
 import WeatherAlerts from './alerts';
 
 
-export default class WeatherSidePanel extends PureComponent {
+export default class SidePanel extends PureComponent {
   static propTypes = {
     className: T.string,
     todaysForecast: T.object,

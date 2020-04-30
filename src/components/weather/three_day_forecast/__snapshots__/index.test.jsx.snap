@@ -31,7 +31,7 @@ exports[`outputs the expected tree when no dailyForecasts 1`] = `
   }
 >
   <Col
-    key="daily-forecast-1563692400"
+    key="daily-forecast-1588230000"
     sm="4"
     tag="div"
     widths={
@@ -62,18 +62,18 @@ exports[`outputs the expected tree when no dailyForecasts 1`] = `
         <div
           className="high-low"
         >
-          56
+          11
           <span
             className="text-muted px-1"
           >
             /
           </span>
-          66
+          16
         </div>
         <div
           className="date"
         >
-          Sunday, Jul 21
+          Thursday, Apr 30
         </div>
       </div>
     </div>

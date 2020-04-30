@@ -47,7 +47,6 @@ exports[`outputs the expected tree when only the add button is shown 1`] = `
       className="fas fa-plus"
     />
   </Button>
-  0
 </div>
 `;
 

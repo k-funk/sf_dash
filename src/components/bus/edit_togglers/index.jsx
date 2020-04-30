@@ -31,6 +31,7 @@ export default class EditTogglers extends PureComponent {
   render() {
     const { className, showBusRemoval, addForm, toggleBusRemove, predictions } = this.props;
 
+
     return (
       <div className={classNames(className)}>
         {!showBusRemoval && (
@@ -38,7 +39,7 @@ export default class EditTogglers extends PureComponent {
             <span className="fas fa-plus" />
           </Button>
         )}
-        {predictions.length && (
+        {!!predictions.length && (
           <Button {...buttonProps} onClick={toggleBusRemove}>
             <span className="fas fa-pen" />
           </Button>
