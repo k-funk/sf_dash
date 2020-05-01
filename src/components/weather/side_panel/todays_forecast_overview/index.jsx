@@ -3,6 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import classNames from 'classnames';
 
 import WeatherIcon from '../../icon';
+import { getLocalStorage, WEATHER_UNITS_KEY } from '../../../../utils/local_storage';
 
 
 export const cToF = celsius => ((celsius * 9) / 5) + 32;
@@ -23,6 +24,30 @@ export default class TodaysForecastOverview extends PureComponent {
   static defaultProps = {
     className: '',
     todaysForecast: {},
+  }
+
+  constructor(props) {
+    super(props);
+    this.weatherUnits = getLocalStorage(WEATHER_UNITS_KEY);
+  }
+
+  getAltHighLow = () => {
+    const { weatherUnits, props } = this;
+    const { temperatureMin, temperatureMax } = props.todaysForecast;
+
+    if (!weatherUnits) { return null; }
+
+    const fn = weatherUnits === 'f' ? fToC : cToF;
+
+    return (
+      <div className="high-low-alt text-muted">
+        {fn(temperatureMin).toFixed(0)}
+        /
+        {fn(temperatureMax).toFixed(0)}
+        &deg;
+        {weatherUnits === 'f' ? 'C' : 'F'}
+      </div>
+    );
   }
 
   render() {
@@ -48,15 +73,7 @@ export default class TodaysForecastOverview extends PureComponent {
             &deg;
           </div>
 
-          {/* FIXME: add this feature back once I settle on a localStorage data-passing pattern */}
-          {/* <div className="high-low-alt text-muted" ng-show="weather.weatherUnits"> */}
-          {/*   <span ng-if="weather.weatherUnits === 'c'"> */}
-          {/*     {temperatureMin | cToF | number:0 }/{temperatureMax | cToF | number:0 }&deg;F */}
-          {/*   </span> */}
-          {/*   <span ng-if="weather.weatherUnits === 'f'"> */}
-          {/*     {temperatureMin | fToC | number:0 }/{temperatureMax | fToC | number:0 }&deg;C */}
-          {/*   </span> */}
-          {/* </div> */}
+          {this.getAltHighLow()}
         </div>
       </div>
     );

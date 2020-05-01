@@ -28,6 +28,15 @@ exports[`outputs the expected tree when (default) 1`] = `
       16
       °
     </div>
+    <div
+      className="high-low-alt text-muted"
+    >
+      52
+      /
+      61
+      °
+      F
+    </div>
   </div>
 </div>
 `;
