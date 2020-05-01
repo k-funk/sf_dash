@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import { PropTypes as T } from 'prop-types';
 import classNames from 'classnames';
 
@@ -16,8 +17,8 @@ export default class MainNav extends PureComponent {
     const { className } = this.props;
     return (
       <div className={classNames(className, 'header')}>
-        <a href="#/" aria-label="Home"><span className="fas fa-home" /></a>
-        <a href="#/settings" aria-label="Settings"><span className="fas fa-cog" /></a>
+        <Link to="/"><span className="fas fa-home" /></Link>
+        <Link to="/settings"><span className="fas fa-cog" /></Link>
       </div>
 
     );

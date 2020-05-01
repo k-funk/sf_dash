@@ -26,7 +26,7 @@ export default class DarkSky {
   }
 
   static fetchAllLocationsWeatherData = async (locations, key, units) => {
-    const darkSkyUnits = this.DarkSky.convertUnitsForDarkSky(units);
+    const darkSkyUnits = this.convertUnitsForDarkSky(units);
     const responses = await axios.all(
       locations.map(({ lat, long }) => (
         this.fetchWeatherData({ lat, long, key, units: darkSkyUnits })

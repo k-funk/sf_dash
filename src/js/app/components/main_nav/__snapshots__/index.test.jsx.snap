@@ -4,21 +4,19 @@ exports[`outputs the expected tree when (default) 1`] = `
 <div
   className="header"
 >
-  <a
-    aria-label="Home"
-    href="#/"
+  <Link
+    to="/"
   >
     <span
       className="fas fa-home"
     />
-  </a>
-  <a
-    aria-label="Settings"
-    href="#/settings"
+  </Link>
+  <Link
+    to="/settings"
   >
     <span
       className="fas fa-cog"
     />
-  </a>
+  </Link>
 </div>
 `;

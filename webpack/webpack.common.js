@@ -13,7 +13,7 @@ const JS_PATH = Path.resolve(CONTEXT, 'js');
 module.exports = {
   context: CONTEXT,
   entry: {
-    app: './scripts/index.js',
+    app: './index.jsx',
   },
   output: {
     path: OUTPUT_PATH,

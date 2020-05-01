@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<BrowserRouter>
+  <Container
+    tag="div"
+  >
+    <MainNav
+      className=""
+    />
+    <Switch>
+      <Route
+        path="/settings"
+      >
+        <Settings
+          className=""
+        />
+      </Route>
+      <Route
+        path="/"
+      >
+        <MainPage
+          className=""
+        />
+      </Route>
+    </Switch>
+  </Container>
+</BrowserRouter>
+`;
