@@ -13,7 +13,7 @@
 
 
 ## Maintenance
-- [ ] Solve geolocation issue (Safari requires that device be on https in order to ask for location). Give a warning if not solvable
-- [ ] Migrate to React (in progress)
+- [x] Migrate to React (in progress)
 - [x] Migrate to Bootstrap4
+- [ ] Solve geolocation issue (Safari requires that device be on https in order to ask for location). Give a warning if not solvable
 - [ ] Investigate why I need to double-wrap `text-truncate`. Flexbox issue?
