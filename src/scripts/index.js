@@ -9,7 +9,6 @@ import './app';
 
 // controllers
 import './controllers/main';
-import './controllers/nextbus';
 
 // css
 import '../styles/index.scss';

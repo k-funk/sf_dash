@@ -7,6 +7,7 @@ import { SAMPLE_PREDICTION } from '../../sample_data/nextbus';
 import Bus from './index';
 
 
+// FIXME: update these after refactor
 describe('outputs the expected tree when', () => {
   let wrapper;
   let defaultProps;

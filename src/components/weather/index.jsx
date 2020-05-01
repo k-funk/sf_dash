@@ -71,7 +71,6 @@ export default class Weather extends PureComponent {
     }
   }
 
-
   render() {
     const { className } = this.props;
     const { locations, lastUpdated, fetchError } = this.state;
