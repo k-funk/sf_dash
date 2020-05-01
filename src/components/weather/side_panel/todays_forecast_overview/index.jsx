@@ -5,6 +5,10 @@ import classNames from 'classnames';
 import WeatherIcon from '../../icon';
 
 
+export const cToF = celsius => ((celsius * 9) / 5) + 32;
+export const fToC = fahrenheit => ((fahrenheit - 32) * 5) / 9;
+
+
 export default class TodaysForecastOverview extends PureComponent {
   static propTypes = {
     className: T.string,
@@ -44,7 +48,7 @@ export default class TodaysForecastOverview extends PureComponent {
             &deg;
           </div>
 
-          {/* TODO: add this feature back once I settle on a localStorage data-passing pattern */}
+          {/* FIXME: add this feature back once I settle on a localStorage data-passing pattern */}
           {/* <div className="high-low-alt text-muted" ng-show="weather.weatherUnits"> */}
           {/*   <span ng-if="weather.weatherUnits === 'c'"> */}
           {/*     {temperatureMin | cToF | number:0 }/{temperatureMax | cToF | number:0 }&deg;F */}

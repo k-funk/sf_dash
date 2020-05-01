@@ -62,16 +62,8 @@ const REACT_COMPONENTS = [
 angular.module(
   'sfDashApp',
   [
-    'ngAnimate',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ngStorage',
     'geolocation',
-    'mgcrea.ngStrap',
     'react',
   ],
 )
