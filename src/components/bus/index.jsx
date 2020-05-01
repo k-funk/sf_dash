@@ -5,8 +5,8 @@ import moment from 'moment';
 import classNames from 'classnames';
 
 import Predictions from './predictions';
-import AddStopForm from './add_stop_form';
-import EditTogglers from './edit_togglers';
+// import AddStopForm from './add_stop_form';
+// import EditTogglers from './edit_togglers';
 import TimeSinceLastUpdated from '../time_since_last_updated';
 import { WARNING_AFTER_N_MISSED_CALLS } from '../../scripts/constants';
 import NextBus from '../../integrations/nextbus';
@@ -102,16 +102,16 @@ export default class Bus extends PureComponent {
     const {
       className,
       // FIXME: only passed these default values to make errors less noisy while refactoring
-      showBusRemoval = false,
-      showBusAddStopForm = false,
+      // showBusRemoval = false,
+      // showBusAddStopForm = false,
       removeStopRoute = () => {},
-      addForm = {
-        toggleBusAddStopForm: () => {},
-        getNearbyStops: () => {},
-        validate: () => {},
-        addStop: () => {},
-      },
-      toggleBusRemove = () => {},
+      // addForm = {
+      //   toggleBusAddStopForm: () => {},
+      //   getNearbyStops: () => {},
+      //   validate: () => {},
+      //   addStop: () => {},
+      // },
+      // toggleBusRemove = () => {},
     } = this.props;
     // FIXME: do something with the error
     const { predictions, error, lastUpdated } = this.state;
@@ -128,6 +128,7 @@ export default class Bus extends PureComponent {
 
         <Predictions predictions={predictions} removeStopRoute={removeStopRoute} />
 
+        {/*
         {showBusAddStopForm && (
           <AddStopForm addForm={addForm} />
         )}
@@ -140,9 +141,11 @@ export default class Bus extends PureComponent {
               addForm={addForm}
               toggleBusRemove={toggleBusRemove}
             />
-            <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
           </div>
         )}
+        */}
+
+        <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
       </div>
     );
   }

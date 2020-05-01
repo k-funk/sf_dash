@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default 1`] = `
+<div
+  className=""
+>
+  <CurrentDateTimeHeader
+    className=""
+  />
+  <Row
+    className="slim-gutters"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      className="mb-4"
+      sm="5"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Bus
+        className=""
+      />
+    </Col>
+    <Col
+      className="mb-4"
+      sm="7"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Weather
+        className=""
+      />
+    </Col>
+  </Row>
+</div>
+`;
