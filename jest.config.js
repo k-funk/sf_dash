@@ -7,7 +7,7 @@ module.exports = {
   ],
   moduleDirectories: [
     'node_modules',
-    'src',
+    'src/js',
   ],
   testMatch: [
     '**/src/**/?(*.)test.js?(x)',

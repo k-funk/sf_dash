@@ -8,6 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const OUTPUT_PATH = Path.resolve(__dirname, '../', 'build');
 const CONTEXT = Path.resolve(__dirname, '../', 'src');
 const IMAGES_PATH = Path.resolve(CONTEXT, 'images/**/*');
+const JS_PATH = Path.resolve(CONTEXT, 'js');
 
 module.exports = {
   context: CONTEXT,
@@ -41,6 +42,10 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    modules: [
+      'node_modules',
+      JS_PATH,
+    ],
   },
   module: {
     rules: [

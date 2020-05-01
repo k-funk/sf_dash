@@ -3,9 +3,9 @@ import angular from 'angular';
 import mainTempl from '../views/main.html';
 import settingsTempl from '../views/settings.html';
 
-import MainNav from '../components/main_nav';
-import MainPage from '../components/main_page';
-import SettingsPage from '../components/settings_page';
+import MainNav from 'app/components/main_nav';
+import MainPage from 'app/components/main_page';
+import SettingsPage from 'app/components/settings_page';
 
 import headerTemplate from '../views/header.html';
 
