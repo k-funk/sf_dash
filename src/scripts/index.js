@@ -7,8 +7,5 @@ import 'ngreact';
 // App
 import './app';
 
-// controllers
-import './controllers/main';
-
 // css
 import '../styles/index.scss';

@@ -39,8 +39,6 @@ angular.module(
       $routeProvider
         .when('/', {
           template: mainTempl,
-          controller: 'MainCtrl',
-          controllerAs: 'main',
         })
         .when('/settings', {
           template: settingsTempl,
