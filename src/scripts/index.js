@@ -19,9 +19,6 @@ import './app';
 import './controllers/main';
 import './controllers/nextbus';
 
-// services
-import './services/nextBusSvc';
-
 // filters
 import './filters/temperature';
 

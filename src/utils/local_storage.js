@@ -1,6 +1,7 @@
 export const ANGULAR_LOCAL_STORAGE_PREFIX = 'ngStorage-';
 export const WEATHER_KEY_KEY = 'weatherKey';
 export const WEATHER_UNITS_KEY = 'weatherUnits';
+export const BUS_STOP_ROUTE_TAGS_KEY = 'stopRouteTags';
 export const HTML_CLASS_KEY = 'htmlClass';
 export const ALL_SETTINGS_KEYS = [
   WEATHER_KEY_KEY,
