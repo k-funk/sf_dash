@@ -4,6 +4,7 @@ import shallowToJson from 'enzyme-to-json';
 
 import DarkSky from '../../integrations/darksky';
 import { SAMPLE_LOCATION } from '../../sample_data/darksky';
+import * as LocalStorageUtils from '../../utils/local_storage';
 import Weather, { LOCATIONS } from './index';
 
 
@@ -12,6 +13,7 @@ describe('outputs the expected tree when', () => {
   let fetchAllLocationsWeatherDataSpy;
 
   beforeEach(() => {
+    jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('foo');
     fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
       .mockReturnValue([]);
   });
@@ -41,7 +43,7 @@ describe('outputs the expected tree when', () => {
       <Weather />
     ));
 
-    expect(fetchAllLocationsWeatherDataSpy).toHaveBeenCalledWith(LOCATIONS);
+    expect(fetchAllLocationsWeatherDataSpy).toHaveBeenCalledWith(LOCATIONS, 'foo', 'foo');
   });
 
   afterEach(() => {

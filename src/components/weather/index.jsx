@@ -10,6 +10,7 @@ import HourlyForecast from './hourly_forecast';
 import ThreeDayForecast from './three_day_forecast';
 import { WARNING_AFTER_N_MISSED_CALLS } from '../../scripts/constants';
 import DarkSky from '../../integrations/darksky';
+import { getLocalStorage, WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from '../../utils/local_storage';
 
 
 export const CALL_INTERVAL = 15 * 60 * 1000;
@@ -46,8 +47,10 @@ export default class Weather extends PureComponent {
   }
 
   updateWeatherLocations = async () => {
+    const key = getLocalStorage(WEATHER_KEY_KEY);
+    const units = getLocalStorage(WEATHER_UNITS_KEY);
     try {
-      const locationsResponses = await DarkSky.fetchAllLocationsWeatherData(LOCATIONS);
+      const locationsResponses = await DarkSky.fetchAllLocationsWeatherData(LOCATIONS, key, units);
 
       this.setState({
         locations: locationsResponses.map((locationResponse, idx) => {

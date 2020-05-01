@@ -1,8 +1,6 @@
 import axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 
-import { getLocalStorage, WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from '../utils/local_storage';
-
 
 export default class DarkSky {
   static getUrl = ({
@@ -27,12 +25,11 @@ export default class DarkSky {
     return response;
   }
 
-  static fetchAllLocationsWeatherData = async locations => {
-    const key = getLocalStorage(WEATHER_KEY_KEY);
-    const units = this.convertUnitsForDarkSky(getLocalStorage(WEATHER_UNITS_KEY));
+  static fetchAllLocationsWeatherData = async (locations, key, units) => {
+    const darkSkyUnits = this.DarkSky.convertUnitsForDarkSky(units);
     const responses = await axios.all(
       locations.map(({ lat, long }) => (
-        this.fetchWeatherData({ lat, long, key, units })
+        this.fetchWeatherData({ lat, long, key, units: darkSkyUnits })
       )),
     );
     return responses;
