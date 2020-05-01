@@ -15,21 +15,15 @@ import {
 import classNames from 'classnames';
 
 import DarkLightModeSelector from '../dark_light_mode_selector';
-
-
-export const ANGULAR_LOCAL_STORAGE_PREFIX = 'ngStorage-';
-export const WEATHER_KEY_KEY = 'weatherKey';
-export const WEATHER_UNITS_KEY = 'weatherUnits';
-export const HTML_CLASS_KEY = 'htmlClass';
-export const ALL_SETTINGS_KEYS = [
+import {
+  dumpLocalStorage,
+  getLocalStorage,
+  setLocalStorage,
   WEATHER_KEY_KEY,
   WEATHER_UNITS_KEY,
-  HTML_CLASS_KEY,
-].reduce(
-  // include legacy keys
-  (fullArray, key) => ([...fullArray, key, `${ANGULAR_LOCAL_STORAGE_PREFIX}${key}`]),
-  [],
-);
+} from '../../utils/local_storage';
+import DarkSky from '../../integrations/darksky';
+
 
 export default class Settings extends PureComponent {
   static propTypes = {
@@ -47,34 +41,21 @@ export default class Settings extends PureComponent {
 
   getInitialState = () => ({
     weatherKeyIsValid: undefined,
-    weatherKeyValue: this.getLocalStorage(WEATHER_KEY_KEY),
-    weatherUnits: this.getLocalStorage(WEATHER_UNITS_KEY),
+    weatherKeyValue: getLocalStorage(WEATHER_KEY_KEY),
+    weatherUnits: getLocalStorage(WEATHER_UNITS_KEY),
   })
-
-  getLocalStorage = key => (
-    JSON.parse((
-      window.localStorage.getItem(key) ||
-      // legacy support
-      window.localStorage.getItem(`${ANGULAR_LOCAL_STORAGE_PREFIX}${key}`)
-    )) || ''
-  );
-
-  setLocalStorage = (key, val) => (
-    window.localStorage.setItem(key, JSON.stringify(val))
-  );
 
   onWeatherKeyChange = event => {
     this.setState({ weatherKeyValue: event.target.value });
   }
 
-  validateAndSetKey = event => {
+  validateAndSetKey = async event => {
     event.preventDefault();
     const { weatherKeyValue } = this.state;
-    // FIXME. see weatherSvc.validateKey
-    const condition = true;
-    if (condition) {
+
+    if (await DarkSky.isValidKey(weatherKeyValue)) {
       this.setState({ weatherKeyIsValid: true });
-      this.setLocalStorage(WEATHER_KEY_KEY, weatherKeyValue);
+      setLocalStorage(WEATHER_KEY_KEY, weatherKeyValue);
       return;
     }
 
@@ -83,11 +64,11 @@ export default class Settings extends PureComponent {
 
   setWeatherUnits = units => {
     this.setState({ weatherUnits: units });
-    this.setLocalStorage(WEATHER_UNITS_KEY, units);
+    setLocalStorage(WEATHER_UNITS_KEY, units);
   }
 
-  dumpLocalStorage = () => {
-    ALL_SETTINGS_KEYS.forEach(key => window.localStorage.removeItem(key));
+  dumpLocalStorageAndResetState = () => {
+    dumpLocalStorage();
     this.setState(this.getInitialState());
   }
 
@@ -109,7 +90,7 @@ export default class Settings extends PureComponent {
 
                 <hr />
 
-                <Button color="danger" onClick={this.dumpLocalStorage}>Dump All Local Storage</Button>
+                <Button color="danger" onClick={this.dumpLocalStorageAndResetState}>Dump All Local Storage</Button>
                 <p>
                   <small>
                     This will remove stored bus stops, your DarkSky key, and the weather units.

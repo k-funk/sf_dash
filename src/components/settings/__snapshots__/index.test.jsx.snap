@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<div
+  className=""
+>
+  <h1>
+    Settings
+  </h1>
+  <Row
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <Card
+        className="mb-4"
+        tag="div"
+      >
+        <CardBody
+          tag="div"
+        >
+          <h3>
+            Global
+          </h3>
+          <DarkLightModeSelector
+            className=""
+          />
+          <hr />
+          <Button
+            color="danger"
+            onClick={[Function]}
+            tag="button"
+          >
+            Dump All Local Storage
+          </Button>
+          <p>
+            <small>
+              This will remove stored bus stops, your DarkSky key, and the weather units.
+            </small>
+          </p>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <Card
+        className="mb-4"
+        tag="div"
+      >
+        <CardBody
+          tag="div"
+        >
+          <h3>
+            Bus
+          </h3>
+          <p
+            className="text-muted"
+          >
+            No settings currently available.
+          </p>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <Card
+        className="mb-4"
+        tag="div"
+      >
+        <CardBody
+          tag="div"
+        >
+          <h3>
+            Weather
+          </h3>
+          <Form
+            onSubmit={[Function]}
+            tag="form"
+          >
+            <FormGroup
+              tag="div"
+            >
+              <Label
+                for="weather-key"
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                DarkSky API Key:
+              </Label>
+              <Input
+                className=""
+                id="weather-key"
+                onChange={[Function]}
+                type="text"
+                value=""
+              />
+            </FormGroup>
+            <Button
+              color="primary"
+              tag="button"
+              type="submit"
+            >
+              Validate & Store Key
+            </Button>
+          </Form>
+          <hr />
+          <FormGroup
+            tag="div"
+          >
+            <Label
+              className="mr-2"
+              tag="label"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              Weather Units:
+            </Label>
+            <ButtonGroup
+              role="group"
+              tag="div"
+            >
+              <Button
+                color="primary"
+                onClick={[Function]}
+                tag="button"
+              >
+                Auto
+              </Button>
+              <Button
+                color="secondary"
+                onClick={[Function]}
+                tag="button"
+              >
+                F
+              </Button>
+              <Button
+                color="secondary"
+                onClick={[Function]}
+                tag="button"
+              >
+                C
+              </Button>
+            </ButtonGroup>
+          </FormGroup>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
+</div>
+`;

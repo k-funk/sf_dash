@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Button, ButtonGroup } from 'reactstrap';
+import { Button, ButtonGroup, Label } from 'reactstrap';
 import classNames from 'classnames';
 
-import { HTML_CLASS_KEY } from '../settings';
+import { HTML_CLASS_KEY } from '../../utils/local_storage';
 
 
 export const MODES = {
@@ -37,20 +37,23 @@ export default class DarkLightModeSelector extends PureComponent {
     const isDarkModeSelected = this.isDarkModeSelected();
 
     return (
-      <ButtonGroup className={classNames(className)}>
-        <Button
-          onClick={() => this.setMode(MODES.DARK)}
-          color={isDarkModeSelected ? 'primary' : 'secondary'}
-        >
-          Dark
-        </Button>
-        <Button
-          onClick={() => this.setMode(MODES.LIGHT)}
-          color={isDarkModeSelected ? 'secondary' : 'primary'}
-        >
-          Light
-        </Button>
-      </ButtonGroup>
+      <>
+        <Label className="mr-2">Theme:</Label>
+        <ButtonGroup className={classNames(className)}>
+          <Button
+            onClick={() => this.setMode(MODES.DARK)}
+            color={isDarkModeSelected ? 'primary' : 'secondary'}
+          >
+            Dark
+          </Button>
+          <Button
+            onClick={() => this.setMode(MODES.LIGHT)}
+            color={isDarkModeSelected ? 'secondary' : 'primary'}
+          >
+            Light
+          </Button>
+        </ButtonGroup>
+      </>
     );
   }
 }

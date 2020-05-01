@@ -1,24 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`outputs the expected tree when (default) 1`] = `
-<ButtonGroup
-  className=""
-  role="group"
-  tag="div"
->
-  <Button
-    color="secondary"
-    onClick={[Function]}
-    tag="button"
+<Fragment>
+  <Label
+    className="mr-2"
+    tag="label"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
-    Dark
-  </Button>
-  <Button
-    color="primary"
-    onClick={[Function]}
-    tag="button"
+    Theme:
+  </Label>
+  <ButtonGroup
+    className=""
+    role="group"
+    tag="div"
   >
-    Light
-  </Button>
-</ButtonGroup>
+    <Button
+      color="secondary"
+      onClick={[Function]}
+      tag="button"
+    >
+      Dark
+    </Button>
+    <Button
+      color="primary"
+      onClick={[Function]}
+      tag="button"
+    >
+      Light
+    </Button>
+  </ButtonGroup>
+</Fragment>
 `;

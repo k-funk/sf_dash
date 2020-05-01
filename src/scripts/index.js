@@ -22,7 +22,6 @@ import './controllers/weather';
 
 // services
 import './services/nextBusSvc';
-import './services/weatherSvc';
 
 // filters
 import './filters/temperature';

@@ -381,7 +381,7 @@ export const SAMPLE_LOCATION = {
     },
   ],
   alerts: [
-    { ...SAMPLE_ALERT }
+    { ...SAMPLE_ALERT },
   ],
   readable: 'Bernal Heights',
   lat: 37.7448205,

@@ -7,7 +7,6 @@ import TimeSinceLastUpdated from '../time_since_last_updated';
 import SidePanel from './side_panel';
 import HourlyForecast from './hourly_forecast';
 import ThreeDayForecast from './three_day_forecast';
-import { WEATHER_ERRORS } from '../../scripts/constants';
 
 
 export default class Weather extends PureComponent {
@@ -22,7 +21,7 @@ export default class Weather extends PureComponent {
         readable: T.string,
       }),
     ),
-    _callFailedError: T.string,
+    _callFailedError: T.bool,
     lastUpdated: T.object, // a moment object
     msUntilWarning: T.number,
   };
@@ -46,14 +45,10 @@ export default class Weather extends PureComponent {
         {_callFailedError && (
           <div className="error-msg">
             <span className="fas fa-exclamation-circle mr-1" />
-            {_callFailedError === WEATHER_ERRORS.TIMEOUT ? (
-              <span>The request appears to have timed out. The server may be down.</span>
-            ) : (
-              <span>
-                First weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
-                <a href="#/settings">settings</a>.
-              </span>
-            )}
+            <span>
+              First weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
+              <a href="#/settings">settings</a>.
+            </span>
           </div>
         )}
 

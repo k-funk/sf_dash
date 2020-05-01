@@ -19,7 +19,7 @@ describe('outputs the expected tree when', () => {
 
   test('there are errors', () => {
     wrapper = shallow((
-      <Weather {...defaultProps} _callFailedError="Some error happened." />
+      <Weather {...defaultProps} _callFailedError />
     ));
   });
 
