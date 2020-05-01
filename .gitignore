@@ -3,6 +3,7 @@
 package-lock.json
 /.sass-cache
 npm-debug.log
+coverage
 
 
 # editors

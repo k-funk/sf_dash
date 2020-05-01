@@ -18,7 +18,6 @@ import './app';
 // controllers
 import './controllers/main';
 import './controllers/nextbus';
-import './controllers/weather';
 
 // services
 import './services/nextBusSvc';

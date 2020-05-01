@@ -60,7 +60,7 @@ export default class Bus extends PureComponent {
     return (
       <div className={classNames(className, 'bus')}>
         {!predictions.length && (
-          <Card>
+          <Card className="mb-2">
             <CardBody>
               No bus stops added.
             </CardBody>

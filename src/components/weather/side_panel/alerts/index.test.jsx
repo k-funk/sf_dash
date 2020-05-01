@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
 import { SAMPLE_ALERT } from '../../../../sample_data/darksky';
-import WeatherAlerts from './index';
+import Alerts from './index';
 
 
 describe('outputs the expected tree when', () => {
@@ -11,13 +11,13 @@ describe('outputs the expected tree when', () => {
 
   test('(default)', () => {
     wrapper = shallow((
-      <WeatherAlerts />
+      <Alerts />
     ));
   });
 
   test('there are alerts', () => {
     wrapper = shallow((
-      <WeatherAlerts alerts={[{ ...SAMPLE_ALERT }]} />
+      <Alerts alerts={[{ ...SAMPLE_ALERT }]} />
     ));
   });
 

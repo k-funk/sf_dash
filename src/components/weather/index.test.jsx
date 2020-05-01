@@ -1,32 +1,47 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
-import moment from 'moment';
 
+import DarkSky from '../../integrations/darksky';
 import { SAMPLE_LOCATION } from '../../sample_data/darksky';
-import Weather from './index';
+import Weather, { LOCATIONS } from './index';
 
 
 describe('outputs the expected tree when', () => {
   let wrapper;
-  let defaultProps;
+  let fetchAllLocationsWeatherDataSpy;
 
   beforeEach(() => {
-    defaultProps = {
-      lastUpdated: moment(),
-    };
+    fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
+      .mockReturnValue([]);
+  });
+
+  test('it initially loads', () => {
+    wrapper = shallow((
+      <Weather />
+    ));
   });
 
   test('there are errors', () => {
     wrapper = shallow((
-      <Weather {...defaultProps} _callFailedError />
+      <Weather />
     ));
+
+    wrapper.setState({
+      fetchError: true,
+    });
   });
 
-  test('there is at least one location in the array', () => {
+  test('there is at least one location in the array', async () => {
+    fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
+      .mockReturnValue([{ data: { ...SAMPLE_LOCATION } }]);
+
+    // updateWeatherLocations() gets called on componentDidMount
     wrapper = shallow((
-      <Weather {...defaultProps} locations={[{ ...SAMPLE_LOCATION }]} />
+      <Weather />
     ));
+
+    expect(fetchAllLocationsWeatherDataSpy).toHaveBeenCalledWith(LOCATIONS);
   });
 
   afterEach(() => {

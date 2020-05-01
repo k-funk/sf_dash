@@ -3,9 +3,10 @@
   "version": "2.0.0",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.prod.js --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "ci": "npm run lint && npm run test",
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
     "test": "NODE_ENV=development jest"
   },
   "dependencies": {

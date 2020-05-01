@@ -39,8 +39,8 @@ export default class AddStopForm extends PureComponent {
   }
 
   render() {
-    const { activeTab } = this.state;
     const { className, addForm } = this.props;
+    const { activeTab } = this.state;
 
     return (
       <div className={classNames(className, 'add-form', 'mb-2')}>

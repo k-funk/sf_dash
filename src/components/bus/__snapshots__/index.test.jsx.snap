@@ -5,6 +5,7 @@ exports[`outputs the expected tree when there are no predictions 1`] = `
   className="bus"
 >
   <Card
+    className="mb-2"
     tag="div"
   >
     <CardBody

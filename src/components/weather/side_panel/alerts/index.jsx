@@ -3,7 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import classNames from 'classnames';
 
 
-export default class WeatherAlerts extends PureComponent {
+export default class Alerts extends PureComponent {
   static propTypes = {
     className: T.string,
     alerts: T.arrayOf(

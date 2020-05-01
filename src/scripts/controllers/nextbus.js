@@ -5,8 +5,8 @@ import 'moment-precise-range-plugin';
 import { WARNING_AFTER_N_MISSED_CALLS } from '../constants';
 
 
-const CALL_INTERVAL = 10 * 1000;
-const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
+export const CALL_INTERVAL = 10 * 1000;
+export const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
 
 angular.module('sfDashApp').controller(
   'NextbusCtrl',
