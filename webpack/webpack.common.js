@@ -30,12 +30,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
-    new Webpack.ProvidePlugin({
-      $: 'jquery', // required for angular
-      jquery: 'jquery',
-      'window.jQuery': 'jquery',
-      jQuery: 'jquery',
-    }),
     new CopyPlugin([
       { from: IMAGES_PATH },
     ]),
