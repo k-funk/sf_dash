@@ -49,3 +49,23 @@ export const SAMPLE_PREDICTION = {
 export const SAMPLE_FAILED_PREDICTIONS = {
 
 };
+
+export const SAMPLE_PREDICTIONS_XML = `
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright San Francisco Muni 2020.">
+  <predictions agencyTitle="SF Muni" routeTitle="12-Folsom-Pacific" routeTag="12" stopTitle="Pacific Ave &amp; Grant Ave" stopTag="5837" dirTitleBecauseNoPredictions="Inbound to Van Ness">
+    <message text="Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info." priority="Low"/>
+    <message text="Text COVID19SF to 888-777 for official updates. Visit sfdph.org" priority="Low"/>
+  </predictions>
+  <predictions agencyTitle="SF Muni" routeTitle="14-Mission" routeTag="14" stopTitle="Mission St &amp; 24th St" stopTag="5565">
+    <direction title="Inbound to Ferry Plaza">
+      <prediction epochTime="1588394902295" seconds="11" minutes="0" isDeparture="false" dirTag="14___I_F00" vehicle="6591" block="1631" tripTag="9359290" />
+      <prediction epochTime="1588395526282" seconds="635" minutes="10" isDeparture="false" dirTag="14___I_F00" vehicle="6539" block="1633" tripTag="9359291" />
+    </direction>
+    <message text="Service frequency for this stop is 10 minutes or less." priority="Normal"/>
+    <message text="Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info." priority="Low"/>
+    <message text="Text COVID19SF to 888-777 for official updates. Visit sfdph.org" priority="Low"/>
+    <message text="Board thru rear doors. Front door for accessibility needs only." priority="Normal"/>
+  </predictions>
+</body>
+`;

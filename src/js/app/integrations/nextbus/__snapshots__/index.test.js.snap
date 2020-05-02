@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`xml parsing 1`] = `
+Object {
+  "body": Object {
+    "_copyright": "All data copyright San Francisco Muni 2020.",
+    "predictions": Array [
+      Object {
+        "_agencyTitle": "SF Muni",
+        "_dirTitleBecauseNoPredictions": "Inbound to Van Ness",
+        "_routeTag": "12",
+        "_routeTitle": "12-Folsom-Pacific",
+        "_stopTag": "5837",
+        "_stopTitle": "Pacific Ave & Grant Ave",
+        "message": Array [
+          Object {
+            "_priority": "Low",
+            "_text": "Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info.",
+          },
+          Object {
+            "_priority": "Low",
+            "_text": "Text COVID19SF to 888-777 for official updates. Visit sfdph.org",
+          },
+        ],
+      },
+      Object {
+        "_agencyTitle": "SF Muni",
+        "_routeTag": "14",
+        "_routeTitle": "14-Mission",
+        "_stopTag": "5565",
+        "_stopTitle": "Mission St & 24th St",
+        "direction": Object {
+          "_title": "Inbound to Ferry Plaza",
+          "prediction": Array [
+            Object {
+              "_block": "1631",
+              "_dirTag": "14___I_F00",
+              "_epochTime": "1588394902295",
+              "_isDeparture": "false",
+              "_minutes": "0",
+              "_seconds": "11",
+              "_tripTag": "9359290",
+              "_vehicle": "6591",
+            },
+            Object {
+              "_block": "1633",
+              "_dirTag": "14___I_F00",
+              "_epochTime": "1588395526282",
+              "_isDeparture": "false",
+              "_minutes": "10",
+              "_seconds": "635",
+              "_tripTag": "9359291",
+              "_vehicle": "6539",
+            },
+          ],
+        },
+        "message": Array [
+          Object {
+            "_priority": "Normal",
+            "_text": "Service frequency for this stop is 10 minutes or less.",
+          },
+          Object {
+            "_priority": "Low",
+            "_text": "Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info.",
+          },
+          Object {
+            "_priority": "Low",
+            "_text": "Text COVID19SF to 888-777 for official updates. Visit sfdph.org",
+          },
+          Object {
+            "_priority": "Normal",
+            "_text": "Board thru rear doors. Front door for accessibility needs only.",
+          },
+        ],
+      },
+    ],
+  },
+}
+`;
