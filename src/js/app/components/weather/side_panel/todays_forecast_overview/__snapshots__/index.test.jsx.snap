@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`outputs the expected tree when (default) 1`] = `
+exports[`outputs the expected tree when localStorage weather units was not set 1`] = `
+<div
+  className="forecast mb-3 d-flex align-items-center justify-content-center"
+>
+  <WeatherIcon
+    className=""
+    icon="partly-cloudy-day"
+  />
+  <div
+    className="text-truncate"
+  >
+    <div
+      className="conditions text-truncate"
+    >
+      Partly cloudy throughout the day.
+    </div>
+    <div
+      className="high-low"
+    >
+      11
+      <span
+        className="text-muted px-1"
+      >
+        /
+      </span>
+      16
+      °
+    </div>
+  </div>
+</div>
+`;
+
+exports[`outputs the expected tree when localStorage weather units was set to c 1`] = `
 <div
   className="forecast mb-3 d-flex align-items-center justify-content-center"
 >
@@ -36,6 +68,47 @@ exports[`outputs the expected tree when (default) 1`] = `
       61
       °
       F
+    </div>
+  </div>
+</div>
+`;
+
+exports[`outputs the expected tree when localStorage weather units was set to f 1`] = `
+<div
+  className="forecast mb-3 d-flex align-items-center justify-content-center"
+>
+  <WeatherIcon
+    className=""
+    icon="partly-cloudy-day"
+  />
+  <div
+    className="text-truncate"
+  >
+    <div
+      className="conditions text-truncate"
+    >
+      Partly cloudy throughout the day.
+    </div>
+    <div
+      className="high-low"
+    >
+      11
+      <span
+        className="text-muted px-1"
+      >
+        /
+      </span>
+      16
+      °
+    </div>
+    <div
+      className="high-low-alt text-muted"
+    >
+      -12
+      /
+      -9
+      °
+      C
     </div>
   </div>
 </div>

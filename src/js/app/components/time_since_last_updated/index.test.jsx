@@ -4,7 +4,7 @@ import shallowToJson from 'enzyme-to-json';
 import moment from 'moment';
 import 'moment-precise-range-plugin';
 
-import TimeSinceLastUpdated from './index';
+import TimeSinceLastUpdated, { INTERVAL_MS } from './index';
 
 
 describe('outputs the expected tree when', () => {
@@ -43,14 +43,35 @@ describe('outputs the expected tree when', () => {
 });
 
 describe('instance methods', () => {
+  let wrapper;
   let instance;
+  let setIntervalSpy;
+  let clearIntervalSpy;
+
   beforeEach(() => {
-    instance = shallow((
+    setIntervalSpy = jest.spyOn(window, 'setInterval').mockReturnValue(11);
+    clearIntervalSpy = jest.spyOn(window, 'clearInterval');
+    wrapper = shallow((
       <TimeSinceLastUpdated />
-    )).instance();
+    ));
+    instance = wrapper.instance();
   });
 
-  test('sets up interval for forceUpdating time', () => {
-    expect(instance.interval).toEqual(expect.any(Number));
+  test('componentDidMount sets an interval', () => {
+    wrapper = shallow((
+      <TimeSinceLastUpdated />
+    ));
+
+    expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), INTERVAL_MS);
+    expect(instance.interval).toEqual(11);
+  });
+
+  test('componentWillUnmount clears an interval', () => {
+    wrapper = shallow((
+      <TimeSinceLastUpdated />
+    ));
+    wrapper.unmount();
+
+    expect(clearIntervalSpy).toHaveBeenCalledWith(11);
   });
 });

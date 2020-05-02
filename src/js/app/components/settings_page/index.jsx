@@ -69,8 +69,8 @@ export default class Settings extends PureComponent {
   }
 
   dumpLocalStorageAndResetState = () => {
-    dumpLocalStorage();
     this.setState(this.getInitialState());
+    dumpLocalStorage();
   }
 
   render() {

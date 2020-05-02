@@ -1,6 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`outputs the expected tree when (default) 1`] = `
+exports[`outputs the expected tree when when dark mode is selected 1`] = `
+<Fragment>
+  <Label
+    className="mr-2"
+    tag="label"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    Theme:
+  </Label>
+  <ButtonGroup
+    className=""
+    role="group"
+    tag="div"
+  >
+    <Button
+      color="primary"
+      onClick={[Function]}
+      tag="button"
+    >
+      Dark
+    </Button>
+    <Button
+      color="secondary"
+      onClick={[Function]}
+      tag="button"
+    >
+      Light
+    </Button>
+  </ButtonGroup>
+</Fragment>
+`;
+
+exports[`outputs the expected tree when when light mode is selected 1`] = `
 <Fragment>
   <Label
     className="mr-2"

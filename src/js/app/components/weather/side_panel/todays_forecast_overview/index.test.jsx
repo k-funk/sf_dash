@@ -11,8 +11,22 @@ import TodaysForecastOverview, { cToF, fToC } from './index';
 describe('outputs the expected tree when', () => {
   let wrapper;
 
-  test('(default)', () => {
+  test('localStorage weather units was not set', () => {
+    wrapper = shallow((
+      <TodaysForecastOverview todaysForecast={{ ...SAMPLE_DAILY_FORECAST }} />
+    ));
+  });
+
+  test('localStorage weather units was set to c', () => {
     jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('c');
+
+    wrapper = shallow((
+      <TodaysForecastOverview todaysForecast={{ ...SAMPLE_DAILY_FORECAST }} />
+    ));
+  });
+
+  test('localStorage weather units was set to f', () => {
+    jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('f');
 
     wrapper = shallow((
       <TodaysForecastOverview todaysForecast={{ ...SAMPLE_DAILY_FORECAST }} />
