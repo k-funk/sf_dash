@@ -1,5 +1,6 @@
-import NextBus from 'app/integrations/nextbus';
 import { SAMPLE_PREDICTIONS_XML } from 'sample_data/nextbus';
+
+import NextBus from './index';
 
 
 test('xml parsing', () => {

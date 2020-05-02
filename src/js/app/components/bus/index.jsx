@@ -64,7 +64,7 @@ export default class Bus extends PureComponent {
     super(props);
     this.state = {
       predictions: [],
-      error: '',
+      // error: '',
       lastUpdated: undefined,
     };
   }
@@ -91,7 +91,7 @@ export default class Bus extends PureComponent {
         predictions: sortPredictions(
           stopRouteTags, predictionResponse.body.predictions,
         ),
-        error: predictionResponse?.body?.Error?.__text,
+        // error: predictionResponse?.body?.Error?.__text,
         lastUpdated: moment(),
       });
     } catch (e) {
@@ -105,7 +105,7 @@ export default class Bus extends PureComponent {
       // FIXME: only passed these default values to make errors less noisy while refactoring
       // showBusRemoval = false,
       // showBusAddStopForm = false,
-      removeStopRoute = () => {},
+      // removeStopRoute = () => {},
       // addForm = {
       //   toggleBusAddStopForm: () => {},
       //   getNearbyStops: () => {},
@@ -114,8 +114,8 @@ export default class Bus extends PureComponent {
       // },
       // toggleBusRemove = () => {},
     } = this.props;
-    // FIXME: do something with the error
-    const { predictions, error, lastUpdated } = this.state;
+    // FIXME: do something with state.error
+    const { predictions, lastUpdated } = this.state;
 
     return (
       <div className={classNames(className, 'bus')}>
@@ -127,7 +127,8 @@ export default class Bus extends PureComponent {
           </Card>
         )}
 
-        <Predictions predictions={predictions} removeStopRoute={removeStopRoute} />
+        {/* FIXME: empty arrow fn */}
+        <Predictions predictions={predictions} removeStopRoute={() => {}} />
 
         {/*
         {showBusAddStopForm && (

@@ -3,10 +3,9 @@ import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
 import * as LocalStorageUtils from 'app/utils/local_storage';
+import DarkSky from 'app/integrations/darksky';
 
 import Settings from './index';
-import { getLocalStorage, WEATHER_KEY_KEY } from 'app/utils/local_storage';
-import DarkSky from '../../integrations/darksky';
 
 
 describe('outputs the expected tree when', () => {
@@ -47,6 +46,7 @@ describe('instance methods', () => {
       weatherKeyValue: 'foo',
       weatherUnits: 'foo',
     });
+    expect(getLocalStorageSpy).toHaveBeenCalledWith(LocalStorageUtils.WEATHER_KEY_KEY);
   });
 
   test('onWeatherKeyChange', () => {
@@ -76,7 +76,8 @@ describe('instance methods', () => {
 
       expect(spy).toHaveBeenCalledWith(weatherKeyValue);
       expect(wrapper.state().weatherKeyIsValid).toEqual(true);
-      expect(setLocalStorageSpy).toHaveBeenCalledWith(LocalStorageUtils.WEATHER_KEY_KEY, weatherKeyValue);
+      expect(setLocalStorageSpy)
+        .toHaveBeenCalledWith(LocalStorageUtils.WEATHER_KEY_KEY, weatherKeyValue);
     });
 
     test('is invalid key', async () => {
