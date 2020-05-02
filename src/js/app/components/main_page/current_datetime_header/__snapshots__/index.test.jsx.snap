@@ -7,12 +7,12 @@ exports[`outputs the expected tree when (default) 1`] = `
   <div
     className="time col-6"
   >
-    4:00
+    11:11
   </div>
   <div
     className="date col-6"
   >
-    December 10th, 2019
+    November 11th, 2019
   </div>
 </div>
 `;
