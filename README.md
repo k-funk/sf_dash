@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/k-funk/sf_dash.svg?branch=master)](https://travis-ci.com/k-funk/sf_dash)
+[![Coverage Status](https://coveralls.io/repos/github/k-funk/sf_dash/badge.svg)](https://coveralls.io/github/k-funk/sf_dash)
 
 # sf_dash
 
