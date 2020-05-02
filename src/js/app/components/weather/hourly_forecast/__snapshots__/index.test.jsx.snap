@@ -71,7 +71,7 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
       key="hourly-forecast-1588276800"
     >
       <td>
-        1PM
+        8PM
       </td>
       <td>
         <WeatherIcon
@@ -105,7 +105,7 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
       key="hourly-forecast-1588276800"
     >
       <td>
-        1PM
+        8PM
       </td>
       <td>
         <WeatherIcon
@@ -139,7 +139,7 @@ exports[`outputs the expected tree when no hourlyForecasts 1`] = `
       key="hourly-forecast-1588276800"
     >
       <td>
-        1PM
+        8PM
       </td>
       <td>
         <WeatherIcon

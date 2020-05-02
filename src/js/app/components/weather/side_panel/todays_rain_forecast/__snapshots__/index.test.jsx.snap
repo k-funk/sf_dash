@@ -21,7 +21,7 @@ exports[`outputs the expected tree when (default) 1`] = `
   <span
     className="time"
   >
-    1PM
+    8PM
   </span>
   <div
     className="text-muted"

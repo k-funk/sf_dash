@@ -8,7 +8,7 @@
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
-    "test": "NODE_ENV=development jest"
+    "test": "NODE_ENV=development TZ=UTC jest"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
