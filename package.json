@@ -4,6 +4,7 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.config.prod.js --colors",
     "ci": "npm run lint && npm run test",
+    "coveralls": "coveralls < coverage/lcov.info",
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
@@ -40,6 +41,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.3",
+    "coveralls": "^3.1.0",
     "css-loader": "^3.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
