@@ -38,12 +38,12 @@ export default class Weather extends PureComponent {
     };
   }
 
-  componentDidMount() {
-    this.updateWeatherLocations();
+  async componentDidMount() {
+    await this.updateWeatherLocations();
     this.interval = setInterval(this.updateWeatherLocations, CALL_INTERVAL);
   }
 
-  async componentWillUnmount() {
+  componentWillUnmount() {
     clearInterval(this.interval);
   }
 
@@ -130,7 +130,9 @@ export default class Weather extends PureComponent {
           );
         })}
 
-        <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
+        <div className="d-flex justify-content-end">
+          <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
+        </div>
       </div>
     );
   }

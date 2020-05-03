@@ -10,8 +10,8 @@ import NextBus from 'app/integrations/nextbus';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
 
 import Predictions from './predictions';
-// import AddStopForm from './add_stop_form';
-// import EditTogglers from './edit_togglers';
+import AddStopForm from './add_stop_form';
+import EditTogglers from './edit_togglers';
 
 
 export const CALL_INTERVAL = 10 * 1000;
@@ -29,6 +29,7 @@ export const sortPredictions = (stopRouteTags, predictions = []) => {
 export default class Bus extends PureComponent {
   static propTypes = {
     className: T.string,
+    // FIXME: cleanup
     // predictions: T.arrayOf(
     //   T.shape({
     //     _routeTag: T.string,
@@ -44,16 +45,6 @@ export default class Bus extends PureComponent {
     //     }),
     //   }),
     // ),
-    // removeStopRoute: T.func.isRequired,
-    // showBusRemoval: T.bool,
-    // showBusAddStopForm: T.bool.isRequired,
-    // addForm: T.shape({
-    //   toggleBusAddStopForm: T.func.isRequired,
-    //   validate: T.func.isRequired,
-    //   getNearbyStops: T.func.isRequired,
-    //   addStop: T.func.isRequired,
-    // }),
-    // toggleBusRemove: T.func.isRequired,
   };
 
   static defaultProps = {
@@ -66,19 +57,37 @@ export default class Bus extends PureComponent {
       predictions: [],
       // error: '',
       lastUpdated: undefined,
+      showAddStopForm: false,
+      showBusRemove: false,
     };
   }
 
-  componentDidMount() {
-    this.updateBusPredictions();
+  async componentDidMount() {
+    await this.updateBusPredictions();
     this.interval = setInterval(this.updateBusPredictions, CALL_INTERVAL);
   }
 
-  async componentWillUnmount() {
+  componentWillUnmount() {
     clearInterval(this.interval);
   }
 
-  updateBusPredictions = async () => {
+  toggleAddStopForm = () => {
+    const { showAddStopForm } = this.state;
+    this.setState({ showAddStopForm: !showAddStopForm });
+  }
+
+  onAddOrRemoveStop = async () => {
+    clearInterval(this.interval);
+    await this.updateBusPredictions();
+    this.interval = setInterval(this.updateBusPredictions, CALL_INTERVAL);
+  }
+
+  toggleShowBusRemove = () => {
+    const { showBusRemove } = this.state;
+    this.setState({ showBusRemove: !showBusRemove });
+  }
+
+  async updateBusPredictions() {
     const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY);
 
     // Don't send an empty request
@@ -100,22 +109,9 @@ export default class Bus extends PureComponent {
   }
 
   render() {
-    const {
-      className,
-      // FIXME: only passed these default values to make errors less noisy while refactoring
-      // showBusRemoval = false,
-      // showBusAddStopForm = false,
-      // removeStopRoute = () => {},
-      // addForm = {
-      //   toggleBusAddStopForm: () => {},
-      //   getNearbyStops: () => {},
-      //   validate: () => {},
-      //   addStop: () => {},
-      // },
-      // toggleBusRemove = () => {},
-    } = this.props;
+    const { className } = this.props;
     // FIXME: do something with state.error
-    const { predictions, lastUpdated } = this.state;
+    const { predictions, lastUpdated, showAddStopForm, showBusRemove } = this.state;
 
     return (
       <div className={classNames(className, 'bus')}>
@@ -127,27 +123,31 @@ export default class Bus extends PureComponent {
           </Card>
         )}
 
-        {/* FIXME: empty arrow fn */}
-        <Predictions predictions={predictions} removeStopRoute={() => {}} />
+        <Predictions
+          predictions={predictions}
+          showBusRemove={showBusRemove}
+          onAddOrRemoveStop={this.onAddOrRemoveStop}
+        />
 
-        {/*
-        {showBusAddStopForm && (
-          <AddStopForm addForm={addForm} />
+        {showAddStopForm && (
+          <AddStopForm
+            toggleAddStopForm={this.toggleAddStopForm}
+            onAddOrRemoveStop={this.onAddOrRemoveStop}
+          />
         )}
 
-        {!showBusAddStopForm && (
+        {!showAddStopForm && (
           <div className="d-flex align-items-start justify-content-between">
             <EditTogglers
               predictions={predictions}
-              showBusRemoval={showBusRemoval}
-              addForm={addForm}
-              toggleBusRemove={toggleBusRemove}
+              toggleAddStopForm={this.toggleAddStopForm}
+              showBusRemove={showBusRemove}
+              toggleShowBusRemove={this.toggleShowBusRemove}
             />
+
+            <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
           </div>
         )}
-        */}
-
-        <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
       </div>
     );
   }

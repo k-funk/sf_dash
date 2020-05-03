@@ -58,18 +58,11 @@ describe('instance methods', () => {
   });
 
   test('componentDidMount sets an interval', () => {
-    wrapper = shallow((
-      <TimeSinceLastUpdated />
-    ));
-
     expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), INTERVAL_MS);
     expect(instance.interval).toEqual(11);
   });
 
   test('componentWillUnmount clears an interval', () => {
-    wrapper = shallow((
-      <TimeSinceLastUpdated />
-    ));
     wrapper.unmount();
 
     expect(clearIntervalSpy).toHaveBeenCalledWith(11);

@@ -3,6 +3,9 @@ import { PropTypes as T } from 'prop-types';
 import { Button, Card, CardBody } from 'reactstrap';
 import classNames from 'classnames';
 
+import NextBus from 'app/integrations/nextbus';
+import { removeBusStopFromLocalStorage } from 'app/utils/local_storage';
+
 import StopInfo from '../stop_info';
 import Times from './times';
 
@@ -18,14 +21,15 @@ export default class Predictions extends PureComponent {
           prediction: T.arrayOf(
             T.shape({
               _tripTag: T.string, // used to generate react `key`s
-              _affectedByLayover: T.bool, // TODO: not certain of this type
+              _affectedByLayover: T.string,
               _minutes: T.string,
             }),
           ),
         }),
       }),
     ),
-    removeStopRoute: T.func.isRequired,
+    showBusRemove: T.bool.isRequired,
+    onAddOrRemoveStop: T.func.isRequired,
   };
 
   static defaultProps = {
@@ -33,11 +37,17 @@ export default class Predictions extends PureComponent {
     predictions: [],
   }
 
-  render() {
-    const { className, predictions, removeStopRoute } = this.props;
+  removeStop = (routeTag, stopTag) => {
+    const routeStopTag = NextBus.getRouteStopTag(routeTag, stopTag);
+    const { onAddOrRemoveStop } = this.props;
 
-    // FIXME: hook up with parent
-    const showBusRemoval = false;
+    removeBusStopFromLocalStorage(routeStopTag);
+    onAddOrRemoveStop();
+  }
+
+
+  render() {
+    const { className, predictions, showBusRemove } = this.props;
 
     return (
       <div className={classNames(className, 'predictions')}>
@@ -53,8 +63,12 @@ export default class Predictions extends PureComponent {
 
                 <div className="right-container">
 
-                  {showBusRemoval ? (
-                    <Button color="danger" className="remove-stop" onClick={removeStopRoute}>
+                  {showBusRemove ? (
+                    <Button
+                      color="danger"
+                      className="remove-stop"
+                      onClick={() => this.removeStop(_routeTag, _stopTag)}
+                    >
                       Remove Stop
                     </Button>
                   ) : (

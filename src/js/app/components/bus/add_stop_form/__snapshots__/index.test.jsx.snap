@@ -48,33 +48,14 @@ exports[`outputs the expected tree when (default) 1`] = `
     <TabPane
       tabId="1"
       tag="div"
-    >
-      <GeolocateAdd
-        addForm={
-          Object {
-            "addStop": [Function],
-            "getNearbyStops": [Function],
-            "toggleBusAddStopForm": [Function],
-            "validate": [Function],
-          }
-        }
-        className=""
-      />
-    </TabPane>
+    />
     <TabPane
       tabId="2"
       tag="div"
     >
       <ManualAdd
-        addForm={
-          Object {
-            "addStop": [Function],
-            "getNearbyStops": [Function],
-            "toggleBusAddStopForm": [Function],
-            "validate": [Function],
-          }
-        }
         className=""
+        onAddOrRemoveStop={[Function]}
       />
     </TabPane>
   </TabContent>

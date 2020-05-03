@@ -4,18 +4,14 @@ import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import classNames from 'classnames';
 
 import ManualAdd from './manual_add';
-import GeolocateAdd from './geolocate_add';
+// import GeolocateAdd from './geolocate_add';
 
 
 export default class AddStopForm extends PureComponent {
   static propTypes = {
     className: T.string,
-    addForm: T.shape({
-      toggleBusAddStopForm: T.func.isRequired,
-      validate: T.func.isRequired,
-      getNearbyStops: T.func.isRequired,
-      addStop: T.func.isRequired,
-    }).isRequired,
+    toggleAddStopForm: T.func.isRequired,
+    onAddOrRemoveStop: T.func.isRequired,
   };
 
   static defaultProps = {
@@ -39,7 +35,7 @@ export default class AddStopForm extends PureComponent {
   }
 
   render() {
-    const { className, addForm } = this.props;
+    const { className, toggleAddStopForm, onAddOrRemoveStop } = this.props;
     const { activeTab } = this.state;
 
     return (
@@ -61,16 +57,17 @@ export default class AddStopForm extends PureComponent {
               Manual Input
             </NavLink>
           </NavItem>
-          <button type="button" className="btn close-form" onClick={addForm.toggleBusAddStopForm}>
+          <button type="button" className="btn close-form" onClick={toggleAddStopForm}>
             <span className="fas fa-times" />
           </button>
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="1">
-            <GeolocateAdd addForm={addForm} />
+            {/* FIXME */}
+            {/* <GeolocateAdd onAddOrRemoveStop={onAddOrRemoveStop} /> */}
           </TabPane>
           <TabPane tabId="2">
-            <ManualAdd addForm={addForm} />
+            <ManualAdd onAddOrRemoveStop={onAddOrRemoveStop} />
           </TabPane>
         </TabContent>
       </div>

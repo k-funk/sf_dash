@@ -4,11 +4,15 @@ exports[`outputs the expected tree when it initially loads 1`] = `
 <div
   className="weather"
 >
-  <TimeSinceLastUpdated
-    className=""
-    lastUpdated={"2019-11-11T11:11:11.000Z"}
-    msUntilWarning={1800000}
-  />
+  <div
+    className="d-flex justify-content-end"
+  >
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={"2019-11-11T11:11:11.000Z"}
+      msUntilWarning={1800000}
+    />
+  </div>
 </div>
 `;
 
@@ -35,11 +39,15 @@ exports[`outputs the expected tree when there are errors 1`] = `
       .
     </span>
   </div>
-  <TimeSinceLastUpdated
-    className=""
-    lastUpdated={"2019-11-11T11:11:11.000Z"}
-    msUntilWarning={1800000}
-  />
+  <div
+    className="d-flex justify-content-end"
+  >
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={"2019-11-11T11:11:11.000Z"}
+      msUntilWarning={1800000}
+    />
+  </div>
 </div>
 `;
 
@@ -794,10 +802,14 @@ exports[`outputs the expected tree when there is at least one location in the ar
       />
     </CardFooter>
   </Card>
-  <TimeSinceLastUpdated
-    className=""
-    lastUpdated={"2019-11-11T11:11:11.000Z"}
-    msUntilWarning={1800000}
-  />
+  <div
+    className="d-flex justify-content-end"
+  >
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={"2019-11-11T11:11:11.000Z"}
+      msUntilWarning={1800000}
+    />
+  </div>
 </div>
 `;

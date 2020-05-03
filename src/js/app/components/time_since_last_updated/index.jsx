@@ -52,9 +52,9 @@ export default class TimeSinceLastUpdated extends PureComponent {
     const overdue = this.isOverdue();
 
     return (
-      <div className={classNames(className, 'time-since-last-updated', 'text-right', { overdue })}>
+      <span className={classNames(className, 'time-since-last-updated', { overdue })}>
         {this.getReadableTime()}
-      </div>
+      </span>
     );
   }
 }

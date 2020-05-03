@@ -9,7 +9,7 @@ export default class Times extends PureComponent {
     predictionTimes: T.arrayOf(
       T.shape({
         _tripTag: T.string, // used to generate react `key`s
-        _affectedByLayover: T.bool, // TODO: not certain of this type
+        _affectedByLayover: T.string,
         _minutes: T.string,
       }),
     ),

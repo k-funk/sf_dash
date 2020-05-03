@@ -13,10 +13,10 @@ describe('outputs the expected tree when', () => {
 
   beforeEach(() => {
     defaultProps = {
-      addForm: {
-        toggleBusAddStopForm: () => {},
-      },
-      toggleBusRemove: () => {},
+      showBusRemove: false,
+      toggleShowBusRemove: () => {},
+      predictions: [{ ...SAMPLE_PREDICTION }],
+      toggleAddStopForm: () => {},
     };
   });
 
@@ -24,8 +24,7 @@ describe('outputs the expected tree when', () => {
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}
-        showBusRemoval={false}
-        predictions={[{ ...SAMPLE_PREDICTION }]}
+        showBusRemove={false}
       />
     ));
   });
@@ -34,7 +33,8 @@ describe('outputs the expected tree when', () => {
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}
-        showBusRemoval={false}
+        predictions={[]}
+        showBusRemove={false}
       />
     ));
   });
@@ -43,8 +43,7 @@ describe('outputs the expected tree when', () => {
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}
-        showBusRemoval
-        predictions={[{ ...SAMPLE_PREDICTION }]}
+        showBusRemove
       />
     ));
   });

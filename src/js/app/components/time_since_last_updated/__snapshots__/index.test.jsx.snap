@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`outputs the expected tree when lastUpdated is now 1`] = `
-<div
-  className="time-since-last-updated text-right"
+<span
+  className="time-since-last-updated"
 >
   Just now.
-</div>
+</span>
 `;
 
 exports[`outputs the expected tree when lastUpdated not passed 1`] = `""`;
 
 exports[`outputs the expected tree when the update is not overdue 1`] = `
-<div
-  className="time-since-last-updated text-right"
+<span
+  className="time-since-last-updated"
 >
   1 second ago.
-</div>
+</span>
 `;
 
 exports[`outputs the expected tree when the update is overdue 1`] = `
-<div
-  className="time-since-last-updated text-right overdue"
+<span
+  className="time-since-last-updated overdue"
 >
   5 seconds ago.
-</div>
+</span>
 `;

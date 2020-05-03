@@ -9,14 +9,11 @@ describe('outputs the expected tree when', () => {
   let wrapper;
 
   test('(default)', () => {
-    const addForm = {
-      toggleBusAddStopForm: () => {},
-      validate: () => {},
-      getNearbyStops: () => {},
-      addStop: () => {},
-    };
     wrapper = shallow((
-      <AddStopForm addForm={addForm} />
+      <AddStopForm
+        toggleAddStopForm={() => {}}
+        onAddOrRemoveStop={() => {}}
+      />
     ));
   });
 

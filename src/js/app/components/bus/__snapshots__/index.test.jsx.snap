@@ -16,14 +16,26 @@ exports[`outputs the expected tree when there are no predictions 1`] = `
   </Card>
   <Predictions
     className=""
+    onAddOrRemoveStop={[Function]}
     predictions={Array []}
-    removeStopRoute={[Function]}
+    showBusRemove={false}
   />
-  <TimeSinceLastUpdated
-    className=""
-    lastUpdated={null}
-    msUntilWarning={20000}
-  />
+  <div
+    className="d-flex align-items-start justify-content-between"
+  >
+    <EditTogglers
+      className=""
+      predictions={Array []}
+      showBusRemove={false}
+      toggleAddStopForm={[Function]}
+      toggleShowBusRemove={[Function]}
+    />
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={null}
+      msUntilWarning={20000}
+    />
+  </div>
 </div>
 `;
 
@@ -43,13 +55,25 @@ exports[`outputs the expected tree when there is at least one prediction in the 
   </Card>
   <Predictions
     className=""
+    onAddOrRemoveStop={[Function]}
     predictions={Array []}
-    removeStopRoute={[Function]}
+    showBusRemove={false}
   />
-  <TimeSinceLastUpdated
-    className=""
-    lastUpdated={null}
-    msUntilWarning={20000}
-  />
+  <div
+    className="d-flex align-items-start justify-content-between"
+  >
+    <EditTogglers
+      className=""
+      predictions={Array []}
+      showBusRemove={false}
+      toggleAddStopForm={[Function]}
+      toggleShowBusRemove={[Function]}
+    />
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={null}
+      msUntilWarning={20000}
+    />
+  </div>
 </div>
 `;

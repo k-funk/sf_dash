@@ -28,3 +28,19 @@ export const setLocalStorage = (key, val) => (
 export const dumpLocalStorage = () => {
   ALL_SETTINGS_KEYS.forEach(key => window.localStorage.removeItem(key));
 };
+
+export const addBusStopToLocalStorage = routeStopTag => {
+  const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY) || [];
+  setLocalStorage(
+    BUS_STOP_ROUTE_TAGS_KEY,
+    [...new Set([...stopRouteTags, routeStopTag])], // no duplicates
+  );
+};
+
+export const removeBusStopFromLocalStorage = routeStopTag => {
+  const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY) || [];
+  setLocalStorage(
+    BUS_STOP_ROUTE_TAGS_KEY,
+    stopRouteTags.filter(tag => tag !== routeStopTag),
+  );
+};

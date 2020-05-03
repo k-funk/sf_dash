@@ -50,9 +50,12 @@ exports[`outputs the expected tree when (default) 1`] = `
           Route Tag:
         </Label>
         <Input
+          className=""
           id="manual-add-route-tag"
           onChange={[Function]}
+          placeholder="12"
           type="text"
+          value=""
         />
       </FormGroup>
     </Col>
@@ -88,9 +91,238 @@ exports[`outputs the expected tree when (default) 1`] = `
           Stop Tag:
         </Label>
         <Input
+          className=""
           id="manual-add-route-stop"
           onChange={[Function]}
+          placeholder="5837"
           type="text"
+          value=""
+        />
+      </FormGroup>
+    </Col>
+  </Row>
+  <div>
+    <Button
+      color="primary"
+      tag="button"
+      type="submit"
+    >
+      Validate & Add Stop
+    </Button>
+  </div>
+</Form>
+`;
+
+exports[`outputs the expected tree when stop added was invalid 1`] = `
+<Form
+  className=""
+  onSubmit={[Function]}
+  tag="form"
+>
+  <Row
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-tag"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Route Tag:
+        </Label>
+        <Input
+          className="is-invalid"
+          id="manual-add-route-tag"
+          onChange={[Function]}
+          placeholder="12"
+          type="text"
+          value=""
+        />
+      </FormGroup>
+    </Col>
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-stop"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Stop Tag:
+        </Label>
+        <Input
+          className="is-invalid"
+          id="manual-add-route-stop"
+          onChange={[Function]}
+          placeholder="5837"
+          type="text"
+          value=""
+        />
+      </FormGroup>
+    </Col>
+  </Row>
+  <div>
+    <Button
+      color="primary"
+      tag="button"
+      type="submit"
+    >
+      Validate & Add Stop
+    </Button>
+  </div>
+</Form>
+`;
+
+exports[`outputs the expected tree when stop added was valid 1`] = `
+<Form
+  className=""
+  onSubmit={[Function]}
+  tag="form"
+>
+  <Row
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-tag"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Route Tag:
+        </Label>
+        <Input
+          className="is-valid"
+          id="manual-add-route-tag"
+          onChange={[Function]}
+          placeholder="12"
+          type="text"
+          value=""
+        />
+      </FormGroup>
+    </Col>
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="6"
+    >
+      <FormGroup
+        tag="div"
+      >
+        <Label
+          for="manual-add-route-stop"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Stop Tag:
+        </Label>
+        <Input
+          className="is-valid"
+          id="manual-add-route-stop"
+          onChange={[Function]}
+          placeholder="5837"
+          type="text"
+          value=""
         />
       </FormGroup>
     </Col>

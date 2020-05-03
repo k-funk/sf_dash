@@ -7,11 +7,34 @@ import ManualAdd from './index';
 
 describe('outputs the expected tree when', () => {
   let wrapper;
+  let onAddOrRemoveStopSpy;
+
+  beforeEach(() => {
+    onAddOrRemoveStopSpy = jest.fn();
+  });
 
   test('(default)', () => {
     wrapper = shallow((
-      <ManualAdd addForm={{ validate: () => {} }} />
+      <ManualAdd onAddOrRemoveStop={onAddOrRemoveStopSpy} />
     ));
+  });
+
+  test('stop added was invalid', () => {
+    wrapper = shallow((
+      <ManualAdd onAddOrRemoveStop={onAddOrRemoveStopSpy} />
+    ));
+    wrapper.setState({
+      stopIsValid: false,
+    });
+  });
+
+  test('stop added was valid', () => {
+    wrapper = shallow((
+      <ManualAdd onAddOrRemoveStop={onAddOrRemoveStopSpy} />
+    ));
+    wrapper.setState({
+      stopIsValid: true,
+    });
   });
 
   afterEach(() => {

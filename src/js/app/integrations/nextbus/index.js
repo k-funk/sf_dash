@@ -12,14 +12,14 @@ export const XML2JS_CONFIG = {
 export const URL = 'http://webservices.nextbus.com/service/publicXMLFeed';
 
 export default class NextBus {
-  static getPredictions = async stopRouteTags => {
+  static async getPredictions(routeStopTags) {
     const response = await axios({
       method: 'get',
       url: URL,
       params: {
         command: 'predictionsForMultiStops',
         a: 'sf-muni',
-        stops: stopRouteTags,
+        stops: routeStopTags,
         useShortTitles: true,
       },
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
@@ -108,7 +108,20 @@ export default class NextBus {
   //   return routeData;
   // }
 
+  static async isValidStop(routeStopTag) {
+    try {
+      const response = await this.getPredictions([routeStopTag]);
+      return !!response?.body?.predictions;
+    } catch (e) {
+      return false;
+    }
+  }
+
   static parseXMLResponse(xmlString) {
     return new X2JS(XML2JS_CONFIG).xml2js(xmlString);
+  }
+
+  static getRouteStopTag(routeTag, stopTag) {
+    return `${routeTag}|${stopTag}`;
   }
 }

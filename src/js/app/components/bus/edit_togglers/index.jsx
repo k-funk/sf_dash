@@ -14,33 +14,35 @@ const buttonProps = {
 export default class EditTogglers extends PureComponent {
   static propTypes = {
     className: T.string,
-    showBusRemoval: T.bool,
-    addForm: T.shape({
-      toggleBusAddStopForm: T.func.isRequired,
-    }).isRequired,
-    toggleBusRemove: T.func.isRequired,
+    showBusRemove: T.bool.isRequired,
+    toggleShowBusRemove: T.func.isRequired,
     predictions: T.array,
+    toggleAddStopForm: T.func.isRequired,
   };
 
   static defaultProps = {
     className: '',
-    showBusRemoval: false,
     predictions: [],
   }
 
   render() {
-    const { className, showBusRemoval, addForm, toggleBusRemove, predictions } = this.props;
-
+    const {
+      className,
+      showBusRemove,
+      toggleShowBusRemove,
+      predictions,
+      toggleAddStopForm,
+    } = this.props;
 
     return (
       <div className={classNames(className)}>
-        {!showBusRemoval && (
-          <Button {...buttonProps} onClick={addForm.toggleBusAddStopForm}>
+        {!showBusRemove && (
+          <Button {...buttonProps} onClick={toggleAddStopForm}>
             <span className="fas fa-plus" />
           </Button>
         )}
         {!!predictions.length && (
-          <Button {...buttonProps} onClick={toggleBusRemove}>
+          <Button {...buttonProps} onClick={toggleShowBusRemove}>
             <span className="fas fa-pen" />
           </Button>
         )}
