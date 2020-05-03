@@ -69,7 +69,6 @@ export default class NextBus {
       geoLocation.coords.longitude,
     );
 
-    // FIXME: this is old. see if i can't clean it up
     const stopResults = [];
     routeConfig.forEach(route => {
       route.direction.forEach(direction => {
@@ -83,9 +82,12 @@ export default class NextBus {
             stopResults.push({
               tag: route._tag,
               title: route._title,
+
               directionName: direction._name,
               directionTitle: direction._title,
+
               latLng: stopLatLng,
+
               stopId: stop._stopId,
               stopTag: stop._tag,
               stopTitle: stop._title,
@@ -99,7 +101,19 @@ export default class NextBus {
   }
 
   static mergeRouteData = routeData => {
-    // FIXME
+    // the purpose of this is to merge stop data into direction data. this is necessary because the
+    // stops are direction unaware (inbound/outbound):
+    //
+    // routeData[0].direction[0].stop[0] = {
+    //   _tag: "6932"
+    // }
+    //
+    // becomes
+    //
+    // routeData[0].direction[0].stop[0] = {
+    //   _tag: "6932", _lat: "37.123", _stopId: "12789", _title: "Mission"
+    // }
+
     routeData.forEach(route => {
       // map the stop tags
       const stopTags = {};
@@ -107,12 +121,12 @@ export default class NextBus {
         stopTags[stop._tag] = stop;
       });
 
+      // there should be only 2 directions. inbound/outbound
       route.direction.forEach(direction => {
-        // FIXME
-        for (let i = 0; i < direction.stop.length; i++) { // eslint-disable-line no-plusplus
-          const tag = direction.stop[i]._tag;
-          direction.stop[i] = stopTags[tag];
-        }
+        direction.stop.forEach((stop, idx) => {
+          // replace the object with the one that has the full data
+          direction.stop[idx] = stopTags[stop._tag];
+        });
       });
     });
     return routeData;
