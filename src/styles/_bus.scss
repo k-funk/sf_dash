@@ -1,13 +1,17 @@
 .bus {
   font-size: 12px;
-  $route-tag-size: 80px;
+  $route-tag-size: 86px;
+
+  .card {
+    min-height: 1px;
+  }
 
   .route-tag {
     margin-right: 10px;
     height: $route-tag-size;
     width: $route-tag-size;
     line-height: $route-tag-size;
-    font-size: 32px;
+    font-size: $route-tag-size * 0.4;
     -moz-border-radius: 50%;
     border-radius: 50%;
     background-color: #EEE;
@@ -17,21 +21,24 @@
   .right-container {
     text-align: right;
     .prediction-times {
-      // TODO: darkmode
-      //color: #ccc;
-      font-size: 30px;
+      color: $text-muted;
+      font-size: 2rem;
       font-weight: 200;
-      line-height: 1.25;
-      .next-time {
-        font-size: 40px;
+      line-height: 1;
+      margin-bottom: .65rem;
+    }
+    .prediction-time {
+      border-bottom: 1px solid $text-muted;
+      &.next-time {
+        color: $body-color;
+        font-size: 2.75rem;
       }
-      .next-time,
-      .other-time {
+      &.next-time,
+      &.other-time {
         font-weight: 600;
       }
-      .not-affected-by-layover {
-        // TODO: darkmode
-        //color: #FFF;
+      &.not-affected-by-layover {
+        border-bottom-color: transparent !important;
       }
     }
     .route-title,

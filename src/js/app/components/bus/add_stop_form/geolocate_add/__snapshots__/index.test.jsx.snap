@@ -5,7 +5,7 @@ exports[`outputs the expected tree when (default) 1`] = `
   <Alert
     closeAriaLabel="Close"
     color="danger"
-    fade={true}
+    fade={false}
     isOpen={true}
     tag="div"
     transition={
@@ -43,7 +43,7 @@ exports[`outputs the expected tree when (default) 1`] = `
     .
   </Alert>
   <Form
-    className=""
+    className="mb-2"
     inline={true}
     tag="form"
   >
@@ -88,40 +88,196 @@ exports[`outputs the expected tree when (default) 1`] = `
       </option>
     </Input>
   </Form>
-  <Table
-    hover={true}
-    responsiveTag="div"
-    striped={true}
-    tag="table"
+</Fragment>
+`;
+
+exports[`outputs the expected tree when errMsg is shown 1`] = `
+<Fragment>
+  <Alert
+    closeAriaLabel="Close"
+    color="danger"
+    fade={false}
+    isOpen={true}
+    tag="div"
+    transition={
+      Object {
+        "appear": true,
+        "baseClass": "fade",
+        "baseClassActive": "show",
+        "enter": true,
+        "exit": true,
+        "in": true,
+        "mountOnEnter": false,
+        "onEnter": [Function],
+        "onEntered": [Function],
+        "onEntering": [Function],
+        "onExit": [Function],
+        "onExited": [Function],
+        "onExiting": [Function],
+        "tag": "div",
+        "timeout": 150,
+        "unmountOnExit": true,
+      }
+    }
   >
-    <thead>
-      <tr>
-        <th>
-          Route
-        </th>
-        <th>
-          Direction
-        </th>
-        <th>
-          Stop
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        key="FIXME|FIXME"
+    Warning: This probably 
+    won't
+     work. See
+     
+    <a
+      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Geolocation API Removed from Unsecured Origins in Chrome 50
+    </a>
+    .
+  </Alert>
+  <Form
+    className="mb-2"
+    inline={true}
+    tag="form"
+  >
+    <Label
+      className="mr-2"
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Find stops within
+    </Label>
+    <Input
+      onChange={[Function]}
+      type="select"
+    >
+      <option
+        value=""
       >
-        <td>
-          FIXME
-        </td>
-        <td>
-          FIXME
-        </td>
-        <td>
-          FIXME
-        </td>
-      </tr>
-    </tbody>
-  </Table>
+        --Choose One--
+      </option>
+      <option
+        value="322"
+      >
+        1/5 mile
+      </option>
+      <option
+        value="402"
+      >
+        1/4 mile
+      </option>
+      <option
+        value="804"
+      >
+        1/2 mile
+      </option>
+    </Input>
+  </Form>
+  <div
+    className="text-danger"
+  >
+    Error: 
+    oh noes!
+  </div>
+</Fragment>
+`;
+
+exports[`outputs the expected tree when loader is shown 1`] = `
+<Fragment>
+  <Alert
+    closeAriaLabel="Close"
+    color="danger"
+    fade={false}
+    isOpen={true}
+    tag="div"
+    transition={
+      Object {
+        "appear": true,
+        "baseClass": "fade",
+        "baseClassActive": "show",
+        "enter": true,
+        "exit": true,
+        "in": true,
+        "mountOnEnter": false,
+        "onEnter": [Function],
+        "onEntered": [Function],
+        "onEntering": [Function],
+        "onExit": [Function],
+        "onExited": [Function],
+        "onExiting": [Function],
+        "tag": "div",
+        "timeout": 150,
+        "unmountOnExit": true,
+      }
+    }
+  >
+    Warning: This probably 
+    won't
+     work. See
+     
+    <a
+      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Geolocation API Removed from Unsecured Origins in Chrome 50
+    </a>
+    .
+  </Alert>
+  <Form
+    className="mb-2"
+    inline={true}
+    tag="form"
+  >
+    <Label
+      className="mr-2"
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Find stops within
+    </Label>
+    <Input
+      onChange={[Function]}
+      type="select"
+    >
+      <option
+        value=""
+      >
+        --Choose One--
+      </option>
+      <option
+        value="322"
+      >
+        1/5 mile
+      </option>
+      <option
+        value="402"
+      >
+        1/4 mile
+      </option>
+      <option
+        value="804"
+      >
+        1/2 mile
+      </option>
+    </Input>
+  </Form>
+  <div
+    className="lds-dual-ring"
+  />
 </Fragment>
 `;

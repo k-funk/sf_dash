@@ -4,7 +4,7 @@ import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import classNames from 'classnames';
 
 import ManualAdd from './manual_add';
-// import GeolocateAdd from './geolocate_add';
+import GeolocateAdd from './geolocate_add';
 
 
 export default class AddStopForm extends PureComponent {
@@ -63,8 +63,7 @@ export default class AddStopForm extends PureComponent {
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="1">
-            {/* FIXME */}
-            {/* <GeolocateAdd onAddOrRemoveStop={onAddOrRemoveStop} /> */}
+            <GeolocateAdd onAddOrRemoveStop={onAddOrRemoveStop} />
           </TabPane>
           <TabPane tabId="2">
             <ManualAdd onAddOrRemoveStop={onAddOrRemoveStop} />

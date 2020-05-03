@@ -3,36 +3,59 @@ import { PropTypes as T } from 'prop-types';
 import { Alert, Form, Input, Label, Table } from 'reactstrap';
 import classNames from 'classnames';
 
+import NextBus from 'app/integrations/nextbus';
+import { addBusStopToLocalStorage } from 'app/utils/local_storage';
+
 
 export default class GeolocateAdd extends PureComponent {
   static propTypes = {
     className: T.string,
-    addForm: T.shape({
-      getNearbyStops: T.func.isRequired,
-      addStop: T.func.isRequired,
-      loading: T.bool,
-      errMsg: T.string,
-      nearbyStops: T.arrayOf(T.shape({
-        tag: T.string,
-        stopTag: T.string,
-        title: T.string,
-        directionTitle: T.string,
-        stopTitle: T.string,
-      })),
-    }).isRequired,
+    onAddOrRemoveStop: T.func.isRequired,
   };
 
   static defaultProps = {
     className: '',
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      errMsg: undefined,
+      nearbyStops: [],
+    };
+  }
+
+  getNearbyStops = async event => {
+    const meters = event.target.value;
+    if (!meters) { return; }
+
+    this.setState({ loading: true });
+    try {
+      const nearbyStops = await NextBus.getStopsNearMe(meters);
+      this.setState({ nearbyStops, loading: false });
+    } catch (e) {
+      this.setState({
+        loading: false,
+        errMsg: e.message || e,
+      });
+    }
+  }
+
+  addStop = routeStopTag => {
+    const { onAddOrRemoveStop } = this.props;
+
+    addBusStopToLocalStorage(routeStopTag);
+    onAddOrRemoveStop();
+  }
+
   render() {
-    const { className, addForm } = this.props;
-    const { getNearbyStops, addStop, loading, errMsg, nearbyStops } = addForm;
+    const { className } = this.props;
+    const { loading, errMsg, nearbyStops } = this.state;
 
     return (
       <>
-        <Alert color="danger">
+        <Alert color="danger" fade={false}>
           Warning: This probably {'won\'t'} work. See{' '}
           <a
             href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
@@ -43,19 +66,19 @@ export default class GeolocateAdd extends PureComponent {
           </a>.
         </Alert>
 
-        <Form className={classNames(className)} inline>
+        <Form className={classNames(className, 'mb-2')} inline>
           <Label className="mr-2">Find stops within</Label>
-          <Input type="select" onChange={getNearbyStops}>
+          <Input type="select" onChange={this.getNearbyStops}>
+            {/* Values are in meters */}
             <option value="">--Choose One--</option>
             <option value="322">1/5 mile</option>
             <option value="402">1/4 mile</option>
             <option value="804">1/2 mile</option>
-            {/* Values are in meters */}
           </Input>
         </Form>
 
-        {nearbyStops && (
-          <Table striped hover>
+        {!!nearbyStops.length && (
+          <Table striped hover className="mt-4">
             <thead>
               <tr>
                 <th>Route</th>
@@ -66,10 +89,14 @@ export default class GeolocateAdd extends PureComponent {
             <tbody>
               {nearbyStops.map(nearbyStop => {
                 const { tag, stopTag, title, directionTitle, stopTitle } = nearbyStop;
-                const formattedStop = `${tag}|${stopTag}`;
+                const routeStopTag = NextBus.getRouteStopTag(tag, stopTag);
 
                 return (
-                  <tr onClick={addStop(formattedStop)} key={formattedStop}>
+                  <tr
+                    className="clickable"
+                    key={routeStopTag}
+                    onClick={() => this.addStop(routeStopTag)}
+                  >
                     <td>{title}</td>
                     <td>{directionTitle}</td>
                     <td>{stopTitle}</td>
@@ -80,8 +107,8 @@ export default class GeolocateAdd extends PureComponent {
           </Table>
         )}
 
-        {loading && <div className="spinner-loader" />}
-        {errMsg && <div className="text-danger">{errMsg}</div>}
+        {loading && <div className="lds-dual-ring" />}
+        {errMsg && <div className="text-danger">Error: {errMsg}</div>}
       </>
     );
   }

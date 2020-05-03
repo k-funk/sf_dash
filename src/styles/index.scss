@@ -6,8 +6,8 @@ html.light-mode {
 
   @import 'scaffolding';
   @import 'current_time';
+  @import 'loader';
   @import 'time_since_last_updated';
-  @import 'spinner';
   @import 'weather';
   @import 'bus';
 }
@@ -17,8 +17,8 @@ html.dark-mode {
 
   @import 'scaffolding';
   @import 'current_time';
+  @import 'loader';
   @import 'time_since_last_updated';
-  @import 'spinner';
   @import 'weather';
   @import 'bus';
 }

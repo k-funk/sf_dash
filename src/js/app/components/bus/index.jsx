@@ -64,7 +64,7 @@ export default class Bus extends PureComponent {
 
   async componentDidMount() {
     await this.updateBusPredictions();
-    this.interval = setInterval(this.updateBusPredictions, CALL_INTERVAL);
+    this.interval = setInterval(() => this.updateBusPredictions(), CALL_INTERVAL);
   }
 
   componentWillUnmount() {

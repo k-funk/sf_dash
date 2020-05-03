@@ -48,7 +48,12 @@ exports[`outputs the expected tree when (default) 1`] = `
     <TabPane
       tabId="1"
       tag="div"
-    />
+    >
+      <GeolocateAdd
+        className=""
+        onAddOrRemoveStop={[Function]}
+      />
+    </TabPane>
     <TabPane
       tabId="2"
       tag="div"

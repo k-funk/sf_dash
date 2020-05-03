@@ -7,26 +7,32 @@ import GeolocateAdd from './index';
 
 describe('outputs the expected tree when', () => {
   let wrapper;
+  let defaultProps;
+
+  beforeEach(() => {
+    defaultProps = {
+      onAddOrRemoveStop: () => {},
+    };
+  });
 
   test('(default)', () => {
-    const addForm = {
-      getNearbyStops: () => {},
-      addStop: () => {},
-      loading: false,
-      errMsg: '',
-      nearbyStops: [
-        {
-          tag: 'FIXME',
-          stopTag: 'FIXME',
-          title: 'FIXME',
-          directionTitle: 'FIXME',
-          stopTitle: 'FIXME',
-        },
-      ],
-    };
     wrapper = shallow((
-      <GeolocateAdd addForm={addForm} />
+      <GeolocateAdd {...defaultProps} />
     ));
+  });
+
+  test('loader is shown', () => {
+    wrapper = shallow((
+      <GeolocateAdd {...defaultProps} />
+    ));
+    wrapper.setState({ loading: true });
+  });
+
+  test('errMsg is shown', () => {
+    wrapper = shallow((
+      <GeolocateAdd {...defaultProps} />
+    ));
+    wrapper.setState({ errMsg: 'oh noes!' });
   });
 
   afterEach(() => {
