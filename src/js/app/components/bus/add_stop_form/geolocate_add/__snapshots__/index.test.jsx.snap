@@ -281,3 +281,267 @@ exports[`outputs the expected tree when loader is shown 1`] = `
   />
 </Fragment>
 `;
+
+exports[`outputs the expected tree when nearbyStops is present 1`] = `
+<Fragment>
+  <Alert
+    closeAriaLabel="Close"
+    color="danger"
+    fade={false}
+    isOpen={true}
+    tag="div"
+    transition={
+      Object {
+        "appear": true,
+        "baseClass": "fade",
+        "baseClassActive": "show",
+        "enter": true,
+        "exit": true,
+        "in": true,
+        "mountOnEnter": false,
+        "onEnter": [Function],
+        "onEntered": [Function],
+        "onEntering": [Function],
+        "onExit": [Function],
+        "onExited": [Function],
+        "onExiting": [Function],
+        "tag": "div",
+        "timeout": 150,
+        "unmountOnExit": true,
+      }
+    }
+  >
+    Warning: This probably 
+    won't
+     work. See
+     
+    <a
+      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Geolocation API Removed from Unsecured Origins in Chrome 50
+    </a>
+    .
+  </Alert>
+  <Form
+    className="mb-2"
+    inline={true}
+    tag="form"
+  >
+    <Label
+      className="mr-2"
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Find stops within
+    </Label>
+    <Input
+      onChange={[Function]}
+      type="select"
+    >
+      <option
+        value=""
+      >
+        --Choose One--
+      </option>
+      <option
+        value="322"
+      >
+        1/5 mile
+      </option>
+      <option
+        value="402"
+      >
+        1/4 mile
+      </option>
+      <option
+        value="804"
+      >
+        1/2 mile
+      </option>
+    </Input>
+  </Form>
+  <Table
+    className="mt-4"
+    hover={true}
+    responsiveTag="div"
+    striped={true}
+    tag="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          Route
+        </th>
+        <th>
+          Direction
+        </th>
+        <th>
+          Stop
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="clickable"
+        key="24|4146"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Outbound to Palou + Third Street
+        </td>
+        <td>
+          Cortland Ave & Bocana St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4143"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Outbound to Palou + Third Street
+        </td>
+        <td>
+          Cortland Ave & Andover St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4152"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Outbound to Palou + Third Street
+        </td>
+        <td>
+          Cortland Ave & Ellsworth St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4154"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Outbound to Palou + Third Street
+        </td>
+        <td>
+          Cortland Ave & Folsom St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4159"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Outbound to Palou + Third Street
+        </td>
+        <td>
+          Cortland Ave & Prentiss St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4158"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Inbound to Jackson + Fillmore
+        </td>
+        <td>
+          Cortland Ave & Prentiss St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4153"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Inbound to Jackson + Fillmore
+        </td>
+        <td>
+          Cortland Ave & Folsom St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4151"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Inbound to Jackson + Fillmore
+        </td>
+        <td>
+          Cortland Ave & Ellsworth St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4142"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Inbound to Jackson + Fillmore
+        </td>
+        <td>
+          Cortland Ave & Andover St
+        </td>
+      </tr>
+      <tr
+        className="clickable"
+        key="24|4145"
+        onClick={[Function]}
+      >
+        <td>
+          24-Divisadero
+        </td>
+        <td>
+          Inbound to Jackson + Fillmore
+        </td>
+        <td>
+          Cortland Ave & Bocana St
+        </td>
+      </tr>
+    </tbody>
+  </Table>
+</Fragment>
+`;

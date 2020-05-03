@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import CurrentDateTimeHeader from './index';
+import CurrentDateTimeHeader, { INTERVAL_MS } from './index';
 
 
 describe('outputs the expected tree when', () => {
@@ -20,14 +20,28 @@ describe('outputs the expected tree when', () => {
 });
 
 describe('instance methods', () => {
+  let wrapper;
   let instance;
+  let setIntervalSpy;
+  let clearIntervalSpy;
+
   beforeEach(() => {
-    instance = shallow((
+    setIntervalSpy = jest.spyOn(window, 'setInterval').mockReturnValue(11);
+    clearIntervalSpy = jest.spyOn(window, 'clearInterval');
+    wrapper = shallow((
       <CurrentDateTimeHeader />
-    )).instance();
+    ));
+    instance = wrapper.instance();
   });
 
-  test('sets up interval for forceUpdating time', () => {
-    expect(instance.interval).toEqual(expect.any(Number));
+  test('componentDidMount sets an interval', () => {
+    expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), INTERVAL_MS);
+    expect(instance.interval).toEqual(11);
+  });
+
+  test('componentWillUnmount clears an interval', () => {
+    wrapper.unmount();
+
+    expect(clearIntervalSpy).toHaveBeenCalledWith(11);
   });
 });

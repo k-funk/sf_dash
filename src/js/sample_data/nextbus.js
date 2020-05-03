@@ -6,7 +6,7 @@ export const SAMPLE_PREDICTION = {
       {
         _epochTime: '1588198229803',
         _seconds: '296',
-        _minutes: '4',
+        _minutes: '0',
         _isDeparture: 'false',
         _dirTag: '14___I_F00',
         _vehicle: '6609',
@@ -43,6 +43,7 @@ export const SAMPLE_PREDICTION = {
   _stopTag: '5565',
   $$hashKey: 'object:17',
   className: '',
+  _dirTitleBecauseNoPredictions: 'Inbound to Ferry Plaza', // hacked in for testing
 };
 
 // FIXME

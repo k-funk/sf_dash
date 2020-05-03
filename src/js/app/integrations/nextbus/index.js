@@ -50,7 +50,7 @@ export default class NextBus {
 
     return new Promise((resolve, reject) => {
       const errorText = data?.body?.Error?.__text;
-      if (errorText) { reject(errorText); }
+      if (errorText) { reject(new Error(errorText)); }
 
       resolve(this.mergeRouteData(data.body.route));
     });

@@ -37,7 +37,7 @@ export default class GeolocateAdd extends PureComponent {
     } catch (e) {
       this.setState({
         loading: false,
-        errMsg: e.message || e,
+        errMsg: e.message,
       });
     }
   }

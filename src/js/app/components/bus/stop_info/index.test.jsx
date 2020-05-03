@@ -16,6 +16,12 @@ describe('outputs the expected tree when', () => {
     ));
   });
 
+  test('a prediction is passed without a direction', () => {
+    wrapper = shallow((
+      <StopInfo prediction={{ ...SAMPLE_PREDICTION, direction: undefined }} />
+    ));
+  });
+
   afterEach(() => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

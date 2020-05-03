@@ -17,3 +17,21 @@ exports[`outputs the expected tree when a prediction is passed 1`] = `
   </div>
 </div>
 `;
+
+exports[`outputs the expected tree when a prediction is passed without a direction 1`] = `
+<div
+  className=""
+>
+  <div
+    className="route-title"
+  >
+    Inbound to Ferry Plaza
+  </div>
+  <div
+    className="stop-title"
+  >
+    @
+    Mission St & 24th St
+  </div>
+</div>
+`;

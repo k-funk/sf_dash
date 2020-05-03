@@ -10,10 +10,16 @@ import Times from './index';
 describe('outputs the expected tree when', () => {
   let wrapper;
 
-  test('a prediction is passed', () => {
+  test('predictionTimes are passed', () => {
     const predictionTimes = [...SAMPLE_PREDICTION.direction.prediction];
     wrapper = shallow((
       <Times predictionTimes={predictionTimes} />
+    ));
+  });
+
+  test('predictionTimes are not passed', () => {
+    wrapper = shallow((
+      <Times predictionTimes={[]} />
     ));
   });
 
