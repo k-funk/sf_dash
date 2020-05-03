@@ -53,6 +53,7 @@ describe('instance methods', () => {
     const value = 'abc';
 
     instance.onWeatherKeyChange({ target: { value } });
+
     expect(instance.getInitialState()).toEqual({
       weatherKeyIsValid: undefined,
       weatherKeyValue: 'foo',

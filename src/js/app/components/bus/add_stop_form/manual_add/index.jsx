@@ -26,8 +26,8 @@ export default class ManualAdd extends PureComponent {
     };
   }
 
-  onChange = (e, field) => {
-    this.setState({ [field]: e.target.value });
+  onChange = (event, field) => {
+    this.setState({ [field]: event.target.value });
   }
 
   validateAndAddStop = async event => {

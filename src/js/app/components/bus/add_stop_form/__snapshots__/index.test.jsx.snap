@@ -66,3 +66,70 @@ exports[`outputs the expected tree when (default) 1`] = `
   </TabContent>
 </div>
 `;
+
+exports[`outputs the expected tree when toggle tab2 1`] = `
+<div
+  className="add-form mb-2"
+>
+  <Nav
+    tabs={true}
+    tag="ul"
+    vertical={false}
+  >
+    <NavItem
+      tag="li"
+    >
+      <NavLink
+        className="clickable"
+        onClick={[Function]}
+        tag="a"
+      >
+        Geolocation
+      </NavLink>
+    </NavItem>
+    <NavItem
+      tag="li"
+    >
+      <NavLink
+        className="clickable active"
+        onClick={[Function]}
+        tag="a"
+      >
+        Manual Input
+      </NavLink>
+    </NavItem>
+    <button
+      className="btn close-form"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="fas fa-times"
+      />
+    </button>
+  </Nav>
+  <TabContent
+    activeTab="2"
+    tag="div"
+  >
+    <TabPane
+      tabId="1"
+      tag="div"
+    >
+      <GeolocateAdd
+        className=""
+        onAddOrRemoveStop={[Function]}
+      />
+    </TabPane>
+    <TabPane
+      tabId="2"
+      tag="div"
+    >
+      <ManualAdd
+        className=""
+        onAddOrRemoveStop={[Function]}
+      />
+    </TabPane>
+  </TabContent>
+</div>
+`;
