@@ -2,6 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
+import NextBus from 'app/integrations/nextbus';
+
+import * as LocalStorageUtils from 'app/utils/local_storage';
 import ManualAdd from './index';
 
 
@@ -72,14 +75,44 @@ describe('instance methods', () => {
     expect(wrapper.state()[field]).toEqual(value);
   });
 
-  // FIXME: simulate typing in Input
-  // test('button clicks call onChange', () => {
-  //   const spy = jest.spyOn(instance, 'onChange');
-  //
-  //   wrapper.find('Button').at(0).simulate('click');
-  //   expect(spy).toHaveBeenCalledWith('dark-mode');
-  //
-  //   wrapper.find('Button').at(1).simulate('click');
-  //   expect(spy).toHaveBeenCalledWith('light-mode');
-  // });
+  describe('validateAndAddStop', () => {
+    beforeEach(() => {
+      wrapper.setState({
+        routeTag: '14',
+        stopTag: '5565',
+      });
+    });
+
+    test('isValidStop returns true', async () => {
+      const isValidStopSpy = jest.spyOn(NextBus, 'isValidStop').mockReturnValue(true);
+      const addBusStopToLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'addBusStopToLocalStorage');
+
+      await instance.validateAndAddStop({ preventDefault: () => {} });
+
+      expect(isValidStopSpy).toHaveBeenCalledWith('14|5565');
+      expect(wrapper.state().stopIsValid).toEqual(true);
+      expect(addBusStopToLocalStorageSpy).toHaveBeenCalledWith('14|5565');
+      expect(onAddOrRemoveStopSpy).toHaveBeenCalledWith();
+    });
+
+    test('isValidStop returns false', async () => {
+      const isValidStopSpy = jest.spyOn(NextBus, 'isValidStop').mockReturnValue(false);
+
+      await instance.validateAndAddStop({ preventDefault: () => {} });
+
+      expect(isValidStopSpy).toHaveBeenCalledWith('14|5565');
+      expect(wrapper.state().stopIsValid).toEqual(false);
+    });
+  });
+
+  test('button clicks call onChange', () => {
+    const spy = jest.spyOn(instance, 'onChange');
+    const event = { target: { value: 'typing' } };
+
+    wrapper.find('Input').at(0).simulate('change', event);
+    expect(spy).toHaveBeenCalledWith(event, 'routeTag');
+
+    wrapper.find('Input').at(1).simulate('change', event);
+    expect(spy).toHaveBeenCalledWith(event, 'stopTag');
+  });
 });
