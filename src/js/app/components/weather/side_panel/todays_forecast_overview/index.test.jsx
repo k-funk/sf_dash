@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 import { SAMPLE_DAILY_FORECAST } from 'sample_data/darksky';
 
 import TodaysForecastOverview, { cToF, fToC } from './index';
@@ -18,7 +18,7 @@ describe('outputs the expected tree when', () => {
   });
 
   test('localStorage weather units was set to c', () => {
-    jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('c');
+    jest.spyOn(LocalStorage, 'get').mockReturnValue('c');
 
     wrapper = shallow((
       <TodaysForecastOverview todaysForecast={{ ...SAMPLE_DAILY_FORECAST }} />
@@ -26,7 +26,7 @@ describe('outputs the expected tree when', () => {
   });
 
   test('localStorage weather units was set to f', () => {
-    jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('f');
+    jest.spyOn(LocalStorage, 'get').mockReturnValue('f');
 
     wrapper = shallow((
       <TodaysForecastOverview todaysForecast={{ ...SAMPLE_DAILY_FORECAST }} />

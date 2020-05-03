@@ -4,7 +4,7 @@ import { Card, CardBody } from 'reactstrap';
 import moment from 'moment';
 import classNames from 'classnames';
 
-import { BUS_STOP_ROUTE_TAGS_KEY, getLocalStorage } from 'app/utils/local_storage';
+import LocalStorage, { BUS_STOP_ROUTE_TAGS_KEY } from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import NextBus from 'app/integrations/nextbus';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
@@ -88,7 +88,7 @@ export default class Bus extends PureComponent {
   }
 
   async updateBusPredictions() {
-    const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY);
+    const stopRouteTags = LocalStorage.get(BUS_STOP_ROUTE_TAGS_KEY);
 
     // Don't send an empty request
     if (!stopRouteTags.length) { return; }

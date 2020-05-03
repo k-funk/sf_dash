@@ -13,34 +13,36 @@ export const ALL_SETTINGS_KEYS = [
   [],
 );
 
-export const getLocalStorage = key => (
-  JSON.parse((
-    window.localStorage.getItem(key) ||
-    // legacy support
-    window.localStorage.getItem(`${ANGULAR_LOCAL_STORAGE_PREFIX}${key}`)
-  )) || ''
-);
+export default class LocalStorage {
+  static get(key) {
+    return JSON.parse((
+      window.localStorage.getItem(key) ||
+      // legacy support
+      window.localStorage.getItem(`${ANGULAR_LOCAL_STORAGE_PREFIX}${key}`)
+    )) || '';
+  }
 
-export const setLocalStorage = (key, val) => (
-  window.localStorage.setItem(key, JSON.stringify(val))
-);
+  static set(key, val) {
+    window.localStorage.setItem(key, JSON.stringify(val));
+  }
 
-export const dumpLocalStorage = () => {
-  ALL_SETTINGS_KEYS.forEach(key => window.localStorage.removeItem(key));
-};
+  static dump() {
+    ALL_SETTINGS_KEYS.forEach(key => window.localStorage.removeItem(key));
+  }
 
-export const addBusStopToLocalStorage = routeStopTag => {
-  const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY) || [];
-  setLocalStorage(
-    BUS_STOP_ROUTE_TAGS_KEY,
-    [...new Set([...stopRouteTags, routeStopTag])], // no duplicates
-  );
-};
+  static addBusStopToLocalStorage(routeStopTag) {
+    const stopRouteTags = this.get(BUS_STOP_ROUTE_TAGS_KEY) || [];
+    this.set(
+      BUS_STOP_ROUTE_TAGS_KEY,
+      [...new Set([...stopRouteTags, routeStopTag])], // no duplicates
+    );
+  }
 
-export const removeBusStopFromLocalStorage = routeStopTag => {
-  const stopRouteTags = getLocalStorage(BUS_STOP_ROUTE_TAGS_KEY) || [];
-  setLocalStorage(
-    BUS_STOP_ROUTE_TAGS_KEY,
-    stopRouteTags.filter(tag => tag !== routeStopTag),
-  );
-};
+  static removeBusStopFromLocalStorage(routeStopTag) {
+    const stopRouteTags = this.get(BUS_STOP_ROUTE_TAGS_KEY) || [];
+    this.set(
+      BUS_STOP_ROUTE_TAGS_KEY,
+      stopRouteTags.filter(tag => tag !== routeStopTag),
+    );
+  }
+}

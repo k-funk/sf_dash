@@ -4,7 +4,7 @@ import shallowToJson from 'enzyme-to-json';
 
 import NextBus from 'app/integrations/nextbus';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 import ManualAdd from './index';
 
 
@@ -85,7 +85,7 @@ describe('instance methods', () => {
 
     test('isValidStop returns true', async () => {
       const isValidStopSpy = jest.spyOn(NextBus, 'isValidStop').mockReturnValue(true);
-      const addBusStopToLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'addBusStopToLocalStorage');
+      const addBusStopToLocalStorageSpy = jest.spyOn(LocalStorage, 'addBusStopToLocalStorage');
 
       await instance.validateAndAddStop({ preventDefault: () => {} });
 

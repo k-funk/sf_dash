@@ -4,7 +4,7 @@ import { Alert, Form, Input, Label, Table } from 'reactstrap';
 import classNames from 'classnames';
 
 import NextBus from 'app/integrations/nextbus';
-import { addBusStopToLocalStorage } from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 
 
 export default class GeolocateAdd extends PureComponent {
@@ -45,7 +45,7 @@ export default class GeolocateAdd extends PureComponent {
   addStop = routeStopTag => {
     const { onAddOrRemoveStop } = this.props;
 
-    addBusStopToLocalStorage(routeStopTag);
+    LocalStorage.addBusStopToLocalStorage(routeStopTag);
     onAddOrRemoveStop();
   }
 

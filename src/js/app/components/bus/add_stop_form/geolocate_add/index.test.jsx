@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
 import NextBus from 'app/integrations/nextbus';
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 
 import GeolocateAdd from './index';
 
@@ -224,7 +224,7 @@ describe('instance methods', () => {
 
   test('addStop', () => {
     const routeStopTag = '12|1234';
-    const addBusStopToLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'addBusStopToLocalStorage');
+    const addBusStopToLocalStorageSpy = jest.spyOn(LocalStorage, 'addBusStopToLocalStorage');
 
     instance.addStop(routeStopTag);
 

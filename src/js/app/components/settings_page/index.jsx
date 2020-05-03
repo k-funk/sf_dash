@@ -14,13 +14,7 @@ import {
 } from 'reactstrap';
 import classNames from 'classnames';
 
-import {
-  dumpLocalStorage,
-  getLocalStorage,
-  setLocalStorage,
-  WEATHER_KEY_KEY,
-  WEATHER_UNITS_KEY,
-} from 'app/utils/local_storage';
+import LocalStorage, { WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
 import DarkSky from 'app/integrations/darksky';
 
 import DarkLightModeSelector from './dark_light_mode_selector';
@@ -42,8 +36,8 @@ export default class Settings extends PureComponent {
 
   getInitialState = () => ({
     weatherKeyIsValid: undefined,
-    weatherKeyValue: getLocalStorage(WEATHER_KEY_KEY),
-    weatherUnits: getLocalStorage(WEATHER_UNITS_KEY),
+    weatherKeyValue: LocalStorage.get(WEATHER_KEY_KEY),
+    weatherUnits: LocalStorage.get(WEATHER_UNITS_KEY),
   })
 
   onWeatherKeyChange = event => {
@@ -56,7 +50,7 @@ export default class Settings extends PureComponent {
 
     if (await DarkSky.isValidKey(weatherKeyValue)) {
       this.setState({ weatherKeyIsValid: true });
-      setLocalStorage(WEATHER_KEY_KEY, weatherKeyValue);
+      LocalStorage.set(WEATHER_KEY_KEY, weatherKeyValue);
       return;
     }
 
@@ -65,12 +59,12 @@ export default class Settings extends PureComponent {
 
   setWeatherUnits = units => {
     this.setState({ weatherUnits: units });
-    setLocalStorage(WEATHER_UNITS_KEY, units);
+    LocalStorage.set(WEATHER_UNITS_KEY, units);
   }
 
   dumpLocalStorageAndResetState = () => {
     this.setState(this.getInitialState());
-    dumpLocalStorage();
+    LocalStorage.dump();
   }
 
   render() {

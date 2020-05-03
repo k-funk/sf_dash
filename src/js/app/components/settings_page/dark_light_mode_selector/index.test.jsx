@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage, { HTML_CLASS_KEY } from 'app/utils/local_storage';
 
 import DarkLightModeSelector from './index';
 
@@ -45,12 +45,12 @@ describe('instance methods', () => {
 
   test('setMode', () => {
     const mode = 'dark';
-    const setLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'setLocalStorage');
+    const localStorageSetSpy = jest.spyOn(LocalStorage, 'set');
     const forceUpdateSpy = jest.spyOn(instance, 'forceUpdate');
 
     instance.setMode(mode);
 
-    expect(setLocalStorageSpy).toHaveBeenCalledWith(LocalStorageUtils.HTML_CLASS_KEY, mode);
+    expect(localStorageSetSpy).toHaveBeenCalledWith(HTML_CLASS_KEY, mode);
     expect(document.documentElement.className).toEqual(mode);
     expect(forceUpdateSpy).toHaveBeenCalled();
   });

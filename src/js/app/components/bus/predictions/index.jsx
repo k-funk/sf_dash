@@ -4,7 +4,7 @@ import { Button, Card, CardBody } from 'reactstrap';
 import classNames from 'classnames';
 
 import NextBus from 'app/integrations/nextbus';
-import { removeBusStopFromLocalStorage } from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 
 import StopInfo from '../stop_info';
 import Times from './times';
@@ -41,7 +41,7 @@ export default class Predictions extends PureComponent {
     const routeStopTag = NextBus.getRouteStopTag(routeTag, stopTag);
     const { onAddOrRemoveStop } = this.props;
 
-    removeBusStopFromLocalStorage(routeStopTag);
+    LocalStorage.removeBusStopFromLocalStorage(routeStopTag);
     onAddOrRemoveStop();
   }
 

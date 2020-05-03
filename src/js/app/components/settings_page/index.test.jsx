@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage, { WEATHER_UNITS_KEY, WEATHER_KEY_KEY } from 'app/utils/local_storage';
 import DarkSky from 'app/integrations/darksky';
 
 import Settings from './index';
@@ -23,17 +23,17 @@ describe('outputs the expected tree when', () => {
 });
 
 describe('instance methods', () => {
-  let getLocalStorageSpy;
-  let setLocalStorageSpy;
+  let localStorageGetSpy;
+  let localStorageSetSpy;
   let dumpLocalStorageSpy;
   let wrapper;
   let instance;
 
   beforeEach(() => {
-    getLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'getLocalStorage')
+    localStorageGetSpy = jest.spyOn(LocalStorage, 'get')
       .mockReturnValue('foo');
-    setLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'setLocalStorage').mockReturnValue();
-    dumpLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'dumpLocalStorage').mockReturnValue();
+    localStorageSetSpy = jest.spyOn(LocalStorage, 'set').mockReturnValue();
+    dumpLocalStorageSpy = jest.spyOn(LocalStorage, 'dump').mockReturnValue();
     wrapper = shallow((
       <Settings />
     ));
@@ -46,7 +46,7 @@ describe('instance methods', () => {
       weatherKeyValue: 'foo',
       weatherUnits: 'foo',
     });
-    expect(getLocalStorageSpy).toHaveBeenCalledWith(LocalStorageUtils.WEATHER_KEY_KEY);
+    expect(localStorageGetSpy).toHaveBeenCalledWith(WEATHER_KEY_KEY);
   });
 
   test('onWeatherKeyChange', () => {
@@ -77,8 +77,8 @@ describe('instance methods', () => {
 
       expect(spy).toHaveBeenCalledWith(weatherKeyValue);
       expect(wrapper.state().weatherKeyIsValid).toEqual(true);
-      expect(setLocalStorageSpy)
-        .toHaveBeenCalledWith(LocalStorageUtils.WEATHER_KEY_KEY, weatherKeyValue);
+      expect(localStorageSetSpy)
+        .toHaveBeenCalledWith(WEATHER_KEY_KEY, weatherKeyValue);
     });
 
     test('is invalid key', async () => {
@@ -97,7 +97,7 @@ describe('instance methods', () => {
     instance.setWeatherUnits(units);
 
     expect(wrapper.state().weatherUnits).toEqual(units);
-    expect(setLocalStorageSpy).toHaveBeenCalledWith(LocalStorageUtils.WEATHER_UNITS_KEY, units);
+    expect(localStorageSetSpy).toHaveBeenCalledWith(WEATHER_UNITS_KEY, units);
   });
 
   test('dumpLocalStorageAndResetState', () => {
@@ -105,5 +105,19 @@ describe('instance methods', () => {
 
     expect(wrapper.state()).toEqual(instance.getInitialState());
     expect(dumpLocalStorageSpy).toHaveBeenCalledWith();
+  });
+
+
+  test('button clicks call setWeatherUnits', () => {
+    const spy = jest.spyOn(instance, 'setWeatherUnits');
+
+    wrapper.find('Button').at(2).simulate('click');
+    expect(spy).toHaveBeenCalledWith('');
+
+    wrapper.find('Button').at(3).simulate('click');
+    expect(spy).toHaveBeenCalledWith('f');
+
+    wrapper.find('Button').at(4).simulate('click');
+    expect(spy).toHaveBeenCalledWith('c');
   });
 });

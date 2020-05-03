@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
 import classNames from 'classnames';
 
-import { getLocalStorage, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
+import LocalStorage, { WEATHER_UNITS_KEY } from 'app/utils/local_storage';
 
 import WeatherIcon from '../../icon';
 
@@ -29,7 +29,7 @@ export default class TodaysForecastOverview extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.weatherUnits = getLocalStorage(WEATHER_UNITS_KEY);
+    this.weatherUnits = LocalStorage.get(WEATHER_UNITS_KEY);
   }
 
   getAltHighLow = () => {

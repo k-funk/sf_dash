@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 import { SAMPLE_PREDICTION } from 'sample_data/nextbus';
 
 import Predictions from './index';
@@ -71,7 +71,7 @@ describe('instance methods', () => {
   });
 
   test('removeStop', () => {
-    const removeBusStopFromLocalStorageSpy = jest.spyOn(LocalStorageUtils, 'removeBusStopFromLocalStorage');
+    const removeBusStopFromLocalStorageSpy = jest.spyOn(LocalStorage, 'removeBusStopFromLocalStorage');
 
     instance.removeStop(routeTag, stopTag);
 

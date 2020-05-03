@@ -4,7 +4,7 @@ import { Row, Col, Card, CardBody, CardFooter } from 'reactstrap';
 import classNames from 'classnames';
 import moment from 'moment';
 
-import { getLocalStorage, WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
+import LocalStorage, { WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import DarkSky from 'app/integrations/darksky';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
@@ -48,8 +48,8 @@ export default class Weather extends PureComponent {
   }
 
   updateWeatherLocations = async () => {
-    const key = getLocalStorage(WEATHER_KEY_KEY);
-    const units = getLocalStorage(WEATHER_UNITS_KEY);
+    const key = LocalStorage.get(WEATHER_KEY_KEY);
+    const units = LocalStorage.get(WEATHER_UNITS_KEY);
     try {
       const locationsResponses = await DarkSky.fetchAllLocationsWeatherData(LOCATIONS, key, units);
 

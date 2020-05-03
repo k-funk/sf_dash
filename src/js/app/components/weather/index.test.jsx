@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import * as LocalStorageUtils from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 import DarkSky from 'app/integrations/darksky';
 import { SAMPLE_LOCATION } from 'sample_data/darksky';
 
@@ -14,7 +14,7 @@ describe('outputs the expected tree when', () => {
   let fetchAllLocationsWeatherDataSpy;
 
   beforeEach(() => {
-    jest.spyOn(LocalStorageUtils, 'getLocalStorage').mockReturnValue('foo');
+    jest.spyOn(LocalStorage, 'get').mockReturnValue('foo');
     fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
       .mockReturnValue([]);
   });
