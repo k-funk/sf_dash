@@ -46,11 +46,6 @@ export const SAMPLE_PREDICTION = {
   _dirTitleBecauseNoPredictions: 'Inbound to Ferry Plaza', // hacked in for testing
 };
 
-// FIXME
-export const SAMPLE_FAILED_PREDICTIONS = {
-
-};
-
 export const SAMPLE_PREDICTIONS_XML = `
 <?xml version="1.0" encoding="utf-8" ?> 
 <body copyright="All data copyright San Francisco Muni 2020.">

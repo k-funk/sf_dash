@@ -29,22 +29,6 @@ export const sortPredictions = (stopRouteTags, predictions = []) => {
 export default class Bus extends PureComponent {
   static propTypes = {
     className: T.string,
-    // FIXME: cleanup
-    // predictions: T.arrayOf(
-    //   T.shape({
-    //     _routeTag: T.string,
-    //     _stopTag: T.string, // used to generate react `key`s
-    //     direction: T.shape({
-    //       prediction: T.arrayOf(
-    //         T.shape({
-    //           _tripTag: T.string, // used to generate react `key`s
-    //           _affectedByLayover: T.bool, // TODO: not certain of this type
-    //           _minutes: T.string,
-    //         }),
-    //       ),
-    //     }),
-    //   }),
-    // ),
   };
 
   static defaultProps = {
@@ -100,17 +84,17 @@ export default class Bus extends PureComponent {
         predictions: sortPredictions(
           stopRouteTags, predictionResponse.body.predictions,
         ),
+        // FIXME: do something with this
         // error: predictionResponse?.body?.Error?.__text,
         lastUpdated: moment(),
       });
     } catch (e) {
-      console.error(e);
+      console.error(e.message);
     }
   }
 
   render() {
     const { className } = this.props;
-    // FIXME: do something with state.error
     const { predictions, lastUpdated, showAddStopForm, showBusRemove } = this.state;
 
     return (

@@ -55,7 +55,7 @@ export default class Weather extends PureComponent {
 
       this.setState({
         locations: locationsResponses.map((locationResponse, idx) => {
-          const { hourly, daily, alerts = [] } = locationResponse.data;
+          const { hourly, daily, alerts } = locationResponse.data;
 
           return {
             dailyForecasts: daily.data,
@@ -85,7 +85,7 @@ export default class Weather extends PureComponent {
           <div className="error-msg">
             <span className="fas fa-exclamation-circle mr-1" />
             <span>
-              First weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
+              Weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
               <a href="#/settings">settings</a>.
             </span>
           </div>
