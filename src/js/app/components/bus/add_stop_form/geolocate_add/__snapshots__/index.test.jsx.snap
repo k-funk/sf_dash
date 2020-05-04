@@ -276,8 +276,10 @@ exports[`outputs the expected tree when loader is shown 1`] = `
       </option>
     </Input>
   </Form>
-  <div
-    className="lds-dual-ring"
+  <Loader
+    className="my-2"
+    loading={false}
+    small={false}
   />
 </Fragment>
 `;

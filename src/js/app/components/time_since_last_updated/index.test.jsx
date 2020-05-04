@@ -37,6 +37,12 @@ describe('outputs the expected tree when', () => {
     ));
   });
 
+  test('is loading', () => {
+    wrapper = shallow((
+      <TimeSinceLastUpdated lastUpdated={moment()} loading />
+    ));
+  });
+
   afterEach(() => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

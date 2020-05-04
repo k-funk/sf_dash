@@ -8,12 +8,12 @@
 - [ ] Add/remove weather cards via UI.
 - [ ] Auto-switch dark/light mode based on sunrise/sunset. +make this optional.
 - [ ] Pull from other APIs (news? traffic?)
-- [ ] Better layout+nav on mobile
+- [ ] Better layout+nav on phone-sized screens
 - [ ] Add "load sample data" to settings to make dev and demos easier
 
 
 ## Maintenance
-- [x] Migrate to React (in progress)
-- [x] Migrate to Bootstrap4
+- [x] Remove AngularJS, migrate to React
+- [x] Migrate from Bootstrap 3 -> 4
 - [ ] Solve geolocation issue (Safari requires that device be on https in order to ask for location). Give a warning if not solvable
 - [ ] Investigate why I need to double-wrap `text-truncate`. Flexbox issue?

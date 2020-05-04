@@ -35,6 +35,7 @@ export default class Weather extends PureComponent {
       locations: [],
       fetchError: false,
       lastUpdated: undefined,
+      loading: false,
     };
   }
 
@@ -53,6 +54,7 @@ export default class Weather extends PureComponent {
     try {
       const locationsResponses = await DarkSky.fetchAllLocationsWeatherData(LOCATIONS, key, units);
 
+      this.setState({ loading: true });
       this.setState({
         locations: locationsResponses.map((locationResponse, idx) => {
           const { hourly, daily, alerts } = locationResponse.data;
@@ -65,19 +67,21 @@ export default class Weather extends PureComponent {
           };
         }),
         lastUpdated: moment(),
+        loading: false,
       });
     } catch (e) {
       console.error(e);
       // jsonp makes error handling difficult. just assume it was user error
       this.setState({
         fetchError: true,
+        loading: false,
       });
     }
   }
 
   render() {
     const { className } = this.props;
-    const { locations, lastUpdated, fetchError } = this.state;
+    const { locations, lastUpdated, fetchError, loading } = this.state;
 
     return (
       <div className={classNames(className, 'weather')}>
@@ -131,7 +135,11 @@ export default class Weather extends PureComponent {
         })}
 
         <div className="d-flex justify-content-end">
-          <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
+          <TimeSinceLastUpdated
+            lastUpdated={lastUpdated}
+            msUntilWarning={MS_UNTIL_WARNING}
+            loading={loading}
+          />
         </div>
       </div>
     );

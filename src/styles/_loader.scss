@@ -1,28 +1,61 @@
-$size:     50px;
+$size:     70px;
+$size-sm:  40px;
 $color:    $body-color;
 
-// https://loading.io/css/
-.lds-dual-ring {
-  display: inline-block;
+//https://tobiasahlin.com/spinkit/
+.spinner {
   width: $size;
-  height: $size;
+  text-align: center;
 }
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: $size * .8;
-  height: $size * .8;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid $color;
-  border-color: $color transparent $color transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+
+.spinner-small {
+  width: $size-sm;
 }
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
+
+.spinner > div {
+  width: $size * .25;
+  height: $size * .25;
+  background-color: $color;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  + div {
+    margin-left: $size * .07;
   }
-  100% {
-    transform: rotate(360deg);
-  }
+}
+
+.spinner-small > div {
+  width: $size-sm * .25;
+  height: $size-sm * .25;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+}
+
+.spinner-small {
+
 }

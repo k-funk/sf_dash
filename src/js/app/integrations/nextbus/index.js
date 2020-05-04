@@ -13,9 +13,7 @@ export const getUserPosition = options => (
 
 export default class NextBus {
   static async getPredictions(routeStopTags) {
-    const response = await axios({
-      method: 'get',
-      url: URL,
+    const response = await axios.get(URL, {
       params: {
         command: 'predictionsForMultiStops',
         a: 'sf-muni',
@@ -29,16 +27,14 @@ export default class NextBus {
 
     return new Promise((resolve, reject) => {
       const errorText = data?.body?.Error?.__text;
-      if (errorText) { reject(errorText); }
+      if (errorText) { reject(new Error(errorText)); }
 
       resolve(data);
     });
   }
 
-  static getRouteConfig = async () => {
-    const response = await axios({
-      method: 'get',
-      url: URL,
+  static async getRouteConfig() {
+    const response = await axios.get(URL, {
       params: {
         command: 'routeConfig',
         a: 'sf-muni',
@@ -73,7 +69,7 @@ export default class NextBus {
     routeConfig.forEach(route => {
       route.direction.forEach(direction => {
         direction.stop.forEach(stop => {
-          /** Find stops that are within [meters] of the users position */
+          // Find stops that are within [meters] of the users position
           const stopLatLng = new google.maps.LatLng(stop._lat, stop._lon);
           const distance = google.maps.geometry.spherical
             .computeDistanceBetween(currPosition, stopLatLng);
@@ -101,8 +97,8 @@ export default class NextBus {
   }
 
   static mergeRouteData = routeData => {
-    // the purpose of this is to merge stop data into direction data. this is necessary because the
-    // stops are direction unaware (inbound/outbound):
+    // The purpose of this fn is to merge stop data into direction data. this is necessary because
+    // the stops are direction unaware (inbound/outbound):
     //
     // routeData[0].direction[0].stop[0] = {
     //   _tag: "6932"
@@ -134,7 +130,6 @@ export default class NextBus {
 
   static async isValidStop(routeStopTag) {
     try {
-      // FIXME: this.getPredictions doesn't actually return a Promise
       const response = await this.getPredictions([routeStopTag]);
       return !!response?.body?.predictions;
     } catch (e) {

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import NextBus from 'app/integrations/nextbus';
 import LocalStorage from 'app/utils/local_storage';
+import Loader from 'app/components/loader';
 
 
 export default class GeolocateAdd extends PureComponent {
@@ -35,6 +36,7 @@ export default class GeolocateAdd extends PureComponent {
       const nearbyStops = await NextBus.getStopsNearMe(meters);
       this.setState({ nearbyStops, loading: false });
     } catch (e) {
+      console.error(e.message);
       this.setState({
         loading: false,
         errMsg: e.message,
@@ -107,7 +109,7 @@ export default class GeolocateAdd extends PureComponent {
           </Table>
         )}
 
-        {loading && <div className="lds-dual-ring" />}
+        {loading && <Loader className="my-2" />}
         {errMsg && <div className="text-danger">Error: {errMsg}</div>}
       </>
     );

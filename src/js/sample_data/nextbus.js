@@ -46,7 +46,7 @@ export const SAMPLE_PREDICTION = {
   _dirTitleBecauseNoPredictions: 'Inbound to Ferry Plaza', // hacked in for testing
 };
 
-export const SAMPLE_PREDICTIONS_XML = `
+export const SAMPLE_PREDICTIONS_SUCCESS_XML = `
 <?xml version="1.0" encoding="utf-8" ?> 
 <body copyright="All data copyright San Francisco Muni 2020.">
   <predictions agencyTitle="SF Muni" routeTitle="12-Folsom-Pacific" routeTag="12" stopTitle="Pacific Ave &amp; Grant Ave" stopTag="5837" dirTitleBecauseNoPredictions="Inbound to Van Ness">
@@ -66,8 +66,17 @@ export const SAMPLE_PREDICTIONS_XML = `
 </body>
 `;
 
+export const SAMPLE_PREDICTIONS_ERROR_XML = `
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright agencies listed below and NextBus Inc 2020.">
+<Error shouldRetry="false">
+  Agency parameter "a=sf-muniz" is not valid.
+</Error>
+</body>
+`;
+
 // This has been truncated from the 12,000 lines that it originally was
-export const SAMPLE_ROUTE_CONFIG_XML = `
+export const SAMPLE_ROUTE_CONFIG_SUCCESS_XML = `
 <?xml version="1.0" encoding="utf-8" ?> 
 <body copyright="All data copyright San Francisco Muni 2020.">
   <route tag="14" title="14-Mission" color="339999" oppositeColor="000000" latMin="37.7059999" latMax="37.79426" lonMin="-122.46137" lonMax="-122.39328">
@@ -818,5 +827,14 @@ export const SAMPLE_ROUTE_CONFIG_XML = `
     <point lat="37.80506" lon="-122.42535"/>
     </path>
   </route>
+</body>
+`;
+
+export const SAMPLE_ROUTE_CONFIG_ERROR_XML = `
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright agencies listed below and NextBus Inc 2020.">
+<Error shouldRetry="false">
+  Agency parameter "a=sf-muniz" is not valid.
+</Error>
 </body>
 `;

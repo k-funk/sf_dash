@@ -39,10 +39,10 @@ export default class Bus extends PureComponent {
     super(props);
     this.state = {
       predictions: [],
-      // error: '',
       lastUpdated: undefined,
       showAddStopForm: false,
       showBusRemove: false,
+      loading: false,
     };
   }
 
@@ -77,6 +77,7 @@ export default class Bus extends PureComponent {
     // Don't send an empty request
     if (!stopRouteTags.length) { return; }
 
+    this.setState({ loading: true });
     try {
       const predictionResponse = await NextBus.getPredictions(stopRouteTags);
 
@@ -84,18 +85,26 @@ export default class Bus extends PureComponent {
         predictions: sortPredictions(
           stopRouteTags, predictionResponse.body.predictions,
         ),
-        // FIXME: do something with this
-        // error: predictionResponse?.body?.Error?.__text,
+        loading: false,
         lastUpdated: moment(),
       });
     } catch (e) {
       console.error(e.message);
+      this.setState({
+        loading: false,
+      });
     }
   }
 
   render() {
     const { className } = this.props;
-    const { predictions, lastUpdated, showAddStopForm, showBusRemove } = this.state;
+    const {
+      predictions,
+      lastUpdated,
+      showAddStopForm,
+      showBusRemove,
+      loading,
+    } = this.state;
 
     return (
       <div className={classNames(className, 'bus')}>
@@ -129,7 +138,11 @@ export default class Bus extends PureComponent {
               toggleShowBusRemove={this.toggleShowBusRemove}
             />
 
-            <TimeSinceLastUpdated lastUpdated={lastUpdated} msUntilWarning={MS_UNTIL_WARNING} />
+            <TimeSinceLastUpdated
+              lastUpdated={lastUpdated}
+              msUntilWarning={MS_UNTIL_WARNING}
+              loading={loading}
+            />
           </div>
         )}
       </div>

@@ -1,27 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`outputs the expected tree when lastUpdated is now 1`] = `
-<span
+exports[`outputs the expected tree when is loading 1`] = `
+<div
   className="time-since-last-updated"
 >
-  Just now.
-</span>
+  <span
+    className=""
+  >
+    Just now.
+  </span>
+  <Loader
+    className="my-1 ml-auto"
+    loading={true}
+    small={true}
+  />
+</div>
 `;
 
-exports[`outputs the expected tree when lastUpdated not passed 1`] = `""`;
-
-exports[`outputs the expected tree when the update is not overdue 1`] = `
-<span
+exports[`outputs the expected tree when lastUpdated is now 1`] = `
+<div
   className="time-since-last-updated"
 >
-  1 second ago.
-</span>
+  <span
+    className=""
+  >
+    Just now.
+  </span>
+  <Loader
+    className="my-1 ml-auto"
+    loading={false}
+    small={true}
+  />
+</div>
+`;
+
+exports[`outputs the expected tree when lastUpdated not passed 1`] = `
+<div
+  className="time-since-last-updated"
+>
+  <span
+    className=""
+  />
+  <Loader
+    className="my-1 ml-auto"
+    loading={false}
+    small={true}
+  />
+</div>
+`;
+
+exports[`outputs the expected tree when the update is not overdue 1`] = `
+<div
+  className="time-since-last-updated"
+>
+  <span
+    className=""
+  >
+    1 second ago.
+  </span>
+  <Loader
+    className="my-1 ml-auto"
+    loading={false}
+    small={true}
+  />
+</div>
 `;
 
 exports[`outputs the expected tree when the update is overdue 1`] = `
-<span
-  className="time-since-last-updated overdue"
+<div
+  className="time-since-last-updated"
 >
-  5 seconds ago.
-</span>
+  <span
+    className="overdue"
+  >
+    5 seconds ago.
+  </span>
+  <Loader
+    className="my-1 ml-auto"
+    loading={false}
+    small={true}
+  />
+</div>
 `;

@@ -19,14 +19,14 @@ module.exports = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/src/**/*.{jsx,js}',
+    '**/src/js/**/*.{jsx,js}',
   ],
   coverageThreshold: {
     global: {
-      statements: 88,
-      branches: 92,
-      functions: 85,
-      lines: 89,
+      statements: 93,
+      branches: 96,
+      functions: 90,
+      lines: 93,
     },
   },
 };

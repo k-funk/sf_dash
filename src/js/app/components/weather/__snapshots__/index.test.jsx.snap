@@ -10,6 +10,7 @@ exports[`outputs the expected tree when it initially loads 1`] = `
     <TimeSinceLastUpdated
       className=""
       lastUpdated={"2019-11-11T11:11:11.000Z"}
+      loading={false}
       msUntilWarning={1800000}
     />
   </div>
@@ -773,6 +774,7 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
     <TimeSinceLastUpdated
       className=""
       lastUpdated={"2019-11-11T11:11:11.000Z"}
+      loading={false}
       msUntilWarning={1800000}
     />
   </div>
@@ -808,6 +810,7 @@ exports[`outputs the expected tree when there are errors 1`] = `
     <TimeSinceLastUpdated
       className=""
       lastUpdated={"2019-11-11T11:11:11.000Z"}
+      loading={false}
       msUntilWarning={1800000}
     />
   </div>

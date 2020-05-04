@@ -4,6 +4,8 @@ import moment from 'moment';
 import 'moment-precise-range-plugin';
 import classNames from 'classnames';
 
+import Loader from '../loader';
+
 
 export const INTERVAL_MS = 1000;
 
@@ -12,12 +14,14 @@ export default class TimeSinceLastUpdated extends PureComponent {
     className: T.string,
     lastUpdated: T.object, // a moment object
     msUntilWarning: T.number,
+    loading: T.bool,
   };
 
   static defaultProps = {
     className: '',
     lastUpdated: null,
     msUntilWarning: 60000, // 1min
+    loading: false,
   }
 
   componentDidMount() {
@@ -45,16 +49,17 @@ export default class TimeSinceLastUpdated extends PureComponent {
   }
 
   render() {
-    const { className, lastUpdated } = this.props;
-
-    if (!lastUpdated) { return null; }
+    const { className, lastUpdated, loading } = this.props;
 
     const overdue = this.isOverdue();
 
     return (
-      <span className={classNames(className, 'time-since-last-updated', { overdue })}>
-        {this.getReadableTime()}
-      </span>
+      <div className={classNames(className, 'time-since-last-updated')}>
+        <span className={classNames({ overdue })}>
+          {lastUpdated && this.getReadableTime()}
+        </span>
+        <Loader className="my-1 ml-auto" loading={loading} small />
+      </div>
     );
   }
 }

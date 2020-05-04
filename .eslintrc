@@ -84,7 +84,6 @@
 
   "globals": {
     "google": true,
-//    window: true,
-//    $: true,
+    "axiosMock": true,
   }
 }
