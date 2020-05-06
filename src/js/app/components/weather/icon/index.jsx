@@ -20,7 +20,7 @@ const DARK_SKY_ICON_MAP = {
 };
 
 export const getIcon = iconName => (
-  `/images/weather-icons/${DARK_SKY_ICON_MAP[iconName] || 'unknown'}.svg`
+  `./images/weather-icons/${DARK_SKY_ICON_MAP[iconName] || 'unknown'}.svg`
 );
 
 

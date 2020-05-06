@@ -6,7 +6,7 @@
     "build": "webpack --config webpack/webpack.config.prod.js --colors",
     "ci": "npm run lint && npm run test",
     "coveralls": "coveralls < coverage/lcov.info",
-    "deploy": "npm run build && gh-pages -d build",
+    "deploy": "npm run build && touch build/.nojekyll && gh-pages -d build -t true",
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",

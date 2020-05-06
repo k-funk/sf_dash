@@ -4,7 +4,7 @@ exports[`outputs the expected tree when there is a valid icon 1`] = `
 <img
   alt=""
   className=""
-  src="/images/weather-icons/cloudy.svg"
+  src="./images/weather-icons/cloudy.svg"
 />
 `;
 
@@ -12,7 +12,7 @@ exports[`outputs the expected tree when there is an invalid icon 1`] = `
 <img
   alt=""
   className=""
-  src="/images/weather-icons/unknown.svg"
+  src="./images/weather-icons/unknown.svg"
 />
 `;
 
