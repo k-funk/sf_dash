@@ -27,6 +27,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
+    "react-syntax-highlighter": "^12.2.1",
     "reactstrap": "^8.4.1",
     "x2js": "^2.0.1"
   },

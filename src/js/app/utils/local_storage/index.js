@@ -6,6 +6,7 @@ export const HTML_CLASS_KEY = 'htmlClass';
 export const ALL_SETTINGS_KEYS = [
   WEATHER_KEY_KEY,
   WEATHER_UNITS_KEY,
+  BUS_STOP_ROUTE_TAGS_KEY,
   HTML_CLASS_KEY,
 ].reduce(
   // include legacy keys

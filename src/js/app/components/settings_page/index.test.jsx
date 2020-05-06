@@ -54,11 +54,6 @@ describe('instance methods', () => {
 
     instance.onWeatherKeyChange({ target: { value } });
 
-    expect(instance.getInitialState()).toEqual({
-      weatherKeyIsValid: undefined,
-      weatherKeyValue: 'foo',
-      weatherUnits: 'foo',
-    });
     expect(wrapper.state().weatherKeyValue).toEqual(value);
   });
 

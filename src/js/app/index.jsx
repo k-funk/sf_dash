@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 
 import MainNav from 'app/components/main_nav';
@@ -9,7 +9,7 @@ import SettingsPage from 'app/components/settings_page';
 
 export default function App() {
   return (
-    <Router>
+    <HashRouter>
       <Container>
         <MainNav />
 
@@ -22,6 +22,6 @@ export default function App() {
           </Route>
         </Switch>
       </Container>
-    </Router>
+    </HashRouter>
   );
 }

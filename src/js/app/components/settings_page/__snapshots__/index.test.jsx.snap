@@ -36,27 +36,35 @@ exports[`outputs the expected tree when (default) 1`] = `
         className="mb-4"
         tag="div"
       >
+        <CardHeader
+          tag="div"
+        >
+          <h3
+            className="m-0"
+          >
+            Global
+          </h3>
+        </CardHeader>
         <CardBody
           tag="div"
         >
-          <h3>
-            Global
-          </h3>
           <DarkLightModeSelector
             className=""
           />
           <hr />
-          <Button
-            color="danger"
-            onClick={[Function]}
-            tag="button"
-          >
-            Dump All Local Storage
-          </Button>
           <p>
-            <small>
-              This will remove stored bus stops, your DarkSky key, and the weather units.
-            </small>
+            <Button
+              color="danger"
+              onClick={[Function]}
+              tag="button"
+            >
+              Dump All Local Storage
+            </Button>
+          </p>
+          <p
+            className="small"
+          >
+            This will remove stored bus stops, your DarkSky key, and the weather units.
           </p>
         </CardBody>
       </Card>
@@ -91,17 +99,22 @@ exports[`outputs the expected tree when (default) 1`] = `
         className="mb-4"
         tag="div"
       >
+        <CardHeader
+          tag="div"
+        >
+          <h3
+            className="m-0"
+          >
+            Bus
+          </h3>
+        </CardHeader>
         <CardBody
           tag="div"
         >
-          <h3>
-            Bus
-          </h3>
-          <p
-            className="text-muted"
-          >
-            No settings currently available.
-          </p>
+          <DisplayLocalStorageData
+            className=""
+            localStorageKey="stopRouteTags"
+          />
         </CardBody>
       </Card>
     </Col>
@@ -122,12 +135,18 @@ exports[`outputs the expected tree when (default) 1`] = `
         className="mb-4"
         tag="div"
       >
+        <CardHeader
+          tag="div"
+        >
+          <h3
+            className="m-0"
+          >
+            Weather
+          </h3>
+        </CardHeader>
         <CardBody
           tag="div"
         >
-          <h3>
-            Weather
-          </h3>
           <Form
             onSubmit={[Function]}
             tag="form"

@@ -4,6 +4,7 @@ import {
   Row,
   Col,
   Card,
+  CardHeader,
   CardBody,
   Form,
   FormGroup,
@@ -14,10 +15,15 @@ import {
 } from 'reactstrap';
 import classNames from 'classnames';
 
-import LocalStorage, { WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
+import LocalStorage, {
+  BUS_STOP_ROUTE_TAGS_KEY,
+  WEATHER_KEY_KEY,
+  WEATHER_UNITS_KEY,
+} from 'app/utils/local_storage';
 import DarkSky from 'app/integrations/darksky';
 
 import DarkLightModeSelector from './dark_light_mode_selector';
+import DisplayLocalStorageData from './display_local_storage_data';
 
 
 export default class Settings extends PureComponent {
@@ -78,18 +84,24 @@ export default class Settings extends PureComponent {
         <Row>
           <Col xs="6">
             <Card className="mb-4">
+              <CardHeader>
+                <h3 className="m-0">Global</h3>
+              </CardHeader>
               <CardBody>
-                <h3>Global</h3>
-
                 <DarkLightModeSelector />
 
                 <hr />
 
-                <Button color="danger" onClick={this.dumpLocalStorageAndResetState}>Dump All Local Storage</Button>
                 <p>
-                  <small>
-                    This will remove stored bus stops, your DarkSky key, and the weather units.
-                  </small>
+                  <Button
+                    color="danger"
+                    onClick={this.dumpLocalStorageAndResetState}
+                  >
+                    Dump All Local Storage
+                  </Button>
+                </p>
+                <p className="small">
+                  This will remove stored bus stops, your DarkSky key, and the weather units.
                 </p>
               </CardBody>
             </Card>
@@ -99,19 +111,21 @@ export default class Settings extends PureComponent {
         <Row>
           <Col xs="6">
             <Card className="mb-4">
+              <CardHeader>
+                <h3 className="m-0">Bus</h3>
+              </CardHeader>
               <CardBody>
-                <h3>Bus</h3>
-
-                <p className="text-muted">No settings currently available.</p>
+                <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
               </CardBody>
             </Card>
           </Col>
 
           <Col xs="6">
             <Card className="mb-4">
+              <CardHeader>
+                <h3 className="m-0">Weather</h3>
+              </CardHeader>
               <CardBody>
-                <h3>Weather</h3>
-
                 <Form onSubmit={this.validateAndSetKey}>
                   <FormGroup>
                     <Label for="weather-key">DarkSky API Key:</Label>
