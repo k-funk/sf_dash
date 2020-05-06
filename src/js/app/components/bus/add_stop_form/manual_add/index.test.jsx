@@ -47,7 +47,6 @@ describe('outputs the expected tree when', () => {
   });
 });
 
-
 describe('instance methods', () => {
   let wrapper;
   let instance;

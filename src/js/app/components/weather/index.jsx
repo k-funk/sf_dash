@@ -75,6 +75,7 @@ export default class Weather extends PureComponent {
       this.setState({
         fetchError: true,
         loading: false,
+        lastUpdated: moment(),
       });
     }
   }

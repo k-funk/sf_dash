@@ -16,6 +16,15 @@ test('set', () => {
   expect(spy).toHaveBeenCalledWith(WEATHER_KEY_KEY, '["test"]');
 });
 
+test('setSampleData', () => {
+  const localStorageSetSpy = jest.spyOn(LocalStorage, 'set');
+
+  LocalStorage.setSampleData(BUS_STOP_ROUTE_TAGS_KEY);
+
+  expect(localStorageSetSpy)
+    .toHaveBeenCalledWith('stopRouteTags', ['14|5565', '67|6208', '27|3930', '12|7552']);
+});
+
 test('dump', () => {
   window.localStorage.setItem(WEATHER_KEY_KEY, 'test');
   const spy = jest.spyOn(window.localStorage, 'removeItem');

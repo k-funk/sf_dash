@@ -110,7 +110,7 @@ export default class GeolocateAdd extends PureComponent {
         )}
 
         {loading && <Loader className="my-2" />}
-        {errMsg && <div className="text-danger">Error: {errMsg}</div>}
+        {errMsg && <div className="error-msg">Error: {errMsg}</div>}
       </>
     );
   }

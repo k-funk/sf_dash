@@ -66,7 +66,8 @@ describe('instance methods', () => {
     });
 
     test('is valid key', async () => {
-      const spy = jest.spyOn(DarkSky, 'isValidKey').mockReturnValue(true);
+      const spy = jest.spyOn(DarkSky, 'isValidKey')
+        .mockImplementation(() => Promise.resolve(true));
 
       await instance.validateAndSetKey({ preventDefault: () => {} });
 
@@ -77,7 +78,18 @@ describe('instance methods', () => {
     });
 
     test('is invalid key', async () => {
-      const spy = jest.spyOn(DarkSky, 'isValidKey').mockReturnValue(false);
+      const spy = jest.spyOn(DarkSky, 'isValidKey')
+        .mockImplementation(() => Promise.resolve(false));
+
+      await instance.validateAndSetKey({ preventDefault: () => {} });
+
+      expect(spy).toHaveBeenCalledWith(weatherKeyValue);
+      expect(wrapper.state().weatherKeyIsValid).toEqual(false);
+    });
+
+    test('an error is thrown', async () => {
+      const spy = jest.spyOn(DarkSky, 'isValidKey')
+        .mockImplementation(() => Promise.reject(new Error()));
 
       await instance.validateAndSetKey({ preventDefault: () => {} });
 
@@ -101,7 +113,6 @@ describe('instance methods', () => {
     expect(wrapper.state()).toEqual(instance.getInitialState());
     expect(dumpLocalStorageSpy).toHaveBeenCalledWith();
   });
-
 
   test('button clicks call setWeatherUnits', () => {
     const spy = jest.spyOn(instance, 'setWeatherUnits');

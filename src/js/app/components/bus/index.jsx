@@ -43,6 +43,7 @@ export default class Bus extends PureComponent {
       showAddStopForm: false,
       showBusRemove: false,
       loading: false,
+      errMsg: undefined,
     };
   }
 
@@ -82,9 +83,7 @@ export default class Bus extends PureComponent {
       const predictionResponse = await NextBus.getPredictions(stopRouteTags);
 
       this.setState({
-        predictions: sortPredictions(
-          stopRouteTags, predictionResponse.body.predictions,
-        ),
+        predictions: sortPredictions(stopRouteTags, predictionResponse.body.predictions),
         loading: false,
         lastUpdated: moment(),
       });
@@ -92,6 +91,8 @@ export default class Bus extends PureComponent {
       console.error(e.message);
       this.setState({
         loading: false,
+        errMsg: e.message,
+        lastUpdated: moment(),
       });
     }
   }
@@ -104,11 +105,13 @@ export default class Bus extends PureComponent {
       showAddStopForm,
       showBusRemove,
       loading,
+      errMsg,
     } = this.state;
 
     return (
       <div className={classNames(className, 'bus')}>
-        {!predictions.length && (
+        {errMsg && <div className="error-msg">Error: {errMsg}</div>}
+        {!errMsg && !predictions.length && (
           <Card className="mb-2">
             <CardBody>
               No bus stops added.

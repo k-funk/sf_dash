@@ -31,3 +31,29 @@ describe('outputs the expected tree when', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });
+
+describe('instance methods', () => {
+  let wrapper;
+  let instance;
+  let addEventListenerSpy;
+  let removeEventListenerSpy;
+
+  beforeEach(() => {
+    addEventListenerSpy = jest.spyOn(window, 'addEventListener');
+    removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
+    wrapper = shallow((
+      <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+    ));
+    instance = wrapper.instance();
+  });
+
+  test('componentDidMount sets an interval', () => {
+    expect(addEventListenerSpy).toHaveBeenCalledWith('storage', instance.rerender);
+  });
+
+  test('componentWillUnmount clears an interval', () => {
+    wrapper.unmount();
+
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('storage', instance.rerender);
+  });
+});

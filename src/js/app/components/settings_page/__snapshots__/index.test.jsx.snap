@@ -115,6 +115,11 @@ exports[`outputs the expected tree when (default) 1`] = `
             className=""
             localStorageKey="stopRouteTags"
           />
+          <hr />
+          <SetSampleLocalStorageData
+            className=""
+            localStorageKey="stopRouteTags"
+          />
         </CardBody>
       </Card>
     </Col>

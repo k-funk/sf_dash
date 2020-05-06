@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`outputs the expected tree when has an errMsg 1`] = `
+<div
+  className="weather"
+>
+  <div
+    className="error-msg"
+  >
+    <span
+      className="fas fa-exclamation-circle mr-1"
+    />
+    <span>
+      Weather request failed. Make sure 
+      you've
+       supplied an API Key in the
+       
+      <a
+        href="#/settings"
+      >
+        settings
+      </a>
+      .
+    </span>
+  </div>
+  <div
+    className="d-flex justify-content-end"
+  >
+    <TimeSinceLastUpdated
+      className=""
+      lastUpdated={"2019-11-11T11:11:11.000Z"}
+      loading={false}
+      msUntilWarning={1800000}
+    />
+  </div>
+</div>
+`;
+
 exports[`outputs the expected tree when it initially loads 1`] = `
 <div
   className="weather"

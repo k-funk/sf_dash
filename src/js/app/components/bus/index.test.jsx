@@ -12,9 +12,13 @@ import Bus, { CALL_INTERVAL, sortPredictions } from './index';
 describe('outputs the expected tree when', () => {
   let wrapper;
   let getPredictionsSpy;
+  let prediction;
+  let stopRouteTags;
 
   beforeEach(() => {
     jest.spyOn(LocalStorage, 'get').mockReturnValue([]);
+    prediction = { ...SAMPLE_PREDICTION };
+    stopRouteTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
   });
 
   test('(default)', () => {
@@ -23,14 +27,27 @@ describe('outputs the expected tree when', () => {
     ));
   });
 
-  test('state contains prediction data', async () => {
-    const prediction = { ...SAMPLE_PREDICTION };
-    const stopRouteTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
+  test('state contains prediction data', () => {
     jest.spyOn(LocalStorage, 'get').mockReturnValue(stopRouteTags);
     getPredictionsSpy = jest.spyOn(NextBus, 'getPredictions')
       .mockImplementation(() => Promise.resolve(
         { body: { predictions: [prediction] } },
       ));
+
+    // updateBusPredictions() gets called on componentDidMount
+    wrapper = shallow((
+      <Bus />
+    ));
+
+    expect(getPredictionsSpy).toHaveBeenCalledWith(stopRouteTags);
+  });
+
+  test('has an errMsg', async () => {
+    const errMsg = 'For agency=sf-muni route r=67 is not currently available.';
+
+    jest.spyOn(LocalStorage, 'get').mockReturnValue(stopRouteTags);
+    getPredictionsSpy = jest.spyOn(NextBus, 'getPredictions')
+      .mockImplementation(() => Promise.reject(new Error(errMsg)));
 
     // updateBusPredictions() gets called on componentDidMount
     wrapper = shallow((

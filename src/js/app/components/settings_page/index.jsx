@@ -24,6 +24,7 @@ import DarkSky from 'app/integrations/darksky';
 
 import DarkLightModeSelector from './dark_light_mode_selector';
 import DisplayLocalStorageData from './display_local_storage_data';
+import SetSampleLocalStorageData from './set_sample_local_storage_data';
 
 
 export default class Settings extends PureComponent {
@@ -54,13 +55,16 @@ export default class Settings extends PureComponent {
     event.preventDefault();
     const { weatherKeyValue } = this.state;
 
-    if (await DarkSky.isValidKey(weatherKeyValue)) {
-      this.setState({ weatherKeyIsValid: true });
-      LocalStorage.set(WEATHER_KEY_KEY, weatherKeyValue);
-      return;
+    try {
+      if (await DarkSky.isValidKey(weatherKeyValue)) {
+        this.setState({ weatherKeyIsValid: true });
+        LocalStorage.set(WEATHER_KEY_KEY, weatherKeyValue);
+        return;
+      }
+      this.setState({ weatherKeyIsValid: false });
+    } catch (e) {
+      this.setState({ weatherKeyIsValid: false });
     }
-
-    this.setState({ weatherKeyIsValid: false });
   }
 
   setWeatherUnits = units => {
@@ -116,6 +120,10 @@ export default class Settings extends PureComponent {
               </CardHeader>
               <CardBody>
                 <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+
+                <hr />
+
+                <SetSampleLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
               </CardBody>
             </Card>
           </Col>

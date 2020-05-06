@@ -25,6 +25,17 @@ export default class DisplayLocalStorageData extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('storage', this.rerender);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('storage', this.rerender);
+  }
+
+  // this only exists for the event listeners above to have a single fn to point to
+  rerender = () => this.forceUpdate();
+
   getLocalStorageData = key => (
     LocalStorage.get(key)
   )

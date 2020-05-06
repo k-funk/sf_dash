@@ -180,7 +180,7 @@ exports[`outputs the expected tree when errMsg is shown 1`] = `
     </Input>
   </Form>
   <div
-    className="text-danger"
+    className="error-msg"
   >
     Error: 
     oh noes!

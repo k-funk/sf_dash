@@ -37,7 +37,7 @@ describe('outputs the expected tree when', () => {
 
   test('state contains weather data', async () => {
     fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
-      .mockReturnValue([{ data: { ...SAMPLE_LOCATION } }]);
+      .mockImplementation(() => Promise.resolve([{ data: { ...SAMPLE_LOCATION } }]));
 
     // updateWeatherLocations() gets called on componentDidMount
     wrapper = shallow((
@@ -45,6 +45,17 @@ describe('outputs the expected tree when', () => {
     ));
 
     expect(fetchAllLocationsWeatherDataSpy).toHaveBeenCalledWith(LOCATIONS, 'foo', 'foo');
+  });
+
+
+  test('has an errMsg', async () => {
+    fetchAllLocationsWeatherDataSpy = jest.spyOn(DarkSky, 'fetchAllLocationsWeatherData')
+      .mockImplementation(() => Promise.reject(new Error()));
+
+    // updateBusPredictions() gets called on componentDidMount
+    wrapper = shallow((
+      <Weather />
+    ));
   });
 
   afterEach(() => {

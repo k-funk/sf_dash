@@ -14,6 +14,10 @@ export const ALL_SETTINGS_KEYS = [
   [],
 );
 
+export const SAMPLE_DATA = {
+  [BUS_STOP_ROUTE_TAGS_KEY]: ['14|5565', '67|6208', '27|3930', '12|7552'],
+};
+
 export default class LocalStorage {
   static get(key) {
     return JSON.parse((
@@ -25,6 +29,14 @@ export default class LocalStorage {
 
   static set(key, val) {
     window.localStorage.setItem(key, JSON.stringify(val));
+
+    // window.addEventListener('storage') doesn't fire on the current tab by default. make it.
+    // https://gist.github.com/TakashiSasaki/4282903
+    window.dispatchEvent(new Event('storage'));
+  }
+
+  static setSampleData(key) {
+    this.set(key, SAMPLE_DATA[key]);
   }
 
   static dump() {
