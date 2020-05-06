@@ -46,6 +46,7 @@ export default class DarkSky {
         return 'us';
       case ('c'):
         return 'si';
+      case (''):
       case ('auto'):
         return 'auto';
       default:

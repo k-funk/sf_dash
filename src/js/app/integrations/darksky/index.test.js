@@ -12,6 +12,7 @@ test('getUrl', () => {
 
 test('convertUnitsForDarkSky', () => {
   expect(DarkSky.convertUnitsForDarkSky()).toEqual('auto');
+  expect(DarkSky.convertUnitsForDarkSky('')).toEqual('auto');
   expect(DarkSky.convertUnitsForDarkSky('f')).toEqual('us');
   expect(DarkSky.convertUnitsForDarkSky('c')).toEqual('si');
   expect(() => DarkSky.convertUnitsForDarkSky('foo'))
