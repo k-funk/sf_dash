@@ -1,10 +1,12 @@
 {
   "name": "sf2dash",
   "version": "2.0.0",
+  "homepage": "https://k-funk.github.io/sf_dash",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.prod.js --colors",
     "ci": "npm run lint && npm run test",
     "coveralls": "coveralls < coverage/lcov.info",
+    "deploy": "npm run build && gh-pages -d build",
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
@@ -58,6 +60,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "file-loader": "^4.0.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "jest": "^25.4.0",
     "jest-enzyme": "^7.1.2",
