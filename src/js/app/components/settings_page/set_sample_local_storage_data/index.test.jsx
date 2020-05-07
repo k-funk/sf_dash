@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import LocalStorage, { BUS_STOP_ROUTE_TAGS_KEY } from 'app/utils/local_storage';
+import LocalStorage, { BUS_ROUTE_STOP_TAGS_KEY } from 'app/utils/local_storage';
 
 import SetSampleLocalStorageData from './index';
 
@@ -12,7 +12,7 @@ describe('outputs the expected tree when', () => {
 
   test('(default)', () => {
     wrapper = shallow((
-      <SetSampleLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+      <SetSampleLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
     ));
   });
 
@@ -27,7 +27,7 @@ describe('instance methods', () => {
 
   beforeEach(() => {
     wrapper = shallow((
-      <SetSampleLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+      <SetSampleLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
     ));
     instance = wrapper.instance();
   });
@@ -37,6 +37,6 @@ describe('instance methods', () => {
 
     instance.setSampleData();
 
-    expect(spy).toHaveBeenCalledWith(BUS_STOP_ROUTE_TAGS_KEY);
+    expect(spy).toHaveBeenCalledWith(BUS_ROUTE_STOP_TAGS_KEY);
   });
 });

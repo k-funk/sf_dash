@@ -1,4 +1,4 @@
-import LocalStorage, { WEATHER_KEY_KEY, BUS_STOP_ROUTE_TAGS_KEY } from './index';
+import LocalStorage, { WEATHER_KEY_KEY, BUS_ROUTE_STOP_TAGS_KEY } from './index';
 
 
 test('get', () => {
@@ -19,10 +19,10 @@ test('set', () => {
 test('setSampleData', () => {
   const localStorageSetSpy = jest.spyOn(LocalStorage, 'set');
 
-  LocalStorage.setSampleData(BUS_STOP_ROUTE_TAGS_KEY);
+  LocalStorage.setSampleData(BUS_ROUTE_STOP_TAGS_KEY);
 
   expect(localStorageSetSpy)
-    .toHaveBeenCalledWith('stopRouteTags', ['14|5565', '67|6208', '27|3930', '12|7552']);
+    .toHaveBeenCalledWith('routeStopTags', ['14|5565', '67|6208', '27|3930', '12|7552']);
 });
 
 test('dump', () => {
@@ -43,9 +43,9 @@ test('addBusStopToLocalStorage', () => {
 
   LocalStorage.addBusStopToLocalStorage(duplicateRouteStopTag);
 
-  expect(localStorageGetSpy).toHaveBeenCalledWith(BUS_STOP_ROUTE_TAGS_KEY);
+  expect(localStorageGetSpy).toHaveBeenCalledWith(BUS_ROUTE_STOP_TAGS_KEY);
   expect(localStorageSetSpy).toHaveBeenCalledWith(
-    BUS_STOP_ROUTE_TAGS_KEY,
+    BUS_ROUTE_STOP_TAGS_KEY,
     [routeStopTag, duplicateRouteStopTag],
   );
 });
@@ -58,9 +58,9 @@ test('removeBusStopFromLocalStorage', () => {
 
   LocalStorage.removeBusStopFromLocalStorage(routeStopTag);
 
-  expect(localStorageGetSpy).toHaveBeenCalledWith(BUS_STOP_ROUTE_TAGS_KEY);
+  expect(localStorageGetSpy).toHaveBeenCalledWith(BUS_ROUTE_STOP_TAGS_KEY);
   expect(localStorageSetSpy).toHaveBeenCalledWith(
-    BUS_STOP_ROUTE_TAGS_KEY,
+    BUS_ROUTE_STOP_TAGS_KEY,
     [],
   );
 });

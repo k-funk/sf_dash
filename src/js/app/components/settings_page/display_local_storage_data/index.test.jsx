@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import LocalStorage, { BUS_STOP_ROUTE_TAGS_KEY } from 'app/utils/local_storage';
+import LocalStorage, { BUS_ROUTE_STOP_TAGS_KEY } from 'app/utils/local_storage';
 
 import DisplayLocalStorageData from './index';
 
@@ -16,13 +16,13 @@ describe('outputs the expected tree when', () => {
 
   test('when the data is not shown (default)', () => {
     wrapper = shallow((
-      <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+      <DisplayLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
     ));
   });
 
   test('when the data is shown', () => {
     wrapper = shallow((
-      <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+      <DisplayLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
     ));
     wrapper.instance().toggleShow();
   });
@@ -42,7 +42,7 @@ describe('instance methods', () => {
     addEventListenerSpy = jest.spyOn(window, 'addEventListener');
     removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
     wrapper = shallow((
-      <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+      <DisplayLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
     ));
     instance = wrapper.instance();
   });

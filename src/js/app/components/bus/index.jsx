@@ -4,7 +4,7 @@ import { Card, CardBody } from 'reactstrap';
 import moment from 'moment';
 import classNames from 'classnames';
 
-import LocalStorage, { BUS_STOP_ROUTE_TAGS_KEY } from 'app/utils/local_storage';
+import LocalStorage, { BUS_ROUTE_STOP_TAGS_KEY } from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import NextBus from 'app/integrations/nextbus';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
@@ -17,11 +17,11 @@ import EditTogglers from './edit_togglers';
 export const CALL_INTERVAL = 10 * 1000;
 export const MS_UNTIL_WARNING = CALL_INTERVAL * WARNING_AFTER_N_MISSED_CALLS;
 
-export const sortPredictions = (stopRouteTags, predictions = []) => {
+export const sortPredictions = (routeStopTags, predictions = []) => {
   const sortedList = [];
   predictions.forEach(prediction => {
-    const stopRouteTag = `${prediction._routeTag}|${prediction._stopTag}`;
-    sortedList[stopRouteTags.indexOf(stopRouteTag)] = prediction;
+    const routeStopTag = `${prediction._routeTag}|${prediction._stopTag}`;
+    sortedList[routeStopTags.indexOf(routeStopTag)] = prediction;
   });
   return sortedList;
 };
@@ -73,17 +73,17 @@ export default class Bus extends PureComponent {
   }
 
   async updateBusPredictions() {
-    const stopRouteTags = LocalStorage.get(BUS_STOP_ROUTE_TAGS_KEY);
+    const routeStopTags = LocalStorage.get(BUS_ROUTE_STOP_TAGS_KEY);
 
     // Don't send an empty request
-    if (!stopRouteTags.length) { return; }
+    if (!routeStopTags.length) { return; }
 
     this.setState({ loading: true });
     try {
-      const predictionResponse = await NextBus.getPredictions(stopRouteTags);
+      const predictionResponse = await NextBus.getPredictions(routeStopTags);
 
       this.setState({
-        predictions: sortPredictions(stopRouteTags, predictionResponse.body.predictions),
+        predictions: sortPredictions(routeStopTags, predictionResponse.body.predictions),
         loading: false,
         lastUpdated: moment(),
       });

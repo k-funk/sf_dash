@@ -113,12 +113,12 @@ exports[`outputs the expected tree when (default) 1`] = `
         >
           <DisplayLocalStorageData
             className=""
-            localStorageKey="stopRouteTags"
+            localStorageKey="routeStopTags"
           />
           <hr />
           <SetSampleLocalStorageData
             className=""
-            localStorageKey="stopRouteTags"
+            localStorageKey="routeStopTags"
           />
         </CardBody>
       </Card>

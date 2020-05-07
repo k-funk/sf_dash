@@ -13,12 +13,12 @@ describe('outputs the expected tree when', () => {
   let wrapper;
   let getPredictionsSpy;
   let prediction;
-  let stopRouteTags;
+  let routeStopTags;
 
   beforeEach(() => {
     jest.spyOn(LocalStorage, 'get').mockReturnValue([]);
     prediction = { ...SAMPLE_PREDICTION };
-    stopRouteTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
+    routeStopTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
   });
 
   test('(default)', () => {
@@ -28,7 +28,7 @@ describe('outputs the expected tree when', () => {
   });
 
   test('state contains prediction data', () => {
-    jest.spyOn(LocalStorage, 'get').mockReturnValue(stopRouteTags);
+    jest.spyOn(LocalStorage, 'get').mockReturnValue(routeStopTags);
     getPredictionsSpy = jest.spyOn(NextBus, 'getPredictions')
       .mockImplementation(() => Promise.resolve(
         { body: { predictions: [prediction] } },
@@ -39,13 +39,13 @@ describe('outputs the expected tree when', () => {
       <Bus />
     ));
 
-    expect(getPredictionsSpy).toHaveBeenCalledWith(stopRouteTags);
+    expect(getPredictionsSpy).toHaveBeenCalledWith(routeStopTags);
   });
 
   test('has an errMsg', async () => {
     const errMsg = 'For agency=sf-muni route r=67 is not currently available.';
 
-    jest.spyOn(LocalStorage, 'get').mockReturnValue(stopRouteTags);
+    jest.spyOn(LocalStorage, 'get').mockReturnValue(routeStopTags);
     getPredictionsSpy = jest.spyOn(NextBus, 'getPredictions')
       .mockImplementation(() => Promise.reject(new Error(errMsg)));
 
@@ -54,7 +54,7 @@ describe('outputs the expected tree when', () => {
       <Bus />
     ));
 
-    expect(getPredictionsSpy).toHaveBeenCalledWith(stopRouteTags);
+    expect(getPredictionsSpy).toHaveBeenCalledWith(routeStopTags);
   });
 
   afterEach(() => {
@@ -122,10 +122,10 @@ describe('instance methods', () => {
     test('fails to get predicitons', async () => {
       const consoleErrorSpy = jest.spyOn(console, 'error');
       const prediction = { ...SAMPLE_PREDICTION };
-      const stopRouteTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
+      const routeStopTags = [NextBus.getRouteStopTag(prediction._routeTag, prediction._stopTag)];
       const errMsg = 'oh noes!';
       updateBusPredictionsSpy.mockRestore(); // it is mocked above
-      jest.spyOn(LocalStorage, 'get').mockReturnValue(stopRouteTags);
+      jest.spyOn(LocalStorage, 'get').mockReturnValue(routeStopTags);
       jest.spyOn(NextBus, 'getPredictions')
         .mockImplementation(() => Promise.reject(new Error(errMsg)));
 
@@ -142,7 +142,7 @@ describe('sortPredictions', () => {
   });
 
   test('if predictions come in unsorted, they get sorted', () => {
-    const stopRouteTags = [
+    const routeStopTags = [
       '12|1234',
       '14|5565',
     ];
@@ -155,7 +155,7 @@ describe('sortPredictions', () => {
       _stopTag: '1234',
     };
     expect(sortPredictions(
-      stopRouteTags,
+      routeStopTags,
       [
         prediciton1,
         prediciton2,

@@ -16,7 +16,7 @@ import {
 import classNames from 'classnames';
 
 import LocalStorage, {
-  BUS_STOP_ROUTE_TAGS_KEY,
+  BUS_ROUTE_STOP_TAGS_KEY,
   WEATHER_KEY_KEY,
   WEATHER_UNITS_KEY,
 } from 'app/utils/local_storage';
@@ -119,11 +119,11 @@ export default class Settings extends PureComponent {
                 <h3 className="m-0">Bus</h3>
               </CardHeader>
               <CardBody>
-                <DisplayLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+                <DisplayLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
 
                 <hr />
 
-                <SetSampleLocalStorageData localStorageKey={BUS_STOP_ROUTE_TAGS_KEY} />
+                <SetSampleLocalStorageData localStorageKey={BUS_ROUTE_STOP_TAGS_KEY} />
               </CardBody>
             </Card>
           </Col>

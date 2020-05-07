@@ -1,12 +1,12 @@
 export const ANGULAR_LOCAL_STORAGE_PREFIX = 'ngStorage-';
 export const WEATHER_KEY_KEY = 'weatherKey';
 export const WEATHER_UNITS_KEY = 'weatherUnits';
-export const BUS_STOP_ROUTE_TAGS_KEY = 'stopRouteTags';
+export const BUS_ROUTE_STOP_TAGS_KEY = 'routeStopTags';
 export const HTML_CLASS_KEY = 'htmlClass';
 export const ALL_SETTINGS_KEYS = [
   WEATHER_KEY_KEY,
   WEATHER_UNITS_KEY,
-  BUS_STOP_ROUTE_TAGS_KEY,
+  BUS_ROUTE_STOP_TAGS_KEY,
   HTML_CLASS_KEY,
 ].reduce(
   // include legacy keys
@@ -15,7 +15,7 @@ export const ALL_SETTINGS_KEYS = [
 );
 
 export const SAMPLE_DATA = {
-  [BUS_STOP_ROUTE_TAGS_KEY]: ['14|5565', '67|6208', '27|3930', '12|7552'],
+  [BUS_ROUTE_STOP_TAGS_KEY]: ['14|5565', '67|6208', '27|3930', '12|7552'],
 };
 
 export default class LocalStorage {
@@ -44,18 +44,18 @@ export default class LocalStorage {
   }
 
   static addBusStopToLocalStorage(routeStopTag) {
-    const stopRouteTags = this.get(BUS_STOP_ROUTE_TAGS_KEY) || [];
+    const routeStopTags = this.get(BUS_ROUTE_STOP_TAGS_KEY) || [];
     this.set(
-      BUS_STOP_ROUTE_TAGS_KEY,
-      [...new Set([...stopRouteTags, routeStopTag])], // no duplicates
+      BUS_ROUTE_STOP_TAGS_KEY,
+      [...new Set([...routeStopTags, routeStopTag])], // no duplicates
     );
   }
 
   static removeBusStopFromLocalStorage(routeStopTag) {
-    const stopRouteTags = this.get(BUS_STOP_ROUTE_TAGS_KEY) || [];
+    const routeStopTags = this.get(BUS_ROUTE_STOP_TAGS_KEY) || [];
     this.set(
-      BUS_STOP_ROUTE_TAGS_KEY,
-      stopRouteTags.filter(tag => tag !== routeStopTag),
+      BUS_ROUTE_STOP_TAGS_KEY,
+      routeStopTags.filter(tag => tag !== routeStopTag),
     );
   }
 }
