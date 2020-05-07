@@ -29,9 +29,9 @@ exports[`outputs the expected tree when (default) 1`] = `
       }
     }
   >
-    Warning: This probably 
+    Warning: This 
     won't
-     work. See
+     work if this app is hosted on http. See
      
     <a
       href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
@@ -40,7 +40,9 @@ exports[`outputs the expected tree when (default) 1`] = `
     >
       Geolocation API Removed from Unsecured Origins in Chrome 50
     </a>
-    .
+    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
+    NextBus's
+     http-only traffic).
   </Alert>
   <Form
     className="mb-2"
@@ -120,9 +122,9 @@ exports[`outputs the expected tree when errMsg is shown 1`] = `
       }
     }
   >
-    Warning: This probably 
+    Warning: This 
     won't
-     work. See
+     work if this app is hosted on http. See
      
     <a
       href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
@@ -131,7 +133,9 @@ exports[`outputs the expected tree when errMsg is shown 1`] = `
     >
       Geolocation API Removed from Unsecured Origins in Chrome 50
     </a>
-    .
+    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
+    NextBus's
+     http-only traffic).
   </Alert>
   <Form
     className="mb-2"
@@ -217,9 +221,9 @@ exports[`outputs the expected tree when loader is shown 1`] = `
       }
     }
   >
-    Warning: This probably 
+    Warning: This 
     won't
-     work. See
+     work if this app is hosted on http. See
      
     <a
       href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
@@ -228,7 +232,9 @@ exports[`outputs the expected tree when loader is shown 1`] = `
     >
       Geolocation API Removed from Unsecured Origins in Chrome 50
     </a>
-    .
+    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
+    NextBus's
+     http-only traffic).
   </Alert>
   <Form
     className="mb-2"
@@ -313,9 +319,9 @@ exports[`outputs the expected tree when nearbyStops is present 1`] = `
       }
     }
   >
-    Warning: This probably 
+    Warning: This 
     won't
-     work. See
+     work if this app is hosted on http. See
      
     <a
       href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
@@ -324,7 +330,9 @@ exports[`outputs the expected tree when nearbyStops is present 1`] = `
     >
       Geolocation API Removed from Unsecured Origins in Chrome 50
     </a>
-    .
+    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
+    NextBus's
+     http-only traffic).
   </Alert>
   <Form
     className="mb-2"

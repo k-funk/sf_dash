@@ -58,14 +58,15 @@ export default class GeolocateAdd extends PureComponent {
     return (
       <>
         <Alert color="danger" fade={false}>
-          Warning: This probably {'won\'t'} work. See{' '}
+          Warning: This {'won\'t'} work if this app is hosted on http. See{' '}
           <a
             href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
             target="_blank"
             rel="noopener noreferrer"
           >
             Geolocation API Removed from Unsecured Origins in Chrome 50
-          </a>.
+          </a>. However, hosting this app on https causes a Mixed Content issue (https site
+          requesting {'NextBus\'s'} http-only traffic).
         </Alert>
 
         <Form className={classNames(className, 'mb-2')} inline>
