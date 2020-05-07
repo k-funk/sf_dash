@@ -4,7 +4,7 @@ import { Card, CardBody } from 'reactstrap';
 import moment from 'moment';
 import classNames from 'classnames';
 
-import LocalStorage, { BUS_ROUTE_STOP_TAGS_KEY } from 'app/utils/local_storage';
+import LocalStorage from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import NextBus from 'app/integrations/nextbus';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
@@ -12,6 +12,7 @@ import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
 import Predictions from './predictions';
 import AddStopForm from './add_stop_form';
 import EditTogglers from './edit_togglers';
+import RouteStopRemoval from './route_stop_removal';
 
 
 export const CALL_INTERVAL = 10 * 1000;
@@ -72,8 +73,8 @@ export default class Bus extends PureComponent {
     this.setState({ showBusRemove: !showBusRemove });
   }
 
-  async updateBusPredictions() {
-    const routeStopTags = LocalStorage.get(BUS_ROUTE_STOP_TAGS_KEY);
+  updateBusPredictions = async () => {
+    const routeStopTags = LocalStorage.getBusStopsFromLocalStorage();
 
     // Don't send an empty request
     if (!routeStopTags.length) { return; }
@@ -86,6 +87,7 @@ export default class Bus extends PureComponent {
         predictions: sortPredictions(routeStopTags, predictionResponse.body.predictions),
         loading: false,
         lastUpdated: moment(),
+        errMsg: undefined,
       });
     } catch (e) {
       console.error(e.message);
@@ -119,11 +121,15 @@ export default class Bus extends PureComponent {
           </Card>
         )}
 
-        <Predictions
-          predictions={predictions}
-          showBusRemove={showBusRemove}
-          onAddOrRemoveStop={this.onAddOrRemoveStop}
-        />
+        <div className="predictions">
+          {showBusRemove ? (
+            <RouteStopRemoval onAddOrRemoveStop={this.onAddOrRemoveStop} />
+          ) : (
+            <Predictions
+              predictions={predictions}
+            />
+          )}
+        </div>
 
         {showAddStopForm && (
           <AddStopForm
@@ -135,7 +141,6 @@ export default class Bus extends PureComponent {
         {!showAddStopForm && (
           <div className="d-flex align-items-start justify-content-between">
             <EditTogglers
-              predictions={predictions}
               toggleAddStopForm={this.toggleAddStopForm}
               showBusRemove={showBusRemove}
               toggleShowBusRemove={this.toggleShowBusRemove}

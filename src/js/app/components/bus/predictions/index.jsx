@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Button, Card, CardBody } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import classNames from 'classnames';
-
-import NextBus from 'app/integrations/nextbus';
-import LocalStorage from 'app/utils/local_storage';
 
 import StopInfo from '../stop_info';
 import Times from './times';
@@ -28,8 +25,6 @@ export default class Predictions extends PureComponent {
         }),
       }),
     ),
-    showBusRemove: T.bool.isRequired,
-    onAddOrRemoveStop: T.func.isRequired,
   };
 
   static defaultProps = {
@@ -37,44 +32,22 @@ export default class Predictions extends PureComponent {
     predictions: [],
   }
 
-  removeStop = (routeTag, stopTag) => {
-    const routeStopTag = NextBus.getRouteStopTag(routeTag, stopTag);
-    const { onAddOrRemoveStop } = this.props;
-
-    LocalStorage.removeBusStopFromLocalStorage(routeStopTag);
-    onAddOrRemoveStop();
-  }
-
-
   render() {
-    const { className, predictions, showBusRemove } = this.props;
+    const { className, predictions } = this.props;
 
     return (
-      <div className={classNames(className, 'predictions')}>
+      <div className={classNames(className)}>
         {predictions.map(prediction => {
           const { _routeTag, _stopTag, direction } = prediction;
           return (
             <Card className="mb-2" key={`${_routeTag}-${_stopTag}`}>
               <CardBody className="d-flex align-items-center justify-content-between">
-
                 <div className="route-tag">
                   {_routeTag}
                 </div>
 
                 <div className="right-container">
-
-                  {showBusRemove ? (
-                    <Button
-                      color="danger"
-                      className="remove-stop"
-                      onClick={() => this.removeStop(_routeTag, _stopTag)}
-                    >
-                      Remove Stop
-                    </Button>
-                  ) : (
-                    <Times predictionTimes={direction?.prediction} />
-                  )}
-
+                  <Times predictionTimes={direction?.prediction} />
                   <StopInfo prediction={prediction} />
                 </div>
               </CardBody>
@@ -82,7 +55,6 @@ export default class Predictions extends PureComponent {
           );
         })}
       </div>
-
     );
   }
 }

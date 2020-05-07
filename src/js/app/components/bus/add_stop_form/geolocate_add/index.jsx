@@ -34,7 +34,11 @@ export default class GeolocateAdd extends PureComponent {
     this.setState({ loading: true });
     try {
       const nearbyStops = await NextBus.getStopsNearMe(meters);
-      this.setState({ nearbyStops, loading: false });
+      this.setState({
+        loading: false,
+        errMsg: undefined,
+        nearbyStops,
+      });
     } catch (e) {
       console.error(e.message);
       this.setState({

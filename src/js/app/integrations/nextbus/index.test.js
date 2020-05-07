@@ -115,3 +115,7 @@ describe('xml parsing', () => {
 test('getRouteStopTag', () => {
   expect(NextBus.getRouteStopTag('12', '5837')).toEqual('12|5837');
 });
+
+test('splitRouteStopTag', () => {
+  expect(NextBus.splitRouteStopTag('14|1234')).toEqual(['14', '1234']);
+});

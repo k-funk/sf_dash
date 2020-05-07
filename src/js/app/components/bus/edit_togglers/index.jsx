@@ -3,6 +3,8 @@ import { PropTypes as T } from 'prop-types';
 import { Button } from 'reactstrap';
 import classNames from 'classnames';
 
+import LocalStorage from 'app/utils/local_storage';
+
 
 const buttonProps = {
   className: 'mr-1',
@@ -16,13 +18,11 @@ export default class EditTogglers extends PureComponent {
     className: T.string,
     showBusRemove: T.bool.isRequired,
     toggleShowBusRemove: T.func.isRequired,
-    predictions: T.array,
     toggleAddStopForm: T.func.isRequired,
   };
 
   static defaultProps = {
     className: '',
-    predictions: [],
   }
 
   render() {
@@ -30,9 +30,9 @@ export default class EditTogglers extends PureComponent {
       className,
       showBusRemove,
       toggleShowBusRemove,
-      predictions,
       toggleAddStopForm,
     } = this.props;
+    const routeStopTags = LocalStorage.getBusStopsFromLocalStorage();
 
     return (
       <div className={classNames(className)}>
@@ -41,7 +41,7 @@ export default class EditTogglers extends PureComponent {
             <span className="fas fa-plus" />
           </Button>
         )}
-        {!!predictions.length && (
+        {!!routeStopTags.length && (
           <Button {...buttonProps} onClick={toggleShowBusRemove}>
             <span className="fas fa-pen" />
           </Button>

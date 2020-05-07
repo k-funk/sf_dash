@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
-import { SAMPLE_PREDICTION } from 'sample_data/nextbus';
+import LocalStorage from 'app/utils/local_storage';
 
 import EditTogglers from './index';
 
@@ -15,12 +15,13 @@ describe('outputs the expected tree when', () => {
     defaultProps = {
       showBusRemove: false,
       toggleShowBusRemove: () => {},
-      predictions: [{ ...SAMPLE_PREDICTION }],
       toggleAddStopForm: () => {},
     };
   });
 
   test('both buttons are shown', () => {
+    jest.spyOn(LocalStorage, 'getBusStopsFromLocalStorage')
+      .mockReturnValue(['14|1234']);
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}
@@ -30,6 +31,8 @@ describe('outputs the expected tree when', () => {
   });
 
   test('only the add button is shown', () => {
+    jest.spyOn(LocalStorage, 'getBusStopsFromLocalStorage')
+      .mockReturnValue([]);
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}
@@ -40,6 +43,8 @@ describe('outputs the expected tree when', () => {
   });
 
   test('only the edit button is shown', () => {
+    jest.spyOn(LocalStorage, 'getBusStopsFromLocalStorage')
+      .mockReturnValue(['14|1234']);
     wrapper = shallow((
       <EditTogglers
         {...defaultProps}

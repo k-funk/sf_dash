@@ -43,8 +43,12 @@ export default class LocalStorage {
     ALL_SETTINGS_KEYS.forEach(key => window.localStorage.removeItem(key));
   }
 
+  static getBusStopsFromLocalStorage() {
+    return this.get(BUS_ROUTE_STOP_TAGS_KEY) || [];
+  }
+
   static addBusStopToLocalStorage(routeStopTag) {
-    const routeStopTags = this.get(BUS_ROUTE_STOP_TAGS_KEY) || [];
+    const routeStopTags = this.getBusStopsFromLocalStorage();
     this.set(
       BUS_ROUTE_STOP_TAGS_KEY,
       [...new Set([...routeStopTags, routeStopTag])], // no duplicates
@@ -52,7 +56,7 @@ export default class LocalStorage {
   }
 
   static removeBusStopFromLocalStorage(routeStopTag) {
-    const routeStopTags = this.get(BUS_ROUTE_STOP_TAGS_KEY) || [];
+    const routeStopTags = this.getBusStopsFromLocalStorage();
     this.set(
       BUS_ROUTE_STOP_TAGS_KEY,
       routeStopTags.filter(tag => tag !== routeStopTag),

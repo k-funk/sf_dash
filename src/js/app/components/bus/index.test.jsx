@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
 
 import { SAMPLE_PREDICTION } from 'sample_data/nextbus';
@@ -72,15 +72,17 @@ describe('instance methods', () => {
   beforeEach(() => {
     setIntervalSpy = jest.spyOn(window, 'setInterval').mockReturnValue(11);
     clearIntervalSpy = jest.spyOn(window, 'clearInterval');
-    updateBusPredictionsSpy = jest.spyOn(Bus.prototype, 'updateBusPredictions')
-      .mockImplementation(() => Promise.resolve());
-    wrapper = mount((
+    wrapper = shallow((
       <Bus />
     ));
     instance = wrapper.instance();
+    updateBusPredictionsSpy = jest.spyOn(instance, 'updateBusPredictions')
+      .mockImplementation(() => Promise.resolve());
   });
 
   test('componentDidMount sets an interval', () => {
+    instance.componentDidMount();
+
     expect(updateBusPredictionsSpy).toHaveBeenCalledWith();
     expect(setIntervalSpy).toHaveBeenCalledWith(expect.any(Function), CALL_INTERVAL);
     expect(instance.interval).toEqual(11);

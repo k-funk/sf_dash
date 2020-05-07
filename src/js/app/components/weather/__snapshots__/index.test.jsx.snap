@@ -822,25 +822,6 @@ exports[`outputs the expected tree when there are errors 1`] = `
   className="weather"
 >
   <div
-    className="error-msg"
-  >
-    <span
-      className="fas fa-exclamation-circle mr-1"
-    />
-    <span>
-      Weather request failed. Make sure 
-      you've
-       supplied an API Key in the
-       
-      <a
-        href="#/settings"
-      >
-        settings
-      </a>
-      .
-    </span>
-  </div>
-  <div
     className="d-flex justify-content-end"
   >
     <TimeSinceLastUpdated

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when localstorage contains no routeStopTags 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`outputs the expected tree when localstorage contains routeStopTags 1`] = `
+<div
+  className=""
+>
+  <Card
+    className="mb-2"
+    key="14-1234"
+    tag="div"
+  >
+    <CardBody
+      className="d-flex align-items-center justify-content-between"
+      tag="div"
+    >
+      <div
+        className="route-tag"
+      >
+        14
+      </div>
+      <div
+        className="right-container"
+      >
+        <Button
+          className="remove-stop"
+          color="danger"
+          onClick={[Function]}
+          size="lg"
+          tag="button"
+        >
+          Remove Stop
+        </Button>
+      </div>
+    </CardBody>
+  </Card>
+</div>
+`;

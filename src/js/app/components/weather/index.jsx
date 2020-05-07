@@ -67,6 +67,7 @@ export default class Weather extends PureComponent {
           };
         }),
         lastUpdated: moment(),
+        fetchError: false,
         loading: false,
       });
     } catch (e) {

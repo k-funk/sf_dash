@@ -157,4 +157,8 @@ export default class NextBus {
   static getRouteStopTag(routeTag, stopTag) {
     return `${routeTag}|${stopTag}`;
   }
+
+  static splitRouteStopTag(routeStopTag) {
+    return routeStopTag.split('|');
+  }
 }
