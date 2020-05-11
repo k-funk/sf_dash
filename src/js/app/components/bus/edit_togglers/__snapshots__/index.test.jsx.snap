@@ -2,7 +2,7 @@
 
 exports[`outputs the expected tree when both buttons are shown 1`] = `
 <div
-  className=""
+  className="mb-2"
 >
   <Button
     className="mr-1"
@@ -33,7 +33,7 @@ exports[`outputs the expected tree when both buttons are shown 1`] = `
 
 exports[`outputs the expected tree when only the add button is shown 1`] = `
 <div
-  className=""
+  className="mb-2"
 >
   <Button
     className="mr-1"
@@ -52,7 +52,7 @@ exports[`outputs the expected tree when only the add button is shown 1`] = `
 
 exports[`outputs the expected tree when only the edit button is shown 1`] = `
 <div
-  className=""
+  className="mb-2"
 >
   <Button
     className="mr-1"

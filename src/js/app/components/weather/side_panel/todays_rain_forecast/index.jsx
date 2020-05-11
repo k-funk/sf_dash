@@ -39,7 +39,7 @@ export default class TodaysRainForecast extends PureComponent {
     const { precipProbability, time } = firstRainForecast;
 
     return (
-      <div className={classNames(className, 'rain-chance')}>
+      <div className={classNames(className, 'rain-chance', 'mb-3')}>
         { precipProbability ? (
           <>
             <div className="umbrella bring-umbrella" />

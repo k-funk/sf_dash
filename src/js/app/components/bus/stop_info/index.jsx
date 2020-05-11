@@ -26,10 +26,10 @@ export default class StopInfo extends PureComponent {
 
     return (
       <div className={classNames(className)}>
-        <div className="route-title">
+        <div className="font-weight-bold">
           {direction?._title || _dirTitleBecauseNoPredictions}
         </div>
-        <div className="stop-title">
+        <div>
           @{_stopTitle}
         </div>
       </div>

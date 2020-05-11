@@ -4,25 +4,20 @@ exports[`outputs the expected tree when has an errMsg 1`] = `
 <div
   className="weather"
 >
-  <div
-    className="error-msg"
+  <ErrorMessage
+    className=""
   >
-    <span
-      className="fas fa-exclamation-circle mr-1"
-    />
-    <span>
-      Weather request failed. Make sure 
-      you've
-       supplied an API Key in the
-       
-      <a
-        href="#/settings"
-      >
-        settings
-      </a>
-      .
-    </span>
-  </div>
+    Weather request failed. Make sure 
+    you've
+     supplied an API Key in the
+     
+    <a
+      href="#/settings"
+    >
+      settings
+    </a>
+    .
+  </ErrorMessage>
   <div
     className="d-flex justify-content-end"
   >
@@ -62,13 +57,12 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
     key="37.7448205,-122.4100494"
     tag="div"
   >
-    <div
-      className="location-readable"
+    <CardHeader
+      className="text-center py-1 text-uppercase"
+      tag="div"
     >
-      <small>
-        Bernal Heights
-      </small>
-    </div>
+      Bernal Heights
+    </CardHeader>
     <CardBody
       tag="div"
     >
@@ -86,6 +80,7 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
         }
       >
         <Col
+          md="5"
           tag="div"
           widths={
             Array [
@@ -96,7 +91,6 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
               "xl",
             ]
           }
-          xs="5"
         >
           <SidePanel
             alerts={
@@ -446,6 +440,7 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
           />
         </Col>
         <Col
+          md="7"
           tag="div"
           widths={
             Array [
@@ -456,7 +451,6 @@ exports[`outputs the expected tree when state contains weather data 1`] = `
               "xl",
             ]
           }
-          xs="7"
         >
           <HourlyForecast
             className=""

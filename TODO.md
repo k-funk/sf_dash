@@ -6,10 +6,10 @@
 - [x] Add/remove bus routes cars via UI.
 - [x] Dark/Light mode.
 - [x] Add "load sample data" to settings to make dev and demos easier
+- [x] Better layout on phone-sized screens
 - [ ] Add/remove weather cards via UI.
 - [ ] Auto-switch dark/light mode based on sunrise/sunset. +make this optional.
 - [ ] Pull from other APIs (news? traffic?)
-- [ ] Better layout+nav on phone-sized screens
 
 
 ## Maintenance

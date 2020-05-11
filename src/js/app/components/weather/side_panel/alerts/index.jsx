@@ -24,7 +24,7 @@ export default class Alerts extends PureComponent {
     if (!alerts.length) { return null; }
 
     return (
-      <div className={classNames(className, 'col-12 alerts')}>
+      <div className={classNames(className, 'alerts')}>
         <ul>
           {alerts.map(alert => (
             <li key={alert.title}>{alert.title}</li>

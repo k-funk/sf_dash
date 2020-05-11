@@ -4,7 +4,7 @@ exports[`outputs the expected tree when (default) 1`] = `""`;
 
 exports[`outputs the expected tree when there are alerts 1`] = `
 <div
-  className="col-12 alerts"
+  className="alerts"
 >
   <ul>
     <li

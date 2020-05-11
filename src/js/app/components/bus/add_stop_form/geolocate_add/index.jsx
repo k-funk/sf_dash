@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import NextBus from 'app/integrations/nextbus';
 import LocalStorage from 'app/utils/local_storage';
 import Loader from 'app/components/loader';
+import ErrorMessage from 'app/components/error_message';
 
 
 export default class GeolocateAdd extends PureComponent {
@@ -82,7 +83,10 @@ export default class GeolocateAdd extends PureComponent {
             <option value="402">1/4 mile</option>
             <option value="804">1/2 mile</option>
           </Input>
+          <Loader className="ml-3" loading={loading} />
         </Form>
+
+        <ErrorMessage>{errMsg}</ErrorMessage>
 
         {!!nearbyStops.length && (
           <Table striped hover className="mt-4">
@@ -113,9 +117,6 @@ export default class GeolocateAdd extends PureComponent {
             </tbody>
           </Table>
         )}
-
-        {loading && <Loader className="my-2" />}
-        {errMsg && <div className="error-msg">Error: {errMsg}</div>}
       </>
     );
   }

@@ -10,27 +10,77 @@ exports[`outputs the expected tree when predictions 1`] = `
 <div
   className=""
 >
-  <Card
-    className="mb-2"
+  <RouteStopCard
+    className=""
     key="14-5565"
-    tag="div"
+    routeTag="14"
   >
-    <CardBody
-      className="d-flex align-items-center justify-content-between"
-      tag="div"
-    >
-      <div
-        className="route-tag"
-      >
-        14
-      </div>
-      <div
-        className="right-container"
-      >
-        <Times
-          className=""
-          predictionTimes={
-            Array [
+    <Times
+      className=""
+      predictionTimes={
+        Array [
+          Object {
+            "$$hashKey": "object:19",
+            "_block": "1620",
+            "_dirTag": "14___I_F00",
+            "_epochTime": "1588198229803",
+            "_isDeparture": "false",
+            "_minutes": "0",
+            "_seconds": "296",
+            "_tripTag": "9359239",
+            "_vehicle": "6609",
+          },
+          Object {
+            "$$hashKey": "object:20",
+            "_block": "1622",
+            "_dirTag": "14___I_F00",
+            "_epochTime": "1588198681179",
+            "_isDeparture": "false",
+            "_minutes": "12",
+            "_seconds": "747",
+            "_tripTag": "9359240",
+            "_vehicle": "6599",
+          },
+          Object {
+            "$$hashKey": "object:21",
+            "_block": "1633",
+            "_dirTag": "14___I_F00",
+            "_epochTime": "1588199412858",
+            "_isDeparture": "false",
+            "_minutes": "24",
+            "_seconds": "1479",
+            "_tripTag": "9359237",
+            "_vehicle": "6547",
+          },
+          Object {
+            "$$hashKey": "object:22",
+            "_block": "1628",
+            "_dirTag": "14___I_F00",
+            "_epochTime": "1588199419316",
+            "_isDeparture": "false",
+            "_minutes": "24",
+            "_seconds": "1486",
+            "_tripTag": "9359243",
+            "_vehicle": "6533",
+          },
+        ]
+      }
+    />
+    <StopInfo
+      className=""
+      prediction={
+        Object {
+          "$$hashKey": "object:17",
+          "_agencyTitle": "SF Muni",
+          "_dirTitleBecauseNoPredictions": "Inbound to Ferry Plaza",
+          "_routeTag": "14",
+          "_routeTitle": "14-Mission",
+          "_stopTag": "5565",
+          "_stopTitle": "Mission St & 24th St",
+          "className": "",
+          "direction": Object {
+            "_title": "Inbound to Ferry Plaza",
+            "prediction": Array [
               Object {
                 "$$hashKey": "object:19",
                 "_block": "1620",
@@ -75,93 +125,29 @@ exports[`outputs the expected tree when predictions 1`] = `
                 "_tripTag": "9359243",
                 "_vehicle": "6533",
               },
-            ]
-          }
-        />
-        <StopInfo
-          className=""
-          prediction={
+            ],
+          },
+          "message": Array [
             Object {
-              "$$hashKey": "object:17",
-              "_agencyTitle": "SF Muni",
-              "_dirTitleBecauseNoPredictions": "Inbound to Ferry Plaza",
-              "_routeTag": "14",
-              "_routeTitle": "14-Mission",
-              "_stopTag": "5565",
-              "_stopTitle": "Mission St & 24th St",
-              "className": "",
-              "direction": Object {
-                "_title": "Inbound to Ferry Plaza",
-                "prediction": Array [
-                  Object {
-                    "$$hashKey": "object:19",
-                    "_block": "1620",
-                    "_dirTag": "14___I_F00",
-                    "_epochTime": "1588198229803",
-                    "_isDeparture": "false",
-                    "_minutes": "0",
-                    "_seconds": "296",
-                    "_tripTag": "9359239",
-                    "_vehicle": "6609",
-                  },
-                  Object {
-                    "$$hashKey": "object:20",
-                    "_block": "1622",
-                    "_dirTag": "14___I_F00",
-                    "_epochTime": "1588198681179",
-                    "_isDeparture": "false",
-                    "_minutes": "12",
-                    "_seconds": "747",
-                    "_tripTag": "9359240",
-                    "_vehicle": "6599",
-                  },
-                  Object {
-                    "$$hashKey": "object:21",
-                    "_block": "1633",
-                    "_dirTag": "14___I_F00",
-                    "_epochTime": "1588199412858",
-                    "_isDeparture": "false",
-                    "_minutes": "24",
-                    "_seconds": "1479",
-                    "_tripTag": "9359237",
-                    "_vehicle": "6547",
-                  },
-                  Object {
-                    "$$hashKey": "object:22",
-                    "_block": "1628",
-                    "_dirTag": "14___I_F00",
-                    "_epochTime": "1588199419316",
-                    "_isDeparture": "false",
-                    "_minutes": "24",
-                    "_seconds": "1486",
-                    "_tripTag": "9359243",
-                    "_vehicle": "6533",
-                  },
-                ],
-              },
-              "message": Array [
-                Object {
-                  "_priority": "Normal",
-                  "_text": "Service frequency for this stop is 10 minutes or less.",
-                },
-                Object {
-                  "_priority": "Low",
-                  "_text": "Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info.",
-                },
-                Object {
-                  "_priority": "Low",
-                  "_text": "Text COVID19SF to 888-777 for official updates. Visit sfdph.org",
-                },
-                Object {
-                  "_priority": "Normal",
-                  "_text": "Board thru rear doors. Front door for accessibility needs only.",
-                },
-              ],
-            }
-          }
-        />
-      </div>
-    </CardBody>
-  </Card>
+              "_priority": "Normal",
+              "_text": "Service frequency for this stop is 10 minutes or less.",
+            },
+            Object {
+              "_priority": "Low",
+              "_text": "Muni for essential trips only. Masks or face coverings are required. Practice physical distancing. Visit sfmta.com/COVID19 for more info.",
+            },
+            Object {
+              "_priority": "Low",
+              "_text": "Text COVID19SF to 888-777 for official updates. Visit sfdph.org",
+            },
+            Object {
+              "_priority": "Normal",
+              "_text": "Board thru rear doors. Front door for accessibility needs only.",
+            },
+          ],
+        }
+      }
+    />
+  </RouteStopCard>
 </div>
 `;

@@ -35,7 +35,7 @@ export default class EditTogglers extends PureComponent {
     const routeStopTags = LocalStorage.getBusStopsFromLocalStorage();
 
     return (
-      <div className={classNames(className)}>
+      <div className={classNames(className, 'mb-2')}>
         {!showBusRemove && (
           <Button {...buttonProps} onClick={toggleAddStopForm}>
             <span className="fas fa-plus" />

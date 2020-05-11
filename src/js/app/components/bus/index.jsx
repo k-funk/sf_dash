@@ -8,6 +8,7 @@ import LocalStorage from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import NextBus from 'app/integrations/nextbus';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
+import ErrorMessage from 'app/components/error_message';
 
 import Predictions from './predictions';
 import AddStopForm from './add_stop_form';
@@ -112,7 +113,6 @@ export default class Bus extends PureComponent {
 
     return (
       <div className={classNames(className, 'bus')}>
-        {errMsg && <div className="error-msg">Error: {errMsg}</div>}
         {!errMsg && !predictions.length && (
           <Card className="mb-2">
             <CardBody>
@@ -121,15 +121,13 @@ export default class Bus extends PureComponent {
           </Card>
         )}
 
-        <div className="predictions">
-          {showBusRemove ? (
-            <RouteStopRemoval onAddOrRemoveStop={this.onAddOrRemoveStop} />
-          ) : (
-            <Predictions
-              predictions={predictions}
-            />
-          )}
-        </div>
+        {showBusRemove ? (
+          <RouteStopRemoval onAddOrRemoveStop={this.onAddOrRemoveStop} />
+        ) : (
+          <Predictions
+            predictions={predictions}
+          />
+        )}
 
         {showAddStopForm && (
           <AddStopForm
@@ -153,6 +151,8 @@ export default class Bus extends PureComponent {
             />
           </div>
         )}
+
+        <ErrorMessage>{errMsg}</ErrorMessage>
       </div>
     );
   }

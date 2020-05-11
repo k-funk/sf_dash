@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when (default) 1`] = `
+<Card
+  className="mb-2"
+  tag="div"
+>
+  <CardBody
+    className="d-flex align-items-center justify-content-between"
+    tag="div"
+  >
+    <div
+      className="route-tag"
+    >
+      14
+    </div>
+    <div
+      className="route-tag-details"
+    >
+      something
+    </div>
+  </CardBody>
+</Card>
+`;

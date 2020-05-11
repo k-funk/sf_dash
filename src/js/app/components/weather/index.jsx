@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Row, Col, Card, CardBody, CardFooter } from 'reactstrap';
+import { Row, Col, Card, CardHeader, CardBody, CardFooter } from 'reactstrap';
 import classNames from 'classnames';
 import moment from 'moment';
 
@@ -8,6 +8,7 @@ import LocalStorage, { WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/loca
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
 import DarkSky from 'app/integrations/darksky';
 import TimeSinceLastUpdated from 'app/components/time_since_last_updated';
+import ErrorMessage from 'app/components/error_message';
 
 import SidePanel from './side_panel';
 import HourlyForecast from './hourly_forecast';
@@ -88,13 +89,10 @@ export default class Weather extends PureComponent {
     return (
       <div className={classNames(className, 'weather')}>
         {fetchError && (
-          <div className="error-msg">
-            <span className="fas fa-exclamation-circle mr-1" />
-            <span>
-              Weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
-              <a href="#/settings">settings</a>.
-            </span>
-          </div>
+          <ErrorMessage>
+            Weather request failed. Make sure {'you\'ve'} supplied an API Key in the{' '}
+            <a href="#/settings">settings</a>.
+          </ErrorMessage>
         )}
 
         {locations.map(location => {
@@ -109,20 +107,20 @@ export default class Weather extends PureComponent {
 
           return (
             <Card className="mb-2" key={`${lat},${long}`}>
-              <div className="location-readable">
-                <small>{readable}</small>
-              </div>
+              <CardHeader className="text-center py-1 text-uppercase">
+                {readable}
+              </CardHeader>
 
               <CardBody>
                 <Row className="slim-gutters">
-                  <Col xs="5">
+                  <Col md="5">
                     <SidePanel
                       dailyForecasts={dailyForecasts}
                       hourlyForecasts={hourlyForecasts}
                       alerts={alerts}
                     />
                   </Col>
-                  <Col xs="7">
+                  <Col md="7">
                     <HourlyForecast
                       hourlyForecasts={hourlyForecasts}
                     />

@@ -1,55 +1,44 @@
-.bus {
-  font-size: 12px;
+.route-tag {
   $route-tag-size: 86px;
+  margin-right: 10px;
+  height: $route-tag-size;
+  width: $route-tag-size;
+  line-height: $route-tag-size;
+  font-size: $route-tag-size * 0.4;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #EEE;
+  color: #555;
+  text-align: center;
+}
 
-  .card {
-    min-height: 1px;
+.route-tag-details {
+  font-size: 11px;
+  text-align: right;
+
+  .prediction-times {
+    color: $text-muted;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: .6rem;
   }
 
-  .route-tag {
-    margin-right: 10px;
-    height: $route-tag-size;
-    width: $route-tag-size;
-    line-height: $route-tag-size;
-    font-size: $route-tag-size * 0.4;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-color: #EEE;
-    color: #555;
-    text-align: center;
-  }
-  .right-container {
-    text-align: right;
-    .prediction-times {
-      color: $text-muted;
-      font-size: 2rem;
-      font-weight: 200;
-      line-height: 1;
-      margin-bottom: .65rem;
+  .prediction-time {
+    border-bottom: 1px solid $text-muted;
+
+    &.next-time {
+      color: $body-color;
+      font-size: 2.75rem;
     }
-    .prediction-time {
-      border-bottom: 1px solid $text-muted;
-      &.next-time {
-        color: $body-color;
-        font-size: 2.75rem;
-      }
-      &.next-time,
-      &.other-time {
-        font-weight: 600;
-      }
-      &.not-affected-by-layover {
-        border-bottom-color: transparent !important;
-      }
+
+    &.next-time,
+    &.other-time {
+      font-weight: 600;
     }
-    .route-title,
-    .stop-title {
-      font-size: 11px;
-    }
-    .route-title {
-      font-weight: bold;
-    }
-    .btn.remove-stop {
-      margin-bottom: 4px;
+
+    &.not-affected-by-layover {
+      border-bottom-color: transparent !important;
     }
   }
 }
@@ -64,16 +53,19 @@
     border-radius: $card-border-radius;
     margin-top: -$nav-tabs-border-width;
     padding: $card-spacer-y $card-spacer-x;
+
     &.active:first-child {
       border-radius: 0 $card-border-radius $card-border-radius;
     }
   }
+
   .btn.close-form {
     position: absolute;
     top: 0;
     right: 0;
     border: none;
   }
+
   .table {
     font-size: 10px;
   }

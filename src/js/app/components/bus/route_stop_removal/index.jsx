@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Button, Card, CardBody } from 'reactstrap';
+import { Button } from 'reactstrap';
 import classNames from 'classnames';
 
 import NextBus from 'app/integrations/nextbus';
 import LocalStorage from 'app/utils/local_storage';
+import RouteStopCard from '../route_stop_card';
 
 
 export default class RouteStopRemoval extends PureComponent {
@@ -31,25 +32,17 @@ export default class RouteStopRemoval extends PureComponent {
       <div className={classNames(className)}>
         {routeStopTags.map(routeStopTag => {
           const [routeTag, stopTag] = NextBus.splitRouteStopTag(routeStopTag);
-          return (
-            <Card className="mb-2" key={`${routeTag}-${stopTag}`}>
-              <CardBody className="d-flex align-items-center justify-content-between">
-                <div className="route-tag">
-                  {routeTag}
-                </div>
 
-                <div className="right-container">
-                  <Button
-                    color="danger"
-                    className="remove-stop"
-                    onClick={() => this.removeStop(routeTag, stopTag)}
-                    size="lg"
-                  >
-                    Remove Stop
-                  </Button>
-                </div>
-              </CardBody>
-            </Card>
+          return (
+            <RouteStopCard routeTag={routeTag} key={routeStopTag}>
+              <Button
+                color="danger"
+                size="lg"
+                onClick={() => this.removeStop(routeTag, stopTag)}
+              >
+                Remove Stop
+              </Button>
+            </RouteStopCard>
           );
         })}
       </div>

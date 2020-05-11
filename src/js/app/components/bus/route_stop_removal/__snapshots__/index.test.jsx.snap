@@ -10,34 +10,19 @@ exports[`outputs the expected tree when localstorage contains routeStopTags 1`] 
 <div
   className=""
 >
-  <Card
-    className="mb-2"
-    key="14-1234"
-    tag="div"
+  <RouteStopCard
+    className=""
+    key="14|1234"
+    routeTag="14"
   >
-    <CardBody
-      className="d-flex align-items-center justify-content-between"
-      tag="div"
+    <Button
+      color="danger"
+      onClick={[Function]}
+      size="lg"
+      tag="button"
     >
-      <div
-        className="route-tag"
-      >
-        14
-      </div>
-      <div
-        className="right-container"
-      >
-        <Button
-          className="remove-stop"
-          color="danger"
-          onClick={[Function]}
-          size="lg"
-          tag="button"
-        >
-          Remove Stop
-        </Button>
-      </div>
-    </CardBody>
-  </Card>
+      Remove Stop
+    </Button>
+  </RouteStopCard>
 </div>
 `;

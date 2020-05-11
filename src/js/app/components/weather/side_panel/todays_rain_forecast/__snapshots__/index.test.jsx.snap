@@ -2,7 +2,7 @@
 
 exports[`outputs the expected tree when (default) 1`] = `
 <div
-  className="rain-chance"
+  className="rain-chance mb-3"
 >
   <div
     className="umbrella bring-umbrella"
@@ -35,7 +35,7 @@ exports[`outputs the expected tree when (default) 1`] = `
 
 exports[`outputs the expected tree when it will not rain 1`] = `
 <div
-  className="rain-chance"
+  className="rain-chance mb-3"
 >
   <div
     className="umbrella no-umbrella"

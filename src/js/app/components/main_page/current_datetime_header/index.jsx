@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
+import { Row, Col } from 'reactstrap';
 import moment from 'moment';
 import 'moment-precise-range-plugin';
 import classNames from 'classnames';
@@ -32,10 +33,14 @@ export default class CurrentDateTimeHeader extends PureComponent {
     const time = now.format('h:mm');
 
     return (
-      <div className={classNames(className, 'current-time', 'row', 'py-1', 'align-items-baseline')}>
-        <div className="time col-6">{time}</div>
-        <div className="date col-6">{date}</div>
-      </div>
+      <Row className={classNames(className, 'current-time', 'py-3', 'py-md-1', 'align-items-baseline')}>
+        <Col xs="6" className="time">
+          {time}
+        </Col>
+        <Col xs="6" className="date">
+          {date}
+        </Col>
+      </Row>
     );
   }
 }

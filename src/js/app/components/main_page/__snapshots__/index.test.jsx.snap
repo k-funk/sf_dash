@@ -22,7 +22,7 @@ exports[`outputs the expected tree when (default 1`] = `
   >
     <Col
       className="mb-4"
-      sm="5"
+      lg="5"
       tag="div"
       widths={
         Array [
@@ -40,7 +40,7 @@ exports[`outputs the expected tree when (default 1`] = `
     </Col>
     <Col
       className="mb-4"
-      sm="7"
+      lg="7"
       tag="div"
       widths={
         Array [

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Card, CardBody } from 'reactstrap';
 import classNames from 'classnames';
 
 import StopInfo from '../stop_info';
 import Times from './times';
+import RouteStopCard from '../route_stop_card';
 
 
 export default class Predictions extends PureComponent {
@@ -40,18 +40,10 @@ export default class Predictions extends PureComponent {
         {predictions.map(prediction => {
           const { _routeTag, _stopTag, direction } = prediction;
           return (
-            <Card className="mb-2" key={`${_routeTag}-${_stopTag}`}>
-              <CardBody className="d-flex align-items-center justify-content-between">
-                <div className="route-tag">
-                  {_routeTag}
-                </div>
-
-                <div className="right-container">
-                  <Times predictionTimes={direction?.prediction} />
-                  <StopInfo prediction={prediction} />
-                </div>
-              </CardBody>
-            </Card>
+            <RouteStopCard routeTag={_routeTag} key={`${_routeTag}-${_stopTag}`}>
+              <Times predictionTimes={direction?.prediction} />
+              <StopInfo prediction={prediction} />
+            </RouteStopCard>
           );
         })}
       </div>

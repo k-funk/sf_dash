@@ -25,10 +25,10 @@ export default class MainPage extends PureComponent {
       <div className={classNames(className)}>
         <CurrentDateTimeHeader />
         <Row className="slim-gutters">
-          <Col sm="5" className="mb-4">
+          <Col lg="5" className="mb-4">
             <Bus />
           </Col>
-          <Col sm="7" className="mb-4">
+          <Col lg="7" className="mb-4">
             <Weather />
           </Col>
         </Row>

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`outputs the expected tree when children 1`] = `
+<div
+  className="error-message"
+>
+  <span
+    className="fas fa-exclamation-circle mr-1"
+  />
+  <span>
+    some error message
+  </span>
+</div>
+`;
+
+exports[`outputs the expected tree when no children 1`] = `""`;

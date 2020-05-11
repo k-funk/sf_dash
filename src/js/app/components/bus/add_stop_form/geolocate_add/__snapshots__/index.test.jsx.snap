@@ -89,7 +89,15 @@ exports[`outputs the expected tree when (default) 1`] = `
         1/2 mile
       </option>
     </Input>
+    <Loader
+      className="ml-3"
+      loading={false}
+      small={false}
+    />
   </Form>
+  <ErrorMessage
+    className=""
+  />
 </Fragment>
 `;
 
@@ -182,13 +190,17 @@ exports[`outputs the expected tree when errMsg is shown 1`] = `
         1/2 mile
       </option>
     </Input>
+    <Loader
+      className="ml-3"
+      loading={false}
+      small={false}
+    />
   </Form>
-  <div
-    className="error-msg"
+  <ErrorMessage
+    className=""
   >
-    Error: 
     oh noes!
-  </div>
+  </ErrorMessage>
 </Fragment>
 `;
 
@@ -281,11 +293,14 @@ exports[`outputs the expected tree when loader is shown 1`] = `
         1/2 mile
       </option>
     </Input>
+    <Loader
+      className="ml-3"
+      loading={true}
+      small={false}
+    />
   </Form>
-  <Loader
-    className="my-2"
-    loading={false}
-    small={false}
+  <ErrorMessage
+    className=""
   />
 </Fragment>
 `;
@@ -379,7 +394,15 @@ exports[`outputs the expected tree when nearbyStops is present 1`] = `
         1/2 mile
       </option>
     </Input>
+    <Loader
+      className="ml-3"
+      loading={false}
+      small={false}
+    />
   </Form>
+  <ErrorMessage
+    className=""
+  />
   <Table
     className="mt-4"
     hover={true}

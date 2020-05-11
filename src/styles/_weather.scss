@@ -1,11 +1,6 @@
 .weather {
   font-size: 10px;
 
-  .location-readable {
-    padding-top: 8px;
-    text-align: center;
-  }
-
   .table tr {
     th {
       border-width: 1px; // overrides bootstrap 4.4.1's (2 * $table-border-width) crap
@@ -13,15 +8,18 @@
       text-transform: uppercase;
       padding: 0 4px 4px;
     }
+
     td {
       padding: 3px;
       vertical-align: middle;
     }
+
     td img {
       width: 16px;
       margin-right: 4px;
       margin-left: 2px;
     }
+
     th, td {
       &:first-child {
         text-align: right;
@@ -29,57 +27,74 @@
       }
     }
   }
+
   .side-panel {
     text-align: center;
+
     .forecast {
       margin-top: 0;
+
       img {
         width: 60px;
       }
+
       .conditions {
         font-size: 12px
       }
+
       .high-low {
         font-size: 32px;
       }
+
       .high-low-alt {
         font-size: 14px;
       }
     }
+
     .rain-chance {
       line-height: 1.25;
+
       .umbrella {
         height: 110px;
         margin-bottom: 20px;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
+
         &.no-umbrella {
           background-image: url($no-umbrella-image-url);
         }
+
         &.bring-umbrella {
           background-image: url($bring-umbrella-image-url);
         }
       }
+
       .pop, .time {
         font-size: 22px;
       }
+
       .pop, .no-rain {
         font-weight: 100;
       }
+
       .at {
         font-size: 12px;
       }
     }
+
     .alerts {
       margin-top: 10px;
+
       ul {
         padding-left: 0;
+
         li {
           list-style: none;
           color: red;
           text-transform: uppercase;
           font-weight: bold;
+
           &:not(:first-child) {
             margin-top: 3px;
           }
@@ -87,17 +102,21 @@
       }
     }
   }
+
   .forecast {
     img {
       width: 45px;
       margin-right: 10px;
     }
+
     .conditions, .high-low, .high-low-alt, .date {
       text-align: left;
     }
+
     .conditions {
       font-size: 11px
     }
+
     .high-low {
       font-size: 18px;
       line-height: 1.1;

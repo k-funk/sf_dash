@@ -1,18 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`outputs the expected tree when (default) 1`] = `
-<div
-  className="current-time row py-1 align-items-baseline"
+<Row
+  className="current-time py-3 py-md-1 align-items-baseline"
+  tag="div"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
 >
-  <div
-    className="time col-6"
+  <Col
+    className="time"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+    xs="6"
   >
     11:11
-  </div>
-  <div
-    className="date col-6"
+  </Col>
+  <Col
+    className="date"
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+    xs="6"
   >
     November 11th, 2019
-  </div>
-</div>
+  </Col>
+</Row>
 `;

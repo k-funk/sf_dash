@@ -5,13 +5,11 @@ exports[`outputs the expected tree when a prediction is passed 1`] = `
   className=""
 >
   <div
-    className="route-title"
+    className="font-weight-bold"
   >
     Inbound to Ferry Plaza
   </div>
-  <div
-    className="stop-title"
-  >
+  <div>
     @
     Mission St & 24th St
   </div>
@@ -23,13 +21,11 @@ exports[`outputs the expected tree when a prediction is passed without a directi
   className=""
 >
   <div
-    className="route-title"
+    className="font-weight-bold"
   >
     Inbound to Ferry Plaza
   </div>
-  <div
-    className="stop-title"
-  >
+  <div>
     @
     Mission St & 24th St
   </div>
