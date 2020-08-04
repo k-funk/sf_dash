@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Card, CardBody } from 'reactstrap';
-import moment from 'moment';
 import classNames from 'classnames';
 
 import LocalStorage from 'app/utils/local_storage';
@@ -87,7 +86,7 @@ export default class Bus extends PureComponent {
       this.setState({
         predictions: sortPredictions(routeStopTags, predictionResponse.body.predictions),
         loading: false,
-        lastUpdated: moment(),
+        lastUpdated: new Date(),
         errMsg: undefined,
       });
     } catch (e) {
@@ -95,7 +94,6 @@ export default class Bus extends PureComponent {
       this.setState({
         loading: false,
         errMsg: e.message,
-        lastUpdated: moment(),
       });
     }
   }

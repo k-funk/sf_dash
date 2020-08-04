@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Table } from 'reactstrap';
-import moment from 'moment';
+import { format } from 'date-fns';
 import classNames from 'classnames';
 
 import { MIN_CHANCE_OF_RAIN } from 'app/constants';
@@ -62,7 +62,7 @@ export default class HourlyForecast extends PureComponent {
             return (
               <tr key={`hourly-forecast-${time}`}>
                 <td>
-                  {moment(time * 1000).format('hA')}
+                  {format(new Date(time * 1000), 'ha')}
                 </td>
                 <td>
                   <WeatherIcon icon={icon} /> {summary}

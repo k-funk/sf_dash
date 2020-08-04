@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import moment from 'moment';
+import { format } from 'date-fns';
 import classNames from 'classnames';
 
 import { MIN_CHANCE_OF_RAIN } from 'app/constants';
@@ -47,7 +47,7 @@ export default class TodaysRainForecast extends PureComponent {
               {(precipProbability * 100).toFixed(0)}%
             </span>
             <sup className="at mx-1">@</sup>
-            <span className="time">{moment(time * 1000).format('hA')}</span>
+            <span className="time">{format(new Date(time * 1000), 'ha')}</span>
           </>
         ) : (
           <>

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Row, Col, Card, CardHeader, CardBody, CardFooter } from 'reactstrap';
 import classNames from 'classnames';
-import moment from 'moment';
 
 import LocalStorage, { WEATHER_KEY_KEY, WEATHER_UNITS_KEY } from 'app/utils/local_storage';
 import { WARNING_AFTER_N_MISSED_CALLS } from 'app/constants';
@@ -67,7 +66,7 @@ export default class Weather extends PureComponent {
             ...LOCATIONS[idx],
           };
         }),
-        lastUpdated: moment(),
+        lastUpdated: new Date(),
         fetchError: false,
         loading: false,
       });
@@ -77,7 +76,6 @@ export default class Weather extends PureComponent {
       this.setState({
         fetchError: true,
         loading: false,
-        lastUpdated: moment(),
       });
     }
   }

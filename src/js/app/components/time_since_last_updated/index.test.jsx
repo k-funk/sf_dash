@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import shallowToJson from 'enzyme-to-json';
-import moment from 'moment';
-import 'moment-precise-range-plugin';
+import { sub } from 'date-fns';
 
 import TimeSinceLastUpdated, { INTERVAL_MS } from './index';
 
@@ -18,20 +17,20 @@ describe('outputs the expected tree when', () => {
 
   test('lastUpdated is now', () => {
     wrapper = shallow((
-      <TimeSinceLastUpdated lastUpdated={moment()} />
+      <TimeSinceLastUpdated lastUpdated={new Date()} />
     ));
   });
 
   test('the update is not overdue', () => {
     wrapper = shallow((
-      <TimeSinceLastUpdated lastUpdated={moment().subtract(1, 'seconds')} />
+      <TimeSinceLastUpdated lastUpdated={sub(new Date(), { seconds: 1 })} />
     ));
   });
 
   test('the update is overdue', () => {
     wrapper = shallow((
       <TimeSinceLastUpdated
-        lastUpdated={moment().subtract(5, 'seconds')}
+        lastUpdated={sub(new Date(), { seconds: 5 })}
         msUntilWarning={3000}
       />
     ));
@@ -39,7 +38,7 @@ describe('outputs the expected tree when', () => {
 
   test('is loading', () => {
     wrapper = shallow((
-      <TimeSinceLastUpdated lastUpdated={moment()} loading />
+      <TimeSinceLastUpdated lastUpdated={new Date()} loading />
     ));
   });
 

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Row, Col } from 'reactstrap';
-import moment from 'moment';
+import { format } from 'date-fns';
 import classNames from 'classnames';
 
 import WeatherIcon from '../icon';
@@ -49,7 +49,7 @@ export default class ThreeDayForecast extends PureComponent {
                     {temperatureMax.toFixed(0)}
                   </div>
                   <div className="date">
-                    {moment(time * 1000).format('dddd, MMM D')}
+                    {format(new Date(time * 1000), 'EEEE, LLL d')}
                   </div>
                 </div>
               </div>
