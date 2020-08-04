@@ -1,6 +1,5 @@
 # node
 /node_modules
-package-lock.json
 /.sass-cache
 npm-debug.log
 coverage
