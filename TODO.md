@@ -15,5 +15,5 @@
 ## Maintenance
 - [x] Remove AngularJS, migrate to React
 - [x] Migrate from Bootstrap 3 -> 4
-- [ ] Solve geolocation issue (Safari requires that device be on https in order to ask for location). Give a warning if not solvable
+- [x] Solve geolocation issue (Safari requires that device be on https in order to ask for location). Give a warning if not solvable
 - [ ] Investigate why I need to double-wrap `text-truncate`. Flexbox issue?

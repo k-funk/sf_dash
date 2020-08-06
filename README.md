@@ -3,7 +3,7 @@
 
 # sf_dash
 
-This project is for use in my home, on a wall-mounted iPad that's always on. It gives me essential information that I need to know before leaving home each day, and saves the time of pulling out my phone and checking multiple apps.
+This project is for use in my home, on a wall-mounted iPad that's always on. It gives me essential information that I need to know before leaving home each day, and saves the time of pulling out my phone and checking multiple apps. It's currently hosted at https://k-funk.github.io/sf_dash/#/, but may not be working as expected while NextBus's API is in a broken state due to COVID-19 related changes.
 
 ![iPad Screenshot](/screenshot.jpg)
 
