@@ -9,5 +9,8 @@ coverage
 /.idea
 
 
+.env
+
+
 /build
 deploy.sh

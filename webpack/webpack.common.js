@@ -3,6 +3,7 @@ const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 
 const OUTPUT_PATH = Path.resolve(__dirname, '../', 'build');
@@ -27,6 +28,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './index.html',
     }),

@@ -3,7 +3,10 @@ import X2JS from 'x2js';
 import qs from 'qs';
 
 
-export const URL = 'http://webservices.nextbus.com/service/publicXMLFeed';
+export const URL = (
+  process.env.NEXTBUS_XML_FEED_OVERRIDE_URL ||
+  'http://webservices.nextbus.com/service/publicXMLFeed'
+);
 
 export const getUserPosition = options => (
   new Promise((resolve, reject) => {

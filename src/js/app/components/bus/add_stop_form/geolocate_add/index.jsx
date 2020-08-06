@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { Alert, Form, Input, Label, Table } from 'reactstrap';
+import { Form, Input, Label, Table } from 'reactstrap';
 import classNames from 'classnames';
 
 import NextBus from 'app/integrations/nextbus';
@@ -8,6 +8,13 @@ import LocalStorage from 'app/utils/local_storage';
 import Loader from 'app/components/loader';
 import ErrorMessage from 'app/components/error_message';
 
+
+// Warning: This won't work if this app is hosted on http. See
+// https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only
+// Geolocation API Removed from Unsecured Origins in Chrome 50.
+// However, hosting this app on https causes a Mixed Content issue (https site requesting NextBus's
+// http-only traffic). The best way to work around this for now is to proxy nextbus's http -> https
+// with something like Cloudflare's Workers, and set the NEXTBUS_XML_FEED_OVERRIDE_URL env var
 
 export default class GeolocateAdd extends PureComponent {
   static propTypes = {
@@ -62,18 +69,6 @@ export default class GeolocateAdd extends PureComponent {
 
     return (
       <>
-        <Alert color="danger" fade={false}>
-          Warning: This {'won\'t'} work if this app is hosted on http. See{' '}
-          <a
-            href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Geolocation API Removed from Unsecured Origins in Chrome 50
-          </a>. However, hosting this app on https causes a Mixed Content issue (https site
-          requesting {'NextBus\'s'} http-only traffic).
-        </Alert>
-
         <Form className={classNames(className, 'mb-2')} inline>
           <Label className="mr-2">Find stops within</Label>
           <Input type="select" onChange={this.getNearbyStops}>

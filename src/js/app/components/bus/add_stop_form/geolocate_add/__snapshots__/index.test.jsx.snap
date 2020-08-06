@@ -2,48 +2,6 @@
 
 exports[`outputs the expected tree when (default) 1`] = `
 <Fragment>
-  <Alert
-    closeAriaLabel="Close"
-    color="danger"
-    fade={false}
-    isOpen={true}
-    tag="div"
-    transition={
-      Object {
-        "appear": true,
-        "baseClass": "fade",
-        "baseClassActive": "show",
-        "enter": true,
-        "exit": true,
-        "in": true,
-        "mountOnEnter": false,
-        "onEnter": [Function],
-        "onEntered": [Function],
-        "onEntering": [Function],
-        "onExit": [Function],
-        "onExited": [Function],
-        "onExiting": [Function],
-        "tag": "div",
-        "timeout": 150,
-        "unmountOnExit": true,
-      }
-    }
-  >
-    Warning: This 
-    won't
-     work if this app is hosted on http. See
-     
-    <a
-      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Geolocation API Removed from Unsecured Origins in Chrome 50
-    </a>
-    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
-    NextBus's
-     http-only traffic).
-  </Alert>
   <Form
     className="mb-2"
     inline={true}
@@ -103,48 +61,6 @@ exports[`outputs the expected tree when (default) 1`] = `
 
 exports[`outputs the expected tree when errMsg is shown 1`] = `
 <Fragment>
-  <Alert
-    closeAriaLabel="Close"
-    color="danger"
-    fade={false}
-    isOpen={true}
-    tag="div"
-    transition={
-      Object {
-        "appear": true,
-        "baseClass": "fade",
-        "baseClassActive": "show",
-        "enter": true,
-        "exit": true,
-        "in": true,
-        "mountOnEnter": false,
-        "onEnter": [Function],
-        "onEntered": [Function],
-        "onEntering": [Function],
-        "onExit": [Function],
-        "onExited": [Function],
-        "onExiting": [Function],
-        "tag": "div",
-        "timeout": 150,
-        "unmountOnExit": true,
-      }
-    }
-  >
-    Warning: This 
-    won't
-     work if this app is hosted on http. See
-     
-    <a
-      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Geolocation API Removed from Unsecured Origins in Chrome 50
-    </a>
-    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
-    NextBus's
-     http-only traffic).
-  </Alert>
   <Form
     className="mb-2"
     inline={true}
@@ -206,48 +122,6 @@ exports[`outputs the expected tree when errMsg is shown 1`] = `
 
 exports[`outputs the expected tree when loader is shown 1`] = `
 <Fragment>
-  <Alert
-    closeAriaLabel="Close"
-    color="danger"
-    fade={false}
-    isOpen={true}
-    tag="div"
-    transition={
-      Object {
-        "appear": true,
-        "baseClass": "fade",
-        "baseClassActive": "show",
-        "enter": true,
-        "exit": true,
-        "in": true,
-        "mountOnEnter": false,
-        "onEnter": [Function],
-        "onEntered": [Function],
-        "onEntering": [Function],
-        "onExit": [Function],
-        "onExited": [Function],
-        "onExiting": [Function],
-        "tag": "div",
-        "timeout": 150,
-        "unmountOnExit": true,
-      }
-    }
-  >
-    Warning: This 
-    won't
-     work if this app is hosted on http. See
-     
-    <a
-      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Geolocation API Removed from Unsecured Origins in Chrome 50
-    </a>
-    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
-    NextBus's
-     http-only traffic).
-  </Alert>
   <Form
     className="mb-2"
     inline={true}
@@ -307,48 +181,6 @@ exports[`outputs the expected tree when loader is shown 1`] = `
 
 exports[`outputs the expected tree when nearbyStops is present 1`] = `
 <Fragment>
-  <Alert
-    closeAriaLabel="Close"
-    color="danger"
-    fade={false}
-    isOpen={true}
-    tag="div"
-    transition={
-      Object {
-        "appear": true,
-        "baseClass": "fade",
-        "baseClassActive": "show",
-        "enter": true,
-        "exit": true,
-        "in": true,
-        "mountOnEnter": false,
-        "onEnter": [Function],
-        "onEntered": [Function],
-        "onEntering": [Function],
-        "onExit": [Function],
-        "onExited": [Function],
-        "onExiting": [Function],
-        "tag": "div",
-        "timeout": 150,
-        "unmountOnExit": true,
-      }
-    }
-  >
-    Warning: This 
-    won't
-     work if this app is hosted on http. See
-     
-    <a
-      href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Geolocation API Removed from Unsecured Origins in Chrome 50
-    </a>
-    . However, hosting this app on https causes a Mixed Content issue (https site requesting 
-    NextBus's
-     http-only traffic).
-  </Alert>
   <Form
     className="mb-2"
     inline={true}
