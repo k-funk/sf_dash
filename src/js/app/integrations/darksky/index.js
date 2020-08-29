@@ -19,20 +19,18 @@ export default class DarkSky {
   static async fetchWeatherData({ lat, long, key, units }) {
     // NOTE: this is a jsonp call. there are no status codes or errors to parse like with XHR
     // try/catch errors in components that call this, so just return the response as-is
-    const response = await axios.get(this.getUrl({ lat, long, key, units }), {
+    return axios.get(this.getUrl({ lat, long, key, units }), {
       adapter: jsonpAdapter, // gets around CORS
     });
-    return response;
   }
 
   static async fetchAllLocationsWeatherData(locations, key, units) {
     const darkSkyUnits = this.convertUnitsForDarkSky(units);
-    const responses = await axios.all(
+    return axios.all(
       locations.map(({ lat, long }) => (
         this.fetchWeatherData({ lat, long, key, units: darkSkyUnits })
       )),
     );
-    return responses;
   }
 
   static isValidKey = async key => {
